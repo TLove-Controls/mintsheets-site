@@ -227,11 +227,17 @@
       max-width: 62ch;
     }
 
+    .hero-note {
+      margin: 14px 0 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 22px;
+      margin-bottom: 8px;
     }
 
     .trust-row {
@@ -240,6 +246,7 @@
       gap: 16px 22px;
       color: var(--muted);
       font-size: 14px;
+      margin-top: 22px;
     }
 
     .trust-row span::before {
@@ -313,29 +320,29 @@
       background: linear-gradient(180deg, var(--accent), #3ccfae);
     }
 
-    .logo-strip-wrap {
+    .section-intro {
       padding: 18px 0 8px;
     }
 
-    .logo-strip {
-      display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 14px;
+    .mini-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: var(--shadow);
     }
 
-    .logo-box {
-      min-height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px dashed rgba(255,255,255,0.16);
-      border-radius: 16px;
-      color: #7f8ba0;
-      background: rgba(255,255,255,0.02);
-      text-transform: uppercase;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      font-weight: 700;
+    .mini-card h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+    }
+
+    .mini-card p {
+      margin: 0;
+      color: var(--muted);
+      max-width: 760px;
+      margin-inline: auto;
     }
 
     .section {
@@ -608,8 +615,7 @@
       .hero-card,
       .grid-3,
       .grid-2,
-      .comparison-wrap,
-      .logo-strip {
+      .comparison-wrap {
         grid-template-columns: 1fr;
       }
 
@@ -619,12 +625,9 @@
 
       .hero-card,
       .section-card,
-      .cta-panel {
+      .cta-panel,
+      .mini-card {
         padding: 32px 22px;
-      }
-
-      .logo-strip {
-        gap: 10px;
       }
     }
 
@@ -691,7 +694,7 @@
             <h1>Bring order to dispatch, scheduling, and service operations.</h1>
             <p class="hero-subheadline">
               Mint Sheets helps HVAC companies replace scattered spreadsheets, missed follow-ups,
-              and patchwork processes with a cleaner operating system built in monday.com.
+              and patchwork processes with a cleaner operating system built in the monday.com work management platform.
             </p>
             <p class="hero-copy">
               Whether you are managing incoming service requests, estimate follow-up, technician scheduling,
@@ -704,8 +707,13 @@
               <a class="btn btn-secondary" href="#services">Explore Services</a>
             </div>
 
+            <p class="hero-note">
+              Focused on delivering scalable solutions using monday.com
+            </p>
+
             <div class="trust-row">
               <span>Built for HVAC workflows</span>
+              <span>Independent consultant</span>
               <span>Cleaner office-to-field handoffs</span>
               <span>Practical systems your team will use</span>
             </div>
@@ -751,14 +759,13 @@
       </div>
     </section>
 
-    <section class="logo-strip-wrap">
+    <section class="section-intro">
       <div class="container">
-        <div class="logo-strip fade-up delay-1">
-          <div class="logo-box">HVAC Brand Logo</div>
-          <div class="logo-box">Client Logo</div>
-          <div class="logo-box">Service Company Logo</div>
-          <div class="logo-box">Operations Partner</div>
-          <div class="logo-box">Team Logo</div>
+        <div class="mini-card fade-up delay-1">
+          <h2>Focused on HVAC operations systems</h2>
+          <p>
+            Built specifically for service businesses managing scheduling, dispatch, estimates, and day-to-day operations.
+          </p>
         </div>
       </div>
     </section>
@@ -1013,7 +1020,7 @@
               to a cleaner, more scalable operating system inside monday.com.
             </blockquote>
             <cite>
-              Tyler Love — Workflow consultant focused on practical systems, automation,
+              Tyler Love — Independent workflow consultant focused on practical systems, automation,
               and operational support for service businesses.
             </cite>
           </div>
