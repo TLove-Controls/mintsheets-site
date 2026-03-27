@@ -130,6 +130,7 @@
       border: 1px solid transparent;
       transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
       white-space: nowrap;
+      cursor: pointer;
     }
 
     .btn:hover {
@@ -339,10 +340,9 @@
     }
 
     .mini-card p {
-      margin: 0;
       color: var(--muted);
       max-width: 760px;
-      margin-inline: auto;
+      margin: 0 auto;
     }
 
     .section {
@@ -546,6 +546,92 @@
       color: var(--muted);
     }
 
+    .lead-funnel .section-card {
+      border: 1px solid rgba(88, 166, 255, 0.22);
+      background:
+        radial-gradient(circle at top center, rgba(88,166,255,0.10), transparent 32%),
+        rgba(13, 23, 40, 0.88);
+    }
+
+    .lead-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 18px 0 26px;
+    }
+
+    .lead-badges span {
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #dceaff;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--line);
+    }
+
+    .lead-form {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .lead-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .lead-form input,
+    .lead-form select,
+    .lead-form textarea {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .lead-form textarea {
+      min-height: 120px;
+      resize: vertical;
+      margin-bottom: 14px;
+    }
+
+    .lead-form input::placeholder,
+    .lead-form textarea::placeholder {
+      color: #8ea0ba;
+    }
+
+    .lead-form input:focus,
+    .lead-form select:focus,
+    .lead-form textarea:focus {
+      border-color: rgba(88, 166, 255, 0.48);
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.10);
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .form-note {
+      margin-top: 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
     .cta {
       padding: 24px 0 84px;
     }
@@ -615,7 +701,8 @@
       .hero-card,
       .grid-3,
       .grid-2,
-      .comparison-wrap {
+      .comparison-wrap,
+      .lead-grid {
         grid-template-columns: 1fr;
       }
 
@@ -644,7 +731,8 @@
         max-width: none;
       }
 
-      .hero-actions {
+      .hero-actions,
+      .form-actions {
         flex-direction: column;
       }
 
@@ -677,6 +765,7 @@
 
       <nav class="nav-links">
         <a href="#services">Services</a>
+        <a href="#audit">Free Audit</a>
         <a href="#process">Process</a>
         <a href="#faq">FAQ</a>
         <a href="#about">About</a>
@@ -766,6 +855,58 @@
           <p>
             Built specifically for service businesses managing scheduling, dispatch, estimates, and day-to-day operations.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section lead-funnel" id="audit">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-header fade-up">
+            <h2>Get a free HVAC workflow audit</h2>
+            <p>
+              Show us where your dispatch, scheduling, estimate follow-up, or office-to-field handoffs are breaking down.
+              We will review the workflow and point you toward a cleaner monday.com setup.
+            </p>
+          </div>
+
+          <div class="lead-badges fade-up delay-1">
+            <span>Dispatch bottlenecks</span>
+            <span>Estimate follow-up leaks</span>
+            <span>Scheduling issues</span>
+            <span>Workflow cleanup</span>
+          </div>
+
+          <form class="lead-form fade-up delay-2" action="mailto:tyler.love@mintsheets.com" method="post" enctype="text/plain">
+            <div class="lead-grid">
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input type="email" name="email" placeholder="Work Email" required />
+              <input type="text" name="company" placeholder="Company Name" />
+            </div>
+
+            <div class="lead-grid">
+              <input type="text" name="role" placeholder="Your Role" />
+              <select name="team_size">
+                <option value="">Team Size</option>
+                <option>1–5 employees</option>
+                <option>6–15 employees</option>
+                <option>16–30 employees</option>
+                <option>31+ employees</option>
+              </select>
+              <input type="text" name="phone" placeholder="Phone Number" />
+            </div>
+
+            <textarea name="biggest_issue" placeholder="What is your biggest workflow issue right now?"></textarea>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Request Free Audit</button>
+              <a class="btn btn-secondary" href="https://try.monday.com/6gxkcu1c1u6p" target="_blank" rel="noopener noreferrer">Explore monday.com Instead</a>
+            </div>
+
+            <p class="form-note">
+              This version sends responses through email. Later, you can connect it to Formspree, HubSpot, or another form tool for a cleaner funnel.
+            </p>
+          </form>
         </div>
       </div>
     </section>
@@ -1037,8 +1178,10 @@
             and inconsistent follow-up, Mint Sheets can help you create a cleaner system
             around how your operation really works.
           </p>
-          <a class="btn btn-primary" href="mailto:tyler.love@mintsheets.com">Book a Free Consultation</a>
-          <a class="btn btn-secondary" href="https://try.monday.com/6gxkcu1c1u6p" target="_blank" rel="noopener noreferrer">Explore monday.com</a>
+          <div class="hero-actions" style="justify-content:center;">
+            <a class="btn btn-primary" href="mailto:tyler.love@mintsheets.com">Book a Free Consultation</a>
+            <a class="btn btn-secondary" href="https://try.monday.com/6gxkcu1c1u6p" target="_blank" rel="noopener noreferrer">Explore monday.com</a>
+          </div>
         </div>
       </div>
     </section>
