@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Mint Sheets | HVAC Workflow Consulting with monday.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Mint Sheets helps HVAC companies improve dispatch, scheduling, service coordination, and estimate follow-up with custom monday.com workflows." />
+  <link rel="canonical" href="https://mintsheets.com/" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mint Sheets | HVAC Workflow Consulting with monday.com" />
+  <meta property="og:description"
+    content="Improve dispatch, scheduling, and estimate follow-up with custom monday.com workflows built for HVAC companies." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mintsheets.com/" />
+  <!-- Optional: <meta property="og:image" content="https://mintsheets.com/og-image.jpg" /> -->
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mint Sheets | HVAC Workflow Consulting with monday.com" />
+  <meta name="twitter:description"
+    content="Improve dispatch, scheduling, and estimate follow-up with custom monday.com workflows built for HVAC companies." />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Mint Sheets",
+    "image": "https://mintsheets.com/favicon.ico",
+    "@id": "https://mintsheets.com/",
+    "url": "https://mintsheets.com/",
+    "telephone": "",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "",
+      "addressRegion": "",
+      "postalCode": "",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 0,
+      "longitude": 0
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "17:00"
+    },
+    "sameAs": []
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #08111f;
+      --bg-soft: #0d1728;
+      --panel: rgba(13, 23, 40, 0.84);
+      --panel-solid: #101b2f;
+      --panel-2: #13213a;
+      --text: #edf3ff;
+      --muted: #a2afc4;
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.14);
+      --primary: #58a6ff;
+      --primary-dark: #2c7de0;
+      --accent: #66e3c4;
+      --gold: #d6b46b;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      --radius-xl: 30px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(88, 166, 255, 0.16), transparent 26%),
+        radial-gradient(circle at top right, rgba(214, 180, 107, 0.12), transparent 20%),
+        radial-gradient(circle at bottom center, rgba(102, 227, 196, 0.08), transparent 22%),
+        linear-gradient(180deg, #08111f 0%, #0b1424 40%, #08111f 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(8, 17, 31, 0.72);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary), var(--gold));
+      color: #08111f;
+      font-size: 14px;
+      font-weight: 900;
+      box-shadow: 0 10px 24px rgba(88, 166, 255, 0.26);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      border: 1px solid transparent;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      box-shadow: 0 14px 30px rgba(44, 125, 224, 0.35);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 18px 36px rgba(44, 125, 224, 0.42);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      border-color: var(--line-strong);
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .hero {
+      padding: 72px 0 30px;
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      align-items: center;
+      padding: 64px;
+      border-radius: 34px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(18, 31, 53, 0.94), rgba(11, 20, 36, 0.96));
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(88, 166, 255, 0.18), transparent 24%),
+        radial-gradient(circle at 20% 0%, rgba(214, 180, 107, 0.10), transparent 20%);
+      z-index: -1;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      background: rgba(214, 180, 107, 0.10);
+      border: 1px solid rgba(214, 180, 107, 0.18);
+      margin-bottom: 20px;
+    }
+
+    h1,
+    h2,
+    h3 {
+      letter-spacing: -0.04em;
+      line-height: 1.06;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      max-width: 12ch;
+    }
+
+    .hero-subheadline {
+      margin: 0 0 18px;
+      color: #d8e4fa;
+      font-size: 1.18rem;
+      max-width: 58ch;
+    }
+
+    .hero-copy {
+      margin: 0 0 28px;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .hero-note {
+      margin: 14px 0 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 8px;
+    }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 22px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 22px;
+    }
+
+    .trust-row span::before {
+      content: "•";
+      color: var(--accent);
+      margin-right: 8px;
+    }
+
+    .hero-panel {
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      padding: 24px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      animation: floatCard 7s ease-in-out infinite;
+    }
+
+    .panel-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .dashboard {
+      display: grid;
+      gap: 14px;
+    }
+
+    .dashboard-row {
+      display: grid;
+      grid-template-columns: 1fr 120px;
+      gap: 14px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.03);
+      transition: transform 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+    }
+
+    .dashboard-row:hover {
+      transform: translateY(-2px);
+      border-color: rgba(88, 166, 255, 0.32);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .dashboard-row strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .dashboard-row p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .status-pill {
+      justify-self: end;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #07111f;
+      background: linear-gradient(180deg, var(--accent), #3ccfae);
+    }
+
+    .section-intro {
+      padding: 18px 0 8px;
+    }
+
+    .mini-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    .mini-card h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+    }
+
+    .mini-card p {
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 24px 0;
+    }
+
+    .section-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      padding: 42px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .section-header {
+      max-width: 780px;
+      margin: 0 auto 28px;
+      text-align: center;
+    }
+
+    .section-header h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .grid-3,
+    .grid-2 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(88, 166, 255, 0.28);
+      box-shadow: 0 18px 34px rgba(0, 0, 0, 0.18);
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 1.08rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+      font-weight: 800;
+      color: #08111f;
+      background: linear-gradient(135deg, var(--gold), #f2d59c);
+      box-shadow: 0 10px 24px rgba(214, 180, 107, 0.16);
+    }
+
+    .comparison-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .comparison {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      padding: 26px;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .comparison h3 {
+      margin: 0 0 14px;
+      font-size: 1.1rem;
+    }
+
+    .comparison ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .comparison li {
+      color: var(--muted);
+      position: relative;
+      padding-left: 24px;
+    }
+
+    .comparison.before li::before,
+    .comparison.after li::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 800;
+    }
+
+    .comparison.before li::before {
+      content: "–";
+      color: #ff7e87;
+    }
+
+    .comparison.after li::before {
+      content: "✓";
+      color: var(--accent);
+    }
+
+    .quote {
+      text-align: center;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .quote blockquote {
+      margin: 0 0 18px;
+      font-size: clamp(1.35rem, 2.3vw, 1.85rem);
+      line-height: 1.4;
+    }
+
+    .quote cite {
+      font-style: normal;
+      color: var(--muted);
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 14px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+    }
+
+    .faq-item summary {
+      list-style: none;
+      cursor: pointer;
+      padding: 20px 22px;
+      font-weight: 700;
+      position: relative;
+      transition: background 0.2s ease;
+    }
+
+    .faq-item summary:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 22px;
+      color: var(--gold);
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item[open] summary::after {
+      content: "–";
+    }
+
+    .faq-content {
+      padding: 0 22px 20px;
+      color: var(--muted);
+    }
+
+    .lead-funnel .section-card {
+      border: 1px solid rgba(88, 166, 255, 0.22);
+      background:
+        radial-gradient(circle at top center, rgba(88, 166, 255, 0.10), transparent 32%),
+        rgba(13, 23, 40, 0.88);
+    }
+
+    .lead-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin: 18px 0 26px;
+    }
+
+    .lead-badges span {
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #dceaff;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--line);
+    }
+
+    .lead-form {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .lead-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .lead-form input,
+    .lead-form select,
+    .lead-form textarea {
+      width: 100%;
+      padding: 15px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text);
+      font: inherit;
+      outline: none;
+      transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .lead-form textarea {
+      min-height: 120px;
+      resize: vertical;
+      margin-bottom: 14px;
+    }
+
+    .lead-form input::placeholder,
+    .lead-form textarea::placeholder {
+      color: #8ea0ba;
+    }
+
+    .lead-form input:focus,
+    .lead-form select:focus,
+    .lead-form textarea:focus {
+      border-color: rgba(88, 166, 255, 0.48);
+      background: rgba(255, 255, 255, 0.06);
+      box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.10);
+    }
+
+    .form-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .form-note {
+      margin-top: 16px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .cta {
+      padding: 24px 0 84px;
+    }
+
+    .cta-panel {
+      text-align: center;
+      padding: 52px;
+      border-radius: 32px;
+      border: 1px solid rgba(214, 180, 107, 0.18);
+      background:
+        radial-gradient(circle at top center, rgba(214, 180, 107, 0.10), transparent 30%),
+        linear-gradient(180deg, #101826, #0a1322);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+    }
+
+    .cta-panel h2 {
+      margin: 0 0 14px;
+      font-size: clamp(2rem, 3vw, 2.9rem);
+    }
+
+    .cta-panel p {
+      margin: 0 auto 24px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.03rem;
+    }
+
+    .footer {
+      padding: 0 0 42px;
+      text-align: center;
+      color: #7f8ba0;
+      font-size: 14px;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+
+    .delay-1 {
+      animation-delay: 0.08s;
+    }
+
+    .delay-2 {
+      animation-delay: 0.16s;
+    }
+
+    .delay-3 {
+      animation-delay: 0.24s;
+    }
+
+    .delay-4 {
+      animation-delay: 0.32s;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes floatCard {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 980px) {
+
+      .hero-card,
+      .grid-3,
+      .grid-2,
+      .comparison-wrap,
+      .lead-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero-card,
+      .section-card,
+      .cta-panel,
+      .mini-card {
+        padding: 32px 22px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+
+      h1 {
+        max-width: none;
+      }
+
+      .hero-actions,
+      .form-actions {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .trust-row {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .dashboard-row {
+        grid-template-columns: 1fr;
+      }
+
+      .status-pill {
+        justify-self: start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#" class="brand">
+        <span class="brand-mark">MS</span>
+        <span>Mint Sheets</span>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#audit">Free Audit</a>
+        <a href="#process">Process</a>
+        <a href="#faq">FAQ</a>
+        <a href="#about">About</a>
+        <a class="btn btn-primary" href="https://try.monday.com/6gxkcu1c1u6p" target="_blank"
+          rel="noopener noreferrer">Explore monday.com</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div class="fade-up">
+            <div class="eyebrow">monday.com Consulting for HVAC Operations</div>
+            <h1>Bring order to dispatch, scheduling, and service operations.</h1>
+            <p class="hero-subheadline">
+              Mint Sheets helps HVAC companies replace scattered spreadsheets, missed follow-ups,
+              and patchwork processes with a cleaner operating system built in the monday.com work management platform.
+            </p>
+            <p class="hero-copy">
+              Whether you are managing incoming service requests, estimate follow-up, technician scheduling,
+              install coordination, or office-to-field handoffs, Mint Sheets builds workflows that make the
+              day easier to run and the business easier to scale.
+            </p>
+
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="mailto:tyler.love@mintsheets.com">Book a Free Consultation</a>
+              <a class="btn btn-secondary" href="https://try.monday.com/6gxkcu1c1u6p" target="_blank"
+                rel="noopener noreferrer">Explore monday.com</a>
+            </div>
+
+            <p class="hero-note">
+              Focused on delivering scalable solutions using monday.com
+            </p>
+
+            <div class="trust-row">
+              <span>Built for HVAC workflows</span>
+              <span>Independent consultant</span>
+              <span>Cleaner office-to-field handoffs</span>
+              <span>Practical systems your team will use</span>
+            </div>
+          </div>
+
+          <aside class="hero-panel fade-up delay-2">
+            <div class="panel-label">Example operational visibility</div>
+            <div class="dashboard">
+              <div class="dashboard-row">
+                <div>
+                  <strong>Service Requests</strong>
+                  <p>Track new calls, job type, urgency, and next steps in one place.</p>
+                </div>
+                <span class="status-pill">Organized</span>
+              </div>
+
+              <div class="dashboard-row">
+                <div>
+                  <strong>Dispatch & Scheduling</strong>
+                  <p>See technician assignments, active jobs, delays, and completion status clearly.</p>
+                </div>
+                <span class="status-pill">Visible</span>
+              </div>
+
+              <div class="dashboard-row">
+                <div>
+                  <strong>Estimates & Follow-Up</strong>
+                  <p>Stop losing quoted work by tracking approvals, pending decisions, and reminders.</p>
+                </div>
+                <span class="status-pill">Tracked</span>
+              </div>
+
+              <div class="dashboard-row">
+                <div>
+                  <strong>Operations Dashboard</strong>
+                  <p>Get fast visibility into bottlenecks, open loops, and workload across the team.</p>
+                </div>
+                <span class="status-pill">Actionable</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-intro">
+      <div class="container">
+        <div class="mini-card fade-up delay-1">
+          <h2>Focused on HVAC operations systems</h2>
+          <p>
+            Built specifically for service businesses managing scheduling, dispatch, estimates, and day-to-day
+            operations.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section lead-funnel" id="audit">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-header fade-up">
+            <h2>Get a free HVAC workflow audit</h2>
+            <p>
+              Show us where your dispatch, scheduling, estimate follow-up, or office-to-field handoffs are breaking
+              down.
+              We will review the workflow and point you toward a cleaner monday.com setup.
+            </p>
+          </div>
+
+          <div class="lead-badges fade-up delay-1">
+            <span>Dispatch bottlenecks</span>
+            <span>Estimate follow-up leaks</span>
+            <span>Scheduling issues</span>
+            <span>Workflow cleanup</span>
+          </div>
+
+          <form class="lead-form fade-up delay-2" action="mailto:tyler.love@mintsheets.com" method="post"
+            enctype="text/plain">
+            <div class="lead-grid">
+              <input type="text" name="name" placeholder="Your Name" required />
+              <input type="email" name="email" placeholder="Work Email" required />
+              <input type="text" name="company" placeholder="Company Name" />
+            </div>
+
+            <div class="lead-grid">
+              <input type="text" name="role" placeholder="Your Role" />
+              <select name="team_size">
+                <option value="">Team Size</option>
+                <option>1–5 employees</option>
+                <option>6–15 employees</option>
+                <option>16–30 employees</option>
+                <option>31+ employees</option>
+              </select>
+              <input type="text" name="phone" placeholder="Phone Number" />
+            </div>
+
+            <textarea name="biggest_issue" placeholder="What is your biggest workflow issue right now?"></textarea>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="submit">Request Free Audit</button>
+              <a class="btn btn-secondary" href="https://try.monday.com/6gxkcu1c1u6p" target="_blank"
+                rel="noopener noreferrer">Explore monday.com Instead</a>
+            </div>
+
+            <p class="form-note">
+              This version sends responses through email. Later, you can connect it to Formspree, HubSpot, or another
+              form tool for a cleaner funnel.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-header fade-up">
+            <h2>The real issue is not the workload. It is the workflow.</h2>
+            <p>
+              HVAC businesses often grow faster than their internal systems. What starts as manageable
+              turns into missed handoffs, unclear job status, and too much manual coordination.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <div class="card fade-up delay-1">
+              <div class="icon">01</div>
+              <h3>Dispatch lives in too many places</h3>
+              <p>
+                Calls, technician availability, customer updates, and schedule changes get spread across texts,
+                inboxes, spreadsheets, and memory.
+              </p>
+            </div>
+
+            <div class="card fade-up delay-2">
+              <div class="icon">02</div>
+              <h3>Estimate follow-up gets inconsistent</h3>
+              <p>
+                Quoted work stalls because nobody has a clean system for tracking approvals, reminders,
+                and next actions.
+              </p>
+            </div>
+
+            <div class="card fade-up delay-3">
+              <div class="icon">03</div>
+              <h3>Owners lack operational visibility</h3>
+              <p>
+                It becomes harder to see what is booked, what is waiting, what is behind,
+                and where accountability is breaking down.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-header fade-up">
+            <h2>Services for HVAC companies that need cleaner systems</h2>
+            <p>
+              Mint Sheets focuses on the workflows that most directly affect execution,
+              responsiveness, and day-to-day control.
+            </p>
+          </div>
+
+          <div class="grid-2">
+            <div class="card fade-up delay-1">
+              <h3>Service Request & Job Tracking Systems</h3>
+              <p>
+                Organize incoming service calls, installs, quoted work, active jobs, and completed work
+                in a single operating workflow.
+              </p>
+            </div>
+
+            <div class="card fade-up delay-2">
+              <h3>Scheduling & Dispatch Workflows</h3>
+              <p>
+                Create a more reliable process for technician assignment, status tracking,
+                and real-time coordination between office and field teams.
+              </p>
+            </div>
+
+            <div class="card fade-up delay-3">
+              <h3>Estimate Pipeline & Follow-Up</h3>
+              <p>
+                Track proposals, approvals, outstanding quotes, and follow-up activity so
+                potential revenue does not quietly fall through the cracks.
+              </p>
+            </div>
+
+            <div class="card fade-up delay-4">
+              <h3>Automations & Internal Notifications</h3>
+              <p>
+                Reduce repetitive admin work with status-based reminders, task handoffs,
+                alerts, and next-step automation inside monday.com.
+              </p>
+            </div>
+
+            <div class="card fade-up delay-1">
+              <h3>Operations Dashboards</h3>
+              <p>
+                Give managers and owners clearer visibility into workload, bottlenecks,
+                pending actions, and operational performance.
+              </p>
+            </div>
+
+            <div class="card fade-up delay-2">
+              <h3>monday.com Cleanup & Optimization</h3>
+              <p>
+                Simplify overbuilt boards, fix inconsistent workflows, and make your setup more usable
+                for the people running it every day.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="process">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-header fade-up">
+            <h2>A practical process built around how HVAC teams actually operate</h2>
+            <p>
+              The goal is not to add complexity. The goal is to create a system that makes work clearer,
+              faster, and easier to manage.
+            </p>
+          </div>
+
+          <div class="grid-3">
+            <div class="card fade-up delay-1">
+              <div class="icon">1</div>
+              <h3>Audit the workflow</h3>
+              <p>
+                Identify where requests come in, where handoffs break, how dispatch is handled,
+                and where visibility disappears.
+              </p>
+            </div>
+
+            <div class="card fade-up delay-2">
+              <div class="icon">2</div>
+              <h3>Build the system</h3>
+              <p>
+                Design boards, automations, statuses, and dashboards around your service workflow,
+                estimate pipeline, and operational process.
+              </p>
+            </div>
+
+            <div class="card fade-up delay-3">
+              <div class="icon">3</div>
+              <h3>Refine for adoption</h3>
+              <p>
+                Simplify the setup so your office staff, managers, and field team can use it consistently
+                without friction.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-header fade-up">
+            <h2>What changes when the system is right</h2>
+            <p>
+              Better workflow design creates better operational control.
+            </p>
+          </div>
+
+          <div class="comparison-wrap">
+            <div class="comparison before fade-up delay-1">
+              <h3>Before</h3>
+              <ul>
+                <li>Dispatch updates buried in calls, texts, and spreadsheets</li>
+                <li>Unclear job status across service, install, and follow-up</li>
+                <li>Quoted work sits without consistent reminders</li>
+                <li>Managers rely on memory to keep things moving</li>
+              </ul>
+            </div>
+
+            <div class="comparison after fade-up delay-2">
+              <h3>After</h3>
+              <ul>
+                <li>Centralized visibility for requests, jobs, estimates, and handoffs</li>
+                <li>Clear accountability for the next action at every stage</li>
+                <li>Automations that reduce manual coordination</li>
+                <li>Dashboards that make operational issues easier to spot and solve</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-card">
+          <div class="section-header fade-up">
+            <h2>Frequently asked questions</h2>
+            <p>
+              Clear answers for HVAC owners and operators considering a more structured monday.com setup.
+            </p>
+          </div>
+
+          <div class="faq-list">
+            <details class="faq-item fade-up delay-1">
+              <summary>Is this only for companies already using monday.com?</summary>
+              <div class="faq-content">
+                No. Mint Sheets can help whether you are already using monday.com, using it poorly,
+                or considering it as the system to organize your HVAC operations.
+              </div>
+            </details>
+
+            <details class="faq-item fade-up delay-2">
+              <summary>What kinds of HVAC workflows can be built?</summary>
+              <div class="faq-content">
+                Common examples include service request intake, dispatch and scheduling,
+                technician status tracking, estimate follow-up, install coordination,
+                internal handoffs, and operational dashboards.
+              </div>
+            </details>
+
+            <details class="faq-item fade-up delay-3">
+              <summary>Will this be too complicated for my office team?</summary>
+              <div class="faq-content">
+                The opposite is the goal. Mint Sheets focuses on simplifying the workflow so your team has
+                fewer moving parts, better visibility, and clearer next steps.
+              </div>
+            </details>
+
+            <details class="faq-item fade-up delay-4">
+              <summary>Can you help clean up an existing monday.com setup?</summary>
+              <div class="faq-content">
+                Yes. If your current boards feel messy, overbuilt, or hard for your team to use,
+                Mint Sheets can help simplify and restructure them.
+              </div>
+            </details>
+
+            <details class="faq-item fade-up delay-1">
+              <summary>What is the main outcome of this work?</summary>
+              <div class="faq-content">
+                Better day-to-day execution: fewer dropped balls, clearer accountability,
+                easier coordination between office and field, and a workflow that supports growth.
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-card">
+          <div class="quote fade-up">
+            <blockquote>
+              Mint Sheets helps HVAC businesses move from reactive coordination
+              to a cleaner, more scalable operating system inside monday.com.
+            </blockquote>
+            <cite>
+              Tyler Love — Founder of Mint Sheets, helping HVAC companies streamline operations,
+              scheduling, dispatch, and follow-up systems with monday.com.
+            </cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <div class="cta-panel fade-up">
+          <h2>Build a workflow your team can actually run on.</h2>
+          <p>
+            If your HVAC business is outgrowing spreadsheets, patchwork dispatch processes,
+            and inconsistent follow-up, Mint Sheets can help you create a cleaner system
+            around how your operation really works.
+          </p>
+          <div class="hero-actions" style="justify-content:center;">
+            <a class="btn btn-primary" href="mailto:tyler.love@mintsheets.com">Book a Free Consultation</a>
+            <a class="btn btn-secondary" href="https://try.monday.com/6gxkcu1c1u6p" target="_blank"
+              rel="noopener noreferrer">Explore monday.com</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      Mint Sheets — HVAC workflow consulting powered by monday.com.
+    </div>
+  </footer>
+</body>
+
+</html>

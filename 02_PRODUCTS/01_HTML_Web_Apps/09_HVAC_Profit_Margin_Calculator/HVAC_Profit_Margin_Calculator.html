@@ -1,0 +1,1347 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Profit Margin Calculator — Your HVAC Co.</title>
+    <style>
+        :root {
+            --navy-blue: #1B3A6B;
+            --steel-blue: #2E6DA4;
+            --sky-blue: #D6E4F0;
+            --orange: #E07B00;
+            --light-gray: #F4F6F8;
+            --text-dark: #333333;
+            --border-color: #CCCCCC;
+            --success-green: #28A745;
+            --warning-yellow: #FFC107;
+            --danger-red: #DC3545;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--navy-blue);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--orange);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-logo {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header-subtitle {
+            font-size: 14px;
+            color: var(--sky-blue);
+            margin-top: 3px;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--sky-blue);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding-bottom: 20px;
+        }
+
+        /* Section Banners */
+        .section-banner {
+            background-color: var(--navy-blue);
+            color: white;
+            padding: 12px 15px;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .section-banner:first-child {
+            margin-top: 0;
+        }
+
+        .sub-header {
+            color: var(--steel-blue);
+            font-weight: bold;
+            font-size: 15px;
+            margin: 15px 0 10px 0;
+            padding-left: 5px;
+            border-left: 4px solid var(--orange);
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 1024px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Forms & Inputs */
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: bold;
+            color: var(--navy-blue);
+            font-size: 13px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--steel-blue);
+            outline: none;
+            background-color: var(--sky-blue);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        th {
+            background-color: var(--steel-blue);
+            color: white;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid var(--navy-blue);
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+
+        tr:nth-child(odd) {
+            background-color: white;
+        }
+
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+
+        /* Buttons */
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        .btn-primary {
+            background-color: var(--navy-blue);
+            color: white;
+        }
+
+        .btn-accent {
+            background-color: var(--orange);
+            color: white;
+        }
+
+        .btn-success {
+            background-color: var(--success-green);
+            color: white;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            padding: 20px;
+            justify-content: flex-end;
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        /* Results Box */
+        .results-box {
+            background-color: var(--sky-blue);
+            border: 2px solid var(--navy-blue);
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+
+        .result-card {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid var(--border-color);
+        }
+
+        .result-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--navy-blue);
+        }
+
+        .result-value.profit {
+            color: var(--success-green);
+        }
+
+        .result-value.loss {
+            color: var(--danger-red);
+        }
+
+        .result-label {
+            font-size: 12px;
+            color: var(--steel-blue);
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background-color: var(--light-gray);
+            border-radius: 10px;
+            height: 20px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .progress-good { background-color: var(--success-green); }
+        .progress-warning { background-color: var(--warning-yellow); color: #333; }
+        .progress-danger { background-color: var(--danger-red); }
+
+        /* Margin Indicator */
+        .margin-indicator {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .margin-high { background-color: var(--success-green); color: white; }
+        .margin-medium { background-color: var(--warning-yellow); color: #333; }
+        .margin-low { background-color: var(--danger-red); color: white; }
+
+        /* Info Box */
+        .info-box {
+            background-color: var(--light-gray);
+            border-left: 4px solid var(--steel-blue);
+            padding: 15px;
+            margin: 15px 20px;
+            font-size: 13px;
+        }
+
+        .info-box-title {
+            font-weight: bold;
+            color: var(--navy-blue);
+            margin-bottom: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #e0e0e0;
+            color: #666;
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            border-top: 4px solid var(--navy-blue);
+            margin-top: 30px;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+
+        .badge {
+            background: var(--navy-blue);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        /* Utility */
+        .highlight { color: var(--orange); font-weight: bold; }
+        .info-text { font-size: 12px; color: #666; font-style: italic; }
+        .bold { font-weight: bold; }
+        .text-success { color: var(--success-green); }
+        .text-danger { color: var(--danger-red); }
+        .text-warning { color: var(--warning-yellow); }
+
+        /* Calculator Panel */
+        .calc-panel {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 15px;
+            background: white;
+        }
+
+        .calc-panel-header {
+            background-color: var(--steel-blue);
+            color: white;
+            padding: 8px 12px;
+            margin: -15px -15px 15px -15px;
+            border-radius: 5px 5px 0 0;
+            font-weight: bold;
+        }
+
+        /* Breakdown Chart */
+        .breakdown-chart {
+            display: flex;
+            height: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .breakdown-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .segment-materials { background-color: var(--steel-blue); }
+        .segment-labor { background-color: var(--orange); }
+        .segment-overhead { background-color: #6c757d; }
+        .segment-profit { background-color: var(--success-green); }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+        }
+
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            border-radius: 3px;
+        }
+
+        /* Slider */
+        .slider-container {
+            margin: 15px 0;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--navy-blue);
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: var(--light-gray);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--orange);
+            cursor: pointer;
+        }
+
+        /* Table with dual width */
+        .dual-width-table {
+            width: 100%;
+        }
+
+        .dual-width-table th:first-child,
+        .dual-width-table td:first-child {
+            width: 60%;
+        }
+
+        /* Status Badge */
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .status-healthy { background-color: #d4edda; color: #155724; }
+        .status-caution { background-color: #fff3cd; color: #856404; }
+        .status-critical { background-color: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <div class="header-logo">
+                <img src="https://image.qwenlm.ai/public_source/a06891e2-519c-485e-8c43-7f7a022ea96f/11f25b96e-47d2-4f4c-9456-6dc36dc3a963.png" alt="Logo">
+            </div>
+            <div>
+                <div class="company-name">Your HVAC Co.</div>
+                <div class="header-subtitle">Residential & Light Commercial</div>
+            </div>
+        </div>
+        <div class="header-right">
+            💰 HVAC Profit Margin Calculator
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- SECTION 1 -->
+        <div class="section-banner">
+            <span>📊</span> SECTION 1 — REVENUE & COST INPUTS
+        </div>
+
+        <div class="grid-4" style="margin-top: 15px;">
+            <div class="form-group">
+                <label>Job/Project Name</label>
+                <input type="text" id="projectName" placeholder="e.g. Smith Residence AC Replacement">
+            </div>
+            <div class="form-group">
+                <label>Customer Name</label>
+                <input type="text" id="customerName" placeholder="Enter Customer Name">
+            </div>
+            <div class="form-group">
+                <label>Estimate Date</label>
+                <input type="text" id="estimateDate" value="10/24/2023">
+            </div>
+            <div class="form-group">
+                <label>Job Type</label>
+                <select id="jobType">
+                    <option>Replacement / Changeout</option>
+                    <option>New Installation</option>
+                    <option>Repair Service</option>
+                    <option>Maintenance Agreement</option>
+                    <option>Commercial Service</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="sub-header">Revenue Details</div>
+        <div class="grid-4">
+            <div class="form-group">
+                <label>Total Bid Amount ($)</label>
+                <input type="number" id="totalBid" value="12500" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Down Payment ($)</label>
+                <input type="number" id="downPayment" value="3750" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Financing Amount ($)</label>
+                <input type="number" id="financingAmount" value="8750" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Financing Fee (%)</label>
+                <select id="financingFee" onchange="calculateMargin()">
+                    <option value="0">No Financing</option>
+                    <option value="3">12-Month SAC (+3%)</option>
+                    <option value="5">18-Month SAC (+5%)</option>
+                    <option value="8">60-Month (+8%)</option>
+                    <option value="12">84-Month (+12%)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="sub-header">Direct Costs</div>
+        <div class="grid-4">
+            <div class="form-group">
+                <label>Equipment Cost ($)</label>
+                <input type="number" id="equipmentCost" value="4500" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Materials Cost ($)</label>
+                <input type="number" id="materialsCost" value="1200" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Labor Cost ($)</label>
+                <input type="number" id="laborCost" value="2800" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Refrigerant Cost ($)</label>
+                <input type="number" id="refrigerantCost" value="350" onchange="calculateMargin()">
+            </div>
+        </div>
+
+        <div class="grid-4" style="margin-top: 10px;">
+            <div class="form-group">
+                <label>Permit Fees ($)</label>
+                <input type="number" id="permitCost" value="150" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Disposal/Haul-Away ($)</label>
+                <input type="number" id="disposalCost" value="100" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Other Direct Costs ($)</label>
+                <input type="number" id="otherCost" value="200" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Discount Applied ($)</label>
+                <input type="number" id="discount" value="0" onchange="calculateMargin()">
+            </div>
+        </div>
+
+        <!-- SECTION 2 -->
+        <div class="section-banner">
+            <span>📈</span> SECTION 2 — OVERHEAD & OPERATING EXPENSES
+        </div>
+
+        <div class="grid-3">
+            <div class="calc-panel">
+                <div class="calc-panel-header">Fixed Overhead (Monthly)</div>
+                <div class="form-group">
+                    <label>Rent/Lease ($)</label>
+                    <input type="number" id="rentCost" value="3500" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Utilities ($)</label>
+                    <input type="number" id="utilitiesCost" value="800" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Insurance ($)</label>
+                    <input type="number" id="insuranceCost" value="1200" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Software/Subscriptions ($)</label>
+                    <input type="number" id="softwareCost" value="400" onchange="calculateMargin()">
+                </div>
+            </div>
+            <div class="calc-panel">
+                <div class="calc-panel-header">Variable Overhead (Per Job)</div>
+                <div class="form-group">
+                    <label>Vehicle/Fuel ($)</label>
+                    <input type="number" id="vehicleCost" value="150" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Marketing/Advertising ($)</label>
+                    <input type="number" id="marketingCost" value="200" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Admin/Office ($)</label>
+                    <input type="number" id="adminCost" value="100" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Miscellaneous ($)</label>
+                    <input type="number" id="miscCost" value="75" onchange="calculateMargin()">
+                </div>
+            </div>
+            <div class="calc-panel">
+                <div class="calc-panel-header">Business Metrics</div>
+                <div class="form-group">
+                    <label>Jobs Per Month</label>
+                    <input type="number" id="jobsPerMonth" value="15" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Average Job Value ($)</label>
+                    <input type="number" id="avgJobValue" value="8500" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Tech Hours Per Job</label>
+                    <input type="number" id="techHours" value="8" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Target Margin (%)</label>
+                    <input type="number" id="targetMargin" value="30" onchange="calculateMargin()">
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-box-title">💡 Overhead Allocation Tip</div>
+            <div>Fixed overhead is distributed across all jobs per month. For accurate profit calculation, ensure your monthly job count reflects realistic capacity. Industry standard overhead allocation is 15-25% of revenue.</div>
+        </div>
+
+        <!-- SECTION 3 -->
+        <div class="section-banner">
+            <span>💵</span> SECTION 3 — PROFIT MARGIN ANALYSIS
+        </div>
+
+        <div class="results-box">
+            <div class="grid-4">
+                <div class="result-card">
+                    <div class="result-label">Gross Profit</div>
+                    <div class="result-value" id="grossProfit">$0</div>
+                    <div class="result-label" id="grossMarginPct">0% Margin</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Net Profit</div>
+                    <div class="result-value profit" id="netProfit">$0</div>
+                    <div class="result-label" id="netMarginPct">0% Margin</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Total Costs</div>
+                    <div class="result-value" id="totalCosts">$0</div>
+                    <div class="result-label">Direct + Overhead</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Break-Even Point</div>
+                    <div class="result-value" id="breakEven">$0</div>
+                    <div class="result-label">Minimum Bid Required</div>
+                </div>
+            </div>
+
+            <div class="sub-header" style="margin-top: 20px;">Profit Margin Status</div>
+            <div style="display: flex; align-items: center; gap: 15px; margin: 15px 0;">
+                <span class="margin-indicator margin-high" id="marginStatus">CALCULATING...</span>
+                <div style="flex: 1;">
+                    <div class="progress-container">
+                        <div class="progress-bar" id="marginProgress" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <span style="font-weight: bold; color: var(--navy-blue);" id="marginValue">0%</span>
+            </div>
+
+            <div class="sub-header">Cost Breakdown Visualization</div>
+            <div class="breakdown-chart" id="breakdownChart">
+                <div class="breakdown-segment segment-materials" id="segMaterials" style="width: 0%;">0%</div>
+                <div class="breakdown-segment segment-labor" id="segLabor" style="width: 0%;">0%</div>
+                <div class="breakdown-segment segment-overhead" id="segOverhead" style="width: 0%;">0%</div>
+                <div class="breakdown-segment segment-profit" id="segProfit" style="width: 0%;">0%</div>
+            </div>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color segment-materials"></div>
+                    <span>Materials/Equipment</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color segment-labor"></div>
+                    <span>Labor</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color segment-overhead"></div>
+                    <span>Overhead</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color segment-profit"></div>
+                    <span>Profit</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4 -->
+        <div class="section-banner">
+            <span>📋</span> SECTION 4 — DETAILED COST BREAKDOWN
+        </div>
+
+        <table class="dual-width-table">
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th class="text-right">Amount ($)</th>
+                    <th class="text-right">% of Revenue</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>REVENUE</strong></td>
+                    <td class="text-right bold" id="revTotal">$0</td>
+                    <td class="text-right bold">100%</td>
+                    <td class="text-center">—</td>
+                    <td>Total bid amount</td>
+                </tr>
+                <tr>
+                    <td>Equipment Cost</td>
+                    <td class="text-right" id="costEquipment">$0</td>
+                    <td class="text-right" id="pctEquipment">0%</td>
+                    <td class="text-center"><span class="status-badge status-healthy">OK</span></td>
+                    <td>HVAC unit, components</td>
+                </tr>
+                <tr>
+                    <td>Materials & Supplies</td>
+                    <td class="text-right" id="costMaterials">$0</td>
+                    <td class="text-right" id="pctMaterials">0%</td>
+                    <td class="text-center"><span class="status-badge status-healthy">OK</span></td>
+                    <td>Ductwork, refrigerant, etc.</td>
+                </tr>
+                <tr>
+                    <td>Labor (Direct)</td>
+                    <td class="text-right" id="costLabor">$0</td>
+                    <td class="text-right" id="pctLabor">0%</td>
+                    <td class="text-center"><span class="status-badge status-healthy">OK</span></td>
+                    <td>Installation technician hours</td>
+                </tr>
+                <tr>
+                    <td>Permits & Disposal</td>
+                    <td class="text-right" id="costPermits">$0</td>
+                    <td class="text-right" id="pctPermits">0%</td>
+                    <td class="text-center"><span class="status-badge status-healthy">OK</span></td>
+                    <td>City permits, old unit haul-away</td>
+                </tr>
+                <tr style="background-color: var(--sky-blue);">
+                    <td><strong>TOTAL DIRECT COSTS</strong></td>
+                    <td class="text-right bold" id="totalDirectCosts">$0</td>
+                    <td class="text-right bold" id="pctDirectCosts">0%</td>
+                    <td class="text-center">—</td>
+                    <td>Cost of Goods Sold (COGS)</td>
+                </tr>
+                <tr>
+                    <td>Allocated Overhead (Fixed)</td>
+                    <td class="text-right" id="costOverheadFixed">$0</td>
+                    <td class="text-right" id="pctOverheadFixed">0%</td>
+                    <td class="text-center"><span class="status-badge status-caution">VARIES</span></td>
+                    <td>Based on jobs/month</td>
+                </tr>
+                <tr>
+                    <td>Allocated Overhead (Variable)</td>
+                    <td class="text-right" id="costOverheadVar">$0</td>
+                    <td class="text-right" id="pctOverheadVar">0%</td>
+                    <td class="text-center"><span class="status-badge status-caution">VARIES</span></td>
+                    <td>Per-job overhead expenses</td>
+                </tr>
+                <tr style="background-color: var(--sky-blue);">
+                    <td><strong>TOTAL OVERHEAD</strong></td>
+                    <td class="text-right bold" id="totalOverhead">$0</td>
+                    <td class="text-right bold" id="pctOverhead">0%</td>
+                    <td class="text-center">—</td>
+                    <td>Operating expenses</td>
+                </tr>
+                <tr style="background-color: var(--navy-blue); color: white;">
+                    <td><strong>NET PROFIT</strong></td>
+                    <td class="text-right bold" id="netProfitTable">$0</td>
+                    <td class="text-right bold" id="pctNetProfit">0%</td>
+                    <td class="text-center" id="profitStatus">—</td>
+                    <td>Bottom line profit</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- SECTION 5 -->
+        <div class="section-banner">
+            <span>🎯</span> SECTION 5 — PRICING RECOMMENDATIONS
+        </div>
+
+        <div class="grid-3">
+            <div class="calc-panel">
+                <div class="calc-panel-header">⬛ GOOD (Minimum Margin)</div>
+                <div class="form-group">
+                    <label>Target Margin: 20%</label>
+                    <div class="result-value" id="goodPrice" style="font-size: 22px;">$0</div>
+                    <div class="info-text">Minimum acceptable profit</div>
+                </div>
+                <div class="slider-container">
+                    <input type="range" min="10" max="50" value="20" id="sliderGood" onchange="updateSlider('good')">
+                </div>
+            </div>
+            <div class="calc-panel">
+                <div class="calc-panel-header">🥈 BETTER (Target Margin)</div>
+                <div class="form-group">
+                    <label>Target Margin: 30%</label>
+                    <div class="result-value" style="font-size: 22px;" id="betterPrice">$0</div>
+                    <div class="info-text">Industry standard profit</div>
+                </div>
+                <div class="slider-container">
+                    <input type="range" min="10" max="50" value="30" id="sliderBetter" onchange="updateSlider('better')">
+                </div>
+            </div>
+            <div class="calc-panel">
+                <div class="calc-panel-header">🥇 BEST (Premium Margin)</div>
+                <div class="form-group">
+                    <label>Target Margin: 40%</label>
+                    <div class="result-value" style="font-size: 22px;" id="bestPrice">$0</div>
+                    <div class="info-text">High-efficiency premium</div>
+                </div>
+                <div class="slider-container">
+                    <input type="range" min="10" max="50" value="40" id="sliderBest" onchange="updateSlider('best')">
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-box-title">📊 Pricing Strategy Insights</div>
+            <div>
+                <strong>Current Bid:</strong> <span class="highlight" id="currentBidDisplay">$0</span> |
+                <strong>Recommended Price:</strong> <span class="highlight" id="recommendedPrice">$0</span> |
+                <strong>Adjustment Needed:</strong> <span class="highlight" id="adjustmentNeeded">$0</span>
+            </div>
+        </div>
+
+        <!-- SECTION 6 -->
+        <div class="section-banner">
+            <span>📝</span> SECTION 6 — PROFIT TRACKING LOG
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Project</th>
+                    <th>Date</th>
+                    <th class="text-right">Bid Amount</th>
+                    <th class="text-right">Net Profit</th>
+                    <th>Margin %</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="profitLog">
+                <tr>
+                    <td colspan="7" class="text-center" style="color: #666; padding: 30px;">
+                        No profit logs yet — click "Save to Log" to add this calculation.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="info-box" style="background-color: #fff3cd; border-left-color: var(--warning-yellow);">
+            <div class="info-box-title">⚡ Pro Tips for Maximizing Profit Margins</div>
+            <div>
+                • <strong>Present all three tiers</strong> — 60% of customers choose Better or Best when offered.<br>
+                • <strong>Lead with financing</strong> — shifts conversation from price to monthly payment.<br>
+                • <strong>Track actual vs. estimated</strong> — compare quoted hours to actual installation time.<br>
+                • <strong>Review overhead quarterly</strong> — ensure allocation reflects current business expenses.<br>
+                • <strong>Never go below 20%</strong> — margins under 20% risk business sustainability.
+            </div>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="saveToLog()">💾 Save to Log</button>
+            <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+            <button class="btn btn-accent" onclick="calculateMargin()">⚡ Recalculate</button>
+            <button class="btn btn-success" onclick="exportCSV()">📥 Export CSV</button>
+            <button class="btn btn-primary" style="background-color: #666;" onclick="clearAll()">🗑️ Clear All</button>
+        </div>
+
+        <div style="padding: 0 20px; margin-top: 15px;">
+            <div class="info-text">
+                <strong>Current Settings:</strong> Margin Target: <span class="highlight" id="footerMargin">30%</span> |
+                Total Costs: <span class="highlight" id="footerCosts">$0</span> |
+                Net Profit: <span class="highlight" id="footerProfit">$0</span>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-info">
+            <span>Your HVAC Co.</span>
+            <span>|</span>
+            <span>(555) 867-5309</span>
+            <span>|</span>
+            <span>www.yourhvac.com</span>
+            <span>|</span>
+            <span>Rogers, AR</span>
+        </div>
+        <div class="footer-info">
+            <span class="badge">EPA 608 Universal</span>
+            <span class="badge">NATE Certified</span>
+            <span>★ ★ ★ ★ ★ — Licensed · Bonded · Insured · Serving Northwest Arkansas</span>
+        </div>
+    </footer>
+
+    <script>
+        // Profit Log Storage
+        let profitLog = [];
+
+        // Format currency
+        function formatCurrency(num) {
+            return '$' + num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        // Format percentage
+        function formatPercent(num) {
+            return num.toFixed(1) + '%';
+        }
+
+        // Main calculation function
+        function calculateMargin() {
+            // Revenue Inputs
+            const totalBid = parseFloat(document.getElementById('totalBid').value) || 0;
+            const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+            const financingAmount = parseFloat(document.getElementById('financingAmount').value) || 0;
+            const financingFee = parseFloat(document.getElementById('financingFee').value) || 0;
+            const discount = parseFloat(document.getElementById('discount').value) || 0;
+
+            // Direct Costs
+            const equipmentCost = parseFloat(document.getElementById('equipmentCost').value) || 0;
+            const materialsCost = parseFloat(document.getElementById('materialsCost').value) || 0;
+            const laborCost = parseFloat(document.getElementById('laborCost').value) || 0;
+            const refrigerantCost = parseFloat(document.getElementById('refrigerantCost').value) || 0;
+            const permitCost = parseFloat(document.getElementById('permitCost').value) || 0;
+            const disposalCost = parseFloat(document.getElementById('disposalCost').value) || 0;
+            const otherCost = parseFloat(document.getElementById('otherCost').value) || 0;
+
+            // Fixed Overhead (Monthly)
+            const rentCost = parseFloat(document.getElementById('rentCost').value) || 0;
+            const utilitiesCost = parseFloat(document.getElementById('utilitiesCost').value) || 0;
+            const insuranceCost = parseFloat(document.getElementById('insuranceCost').value) || 0;
+            const softwareCost = parseFloat(document.getElementById('softwareCost').value) || 0;
+
+            // Variable Overhead (Per Job)
+            const vehicleCost = parseFloat(document.getElementById('vehicleCost').value) || 0;
+            const marketingCost = parseFloat(document.getElementById('marketingCost').value) || 0;
+            const adminCost = parseFloat(document.getElementById('adminCost').value) || 0;
+            const miscCost = parseFloat(document.getElementById('miscCost').value) || 0;
+
+            // Business Metrics
+            const jobsPerMonth = parseFloat(document.getElementById('jobsPerMonth').value) || 1;
+            const targetMargin = parseFloat(document.getElementById('targetMargin').value) || 30;
+
+            // Calculations
+            const financingFeeAmount = financingAmount * (financingFee / 100);
+            const netRevenue = totalBid - discount - financingFeeAmount;
+
+            // Direct Costs
+            const totalDirectCosts = equipmentCost + materialsCost + laborCost + refrigerantCost + permitCost + disposalCost + otherCost;
+
+            // Fixed Overhead Allocation (per job)
+            const totalFixedOverhead = rentCost + utilitiesCost + insuranceCost + softwareCost;
+            const allocatedFixedOverhead = totalFixedOverhead / jobsPerMonth;
+
+            // Variable Overhead (per job)
+            const totalVariableOverhead = vehicleCost + marketingCost + adminCost + miscCost;
+
+            // Total Overhead
+            const totalOverhead = allocatedFixedOverhead + totalVariableOverhead;
+
+            // Total Costs
+            const totalCosts = totalDirectCosts + totalOverhead;
+
+            // Profit Calculations
+            const grossProfit = netRevenue - totalDirectCosts;
+            const netProfit = netRevenue - totalCosts;
+
+            // Margin Calculations
+            const grossMarginPct = netRevenue > 0 ? (grossProfit / netRevenue) * 100 : 0;
+            const netMarginPct = netRevenue > 0 ? (netProfit / netRevenue) * 100 : 0;
+
+            // Break-Even Point
+            const breakEven = totalCosts;
+
+            // Update Results Display
+            document.getElementById('grossProfit').innerText = formatCurrency(grossProfit);
+            document.getElementById('grossMarginPct').innerText = formatPercent(grossMarginPct) + ' Margin';
+
+            document.getElementById('netProfit').innerText = formatCurrency(netProfit);
+            document.getElementById('netProfit').className = 'result-value ' + (netProfit >= 0 ? 'profit' : 'loss');
+            document.getElementById('netMarginPct').innerText = formatPercent(netMarginPct) + ' Margin';
+
+            document.getElementById('totalCosts').innerText = formatCurrency(totalCosts);
+            document.getElementById('breakEven').innerText = formatCurrency(breakEven);
+
+            // Margin Status
+            updateMarginStatus(netMarginPct);
+
+            // Update Breakdown Chart
+            updateBreakdownChart(equipmentCost, materialsCost, laborCost, totalOverhead, netProfit, netRevenue);
+
+            // Update Detailed Table
+            updateDetailedTable(netRevenue, equipmentCost, materialsCost, laborCost,
+                permitCost + disposalCost, allocatedFixedOverhead, totalVariableOverhead,
+                totalDirectCosts, totalOverhead, netProfit);
+
+            // Update Pricing Recommendations
+            updatePricingRecommendations(totalDirectCosts, totalOverhead, targetMargin);
+
+            // Update Footer
+            document.getElementById('footerMargin').innerText = formatPercent(netMarginPct);
+            document.getElementById('footerCosts').innerText = formatCurrency(totalCosts);
+            document.getElementById('footerProfit').innerText = formatCurrency(netProfit);
+            document.getElementById('currentBidDisplay').innerText = formatCurrency(totalBid);
+            document.getElementById('recommendedPrice').innerText = formatCurrency(document.getElementById('betterPrice').innerText.replace('$', ''));
+
+            const adjustment = totalBid - parseFloat(document.getElementById('betterPrice').innerText.replace('$', '').replace(/,/g, ''));
+            const adjustmentEl = document.getElementById('adjustmentNeeded');
+            adjustmentEl.innerText = (adjustment >= 0 ? '+' : '') + formatCurrency(adjustment);
+            adjustmentEl.className = 'highlight ' + (adjustment >= 0 ? 'text-success' : 'text-danger');
+        }
+
+        function updateMarginStatus(marginPct) {
+            const statusEl = document.getElementById('marginStatus');
+            const progressEl = document.getElementById('marginProgress');
+            const valueEl = document.getElementById('marginValue');
+
+            valueEl.innerText = formatPercent(marginPct);
+
+            if (marginPct >= 30) {
+                statusEl.className = 'margin-indicator margin-high';
+                statusEl.innerText = '✅ HEALTHY MARGIN';
+                progressEl.className = 'progress-bar progress-good';
+                progressEl.style.width = Math.min(marginPct, 50) * 2 + '%';
+            } else if (marginPct >= 20) {
+                statusEl.className = 'margin-indicator margin-medium';
+                statusEl.innerText = '⚠️ ACCEPTABLE MARGIN';
+                progressEl.className = 'progress-bar progress-warning';
+                progressEl.style.width = Math.min(marginPct, 50) * 2 + '%';
+            } else {
+                statusEl.className = 'margin-indicator margin-low';
+                statusEl.innerText = '❌ LOW MARGIN';
+                progressEl.className = 'progress-bar progress-danger';
+                progressEl.style.width = Math.min(marginPct, 50) * 2 + '%';
+            }
+        }
+
+        function updateBreakdownChart(equip, mat, labor, overhead, profit, revenue) {
+            const total = revenue || 1;
+
+            const materialsTotal = equip + mat;
+            const matPct = (materialsTotal / total) * 100;
+            const laborPct = (labor / total) * 100;
+            const overheadPct = (overhead / total) * 100;
+            const profitPct = (profit / total) * 100;
+
+            document.getElementById('segMaterials').style.width = matPct + '%';
+            document.getElementById('segMaterials').innerText = matPct.toFixed(1) + '%';
+
+            document.getElementById('segLabor').style.width = laborPct + '%';
+            document.getElementById('segLabor').innerText = laborPct.toFixed(1) + '%';
+
+            document.getElementById('segOverhead').style.width = overheadPct + '%';
+            document.getElementById('segOverhead').innerText = overheadPct.toFixed(1) + '%';
+
+            document.getElementById('segProfit').style.width = Math.max(profitPct, 0) + '%';
+            document.getElementById('segProfit').innerText = Math.max(profitPct, 0).toFixed(1) + '%';
+        }
+
+        function updateDetailedTable(revenue, equip, mat, labor, permits, overheadFixed, overheadVar,
+            directCosts, overhead, netProfit) {
+
+            const total = revenue || 1;
+
+            document.getElementById('revTotal').innerText = formatCurrency(revenue);
+
+            document.getElementById('costEquipment').innerText = formatCurrency(equip);
+            document.getElementById('pctEquipment').innerText = formatPercent((equip / total) * 100);
+
+            document.getElementById('costMaterials').innerText = formatCurrency(mat);
+            document.getElementById('pctMaterials').innerText = formatPercent((mat / total) * 100);
+
+            document.getElementById('costLabor').innerText = formatCurrency(labor);
+            document.getElementById('pctLabor').innerText = formatPercent((labor / total) * 100);
+
+            document.getElementById('costPermits').innerText = formatCurrency(permits);
+            document.getElementById('pctPermits').innerText = formatPercent((permits / total) * 100);
+
+            document.getElementById('totalDirectCosts').innerText = formatCurrency(directCosts);
+            document.getElementById('pctDirectCosts').innerText = formatPercent((directCosts / total) * 100);
+
+            document.getElementById('costOverheadFixed').innerText = formatCurrency(overheadFixed);
+            document.getElementById('pctOverheadFixed').innerText = formatPercent((overheadFixed / total) * 100);
+
+            document.getElementById('costOverheadVar').innerText = formatCurrency(overheadVar);
+            document.getElementById('pctOverheadVar').innerText = formatPercent((overheadVar / total) * 100);
+
+            document.getElementById('totalOverhead').innerText = formatCurrency(overhead);
+            document.getElementById('pctOverhead').innerText = formatPercent((overhead / total) * 100);
+
+            document.getElementById('netProfitTable').innerText = formatCurrency(netProfit);
+            document.getElementById('pctNetProfit').innerText = formatPercent((netProfit / total) * 100);
+
+            const profitStatusEl = document.getElementById('profitStatus');
+            if (netProfit >= 0) {
+                profitStatusEl.innerHTML = '<span class="status-badge status-healthy">PROFIT</span>';
+            } else {
+                profitStatusEl.innerHTML = '<span class="status-badge status-critical">LOSS</span>';
+            }
+        }
+
+        function updatePricingRecommendations(directCosts, overhead, targetMargin) {
+            const totalCosts = directCosts + overhead;
+
+            // Calculate required price for different margin targets
+            const goodMargin = 20;
+            const betterMargin = 30;
+            const bestMargin = 40;
+
+            const goodPrice = totalCosts / (1 - (goodMargin / 100));
+            const betterPrice = totalCosts / (1 - (betterMargin / 100));
+            const bestPrice = totalCosts / (1 - (bestMargin / 100));
+
+            document.getElementById('goodPrice').innerText = formatCurrency(goodPrice);
+            document.getElementById('betterPrice').innerText = formatCurrency(betterPrice);
+            document.getElementById('bestPrice').innerText = formatCurrency(bestPrice);
+
+            // Update slider labels
+            document.querySelector('#sliderGood').previousElementSibling.innerText = 'Target Margin: ' + goodMargin + '%';
+            document.querySelector('#sliderBetter').previousElementSibling.innerText = 'Target Margin: ' + betterMargin + '%';
+            document.querySelector('#sliderBest').previousElementSibling.innerText = 'Target Margin: ' + bestMargin + '%';
+        }
+
+        function updateSlider(tier) {
+            const slider = document.getElementById('slider' + tier.charAt(0).toUpperCase() + tier.slice(1));
+            const margin = slider.value;
+
+            const directCosts = parseFloat(document.getElementById('equipmentCost').value) || 0 +
+                               parseFloat(document.getElementById('materialsCost').value) || 0 +
+                               parseFloat(document.getElementById('laborCost').value) || 0 +
+                               parseFloat(document.getElementById('refrigerantCost').value) || 0 +
+                               parseFloat(document.getElementById('permitCost').value) || 0 +
+                               parseFloat(document.getElementById('disposalCost').value) || 0 +
+                               parseFloat(document.getElementById('otherCost').value) || 0;
+
+            const rentCost = parseFloat(document.getElementById('rentCost').value) || 0;
+            const utilitiesCost = parseFloat(document.getElementById('utilitiesCost').value) || 0;
+            const insuranceCost = parseFloat(document.getElementById('insuranceCost').value) || 0;
+            const softwareCost = parseFloat(document.getElementById('softwareCost').value) || 0;
+            const vehicleCost = parseFloat(document.getElementById('vehicleCost').value) || 0;
+            const marketingCost = parseFloat(document.getElementById('marketingCost').value) || 0;
+            const adminCost = parseFloat(document.getElementById('adminCost').value) || 0;
+            const miscCost = parseFloat(document.getElementById('miscCost').value) || 0;
+            const jobsPerMonth = parseFloat(document.getElementById('jobsPerMonth').value) || 1;
+
+            const overhead = ((rentCost + utilitiesCost + insuranceCost + softwareCost) / jobsPerMonth) +
+                            vehicleCost + marketingCost + adminCost + miscCost;
+
+            const totalCosts = directCosts + overhead;
+            const price = totalCosts / (1 - (margin / 100));
+
+            document.getElementById(tier + 'Price').innerText = formatCurrency(price);
+        }
+
+        function saveToLog() {
+            const customerName = document.getElementById('customerName').value || 'Unknown';
+            const projectName = document.getElementById('projectName').value || 'Unnamed Project';
+            const estimateDate = document.getElementById('estimateDate').value;
+            const totalBid = parseFloat(document.getElementById('totalBid').value) || 0;
+            const netProfit = parseFloat(document.getElementById('netProfit').innerText.replace('$', '').replace(/,/g, '')) || 0;
+            const netMarginPct = parseFloat(document.getElementById('netMarginPct').innerText) || 0;
+
+            const logEntry = {
+                customer: customerName,
+                project: projectName,
+                date: estimateDate,
+                bid: totalBid,
+                profit: netProfit,
+                margin: netMarginPct
+            };
+
+            profitLog.push(logEntry);
+            renderProfitLog();
+
+            alert('✓ Profit calculation saved to log!');
+        }
+
+        function renderProfitLog() {
+            const tbody = document.getElementById('profitLog');
+
+            if (profitLog.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center" style="color: #666; padding: 30px;">No profit logs yet — click "Save to Log" to add this calculation.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = profitLog.map(entry => {
+                let statusClass = 'status-healthy';
+                let statusText = 'PROFIT';
+                if (entry.profit < 0) {
+                    statusClass = 'status-critical';
+                    statusText = 'LOSS';
+                } else if (entry.margin < 20) {
+                    statusClass = 'status-caution';
+                    statusText = 'LOW';
+                }
+
+                return `
+                    <tr>
+                        <td>${entry.customer}</td>
+                        <td>${entry.project}</td>
+                        <td>${entry.date}</td>
+                        <td class="text-right">${formatCurrency(entry.bid)}</td>
+                        <td class="text-right ${entry.profit >= 0 ? 'text-success' : 'text-danger'}">${formatCurrency(entry.profit)}</td>
+                        <td>${formatPercent(entry.margin)}</td>
+                        <td class="text-center"><span class="status-badge ${statusClass}">${statusText}</span></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function exportCSV() {
+            if (profitLog.length === 0) {
+                alert('No data to export. Save some calculations first!');
+                return;
+            }
+
+            let csv = 'Customer,Project,Date,Bid Amount,Net Profit,Margin %,Status\n';
+            profitLog.forEach(entry => {
+                const status = entry.profit >= 0 ? (entry.margin >= 20 ? 'PROFIT' : 'LOW') : 'LOSS';
+                csv += `"${entry.customer}","${entry.project}","${entry.date}",${entry.bid},${entry.profit},${entry.margin},${status}\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'hvac_profit_log_' + new Date().toISOString().split('T')[0] + '.csv';
+            a.click();
+        }
+
+        function clearAll() {
+            if (confirm('Are you sure you want to clear all inputs and logs?')) {
+                // Reset inputs to defaults
+                document.getElementById('totalBid').value = 12500;
+                document.getElementById('downPayment').value = 3750;
+                document.getElementById('financingAmount').value = 8750;
+                document.getElementById('financingFee').value = 0;
+                document.getElementById('discount').value = 0;
+                document.getElementById('equipmentCost').value = 4500;
+                document.getElementById('materialsCost').value = 1200;
+                document.getElementById('laborCost').value = 2800;
+                document.getElementById('refrigerantCost').value = 350;
+                document.getElementById('permitCost').value = 150;
+                document.getElementById('disposalCost').value = 100;
+                document.getElementById('otherCost').value = 200;
+                document.getElementById('rentCost').value = 3500;
+                document.getElementById('utilitiesCost').value = 800;
+                document.getElementById('insuranceCost').value = 1200;
+                document.getElementById('softwareCost').value = 400;
+                document.getElementById('vehicleCost').value = 150;
+                document.getElementById('marketingCost').value = 200;
+                document.getElementById('adminCost').value = 100;
+                document.getElementById('miscCost').value = 75;
+                document.getElementById('jobsPerMonth').value = 15;
+                document.getElementById('avgJobValue').value = 8500;
+                document.getElementById('techHours').value = 8;
+                document.getElementById('targetMargin').value = 30;
+                document.getElementById('customerName').value = '';
+                document.getElementById('projectName').value = '';
+
+                profitLog = [];
+                renderProfitLog();
+                calculateMargin();
+            }
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            const today = new Date();
+            document.getElementById('estimateDate').value = today.toLocaleDateString();
+            calculateMargin();
+        };
+    </script>
+</body>
+</html>
+

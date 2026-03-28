@@ -1,0 +1,817 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Load Calculator — Your HVAC Co.</title>
+    <style>
+        :root {
+            --navy-blue: #1B3A6B;
+            --steel-blue: #2E6DA4;
+            --sky-blue: #D6E4F0;
+            --orange: #E07B00;
+            --light-gray: #F4F6F8;
+            --text-dark: #333333;
+            --border-color: #CCCCCC;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            color: var(--text-dark);
+            font-size: 14px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--navy-blue);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid var(--orange);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-logo {
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .header-logo img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+
+        .company-name {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .header-right {
+            text-align: right;
+            font-size: 18px;
+            font-weight: bold;
+            color: var(--sky-blue);
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding-bottom: 20px;
+        }
+
+        /* Section Banners */
+        .section-banner {
+            background-color: var(--navy-blue);
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .section-banner:first-child {
+            margin-top: 0;
+        }
+
+        .sub-header {
+            color: var(--steel-blue);
+            font-weight: bold;
+            font-size: 15px;
+            margin: 15px 0 10px 0;
+            padding-left: 5px;
+            border-left: 4px solid var(--orange);
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Forms & Inputs */
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 4px;
+            font-weight: bold;
+            color: var(--navy-blue);
+            font-size: 13px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid var(--border-color);
+            border-radius: 3px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--steel-blue);
+            outline: none;
+            background-color: var(--sky-blue);
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+            font-size: 13px;
+        }
+
+        th {
+            background-color: var(--steel-blue);
+            color: white;
+            padding: 8px;
+            text-align: left;
+            border: 1px solid var(--navy-blue);
+        }
+
+        td {
+            padding: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        tr:nth-child(even) {
+            background-color: var(--light-gray);
+        }
+
+        tr:nth-child(odd) {
+            background-color: white;
+        }
+
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+
+        /* Buttons */
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover { opacity: 0.9; }
+
+        .btn-primary {
+            background-color: var(--navy-blue);
+            color: white;
+        }
+
+        .btn-accent {
+            background-color: var(--orange);
+            color: white;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            padding: 20px;
+            justify-content: flex-end;
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+
+        /* Results Box */
+        .results-box {
+            background-color: var(--sky-blue);
+            border: 2px solid var(--navy-blue);
+            padding: 15px;
+            margin: 20px;
+            border-radius: 5px;
+        }
+
+        .result-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--navy-blue);
+        }
+
+        .result-label {
+            font-size: 12px;
+            color: var(--steel-blue);
+            text-transform: uppercase;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #e0e0e0;
+            color: #666;
+            text-align: center;
+            padding: 15px;
+            font-size: 12px;
+            border-top: 4px solid var(--navy-blue);
+            margin-top: 30px;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 5px;
+        }
+
+        .badge {
+            background: var(--navy-blue);
+            color: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        /* Utility */
+        .highlight { color: var(--orange); font-weight: bold; }
+        .info-text { font-size: 12px; color: #666; font-style: italic; }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-left">
+            <div class="header-logo">
+                <img src="https://image.qwenlm.ai/public_source/a06891e2-519c-485e-8c43-7f7a022ea96f/11f25b96e-47d2-4f4c-9456-6dc36dc3a963.png" alt="Logo">
+            </div>
+            <div class="company-name">Your HVAC Co.</div>
+        </div>
+        <div class="header-right">
+            ⚡ HVAC Load Calculator
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- SECTION 1 -->
+        <div class="section-banner">
+            <span>📋</span> SECTION 1 — PROJECT INFORMATION
+        </div>
+
+        <div class="grid-4" style="margin-top: 15px;">
+            <div class="form-group">
+                <label>Customer Name</label>
+                <input type="text" id="customerName" placeholder="Enter Name">
+            </div>
+            <div class="form-group">
+                <label>Service Address</label>
+                <input type="text" id="address" placeholder="Street Address">
+            </div>
+            <div class="form-group">
+                <label>City / State / Zip</label>
+                <input type="text" id="city" placeholder="City, ST 12345">
+            </div>
+            <div class="form-group">
+                <label>Estimate Date</label>
+                <input type="text" id="date" value="10/24/2023">
+            </div>
+        </div>
+
+        <div class="grid-2" style="margin-top: 10px;">
+            <div class="form-group">
+                <label>Job Type</label>
+                <select id="jobType">
+                    <option>New Construction</option>
+                    <option>Replacement / Changeout</option>
+                    <option>Addition / Extension</option>
+                    <option>Commercial Retrofit</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Technician / Salesperson</label>
+                <input type="text" value="John Doe">
+            </div>
+        </div>
+
+        <!-- SECTION 2 -->
+        <div class="section-banner">
+            <span>🏠</span> SECTION 2 — BUILDING ENVELOPE DATA
+        </div>
+
+        <div class="sub-header">General Dimensions</div>
+        <div class="grid-4">
+            <div class="form-group">
+                <label>Conditioned Sq. Ft.</label>
+                <input type="number" id="sqFt" value="2000" onchange="calculateLoad()">
+            </div>
+            <div class="form-group">
+                <label>Volume (Cu. Ft.)</label>
+                <input type="number" id="volume" value="16000" onchange="calculateLoad()">
+            </div>
+            <div class="form-group">
+                <label># of Occupants</label>
+                <input type="number" id="occupants" value="4" onchange="calculateLoad()">
+            </div>
+            <div class="form-group">
+                <label>Design Temp (Summer/Winter)</label>
+                <input type="text" value="95°F / 15°F" readonly style="background: #eee;">
+            </div>
+        </div>
+
+        <div class="sub-header">Windows & Glazing</div>
+        <table>
+            <thead>
+                <tr>
+                    <th style="width: 25%;">Orientation</th>
+                    <th style="width: 15%;">Type</th>
+                    <th style="width: 15%;">Area (Sq. Ft.)</th>
+                    <th style="width: 15%;">U-Factor</th>
+                    <th style="width: 15%;">SHGC</th>
+                    <th style="width: 15%;">Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>North</td>
+                    <td>
+                        <select class="win-type" data-orient="N">
+                            <option value="1.0">Single Pane</option>
+                            <option value="0.6" selected>Double Pane</option>
+                            <option value="0.3">Low-E / Argon</option>
+                        </select>
+                    </td>
+                    <td><input type="number" class="win-area" value="40" onchange="calculateLoad()"></td>
+                    <td><input type="number" class="win-u" value="0.5" readonly></td>
+                    <td><input type="number" class="win-shgc" value="0.4" readonly></td>
+                    <td><input type="text" placeholder="e.g. Blinds"></td>
+                </tr>
+                <tr>
+                    <td>South</td>
+                    <td>
+                        <select class="win-type" data-orient="S">
+                            <option value="1.0">Single Pane</option>
+                            <option value="0.6" selected>Double Pane</option>
+                            <option value="0.3">Low-E / Argon</option>
+                        </select>
+                    </td>
+                    <td><input type="number" class="win-area" value="60" onchange="calculateLoad()"></td>
+                    <td><input type="number" class="win-u" value="0.5" readonly></td>
+                    <td><input type="number" class="win-shgc" value="0.4" readonly></td>
+                    <td><input type="text" placeholder="e.g. Overhang"></td>
+                </tr>
+                <tr>
+                    <td>East</td>
+                    <td>
+                        <select class="win-type" data-orient="E">
+                            <option value="1.0">Single Pane</option>
+                            <option value="0.6" selected>Double Pane</option>
+                            <option value="0.3">Low-E / Argon</option>
+                        </select>
+                    </td>
+                    <td><input type="number" class="win-area" value="30" onchange="calculateLoad()"></td>
+                    <td><input type="number" class="win-u" value="0.5" readonly></td>
+                    <td><input type="number" class="win-shgc" value="0.4" readonly></td>
+                    <td><input type="text" placeholder=""></td>
+                </tr>
+                <tr>
+                    <td>West</td>
+                    <td>
+                        <select class="win-type" data-orient="W">
+                            <option value="1.0">Single Pane</option>
+                            <option value="0.6" selected>Double Pane</option>
+                            <option value="0.3">Low-E / Argon</option>
+                        </select>
+                    </td>
+                    <td><input type="number" class="win-area" value="30" onchange="calculateLoad()"></td>
+                    <td><input type="number" class="win-u" value="0.5" readonly></td>
+                    <td><input type="number" class="win-shgc" value="0.4" readonly></td>
+                    <td><input type="text" placeholder="Critical Afternoon Sun"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="sub-header">Insulation & Construction</div>
+        <div class="grid-4">
+            <div class="form-group">
+                <label>Wall Construction</label>
+                <select id="wallType" onchange="calculateLoad()">
+                    <option value="0.08">Wood Frame (R-13)</option>
+                    <option value="0.05">Wood Frame (R-19)</option>
+                    <option value="0.03">Brick Veneer</option>
+                    <option value="0.02">ICF / Concrete</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Ceiling Insulation</label>
+                <select id="ceilType" onchange="calculateLoad()">
+                    <option value="0.05">R-19</option>
+                    <option value="0.03" selected>R-30</option>
+                    <option value="0.02">R-38+</option>
+                    <option value="0.10">None / Poor</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Floor Insulation</label>
+                <select id="floorType" onchange="calculateLoad()">
+                    <option value="0.05">R-19</option>
+                    <option value="0.03" selected>R-30</option>
+                    <option value="0.08">Slab on Grade</option>
+                    <option value="0.10">Crawlspace (Uninsulated)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Air Tightness</label>
+                <select id="airTight" onchange="calculateLoad()">
+                    <option value="1.0">Tight (New)</option>
+                    <option value="1.2" selected>Average</option>
+                    <option value="1.5">Leaky (Old)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- SECTION 3 -->
+        <div class="section-banner">
+            <span>⚡</span> SECTION 3 — INTERNAL LOADS & INFILTRATION
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <div class="sub-header">Appliances & Lighting</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parameter</th>
+                            <th>Measured</th>
+                            <th>Unit</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lighting Density</td>
+                            <td><input type="number" id="lighting" value="3.0" style="width: 60px;" onchange="calculateLoad()"></td>
+                            <td>W/Sq.Ft.</td>
+                            <td class="text-center">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Kitchen Appliances</td>
+                            <td>
+                                <select id="kitchen" onchange="calculateLoad()">
+                                    <option value="1200">Gas Range</option>
+                                    <option value="2400">Electric Range</option>
+                                    <option value="600">Minimal</option>
+                                </select>
+                            </td>
+                            <td>BTU/hr</td>
+                            <td class="text-center">✔</td>
+                        </tr>
+                        <tr>
+                            <td>Laundry</td>
+                            <td>
+                                <select id="laundry" onchange="calculateLoad()">
+                                    <option value="0">None</option>
+                                    <option value="1500">Inside Conditioned</option>
+                                    <option value="0">Outside/Garage</option>
+                                </select>
+                            </td>
+                            <td>BTU/hr</td>
+                            <td class="text-center">✔</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <div class="sub-header">Duct System Check</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Checklist Item</th>
+                            <th>Pass</th>
+                            <th>Fail</th>
+                            <th>N/A</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ducts in Conditioned Space</td>
+                            <td class="text-center"><input type="radio" name="duct1" checked></td>
+                            <td class="text-center"><input type="radio" name="duct1"></td>
+                            <td class="text-center"><input type="radio" name="duct1"></td>
+                        </tr>
+                        <tr>
+                            <td>Ducts Sealed (Mastic)</td>
+                            <td class="text-center"><input type="radio" name="duct2"></td>
+                            <td class="text-center"><input type="radio" name="duct2" checked></td>
+                            <td class="text-center"><input type="radio" name="duct2"></td>
+                        </tr>
+                        <tr>
+                            <td>Return Air Adequate</td>
+                            <td class="text-center"><input type="radio" name="duct3" checked></td>
+                            <td class="text-center"><input type="radio" name="duct3"></td>
+                            <td class="text-center"><input type="radio" name="duct3"></td>
+                        </tr>
+                        <tr>
+                            <td>Filter Accessible</td>
+                            <td class="text-center"><input type="radio" name="duct4" checked></td>
+                            <td class="text-center"><input type="radio" name="duct4"></td>
+                            <td class="text-center"><input type="radio" name="duct4"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="info-text" style="margin-top: 5px;">
+                    * Duct leakage factor applied if "Fail" selected.
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4 -->
+        <div class="section-banner">
+            <span>📊</span> SECTION 4 — CALCULATED LOAD RESULTS
+        </div>
+
+        <div class="results-box">
+            <div class="grid-2">
+                <div style="text-align: center; border-right: 1px solid var(--steel-blue);">
+                    <div class="result-label">Total Cooling Load</div>
+                    <div class="result-value" id="coolingResult">0 BTU/hr</div>
+                    <div class="result-label" style="margin-top: 5px;" id="coolingTons">0.0 Tons</div>
+                    <div style="margin-top: 10px;">
+                        <span class="badge">Sensible</span> <span id="sensibleResult">0</span>
+                        <span class="badge" style="background:var(--orange)">Latent</span> <span id="latentResult">0</span>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <div class="result-label">Total Heating Load</div>
+                    <div class="result-value" style="color: var(--orange);" id="heatingResult">0 BTU/hr</div>
+                    <div class="result-label" style="margin-top: 5px;">Required Furnace Size</div>
+                    <div style="margin-top: 10px;">
+                        <span class="badge" style="background:var(--steel-blue)">Recommended</span> <span id="furnaceRec">0k BTU</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sub-header">Detailed Load Breakdown</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Component</th>
+                    <th>Cooling Load (BTU/hr)</th>
+                    <th>Heating Load (BTU/hr)</th>
+                    <th>% of Total (Cool)</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Windows (Solar + Conductive)</td>
+                    <td id="breakdown-windows-c">0</td>
+                    <td id="breakdown-windows-h">0</td>
+                    <td id="pct-windows">0%</td>
+                    <td>Major gain source</td>
+                </tr>
+                <tr>
+                    <td>Walls (Conductive)</td>
+                    <td id="breakdown-walls-c">0</td>
+                    <td id="breakdown-walls-h">0</td>
+                    <td id="pct-walls">0%</td>
+                    <td>Based on U-Factor</td>
+                </tr>
+                <tr>
+                    <td>Roof/Ceiling (Conductive + Solar)</td>
+                    <td id="breakdown-roof-c">0</td>
+                    <td id="breakdown-roof-h">0</td>
+                    <td id="pct-roof">0%</td>
+                    <td>Attic ventilation assumed</td>
+                </tr>
+                <tr>
+                    <td>Infiltration / Ventilation</td>
+                    <td id="breakdown-inf-c">0</td>
+                    <td id="breakdown-inf-h">0</td>
+                    <td id="pct-inf">0%</td>
+                    <td>ACH based on tightness</td>
+                </tr>
+                <tr>
+                    <td>Internal (People + Lights + App)</td>
+                    <td id="breakdown-int-c">0</td>
+                    <td id="breakdown-int-h">0</td>
+                    <td id="pct-int">0%</td>
+                    <td>Sensible heat only</td>
+                </tr>
+                <tr style="background-color: var(--navy-blue); color: white; font-weight: bold;">
+                    <td>TOTALS</td>
+                    <td id="total-c-display">0</td>
+                    <td id="total-h-display">0</td>
+                    <td>100%</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ACTION BUTTONS -->
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+            <button class="btn btn-accent" onclick="calculateLoad()">⚡ Recalculate</button>
+            <button class="btn btn-primary" style="background-color: #666;">🗑️ Clear All</button>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-info">
+            <span>Your HVAC Co.</span>
+            <span>|</span>
+            <span>(555) 867-5309</span>
+            <span>|</span>
+            <span>www.yourhvac.com</span>
+            <span>|</span>
+            <span>Rogers, AR</span>
+        </div>
+        <div class="footer-info">
+            <span class="badge">EPA 608 Universal</span>
+            <span class="badge">NATE Certified</span>
+            <span>★ ★ ★ ★ ★ — Licensed · Bonded · Insured · Serving Northwest Arkansas</span>
+        </div>
+    </footer>
+
+    <script>
+        // Simplified Manual J Calculation Logic for Demonstration
+        function calculateLoad() {
+            // Inputs
+            const sqFt = parseFloat(document.getElementById('sqFt').value) || 0;
+            const volume = parseFloat(document.getElementById('volume').value) || 0;
+            const occupants = parseFloat(document.getElementById('occupants').value) || 0;
+            const lighting = parseFloat(document.getElementById('lighting').value) || 0;
+            const kitchen = parseFloat(document.getElementById('kitchen').value) || 0;
+            const laundry = parseFloat(document.getElementById('laundry').value) || 0;
+
+            // Construction Factors
+            const wallU = parseFloat(document.getElementById('wallType').value);
+            const ceilU = parseFloat(document.getElementById('ceilType').value);
+            const floorU = parseFloat(document.getElementById('floorType').value);
+            const airFactor = parseFloat(document.getElementById('airTight').value);
+
+            // Climate Delta T (Simplified: Summer 95-75=20, Winter 15-70=55)
+            const deltaT_Cool = 20;
+            const deltaT_Heat = 55;
+
+            // 1. Windows Calculation
+            let winCoolLoad = 0;
+            let winHeatLoad = 0;
+            const rows = document.querySelectorAll('tbody tr');
+
+            // Assuming first 4 rows of the first table are windows (simplified selector)
+            // In a real app, we'd target specific IDs
+            const winInputs = document.querySelectorAll('.win-area');
+            const winTypes = document.querySelectorAll('.win-type');
+
+            // Solar Heat Gain Coefficients (Simplified by orientation)
+            const solarFactors = { 'N': 15, 'S': 25, 'E': 30, 'W': 35 }; // BTU/sqft approx
+
+            winInputs.forEach((input, index) => {
+                const area = parseFloat(input.value) || 0;
+                const typeVal = parseFloat(winTypes[index].value); // Represents U-factor roughly
+                const orient = winTypes[index].getAttribute('data-orient');
+                const solar = solarFactors[orient] || 20;
+
+                // Cooling: Conduction + Solar
+                // Simplified: Area * (Solar + (U * DeltaT))
+                winCoolLoad += area * (solar + (typeVal * deltaT_Cool * 1.5));
+
+                // Heating: Conduction only
+                winHeatLoad += area * (typeVal * deltaT_Heat);
+            });
+
+            // 2. Envelope Calculation (Walls, Roof, Floor)
+            // Approximating areas based on SqFt for demo
+            const wallArea = sqFt * 1.2; // Perimeter * Height approx
+            const roofArea = sqFt;
+            const floorArea = sqFt;
+
+            const wallCool = wallArea * wallU * deltaT_Cool;
+            const wallHeat = wallArea * wallU * deltaT_Heat;
+
+            const roofCool = roofArea * ceilU * deltaT_Cool * 1.2; // Solar added to roof
+            const roofHeat = roofArea * ceilU * deltaT_Heat;
+
+            const floorCool = floorArea * floorU * deltaT_Cool * 0.5; // Ground temp buffer
+            const floorHeat = floorArea * floorU * deltaT_Heat;
+
+            // 3. Infiltration
+            // ACH * Volume * 0.018 * DeltaT
+            const ach = 0.5 * airFactor;
+            const infCool = ach * volume * 0.018 * deltaT_Cool;
+            const infHeat = ach * volume * 0.018 * deltaT_Heat;
+
+            // 4. Internal Loads
+            // People: 250 BTU/hr sensible, 200 latent
+            // Lights: Watts * 3.41
+            // Apps: Direct BTU input
+            const peopleCoolSensible = occupants * 250;
+            const peopleCoolLatent = occupants * 200;
+            const lightsCool = sqFt * lighting * 3.41;
+            const appCool = kitchen + laundry;
+
+            const internalCool = peopleCoolSensible + lightsCool + appCool;
+            const internalHeat = 0; // Internal gains usually offset heating load, ignored for peak heat calc safety
+
+            // TOTALS
+            const totalCoolSensible = winCoolLoad + wallCool + roofCool + floorCool + infCool + internalCool;
+            const totalCoolLatent = peopleCoolLatent + (infCool * 0.3); // Approx latent from humidity
+            const totalCool = totalCoolSensible + totalCoolLatent;
+
+            const totalHeat = winHeatLoad + wallHeat + roofHeat + floorHeat + infHeat;
+
+            // Apply Safety Margin (10%)
+            const finalCool = totalCool * 1.1;
+            const finalHeat = totalHeat * 1.1;
+
+            // Update UI
+            document.getElementById('coolingResult').innerText = Math.round(finalCool).toLocaleString() + " BTU/hr";
+            document.getElementById('coolingTons').innerText = (finalCool / 12000).toFixed(1) + " Tons";
+
+            document.getElementById('sensibleResult').innerText = Math.round(totalCoolSensible).toLocaleString();
+            document.getElementById('latentResult').innerText = Math.round(totalCoolLatent).toLocaleString();
+
+            document.getElementById('heatingResult').innerText = Math.round(finalHeat).toLocaleString() + " BTU/hr";
+
+            // Furnace Recommendation (Round up to nearest 5k or 10k)
+            const furnaceSize = Math.ceil(finalHeat / 1000) * 10;
+            document.getElementById('furnaceRec').innerText = furnaceSize + "k BTU";
+
+            // Breakdown Table Updates
+            const totalC = finalCool;
+            const totalH = finalHeat;
+
+            // Helper to update row
+            function updateRow(idC, idH, idPct, valC, valH) {
+                document.getElementById(idC).innerText = Math.round(valC).toLocaleString();
+                document.getElementById(idH).innerText = Math.round(valH).toLocaleString();
+                document.getElementById(idPct).innerText = ((valC / totalC) * 100).toFixed(1) + "%";
+            }
+
+            // Note: Breakdown values here are approximations of the components above for display
+            updateRow('breakdown-windows-c', 'breakdown-windows-h', 'pct-windows', winCoolLoad, winHeatLoad);
+            updateRow('breakdown-walls-c', 'breakdown-walls-h', 'pct-walls', wallCool, wallHeat);
+            updateRow('breakdown-roof-c', 'breakdown-roof-h', 'pct-roof', roofCool, roofHeat);
+            updateRow('breakdown-inf-c', 'breakdown-inf-h', 'pct-inf', infCool, infHeat);
+            updateRow('breakdown-int-c', 'breakdown-int-h', 'pct-int', internalCool, internalHeat);
+
+            document.getElementById('total-c-display').innerText = Math.round(finalCool).toLocaleString();
+            document.getElementById('total-h-display').innerText = Math.round(finalHeat).toLocaleString();
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            // Set today's date
+            const today = new Date();
+            document.getElementById('date').value = today.toLocaleDateString();
+            calculateLoad();
+        };
+    </script>
+</body>
+</html>
+

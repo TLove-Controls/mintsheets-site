@@ -1,0 +1,3 @@
+Build me a [X] template in the exact same visual style as this document — same colors, fonts, table layouts, header/footer design, and section banner format.  
+   
+ Use this exact design theme for all Word document templates: Navy blue (#1B3A6B) section banners with white bold text, Steel blue (#2E6DA4) sub-headers, Sky blue (#D6E4F0) accents, Orange (#E07B00) for highlights, Arial font throughout, alternating white/#F4F6F8 table rows, dual-width DXA tables, a navy/orange branded header with company name left and document title right, and a centered gray footer with contact info. Checklist tables use Pass/Fail/N/A columns. Data tables use Parameter/Measured/Unit/Spec/Status/Notes columns. Section banners are full-width navy bars with an icon and title.  

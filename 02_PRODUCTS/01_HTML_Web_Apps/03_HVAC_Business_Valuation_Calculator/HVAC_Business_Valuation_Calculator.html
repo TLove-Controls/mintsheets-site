@@ -1,0 +1,1161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVAC Business Valuation Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0D1B2A;
+  --ink-mid: #1C2E42;
+  --ink-soft: #2B4460;
+  --gold: #C9922A;
+  --gold-light: #E8B84B;
+  --gold-pale: #FDF3E1;
+  --gold-border: #D4A843;
+  --cream: #F8F4EE;
+  --cream-dark: #EDE8DF;
+  --white: #FFFFFF;
+  --steel: #4A7FA5;
+  --steel-light: #6B9FBF;
+  --teal: #1A7A6E;
+  --teal-light: #2DA897;
+  --rose: #B84040;
+  --rose-light: #D96060;
+  --slate: #8A9BB0;
+  --slate-light: #B0C0D0;
+  --text: #1A2B3C;
+  --text-mid: #4A5D72;
+  --text-soft: #7A8FA0;
+  --border: #D8CCBA;
+  --border-soft: #E8E0D4;
+  --shadow: rgba(13,27,42,0.08);
+  --shadow-strong: rgba(13,27,42,0.18);
+  --display: 'Playfair Display', Georgia, serif;
+  --body: 'DM Sans', system-ui, sans-serif;
+  --mono: 'DM Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--body);
+  background: var(--cream);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* ─── MASTHEAD ─── */
+.masthead {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+}
+.masthead::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(135deg, transparent 0px, transparent 60px, rgba(201,146,42,0.04) 60px, rgba(201,146,42,0.04) 61px),
+    repeating-linear-gradient(45deg, transparent 0px, transparent 60px, rgba(201,146,42,0.03) 60px, rgba(201,146,42,0.03) 61px);
+}
+.masthead-inner {
+  position: relative;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 36px 40px 28px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.masthead-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.masthead-title {
+  font-family: var(--display);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+.masthead-title span { color: var(--gold-light); }
+.masthead-sub {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--slate-light);
+  font-weight: 300;
+  letter-spacing: 0.3px;
+}
+.masthead-right {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--slate);
+  line-height: 2;
+  padding-bottom: 4px;
+}
+.masthead-badge {
+  display: inline-block;
+  background: rgba(201,146,42,0.15);
+  border: 1px solid rgba(201,146,42,0.4);
+  color: var(--gold-light);
+  font-size: 10px;
+  padding: 3px 10px;
+  letter-spacing: 2px;
+  margin-bottom: 6px;
+}
+.gold-rule {
+  height: 3px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, transparent 100%);
+}
+
+/* ─── MAIN LAYOUT ─── */
+.shell {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 32px 40px 60px;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ─── SECTION HEADERS ─── */
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.section-num {
+  width: 28px; height: 28px;
+  background: var(--gold);
+  color: white;
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 14px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.section-head h2 {
+  font-family: var(--display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+}
+.section-head .section-hint {
+  margin-left: auto;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-soft);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* ─── CARDS ─── */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 1px 4px var(--shadow);
+  padding: 24px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--gold);
+}
+.card.teal::before { background: var(--teal); }
+.card.steel::before { background: var(--steel); }
+.card.rose::before { background: var(--rose); }
+
+/* ─── FORM ELEMENTS ─── */
+.field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 20px; }
+.field-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px 16px; }
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field.full { grid-column: 1/-1; }
+
+.field label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.field label .hint {
+  color: var(--text-soft);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 10px;
+  margin-left: 4px;
+}
+
+.input-wrap { position: relative; display: flex; align-items: stretch; }
+.input-pre, .input-suf {
+  background: var(--cream-dark);
+  border: 1px solid var(--border);
+  padding: 0 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-mid);
+  display: flex; align-items: center;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.input-pre { border-right: none; }
+.input-suf { border-left: none; }
+
+input[type="number"], input[type="text"], select, textarea {
+  font-family: var(--body);
+  font-size: 13px;
+  color: var(--text);
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 9px 12px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,146,42,0.1);
+}
+select { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234A5D72' d='M6 8L0 0h12z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+
+/* ─── SLIDER ─── */
+.slider-row {
+  display: flex; align-items: center; gap: 12px;
+}
+input[type="range"] {
+  flex: 1;
+  -webkit-appearance: none;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid white;
+  box-shadow: 0 1px 4px var(--shadow-strong);
+  cursor: pointer;
+}
+.slider-val {
+  min-width: 52px;
+  text-align: center;
+  background: var(--ink);
+  color: var(--gold-light);
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 8px;
+}
+
+/* ─── SCORE METER ─── */
+.score-meter {
+  position: relative;
+  height: 10px;
+  background: var(--cream-dark);
+  border: 1px solid var(--border);
+  border-radius: 1px;
+  overflow: hidden;
+  margin: 6px 0 4px;
+}
+.score-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--rose) 0%, var(--gold) 50%, var(--teal) 100%);
+  transition: width 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* ─── STICKY SIDEBAR ─── */
+.sidebar { position: sticky; top: 24px; }
+
+/* ─── VALUATION DISPLAY ─── */
+.val-panel {
+  background: var(--ink);
+  color: white;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 8px 32px var(--shadow-strong);
+}
+.val-panel-header {
+  background: linear-gradient(135deg, var(--ink-mid), var(--ink-soft));
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.val-panel-header .eyebrow {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--gold-light);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.val-panel-header h3 {
+  font-family: var(--display);
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+}
+
+.val-number {
+  padding: 24px 24px 8px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.val-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--slate);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.val-amount {
+  font-family: var(--display);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 900;
+  color: var(--gold-light);
+  letter-spacing: -1px;
+  line-height: 1;
+  transition: all 0.4s ease;
+}
+.val-range {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--slate);
+  margin-top: 6px;
+  margin-bottom: 18px;
+}
+
+.val-methods { padding: 0 24px 16px; }
+.val-method-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  font-size: 12px;
+}
+.val-method-row:last-child { border-bottom: none; }
+.val-method-name { color: var(--slate-light); font-weight: 400; }
+.val-method-val { font-family: var(--mono); font-weight: 500; color: white; }
+.val-method-mult {
+  font-size: 10px;
+  font-family: var(--mono);
+  background: rgba(255,255,255,0.07);
+  padding: 2px 6px;
+  color: var(--gold-light);
+  margin-left: 6px;
+}
+
+.val-grade {
+  margin: 0 24px 20px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-left: 3px solid var(--gold);
+}
+.val-grade-label {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--slate);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.val-grade-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: white;
+}
+.val-grade-score {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--gold-light);
+  display: inline;
+  margin-right: 6px;
+}
+
+.val-risks { padding: 0 24px 20px; }
+.risk-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--slate-light);
+}
+.risk-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.risk-dot.good { background: var(--teal-light); }
+.risk-dot.warn { background: var(--gold-light); }
+.risk-dot.bad { background: var(--rose-light); }
+
+/* ─── PRINT BUTTON & ACTIONS ─── */
+.action-row {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.btn {
+  font-family: var(--body);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  padding: 9px 16px;
+  cursor: pointer;
+  border: none;
+  transition: all 0.15s;
+  flex: 1;
+  text-align: center;
+}
+.btn-gold { background: var(--gold); color: white; }
+.btn-gold:hover { background: var(--gold-light); }
+.btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.2); color: var(--slate-light); }
+.btn-outline:hover { border-color: rgba(255,255,255,0.4); color: white; }
+.btn:active { transform: scale(0.97); }
+
+/* ─── DISCLAIMER ─── */
+.disclaimer {
+  margin: 24px 24px 0;
+  padding: 12px 14px;
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 10px;
+  color: var(--slate);
+  line-height: 1.7;
+  font-family: var(--mono);
+}
+
+/* ─── COMPARABLE TABLE ─── */
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.comp-table thead tr { background: var(--ink); color: white; }
+.comp-table thead th {
+  padding: 9px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.comp-table tbody tr { border-bottom: 1px solid var(--border-soft); transition: background 0.1s; }
+.comp-table tbody tr:nth-child(even) { background: var(--cream); }
+.comp-table tbody tr:hover { background: var(--gold-pale); }
+.comp-table td { padding: 9px 12px; color: var(--text-mid); }
+.comp-table td.num { font-family: var(--mono); font-weight: 500; color: var(--text); text-align: right; }
+.comp-table td.highlight { color: var(--gold); font-weight: 600; font-family: var(--mono); }
+
+/* ─── BENCHMARK ROW ─── */
+.benchmark-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.bench-card {
+  background: var(--cream);
+  border: 1px solid var(--border-soft);
+  padding: 14px 12px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.bench-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+}
+.bench-card.gold::after { background: var(--gold); }
+.bench-card.teal::after { background: var(--teal); }
+.bench-card.steel::after { background: var(--steel); }
+.bench-card.rose::after { background: var(--rose); }
+.bench-label { font-size: 10px; color: var(--text-soft); font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 4px; }
+.bench-val { font-family: var(--display); font-size: 22px; font-weight: 700; color: var(--ink); line-height: 1; }
+.bench-unit { font-size: 10px; color: var(--text-soft); margin-top: 2px; font-family: var(--mono); }
+.bench-status { font-size: 10px; font-weight: 600; margin-top: 4px; }
+.bench-status.ok { color: var(--teal); }
+.bench-status.warn { color: var(--gold); }
+.bench-status.bad { color: var(--rose); }
+
+/* ─── FOOTER ─── */
+.page-footer {
+  background: var(--ink-mid);
+  border-top: 3px solid var(--gold);
+  text-align: center;
+  padding: 16px 40px;
+  color: var(--slate);
+  font-size: 11px;
+  font-family: var(--mono);
+  letter-spacing: 0.3px;
+}
+.page-footer strong { color: var(--gold-light); }
+
+@media (max-width: 800px) {
+  .shell { grid-template-columns: 1fr; padding: 20px; }
+  .sidebar { position: static; }
+  .benchmark-grid { grid-template-columns: 1fr 1fr; }
+  .field-grid, .field-grid-3 { grid-template-columns: 1fr; }
+  .masthead-inner { padding: 24px 20px 20px; }
+}
+
+@keyframes countUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.val-amount.updated { animation: countUp 0.35s ease both; }
+</style>
+</head>
+<body>
+
+<!-- ═══ MASTHEAD ═══ -->
+<div class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <div class="masthead-eyebrow">Your HVAC Co. · Financial Intelligence Suite</div>
+      <div class="masthead-title">Business <span>Valuation</span><br>Calculator</div>
+      <div class="masthead-sub">M&A · Succession Planning · SBA Lending · Partner Buyouts</div>
+    </div>
+    <div class="masthead-right">
+      <div class="masthead-badge">LIVE ANALYSIS</div><br>
+      Rogers, AR · Est. 2024<br>
+      EPA 608 · NATE Certified<br>
+      <span style="color:var(--gold-light);font-size:10px;">All figures are estimates only</span>
+    </div>
+  </div>
+  <div class="gold-rule"></div>
+</div>
+
+<!-- ═══ MAIN SHELL ═══ -->
+<div class="shell">
+
+  <!-- ══════════ LEFT COLUMN ══════════ -->
+  <div class="left-col">
+
+    <!-- ─ SECTION 1: FINANCIALS ─ -->
+    <div class="card">
+      <div class="section-head">
+        <div class="section-num">1</div>
+        <h2>Revenue & Profitability</h2>
+        <span class="section-hint">Annual Figures</span>
+      </div>
+      <div class="field-grid">
+        <div class="field">
+          <label>Gross Annual Revenue <span class="hint">(most recent FY)</span></label>
+          <div class="input-wrap">
+            <div class="input-pre">$</div>
+            <input type="number" id="revenue" value="1200000" step="10000" oninput="calc()">
+          </div>
+        </div>
+        <div class="field">
+          <label>Prior Year Revenue <span class="hint">(for trend)</span></label>
+          <div class="input-wrap">
+            <div class="input-pre">$</div>
+            <input type="number" id="rev-prior" value="1050000" step="10000" oninput="calc()">
+          </div>
+        </div>
+        <div class="field">
+          <label>Cost of Goods Sold <span class="hint">(parts, equipment)</span></label>
+          <div class="input-wrap">
+            <div class="input-pre">$</div>
+            <input type="number" id="cogs" value="420000" step="5000" oninput="calc()">
+          </div>
+        </div>
+        <div class="field">
+          <label>Total Operating Expenses <span class="hint">(excl. COGS)</span></label>
+          <div class="input-wrap">
+            <div class="input-pre">$</div>
+            <input type="number" id="opex" value="380000" step="5000" oninput="calc()">
+          </div>
+        </div>
+        <div class="field">
+          <label>Owner Compensation <span class="hint">(salary + distributions)</span></label>
+          <div class="input-wrap">
+            <div class="input-pre">$</div>
+            <input type="number" id="owner-comp" value="150000" step="5000" oninput="calc()">
+          </div>
+        </div>
+        <div class="field">
+          <label>Depreciation & Amortization</label>
+          <div class="input-wrap">
+            <div class="input-pre">$</div>
+            <input type="number" id="da" value="28000" step="1000" oninput="calc()">
+          </div>
+        </div>
+        <div class="field">
+          <label>Interest Expense</label>
+          <div class="input-wrap">
+            <div class="input-pre">$</div>
+            <input type="number" id="interest" value="12000" step="1000" oninput="calc()">
+          </div>
+        </div>
+        <div class="field">
+          <label>One-Time / Non-Recurring Items <span class="hint">(add-back)</span></label>
+          <div class="input-wrap">
+            <div class="input-pre">$</div>
+            <input type="number" id="addback" value="15000" step="1000" oninput="calc()">
+          </div>
+        </div>
+      </div>
+
+      <div style="height:14px;"></div>
+
+      <!-- BENCHMARK CARDS -->
+      <div class="benchmark-grid" id="benchmarks">
+        <div class="bench-card gold">
+          <div class="bench-label">Gross Profit</div>
+          <div class="bench-val" id="b-gp">—</div>
+          <div class="bench-unit">margin %</div>
+          <div class="bench-status" id="b-gp-s">—</div>
+        </div>
+        <div class="bench-card teal">
+          <div class="bench-label">Net Profit</div>
+          <div class="bench-val" id="b-np">—</div>
+          <div class="bench-unit">margin %</div>
+          <div class="bench-status" id="b-np-s">—</div>
+        </div>
+        <div class="bench-card steel">
+          <div class="bench-label">SDE Margin</div>
+          <div class="bench-val" id="b-sde">—</div>
+          <div class="bench-unit">of revenue</div>
+          <div class="bench-status" id="b-sde-s">—</div>
+        </div>
+        <div class="bench-card rose">
+          <div class="bench-label">Rev Growth</div>
+          <div class="bench-val" id="b-growth">—</div>
+          <div class="bench-unit">YoY %</div>
+          <div class="bench-status" id="b-growth-s">—</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ SECTION 2: BUSINESS PROFILE ─ -->
+    <div class="card teal">
+      <div class="section-head">
+        <div class="section-num" style="background:var(--teal)">2</div>
+        <h2>Business Profile & Operations</h2>
+        <span class="section-hint">Qualitative Drivers</span>
+      </div>
+      <div class="field-grid">
+        <div class="field">
+          <label>Years in Business</label>
+          <select id="yib" onchange="calc()">
+            <option value="1">Under 3 years</option>
+            <option value="2">3–5 years</option>
+            <option value="3" selected>5–10 years</option>
+            <option value="4">10–20 years</option>
+            <option value="5">20+ years</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Number of Employees</label>
+          <div class="input-wrap">
+            <input type="number" id="employees" value="8" min="1" max="500" oninput="calc()">
+            <div class="input-suf">FTEs</div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Service Vehicles / Fleet</label>
+          <div class="input-wrap">
+            <input type="number" id="vehicles" value="5" min="0" oninput="calc()">
+            <div class="input-suf">units</div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Service Agreement Accounts <span class="hint">(annual contracts)</span></label>
+          <div class="input-wrap">
+            <input type="number" id="contracts" value="220" min="0" oninput="calc()">
+            <div class="input-suf">accts</div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Revenue Mix — Residential %</label>
+          <div class="slider-row">
+            <input type="range" id="res-pct" min="0" max="100" value="75" oninput="updateSlider('res-pct','s-res-pct','%');calc()">
+            <div class="slider-val" id="s-res-pct">75%</div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Recurring / Service Rev %</label>
+          <div class="slider-row">
+            <input type="range" id="rec-pct" min="0" max="100" value="40" oninput="updateSlider('rec-pct','s-rec-pct','%');calc()">
+            <div class="slider-val" id="s-rec-pct">40%</div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Geographic Market</label>
+          <select id="market" onchange="calc()">
+            <option value="0.9">Rural / Small town</option>
+            <option value="1.0" selected>Mid-size metro (Rogers/NWA)</option>
+            <option value="1.1">Large metro / High growth</option>
+            <option value="1.15">Top 20 MSA</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Owner Dependency Risk</label>
+          <select id="owner-dep" onchange="calc()">
+            <option value="0.85">Critical — owner does all sales/ops</option>
+            <option value="0.92">High — owner involved daily</option>
+            <option value="1.0" selected>Moderate — managers in place</option>
+            <option value="1.1">Low — business runs without owner</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ SECTION 3: ASSETS & LIABILITIES ─ -->
+    <div class="card steel">
+      <div class="section-head">
+        <div class="section-num" style="background:var(--steel)">3</div>
+        <h2>Assets, Liabilities & Intangibles</h2>
+        <span class="section-hint">Balance Sheet Inputs</span>
+      </div>
+      <div class="field-grid">
+        <div class="field">
+          <label>Equipment / Tools FMV <span class="hint">(fair market value)</span></label>
+          <div class="input-wrap">
+            <div class="input-pre">$</div>
+            <input type="number" id="equip-fmv" value="95000" step="5000" oninput="calc()">
+          </div>
+        </div>
+        <div class="field">
+          <label>Vehicle Fleet FMV</label>
+          <div class="input-wrap">
+            <div class="input-pre">$</div>
+            <input type="number" id="vehicle-fmv" value="120000" step="5000" oninput="calc()">
+          </div>
+        </div>
+        <div class="field">
+          <label>Real Estate <span class="hint">(if included in sale)</span></label>
+          <div class="input-wrap">
+            <div class="input-pre">$</div>
+            <input type="number" id="realestate" value="0" step="10000" oninput="calc()">
+          </div>
+        </div>
+        <div class="field">
+          <label>Inventory / Parts Stock</label>
+          <div class="input-wrap">
+            <div class="input-pre">$</div>
+            <input type="number" id="inventory" value="18000" step="1000" oninput="calc()">
+          </div>
+        </div>
+        <div class="field">
+          <label>Outstanding Debt / Liabilities</label>
+          <div class="input-wrap">
+            <div class="input-pre">$</div>
+            <input type="number" id="debt" value="45000" step="5000" oninput="calc()">
+          </div>
+        </div>
+        <div class="field">
+          <label>Brand / Online Reputation</label>
+          <select id="brand-rep" onchange="calc()">
+            <option value="0.95">Poor — below 4.0 stars / few reviews</option>
+            <option value="1.0" selected>Average — 4.0–4.5 stars</option>
+            <option value="1.06">Good — 4.5–4.8 stars, 100+ reviews</option>
+            <option value="1.12">Excellent — 4.8+ stars, 300+ reviews</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ SECTION 4: VALUATION METHOD WEIGHTS ─ -->
+    <div class="card">
+      <div class="section-head">
+        <div class="section-num">4</div>
+        <h2>Valuation Method Weighting</h2>
+        <span class="section-hint">Adjust to Scenario</span>
+      </div>
+      <p style="font-size:12px;color:var(--text-mid);margin-bottom:16px;line-height:1.7;">Weights must sum to 100%. The blended value is a weighted average of each method's result. Adjust to fit the transaction type — e.g., increase SDE weight for owner-operated businesses, EBITDA for institutional buyers.</p>
+
+      <div class="field-grid">
+        <div class="field">
+          <label>SDE Multiple Weight</label>
+          <div class="slider-row">
+            <input type="range" id="w-sde" min="0" max="100" value="40" step="5" oninput="normalizeWeights('w-sde');updateSlider('w-sde','sv-sde','%');calc()">
+            <div class="slider-val" id="sv-sde">40%</div>
+          </div>
+        </div>
+        <div class="field">
+          <label>EBITDA Multiple Weight</label>
+          <div class="slider-row">
+            <input type="range" id="w-ebitda" min="0" max="100" value="30" step="5" oninput="normalizeWeights('w-ebitda');updateSlider('w-ebitda','sv-ebitda','%');calc()">
+            <div class="slider-val" id="sv-ebitda">30%</div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Revenue Multiple Weight</label>
+          <div class="slider-row">
+            <input type="range" id="w-rev" min="0" max="100" value="20" step="5" oninput="normalizeWeights('w-rev');updateSlider('w-rev','sv-rev','%');calc()">
+            <div class="slider-val" id="sv-rev">20%</div>
+          </div>
+        </div>
+        <div class="field">
+          <label>Asset-Based Weight</label>
+          <div class="slider-row">
+            <input type="range" id="w-asset" min="0" max="100" value="10" step="5" oninput="normalizeWeights('w-asset');updateSlider('w-asset','sv-asset','%');calc()">
+            <div class="slider-val" id="sv-asset">10%</div>
+          </div>
+        </div>
+      </div>
+      <div id="weight-warning" style="display:none;background:var(--gold-pale);border:1px solid var(--gold-border);padding:8px 12px;font-size:11px;color:#7A5500;margin-top:10px;">
+        ⚠ Weights don't sum to 100% — blended value is proportional.
+      </div>
+
+      <div style="height:16px;"></div>
+
+      <div class="section-head" style="margin-bottom:12px;">
+        <div class="section-num" style="background:var(--ink-soft);font-size:12px;">M</div>
+        <h2 style="font-size:15px;">Industry Multiple Benchmarks</h2>
+      </div>
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Business Profile</th>
+            <th>SDE Multiple</th>
+            <th>EBITDA Multiple</th>
+            <th>Rev Multiple</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Small owner-op (&lt;$500K rev)</td><td class="num">1.5–2.5×</td><td class="num">2.0–3.0×</td><td class="num">0.3–0.5×</td><td>High owner dependency</td></tr>
+          <tr><td>Mid-size ($500K–$2M rev)</td><td class="num">2.5–3.5×</td><td class="num">3.0–4.5×</td><td class="num">0.5–0.8×</td><td>NWA market typical</td></tr>
+          <tr><td>Established ($2M–$5M rev)</td><td class="num">3.0–4.5×</td><td class="num">4.0–6.0×</td><td class="num">0.7–1.0×</td><td>Service agreements key</td></tr>
+          <tr><td>Large / Commercial focus</td><td class="num">4.0–6.0×</td><td class="num">5.0–8.0×</td><td class="num">0.8–1.2×</td><td>Recurring contracts add premium</td></tr>
+          <tr><td>PE Platform target</td><td class="num">5.0–8.0×</td><td class="num">7.0–12.0×</td><td class="num">1.0–2.0×</td><td>Scale + strong management</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <!-- ══════════ END LEFT COLUMN ══════════ -->
+
+  <!-- ══════════ SIDEBAR ══════════ -->
+  <div class="sidebar">
+    <div class="val-panel">
+      <div class="val-panel-header">
+        <div class="eyebrow">Estimated Business Value</div>
+        <h3>Blended Valuation Range</h3>
+      </div>
+
+      <div class="val-number">
+        <div class="val-label">Midpoint Estimate</div>
+        <div class="val-amount" id="v-total">$0</div>
+        <div class="val-range" id="v-range">Range: $0 — $0</div>
+      </div>
+
+      <div class="val-methods">
+        <div class="val-method-row">
+          <span class="val-method-name">SDE Method</span>
+          <span>
+            <span class="val-method-val" id="v-sde">—</span>
+            <span class="val-method-mult" id="m-sde">—</span>
+          </span>
+        </div>
+        <div class="val-method-row">
+          <span class="val-method-name">EBITDA Method</span>
+          <span>
+            <span class="val-method-val" id="v-ebitda">—</span>
+            <span class="val-method-mult" id="m-ebitda">—</span>
+          </span>
+        </div>
+        <div class="val-method-row">
+          <span class="val-method-name">Revenue Method</span>
+          <span>
+            <span class="val-method-val" id="v-rev">—</span>
+            <span class="val-method-mult" id="m-rev">—</span>
+          </span>
+        </div>
+        <div class="val-method-row">
+          <span class="val-method-name">Asset-Based</span>
+          <span>
+            <span class="val-method-val" id="v-asset">—</span>
+            <span class="val-method-mult" style="display:none;">—</span>
+          </span>
+        </div>
+        <div class="val-method-row" style="padding-top:10px;margin-top:4px;border-top:1px solid rgba(255,255,255,0.12);">
+          <span class="val-method-name" style="color:white;font-weight:500;">Enterprise Value</span>
+          <span class="val-method-val" id="v-ev" style="color:var(--gold-light);">—</span>
+        </div>
+        <div class="val-method-row">
+          <span class="val-method-name">Less: Outstanding Debt</span>
+          <span class="val-method-val" id="v-debt" style="color:var(--rose-light);">—</span>
+        </div>
+        <div class="val-method-row" style="border-bottom:none;">
+          <span class="val-method-name" style="color:white;font-weight:500;">Equity Value (Cash-Free)</span>
+          <span class="val-method-val" id="v-equity" style="color:var(--teal-light);">—</span>
+        </div>
+      </div>
+
+      <div class="val-grade">
+        <div class="val-grade-label">Buyer Attractiveness Score</div>
+        <div id="v-grade-score" class="val-grade-score">—</div>
+        <span class="val-grade-text" id="v-grade-text">Enter data to calculate</span>
+        <div style="margin-top:8px;">
+          <div class="score-meter"><div class="score-fill" id="score-fill" style="width:0%"></div></div>
+        </div>
+      </div>
+
+      <div class="val-risks">
+        <div style="font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--slate);text-transform:uppercase;margin-bottom:10px;">Value Drivers & Risks</div>
+        <div id="risk-list"></div>
+      </div>
+
+      <div class="action-row">
+        <button class="btn btn-gold" onclick="window.print()">Print / PDF</button>
+        <button class="btn btn-outline" onclick="resetDefaults()">Reset</button>
+      </div>
+
+      <div class="disclaimer">
+        ⚠ FOR ESTIMATION PURPOSES ONLY. This calculator does not constitute a certified business appraisal. Consult a licensed business valuator, CPA, or M&A advisor before any transaction. Multiples vary by market conditions, deal structure, and buyer type.
+      </div>
+    </div>
+  </div>
+  <!-- ══════════ END SIDEBAR ══════════ -->
+
+</div><!-- /shell -->
+
+<div class="page-footer">
+  <strong>Your HVAC Co.</strong> · (555) 867-5309 · www.yourhvac.com · Rogers, AR &nbsp;·&nbsp;
+  EPA 608 Universal · NATE Certified · Licensed · Bonded · Insured
+</div>
+
+<script>
+function $(id) { return document.getElementById(id); }
+function n(id) { return parseFloat($(id).value) || 0; }
+function pct(id) { return parseFloat($(id).value) / 100; }
+
+function money(val, short) {
+  if (isNaN(val)) return '—';
+  if (short && Math.abs(val) >= 1000000) return '$' + (val/1000000).toFixed(2) + 'M';
+  if (short && Math.abs(val) >= 1000) return '$' + (val/1000).toFixed(0) + 'K';
+  return '$' + Math.round(val).toLocaleString();
+}
+
+function updateSlider(inputId, displayId, suffix) {
+  $(displayId).textContent = $(inputId).value + (suffix || '');
+}
+
+function normalizeWeights(changed) {
+  // Don't auto-normalize; just flag warning
+  var total = ['w-sde','w-ebitda','w-rev','w-asset'].reduce((s,id) => s + parseInt($(id).value), 0);
+  $('weight-warning').style.display = total !== 100 ? '' : 'none';
+}
+
+function calc() {
+  var rev = n('revenue');
+  var revPrior = n('rev-prior');
+  var cogs = n('cogs');
+  var opex = n('opex');
+  var ownerComp = n('owner-comp');
+  var da = n('da');
+  var interest = n('interest');
+  var addback = n('addback');
+  var equip = n('equip-fmv');
+  var veh = n('vehicle-fmv');
+  var re = n('realestate');
+  var inv = n('inventory');
+  var debt = n('debt');
+  var contracts = n('contracts');
+  var employees = n('employees');
+  var vehicles = n('vehicles');
+
+  var recPct = pct('rec-pct');
+  var marketMult = parseFloat($('market').value);
+  var ownerDepMult = parseFloat($('owner-dep').value);
+  var brandMult = parseFloat($('brand-rep').value);
+  var yibScore = parseInt($('yib').value);
+
+  // ─── CORE FINANCIALS ───
+  var grossProfit = rev - cogs;
+  var gpPct = rev > 0 ? (grossProfit / rev) * 100 : 0;
+  var netProfit = rev - cogs - opex;
+  var npPct = rev > 0 ? (netProfit / rev) * 100 : 0;
+  var growth = revPrior > 0 ? ((rev - revPrior) / revPrior) * 100 : 0;
+
+  // SDE = Net Profit + Owner Comp + D&A + Interest + Add-backs
+  var sde = netProfit + ownerComp + da + interest + addback;
+  var sdePct = rev > 0 ? (sde / rev) * 100 : 0;
+
+  // EBITDA = Net Profit + D&A + Interest (excl. owner comp for institutional)
+  var ebitda = netProfit + da + interest + addback;
+
+  // ─── QUALITY MULTIPLIER ───
+  var recBonus = 1 + (recPct * 0.25);           // recurring rev premium
+  var contractBonus = 1 + Math.min(contracts / 1000, 0.2); // service agreements
+  var growthBonus = growth > 10 ? 1.08 : growth > 5 ? 1.04 : growth < 0 ? 0.92 : 1.0;
+  var qualMult = marketMult * ownerDepMult * brandMult * recBonus * contractBonus * growthBonus;
+
+  // ─── BASE INDUSTRY MULTIPLES (mid-market HVAC) ───
+  var revBand = rev < 500000 ? 0 : rev < 2000000 ? 1 : rev < 5000000 ? 2 : 3;
+  var sdeBaseArr = [2.0, 3.0, 3.75, 5.0];
+  var ebitdaBaseArr = [2.5, 3.75, 5.0, 7.0];
+  var revBaseArr = [0.40, 0.65, 0.85, 1.0];
+
+  var sdeBase = sdeBaseArr[revBand];
+  var ebitdaBase = ebitdaBaseArr[revBand];
+  var revBase = revBaseArr[revBand];
+
+  var sdeMult = sdeBase * qualMult;
+  var ebitdaMult = ebitdaBase * qualMult;
+  var revMult = revBase * qualMult;
+
+  // ─── VALUATIONS ───
+  var valSDE = sde * sdeMult;
+  var valEBITDA = ebitda * ebitdaMult;
+  var valRev = rev * revMult;
+  var valAsset = equip + veh + re + inv + (contracts * 500); // $500/contract goodwill
+
+  // ─── WEIGHTED BLEND ───
+  var wSDE = parseInt($('w-sde').value) / 100;
+  var wEBITDA = parseInt($('w-ebitda').value) / 100;
+  var wRev = parseInt($('w-rev').value) / 100;
+  var wAsset = parseInt($('w-asset').value) / 100;
+  var wTotal = wSDE + wEBITDA + wRev + wAsset;
+
+  var blend = wTotal > 0
+    ? (valSDE * wSDE + valEBITDA * wEBITDA + valRev * wRev + valAsset * wAsset) / wTotal
+    : 0;
+
+  var lo = blend * 0.88;
+  var hi = blend * 1.14;
+  var equity = blend - debt;
+
+  // ─── UPDATE DOM ───
+  var el = $('v-total');
+  el.textContent = money(blend, true);
+  el.classList.remove('updated');
+  void el.offsetWidth;
+  el.classList.add('updated');
+
+  $('v-range').textContent = 'Range: ' + money(lo, true) + ' — ' + money(hi, true);
+  $('v-sde').textContent = money(valSDE, true);
+  $('v-ebitda').textContent = money(valEBITDA, true);
+  $('v-rev').textContent = money(valRev, true);
+  $('v-asset').textContent = money(valAsset, true);
+  $('v-ev').textContent = money(blend, true);
+  $('v-debt').textContent = '-' + money(debt, true);
+  $('v-equity').textContent = money(equity, true);
+  $('m-sde').textContent = sdeMult.toFixed(2) + '×';
+  $('m-ebitda').textContent = ebitdaMult.toFixed(2) + '×';
+  $('m-rev').textContent = revMult.toFixed(2) + '×';
+
+  // ─── BENCHMARKS ───
+  $('b-gp').textContent = gpPct.toFixed(1) + '%';
+  $('b-np').textContent = npPct.toFixed(1) + '%';
+  $('b-sde').textContent = sdePct.toFixed(1) + '%';
+  $('b-growth').textContent = (growth >= 0 ? '+' : '') + growth.toFixed(1) + '%';
+
+  setStatus('b-gp-s', gpPct, 45, 35, 'Strong', 'Average', 'Below Avg');
+  setStatus('b-np-s', npPct, 12, 6, 'Strong', 'Average', 'Thin');
+  setStatus('b-sde-s', sdePct, 25, 15, 'Strong', 'Average', 'Thin');
+  setStatus('b-growth-s', growth, 10, 0, 'Growing', 'Stable', 'Declining');
+
+  // ─── BUYER ATTRACTIVENESS SCORE ───
+  var score = 50;
+  score += Math.min(gpPct - 40, 20);          // gross profit
+  score += Math.min(npPct * 2, 16);           // profitability
+  score += Math.min(growth * 1.5, 12);        // growth
+  score += recPct * 20;                        // recurring revenue
+  score += Math.min(contracts / 50, 6);       // service agreements
+  score += (yibScore - 1) * 3;               // longevity
+  score += (parseFloat($('owner-dep').value) - 0.85) / 0.25 * 5;
+  score += (parseFloat($('brand-rep').value) - 0.95) / 0.17 * 5;
+  score = Math.max(0, Math.min(100, score));
+
+  $('v-grade-score').textContent = Math.round(score);
+  var gradeText, gradeFill;
+  if (score >= 80) { gradeText = 'Highly Attractive — premium buyer pool'; gradeFill = 'var(--teal-light)'; }
+  else if (score >= 65) { gradeText = 'Above Average — good buyer interest'; gradeFill = 'var(--gold-light)'; }
+  else if (score >= 50) { gradeText = 'Average — standard market interest'; gradeFill = 'var(--gold)'; }
+  else if (score >= 35) { gradeText = 'Below Average — limited buyer pool'; gradeFill = 'var(--rose-light)'; }
+  else { gradeText = 'Challenged — significant improvements needed'; gradeFill = 'var(--rose)'; }
+  $('v-grade-text').textContent = gradeText;
+  $('score-fill').style.width = score + '%';
+  $('score-fill').style.background = 'linear-gradient(90deg, var(--rose) 0%, var(--gold) 50%, var(--teal-light) 100%)';
+
+  // ─── RISK ITEMS ───
+  var risks = [];
+  if (recPct >= 0.35) risks.push({ c: 'good', t: Math.round(recPct*100) + '% recurring revenue — premium driver' });
+  else risks.push({ c: 'warn', t: 'Low recurring revenue (' + Math.round(recPct*100) + '%) — key improvement area' });
+
+  if (contracts >= 150) risks.push({ c: 'good', t: contracts + ' service agreements — strong retention asset' });
+  else risks.push({ c: 'warn', t: 'Build service agreement base (currently ' + contracts + ')' });
+
+  if (growth >= 10) risks.push({ c: 'good', t: 'Revenue growing ' + growth.toFixed(1) + '% YoY — above market' });
+  else if (growth < 0) risks.push({ c: 'bad', t: 'Revenue declining ' + Math.abs(growth).toFixed(1) + '% — discount likely' });
+  else risks.push({ c: 'warn', t: 'Modest growth ' + growth.toFixed(1) + '% — demonstrate trajectory' });
+
+  var ownerD = parseFloat($('owner-dep').value);
+  if (ownerD >= 1.05) risks.push({ c: 'good', t: 'Strong management team — reduces transition risk' });
+  else if (ownerD <= 0.92) risks.push({ c: 'bad', t: 'High owner dependency — significant discount factor' });
+  else risks.push({ c: 'warn', t: 'Moderate owner involvement — document all processes' });
+
+  if (gpPct >= 45) risks.push({ c: 'good', t: gpPct.toFixed(1) + '% gross margin — above HVAC average (42%)' });
+  else risks.push({ c: 'warn', t: gpPct.toFixed(1) + '% gross margin — industry avg is 42–48%' });
+
+  $('risk-list').innerHTML = risks.map(r =>
+    '<div class="risk-item"><div class="risk-dot ' + r.c + '"></div><span>' + r.t + '</span></div>'
+  ).join('');
+}
+
+function setStatus(id, val, goodThresh, warnThresh, good, avg, bad) {
+  var el = $(id);
+  if (val >= goodThresh) { el.textContent = good; el.className = 'bench-status ok'; }
+  else if (val >= warnThresh) { el.textContent = avg; el.className = 'bench-status warn'; }
+  else { el.textContent = bad; el.className = 'bench-status bad'; }
+}
+
+function resetDefaults() {
+  var defaults = {
+    revenue: 1200000, 'rev-prior': 1050000, cogs: 420000, opex: 380000,
+    'owner-comp': 150000, da: 28000, interest: 12000, addback: 15000,
+    'equip-fmv': 95000, 'vehicle-fmv': 120000, realestate: 0, inventory: 18000,
+    debt: 45000, employees: 8, vehicles: 5, contracts: 220
+  };
+  Object.entries(defaults).forEach(([k,v]) => { if($(k)) $(k).value = v; });
+  $('res-pct').value = 75; $('s-res-pct').textContent = '75%';
+  $('rec-pct').value = 40; $('s-rec-pct').textContent = '40%';
+  $('w-sde').value = 40; $('sv-sde').textContent = '40%';
+  $('w-ebitda').value = 30; $('sv-ebitda').textContent = '30%';
+  $('w-rev').value = 20; $('sv-rev').textContent = '20%';
+  $('w-asset').value = 10; $('sv-asset').textContent = '10%';
+  calc();
+}
+
+calc();
+</script>
+</body>
+</html>

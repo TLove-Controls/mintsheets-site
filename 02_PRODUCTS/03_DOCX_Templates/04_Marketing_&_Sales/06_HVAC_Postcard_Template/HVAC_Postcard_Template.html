@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your HVAC Co. — Postcard Templates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Barlow:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+<style>
+/* ── Reset ────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Tokens ───────────────────────────────────────── */
+:root {
+  --navy:      #1B3A6B;
+  --navy-d:    #122849;
+  --navy-xd:   #0A1929;
+  --steel:     #2E6DA4;
+  --sky:       #D6E4F0;
+  --orange:    #E07B00;
+  --orange-lt: #FF9A2E;
+  --white:     #FFFFFF;
+  --offwhite:  #F5F7FA;
+  --gray-lt:   #E2E8F0;
+  --gray:      #94A3B8;
+  --black:     #0F1923;
+
+  /* Standard 4×6 postcard — 576×384px at 96dpi screen */
+  --pc-w: 576px;
+  --pc-h: 384px;
+}
+
+body {
+  background: #131b27;
+  min-height: 100vh;
+  padding: 28px 16px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Barlow', sans-serif;
+}
+
+/* ── UI chrome ────────────────────────────────────── */
+.ui-row {
+  width: 100%;
+  max-width: 1260px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.ui-row label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+.ui-row select, .ui-row button {
+  font-family: 'Barlow', sans-serif;
+  font-size: 13px;
+  padding: 7px 14px;
+  border-radius: 6px;
+  border: 1px solid #2a3a52;
+  background: #1e2d42;
+  color: #cbd5e1;
+  cursor: pointer;
+  outline: none;
+  transition: border-color .2s;
+}
+.ui-row select:hover { border-color: var(--orange); }
+.ui-row button {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
+  font-weight: 600;
+}
+.ui-row button:hover { background: var(--orange-lt); border-color: var(--orange-lt); }
+
+/* Section labels */
+.section-label {
+  width: 100%;
+  max-width: 1260px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #475569;
+  margin-bottom: 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #1e2d42;
+}
+
+/* ── Grid wrapper ─────────────────────────────────── */
+.grid-wrapper {
+  width: 100%;
+  max-width: 1260px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ── Pair: front + back ───────────────────────────── */
+.card-pair {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pair-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #64748b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pair-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #1e2d42;
+}
+.pair-label .variant-num {
+  background: var(--orange);
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+
+.front-back-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.card-slot {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.card-slot .slot-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #475569;
+  text-align: center;
+}
+
+/* ── Postcard base ────────────────────────────────── */
+.pc {
+  width: var(--pc-w);
+  height: var(--pc-h);
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  box-shadow: 0 12px 48px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.04);
+  flex-shrink: 0;
+}
+
+/* ════════════════════════════════════════════════════
+   VARIANT 1 — BOLD DARK / SEASONAL PROMO
+   Front: dark industrial with big headline + offer
+   Back:  standard mail format
+════════════════════════════════════════════════════ */
+
+/* --- 1 FRONT --- */
+.pc-1f {
+  background: var(--navy-xd);
+  display: flex;
+  flex-direction: column;
+}
+.pc-1f::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -60px;
+  width: 320px; height: 320px;
+  background: radial-gradient(circle, rgba(224,123,0,.22) 0%, transparent 70%);
+  pointer-events: none;
+}
+.pc-1f .stripe-top {
+  height: 6px;
+  background: linear-gradient(90deg, var(--orange) 0%, var(--orange-lt) 100%);
+  flex-shrink: 0;
+}
+.pc-1f .content {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  z-index: 2;
+}
+.pc-1f .left-col {
+  flex: 1;
+  padding: 22px 24px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pc-1f .eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.pc-1f .headline {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 72px;
+  line-height: .88;
+  letter-spacing: .02em;
+  color: var(--white);
+  margin-top: 4px;
+}
+.pc-1f .headline span { color: var(--orange); }
+.pc-1f .sub-line {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-top: 6px;
+}
+.pc-1f .bottom-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+.pc-1f .cert-pill {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 12px;
+  padding: 3px 9px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.pc-1f .cert-pill.hot {
+  background: rgba(224,123,0,.14);
+  border-color: rgba(224,123,0,.35);
+  color: var(--orange-lt);
+}
+.pc-1f .right-col {
+  width: 180px;
+  flex-shrink: 0;
+  background: var(--orange);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 16px;
+  gap: 2px;
+  clip-path: polygon(14% 0, 100% 0, 100% 100%, 0 100%);
+  padding-left: 30px;
+}
+.pc-1f .right-col .from {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.75);
+}
+.pc-1f .right-col .price {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 68px;
+  color: #fff;
+  line-height: 1;
+}
+.pc-1f .right-col .service {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.9);
+  text-align: center;
+}
+.pc-1f .right-col .expiry {
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px;
+  color: rgba(255,255,255,.7);
+  margin-top: 6px;
+  text-align: center;
+}
+.pc-1f .footer-band {
+  background: var(--navy-d);
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.pc-1f .footer-band .co-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  letter-spacing: .06em;
+  color: var(--white);
+}
+.pc-1f .footer-band .co-contact {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray);
+  letter-spacing: .04em;
+}
+.pc-1f .footer-band .co-phone {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 22px;
+  color: var(--orange);
+  letter-spacing: .06em;
+}
+
+/* --- 1 BACK --- */
+.pc-1b {
+  background: var(--offwhite);
+  display: flex;
+}
+.pc-1b .back-left {
+  width: 280px;
+  flex-shrink: 0;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  padding: 20px 22px;
+  gap: 14px;
+  position: relative;
+  overflow: hidden;
+}
+.pc-1b .back-left::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; right: -40px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: var(--orange);
+  opacity: .1;
+}
+.pc-1b .back-left .co-block .co-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 26px;
+  letter-spacing: .06em;
+  color: var(--white);
+  line-height: 1;
+}
+.pc-1b .back-left .co-block .co-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.pc-1b .back-left .divider {
+  height: 1px;
+  background: rgba(255,255,255,.12);
+}
+.pc-1b .back-left .service-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.pc-1b .back-left .service-list .si {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  color: var(--sky);
+}
+.pc-1b .back-left .service-list .si::before {
+  content: '';
+  width: 5px; height: 5px;
+  background: var(--orange);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.pc-1b .back-left .contact-block {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pc-1b .back-left .contact-block .cphone {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 24px;
+  color: var(--orange);
+  letter-spacing: .06em;
+  line-height: 1;
+}
+.pc-1b .back-left .contact-block .cinfo {
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px;
+  color: var(--gray);
+}
+.pc-1b .back-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.pc-1b .back-right .indicia-row {
+  height: 52px;
+  border-bottom: 1px dashed #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 16px;
+  gap: 10px;
+}
+.pc-1b .back-right .stamp-box {
+  width: 68px;
+  height: 38px;
+  border: 1.5px dashed #94a3b8;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  text-align: center;
+  line-height: 1.3;
+}
+.pc-1b .back-right .address-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 20px;
+  gap: 4px;
+}
+.pc-1b .back-right .address-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+.pc-1b .back-right .addr-line {
+  height: 22px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 3px;
+}
+.pc-1b .back-right .addr-line span {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9px;
+  color: #94a3b8;
+  font-style: italic;
+}
+.pc-1b .back-right .offer-reminder {
+  background: var(--orange);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pc-1b .back-right .offer-reminder span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* ════════════════════════════════════════════════════
+   VARIANT 2 — CLEAN WHITE / NEW CUSTOMER
+════════════════════════════════════════════════════ */
+
+/* --- 2 FRONT --- */
+.pc-2f {
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+.pc-2f .top-stripe {
+  height: 8px;
+  background: linear-gradient(90deg, var(--navy) 0%, var(--steel) 60%, var(--orange) 100%);
+  flex-shrink: 0;
+}
+.pc-2f .main-area {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+.pc-2f .left-panel {
+  background: var(--navy);
+  width: 230px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.pc-2f .left-panel::before {
+  content: '';
+  position: absolute;
+  top: -30px; left: -30px;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: var(--orange);
+  opacity: .08;
+}
+.pc-2f .left-panel .co-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 28px;
+  color: var(--white);
+  letter-spacing: .06em;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+}
+.pc-2f .left-panel .co-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-top: 2px;
+  position: relative;
+  z-index: 2;
+}
+.pc-2f .left-panel .badge-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-top: 14px;
+  position: relative;
+  z-index: 2;
+}
+.pc-2f .left-panel .badge {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 5px;
+  padding: 6px 6px;
+  text-align: center;
+}
+.pc-2f .left-panel .badge .b-icon { font-size: 16px; display: block; }
+.pc-2f .left-panel .badge .b-lbl {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-top: 2px;
+}
+.pc-2f .left-panel .phone-block {
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+.pc-2f .left-panel .phone-block .ph-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.pc-2f .left-panel .phone-block .ph-num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 24px;
+  color: var(--orange);
+  letter-spacing: .06em;
+  line-height: 1;
+}
+.pc-2f .right-panel {
+  flex: 1;
+  padding: 18px 20px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.pc-2f .right-panel .welcome-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.pc-2f .right-panel h2 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 50px;
+  line-height: .88;
+  letter-spacing: .02em;
+  color: var(--navy);
+  margin-top: 3px;
+}
+.pc-2f .right-panel h2 span { color: var(--orange); }
+.pc-2f .right-panel .body-text {
+  font-size: 12px;
+  color: #556;
+  line-height: 1.5;
+  margin-top: 8px;
+}
+.pc-2f .right-panel .offer-box {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+.pc-2f .right-panel .offer-box .ob-price {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 42px;
+  color: var(--orange);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.pc-2f .right-panel .offer-box .ob-text h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.pc-2f .right-panel .offer-box .ob-text p {
+  font-size: 10px;
+  color: var(--sky);
+  margin-top: 2px;
+}
+.pc-2f .bottom-stripe {
+  height: 5px;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+
+/* --- 2 BACK --- */
+.pc-2b {
+  background: var(--offwhite);
+  display: flex;
+}
+.pc-2b .return-col {
+  width: 200px;
+  flex-shrink: 0;
+  background: var(--white);
+  border-right: 1px dashed #cbd5e1;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 16px;
+  gap: 10px;
+}
+.pc-2b .return-col .ret-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #94a3b8;
+}
+.pc-2b .return-col .ret-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  color: var(--navy);
+  letter-spacing: .05em;
+  line-height: 1;
+}
+.pc-2b .return-col .ret-info {
+  font-size: 10px;
+  color: #64748b;
+  line-height: 1.6;
+}
+.pc-2b .return-col .divider { height: 1px; background: var(--gray-lt); }
+.pc-2b .return-col .offer-pill {
+  background: var(--orange);
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+}
+.pc-2b .return-col .services-mini {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.pc-2b .return-col .sm-item {
+  font-size: 10px;
+  color: var(--navy);
+  font-weight: 500;
+  padding-left: 10px;
+  position: relative;
+}
+.pc-2b .return-col .sm-item::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+  font-size: 8px;
+}
+.pc-2b .mail-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.pc-2b .mail-col .postage-row {
+  height: 52px;
+  border-bottom: 1px dashed #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 14px;
+}
+.pc-2b .mail-col .stamp-box {
+  width: 60px; height: 36px;
+  border: 1.5px dashed #94a3b8;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  text-align: center;
+  line-height: 1.3;
+}
+.pc-2b .mail-col .addr-zone {
+  flex: 1;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.pc-2b .mail-col .addr-zone .az-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+.pc-2b .mail-col .addr-zone .az-line {
+  height: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.pc-2b .mail-col .bottom-cta {
+  height: 34px;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+}
+.pc-2b .mail-col .bottom-cta span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.pc-2b .mail-col .bottom-cta .cta-phone {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  color: var(--orange);
+  letter-spacing: .06em;
+}
+
+/* ════════════════════════════════════════════════════
+   VARIANT 3 — EMERGENCY / URGENT SERVICE
+════════════════════════════════════════════════════ */
+
+/* --- 3 FRONT --- */
+.pc-3f {
+  background: var(--navy-xd);
+  display: flex;
+  flex-direction: column;
+}
+.pc-3f .emer-top {
+  background: #C0392B;
+  padding: 7px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.pc-3f .emer-top span {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 16px;
+  letter-spacing: .12em;
+  color: #fff;
+}
+.pc-3f .emer-top .blink-dot {
+  width: 8px; height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  animation: blink 1.2s infinite;
+  flex-shrink: 0;
+}
+@keyframes blink { 0%,100% { opacity:1; } 50% { opacity:.2; } }
+.pc-3f .body-zone {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  overflow: hidden;
+}
+.pc-3f .body-zone::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(46,109,164,.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.pc-3f .main-text {
+  flex: 1;
+  padding: 18px 20px 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+.pc-3f .main-text .tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.pc-3f .main-text h2 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 58px;
+  line-height: .88;
+  color: var(--white);
+  margin-top: 2px;
+}
+.pc-3f .main-text h2 em {
+  font-style: normal;
+  color: var(--orange);
+}
+.pc-3f .main-text .details {
+  font-family: 'Barlow', sans-serif;
+  font-size: 11px;
+  color: var(--sky);
+  line-height: 1.5;
+  margin-top: 6px;
+}
+.pc-3f .main-text .service-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+.pc-3f .main-text .service-row .stag {
+  background: rgba(46,109,164,.25);
+  border: 1px solid rgba(46,109,164,.4);
+  border-radius: 3px;
+  padding: 2px 7px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.pc-3f .phone-slab {
+  width: 168px;
+  flex-shrink: 0;
+  background: linear-gradient(180deg, var(--orange) 0%, #b35e00 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 12px;
+  gap: 4px;
+  position: relative;
+  z-index: 2;
+}
+.pc-3f .phone-slab .ps-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.8);
+  text-align: center;
+}
+.pc-3f .phone-slab .ps-num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 30px;
+  color: #fff;
+  letter-spacing: .04em;
+  text-align: center;
+  line-height: 1;
+}
+.pc-3f .phone-slab .ps-sub {
+  font-size: 9px;
+  color: rgba(255,255,255,.75);
+  text-align: center;
+  line-height: 1.4;
+}
+.pc-3f .phone-slab .ps-badge {
+  background: rgba(255,255,255,.15);
+  border-radius: 12px;
+  padding: 3px 10px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  margin-top: 4px;
+}
+.pc-3f .footer-strip {
+  background: rgba(255,255,255,.05);
+  border-top: 1px solid rgba(255,255,255,.07);
+  padding: 6px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+.pc-3f .footer-strip .fs-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 18px;
+  color: var(--white);
+  letter-spacing: .06em;
+}
+.pc-3f .footer-strip .fs-info {
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px;
+  color: var(--gray);
+}
+.pc-3f .footer-strip .fs-certs {
+  display: flex;
+  gap: 5px;
+}
+.pc-3f .footer-strip .fs-certs span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--orange-lt);
+  background: rgba(224,123,0,.1);
+  border: 1px solid rgba(224,123,0,.25);
+  border-radius: 3px;
+  padding: 2px 5px;
+}
+
+/* --- 3 BACK --- */
+.pc-3b {
+  background: var(--offwhite);
+  display: flex;
+}
+.pc-3b .back-info {
+  width: 220px;
+  flex-shrink: 0;
+  background: #C0392B;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 18px;
+  gap: 10px;
+}
+.pc-3b .back-info .bi-head {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 22px;
+  color: #fff;
+  letter-spacing: .06em;
+  line-height: 1;
+}
+.pc-3b .back-info .bi-co {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.75);
+}
+.pc-3b .back-info .bi-divider { height: 1px; background: rgba(255,255,255,.2); }
+.pc-3b .back-info .bi-promises {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.pc-3b .back-info .bi-promises .bp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .03em;
+  color: rgba(255,255,255,.9);
+}
+.pc-3b .back-info .bi-promises .bp::before {
+  content: '✓';
+  font-size: 11px;
+  color: rgba(255,255,255,.6);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.pc-3b .back-info .bi-phone {
+  margin-top: auto;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 26px;
+  color: #fff;
+  letter-spacing: .06em;
+  line-height: 1;
+}
+.pc-3b .mail-zone {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.pc-3b .mail-zone .mz-top {
+  height: 52px;
+  border-bottom: 1px dashed #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 14px;
+}
+.pc-3b .mail-zone .stamp-box {
+  width: 60px; height: 36px;
+  border: 1.5px dashed #94a3b8;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  text-align: center;
+  line-height: 1.3;
+}
+.pc-3b .mail-zone .mz-addr {
+  flex: 1;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.pc-3b .mail-zone .mz-addr .al {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+.pc-3b .mail-zone .mz-addr .al-line {
+  height: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.pc-3b .mail-zone .mz-footer {
+  background: var(--navy-xd);
+  height: 28px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+}
+.pc-3b .mail-zone .mz-footer span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+/* ════════════════════════════════════════════════════
+   VARIANT 4 — MAINTENANCE PLAN / REFERRAL
+════════════════════════════════════════════════════ */
+
+/* --- 4 FRONT --- */
+.pc-4f {
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  border-top: 8px solid var(--navy);
+}
+.pc-4f .content-4 {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+.pc-4f .left-4 {
+  background: var(--navy);
+  width: 200px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px;
+  clip-path: polygon(0 0, 86% 0, 100% 100%, 0 100%);
+  position: relative;
+}
+.pc-4f .left-4::before {
+  content: '';
+  position: absolute;
+  right: -20px; bottom: -20px;
+  width: 100px; height: 100px;
+  background: var(--orange);
+  opacity: .1;
+  border-radius: 50%;
+}
+.pc-4f .left-4 .co-name-4 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 26px;
+  color: var(--white);
+  letter-spacing: .06em;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
+}
+.pc-4f .left-4 .co-tag-4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-top: 2px;
+  position: relative;
+  z-index: 2;
+}
+.pc-4f .left-4 .plan-price {
+  margin-top: 14px;
+  position: relative;
+  z-index: 2;
+}
+.pc-4f .left-4 .plan-price .pp-from {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
+.pc-4f .left-4 .plan-price .pp-amount {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 52px;
+  color: var(--orange);
+  line-height: 1;
+}
+.pc-4f .left-4 .plan-price .pp-per {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,.75);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.pc-4f .left-4 .left-phone {
+  margin-top: auto;
+  position: relative;
+  z-index: 2;
+}
+.pc-4f .left-4 .left-phone .lp-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+.pc-4f .left-4 .left-phone .lp-num {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  color: var(--orange);
+  letter-spacing: .06em;
+  line-height: 1;
+}
+.pc-4f .right-4 {
+  flex: 1;
+  padding: 16px 18px 14px;
+  display: flex;
+  flex-direction: column;
+}
+.pc-4f .right-4 .r4-eyebrow {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.pc-4f .right-4 h2 {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 44px;
+  line-height: .9;
+  color: var(--navy);
+  margin-top: 2px;
+}
+.pc-4f .right-4 .plan-features {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.pc-4f .right-4 .plan-features .pf {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #334155;
+}
+.pc-4f .right-4 .plan-features .pf .check {
+  width: 16px; height: 16px;
+  background: var(--navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 9px;
+  color: #fff;
+}
+.pc-4f .right-4 .referral-box {
+  margin-top: auto;
+  background: var(--orange);
+  border-radius: 6px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.pc-4f .right-4 .referral-box .rb-icon { font-size: 20px; }
+.pc-4f .right-4 .referral-box .rb-text h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.pc-4f .right-4 .referral-box .rb-text p {
+  font-size: 10px;
+  color: rgba(255,255,255,.85);
+}
+.pc-4f .bottom-4 {
+  background: var(--navy);
+  height: 28px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.pc-4f .bottom-4 span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.pc-4f .bottom-4 .b4-phone {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  color: var(--orange);
+  letter-spacing: .06em;
+}
+
+/* --- 4 BACK --- */
+.pc-4b {
+  background: var(--offwhite);
+  display: flex;
+  border-top: 5px solid var(--orange);
+}
+.pc-4b .back4-left {
+  width: 210px;
+  flex-shrink: 0;
+  background: var(--white);
+  border-right: 1px dashed #cbd5e1;
+  padding: 16px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pc-4b .back4-left .b4-co {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 22px;
+  color: var(--navy);
+  letter-spacing: .05em;
+  line-height: 1;
+}
+.pc-4b .back4-left .b4-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+.pc-4b .back4-left .b4-div { height: 1px; background: var(--gray-lt); }
+.pc-4b .back4-left .b4-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pc-4b .back4-left .b4-contact .bc-phone {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 22px;
+  color: var(--orange);
+  letter-spacing: .06em;
+  line-height: 1;
+}
+.pc-4b .back4-left .b4-contact .bc-info {
+  font-size: 10px;
+  color: #64748b;
+  line-height: 1.5;
+}
+.pc-4b .back4-left .qr-placeholder {
+  width: 64px; height: 64px;
+  border: 2px dashed #cbd5e1;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  text-align: center;
+  line-height: 1.3;
+  margin-top: 4px;
+}
+.pc-4b .back4-left .b4-certs {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.pc-4b .back4-left .b4-certs span {
+  background: var(--navy);
+  color: var(--sky);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+.pc-4b .mail4-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.pc-4b .mail4-col .m4-top {
+  height: 52px;
+  border-bottom: 1px dashed #cbd5e1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 14px;
+}
+.pc-4b .mail4-col .stamp-box {
+  width: 60px; height: 36px;
+  border: 1.5px dashed #94a3b8;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  text-align: center;
+  line-height: 1.3;
+}
+.pc-4b .mail4-col .m4-addr {
+  flex: 1;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.pc-4b .mail4-col .m4-addr .al {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 4px;
+}
+.pc-4b .mail4-col .m4-addr .al-line {
+  height: 20px;
+  border-bottom: 1px solid #e2e8f0;
+}
+.pc-4b .mail4-col .m4-footer {
+  height: 28px;
+  background: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pc-4b .mail4-col .m4-footer span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* ── Print ────────────────────────────────────────── */
+@media print {
+  body { background: white; padding: 0; }
+  .ui-row { display: none !important; }
+  .section-label, .pair-label { color: #888; }
+}
+</style>
+</head>
+<body>
+
+<!-- UI Row -->
+<div class="ui-row">
+  <label>Your HVAC Co. — Postcard Templates</label>
+  <button onclick="window.print()">🖨️ Print / Save PDF</button>
+  <span style="font-family:'Barlow Condensed',sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#475569;">
+    4 variants × Front + Back = 8 cards &nbsp;|&nbsp; Standard 4×6 &nbsp;|&nbsp; Replace all [brackets] before sending
+  </span>
+</div>
+
+<div class="grid-wrapper">
+
+  <!-- ══ VARIANT 1 ══ -->
+  <div class="card-pair">
+    <div class="pair-label">
+      <span class="variant-num">1</span>
+      Seasonal Promo — Bold Dark / Price Offer
+    </div>
+    <div class="front-back-row">
+
+      <!-- 1 FRONT -->
+      <div class="card-slot">
+        <div class="slot-tag">▲ FRONT (Mail Side B)</div>
+        <div class="pc pc-1f">
+          <div class="stripe-top"></div>
+          <div class="content">
+            <div class="left-col">
+              <div>
+                <div class="eyebrow">✦ Summer Ready &nbsp;|&nbsp; Rogers, AR</div>
+                <div class="headline">STAY<br><span>COOL.</span></div>
+                <div class="sub-line">Professional HVAC Service</div>
+              </div>
+              <div>
+                <div class="bottom-row">
+                  <span class="cert-pill hot">EPA 608</span>
+                  <span class="cert-pill hot">NATE</span>
+                  <span class="cert-pill">Licensed</span>
+                  <span class="cert-pill">Insured</span>
+                </div>
+              </div>
+            </div>
+            <div class="right-col">
+              <div class="from">Starting at</div>
+              <div class="price">$89</div>
+              <div class="service">AC Tune-Up</div>
+              <div class="expiry">Exp. [MM/DD/YY]</div>
+            </div>
+          </div>
+          <div class="footer-band">
+            <div class="co-name">Your HVAC Co.</div>
+            <div class="co-contact">yourhvacco.com</div>
+            <div class="co-phone">(479) 555-0100</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1 BACK -->
+      <div class="card-slot">
+        <div class="slot-tag">▼ BACK (Mailing Side)</div>
+        <div class="pc pc-1b">
+          <div class="back-left">
+            <div class="co-block">
+              <div class="co-name">Your HVAC Co.</div>
+              <div class="co-sub">Rogers, AR · Licensed &amp; Insured</div>
+            </div>
+            <div class="divider"></div>
+            <div class="service-list">
+              <div class="si">AC Service &amp; Repair</div>
+              <div class="si">Furnace &amp; Heating</div>
+              <div class="si">Mini-Split / VRF Install</div>
+              <div class="si">Maintenance Plans</div>
+              <div class="si">24/7 Emergency Service</div>
+            </div>
+            <div class="contact-block">
+              <div class="cphone">(479) 555-0100</div>
+              <div class="cinfo">yourhvacco.com</div>
+              <div class="cinfo">info@yourhvacco.com</div>
+            </div>
+          </div>
+          <div class="back-right">
+            <div class="indicia-row">
+              <div class="stamp-box">Place<br>Stamp<br>Here</div>
+            </div>
+            <div class="address-area">
+              <div class="address-label">Deliver To:</div>
+              <div class="addr-line"><span>Recipient Name</span></div>
+              <div class="addr-line"><span>Street Address</span></div>
+              <div class="addr-line"><span>City, State  ZIP</span></div>
+            </div>
+            <div class="offer-reminder">
+              <span>🕐 Offer Expires [Month DD, YYYY] — Call Today!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ VARIANT 2 ══ -->
+  <div class="card-pair">
+    <div class="pair-label">
+      <span class="variant-num">2</span>
+      New Customer Welcome — Clean Professional
+    </div>
+    <div class="front-back-row">
+
+      <!-- 2 FRONT -->
+      <div class="card-slot">
+        <div class="slot-tag">▲ FRONT (Mail Side B)</div>
+        <div class="pc pc-2f">
+          <div class="top-stripe"></div>
+          <div class="main-area">
+            <div class="left-panel">
+              <div class="co-name">Your HVAC Co.</div>
+              <div class="co-tag">Rogers, AR</div>
+              <div class="badge-grid">
+                <div class="badge">
+                  <span class="b-icon">🏅</span>
+                  <div class="b-lbl">EPA 608</div>
+                </div>
+                <div class="badge">
+                  <span class="b-icon">⭐</span>
+                  <div class="b-lbl">NATE</div>
+                </div>
+                <div class="badge">
+                  <span class="b-icon">🔒</span>
+                  <div class="b-lbl">Licensed</div>
+                </div>
+                <div class="badge">
+                  <span class="b-icon">🛡️</span>
+                  <div class="b-lbl">Insured</div>
+                </div>
+              </div>
+              <div class="phone-block">
+                <div class="ph-label">Call or Text</div>
+                <div class="ph-num">(479) 555-0100</div>
+              </div>
+            </div>
+            <div class="right-panel">
+              <div>
+                <div class="welcome-tag">✦ Welcome to the Neighborhood</div>
+                <h2>YOUR<br>COMFORT<br><span>FIRST.</span></h2>
+                <div class="body-text">Rogers, AR's trusted HVAC team. Upfront pricing, no surprise fees, 100% satisfaction guaranteed.</div>
+              </div>
+              <div class="offer-box">
+                <div class="ob-price">$69</div>
+                <div class="ob-text">
+                  <h4>New Customer Tune-Up</h4>
+                  <p>AC or furnace · 21-point inspection<br>Exp. [Month DD, YYYY]</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-stripe"></div>
+        </div>
+      </div>
+
+      <!-- 2 BACK -->
+      <div class="card-slot">
+        <div class="slot-tag">▼ BACK (Mailing Side)</div>
+        <div class="pc pc-2b">
+          <div class="return-col">
+            <div class="ret-label">From:</div>
+            <div class="ret-name">Your HVAC Co.</div>
+            <div class="ret-info">
+              [Street Address]<br>
+              Rogers, AR  72756<br>
+              (479) 555-0100<br>
+              yourhvacco.com
+            </div>
+            <div class="divider"></div>
+            <div class="offer-pill">$69 New Customer Special</div>
+            <div class="services-mini">
+              <div class="sm-item">AC &amp; Furnace Tune-Ups</div>
+              <div class="sm-item">Repairs — All Brands</div>
+              <div class="sm-item">New System Installs</div>
+              <div class="sm-item">Maintenance Plans</div>
+              <div class="sm-item">24/7 Emergency</div>
+            </div>
+          </div>
+          <div class="mail-col">
+            <div class="postage-row">
+              <div class="stamp-box">Place<br>Stamp<br>Here</div>
+            </div>
+            <div class="addr-zone">
+              <div class="az-label">Deliver To:</div>
+              <div class="az-line"></div>
+              <div class="az-line"></div>
+              <div class="az-line"></div>
+            </div>
+            <div class="bottom-cta">
+              <span>Call Today &nbsp;|&nbsp; Same-Day Service Available</span>
+              <span class="cta-phone">(479) 555-0100</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ VARIANT 3 ══ -->
+  <div class="card-pair">
+    <div class="pair-label">
+      <span class="variant-num">3</span>
+      Emergency / 24-7 Service — Urgent Red &amp; Dark
+    </div>
+    <div class="front-back-row">
+
+      <!-- 3 FRONT -->
+      <div class="card-slot">
+        <div class="slot-tag">▲ FRONT (Mail Side B)</div>
+        <div class="pc pc-3f">
+          <div class="emer-top">
+            <div class="blink-dot"></div>
+            <span>24/7 EMERGENCY HVAC SERVICE — NO EXTRA CHARGE</span>
+            <div class="blink-dot"></div>
+          </div>
+          <div class="body-zone">
+            <div class="main-text">
+              <div>
+                <div class="tag">✦ Your HVAC Co. — Rogers, AR</div>
+                <h2>AC DOWN?<br><em>WE'RE</em><br>COMING.</h2>
+                <div class="details">No extra charge for nights, weekends, or holidays. Most calls answered within the hour.</div>
+              </div>
+              <div class="service-row">
+                <span class="stag">AC &amp; Cooling</span>
+                <span class="stag">Heating &amp; Furnace</span>
+                <span class="stag">Heat Pumps</span>
+                <span class="stag">Refrigerant Recharge</span>
+              </div>
+            </div>
+            <div class="phone-slab">
+              <div class="ps-tag">Emergency Line</div>
+              <div class="ps-num">(479)<br>555-0100</div>
+              <div class="ps-sub">Call or Text<br>Any Time, 24/7</div>
+              <div class="ps-badge">Same-Day Service</div>
+            </div>
+          </div>
+          <div class="footer-strip">
+            <div class="fs-name">Your HVAC Co.</div>
+            <div class="fs-info">yourhvacco.com · Rogers, AR</div>
+            <div class="fs-certs">
+              <span>EPA 608</span>
+              <span>NATE</span>
+              <span>Licensed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 BACK -->
+      <div class="card-slot">
+        <div class="slot-tag">▼ BACK (Mailing Side)</div>
+        <div class="pc pc-3b">
+          <div class="back-info">
+            <div class="bi-head">Don't Suffer<br>in the Heat.</div>
+            <div class="bi-co">Your HVAC Co. · Rogers, AR</div>
+            <div class="bi-divider"></div>
+            <div class="bi-promises">
+              <div class="bp">Response within 60 min.</div>
+              <div class="bp">Flat-rate pricing — no surprises</div>
+              <div class="bp">All makes &amp; models serviced</div>
+              <div class="bp">EPA 608 · NATE Certified</div>
+              <div class="bp">100% satisfaction guaranteed</div>
+            </div>
+            <div class="bi-phone">(479) 555-0100</div>
+          </div>
+          <div class="mail-zone">
+            <div class="mz-top">
+              <div class="stamp-box">Place<br>Stamp<br>Here</div>
+            </div>
+            <div class="mz-addr">
+              <div class="al">Deliver To:</div>
+              <div class="al-line"></div>
+              <div class="al-line"></div>
+              <div class="al-line"></div>
+            </div>
+            <div class="mz-footer">
+              <span>yourhvacco.com &nbsp;|&nbsp; Licensed &amp; Insured &nbsp;|&nbsp; AR Contractor #[XXXXXX]</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ VARIANT 4 ══ -->
+  <div class="card-pair">
+    <div class="pair-label">
+      <span class="variant-num">4</span>
+      Maintenance Plan / Referral Program — Clean White
+    </div>
+    <div class="front-back-row">
+
+      <!-- 4 FRONT -->
+      <div class="card-slot">
+        <div class="slot-tag">▲ FRONT (Mail Side B)</div>
+        <div class="pc pc-4f">
+          <div class="content-4">
+            <div class="left-4">
+              <div class="co-name-4">Your<br>HVAC Co.</div>
+              <div class="co-tag-4">Rogers, AR</div>
+              <div class="plan-price">
+                <div class="pp-from">Plans from</div>
+                <div class="pp-amount">$[XX]</div>
+                <div class="pp-per">/month</div>
+              </div>
+              <div class="left-phone">
+                <div class="lp-label">Call us</div>
+                <div class="lp-num">(479) 555-0100</div>
+              </div>
+            </div>
+            <div class="right-4">
+              <div class="r4-eyebrow">✦ Protect Your Investment</div>
+              <h2>MAINTENANCE<br>PLAN.</h2>
+              <div class="plan-features">
+                <div class="pf"><div class="check">✓</div>Annual AC + furnace tune-up</div>
+                <div class="pf"><div class="check">✓</div>Priority same-day dispatch</div>
+                <div class="pf"><div class="check">✓</div>15% off all repairs</div>
+                <div class="pf"><div class="check">✓</div>No after-hours fees, ever</div>
+              </div>
+              <div class="referral-box">
+                <div class="rb-icon">🎁</div>
+                <div class="rb-text">
+                  <h4>Refer a Friend — Get $[XX] Off</h4>
+                  <p>When your referral books any service</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bottom-4">
+            <span>yourhvacco.com &nbsp;|&nbsp; EPA 608 &nbsp;|&nbsp; NATE Certified &nbsp;|&nbsp; Licensed &amp; Insured</span>
+            <span class="b4-phone">(479) 555-0100</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 BACK -->
+      <div class="card-slot">
+        <div class="slot-tag">▼ BACK (Mailing Side)</div>
+        <div class="pc pc-4b">
+          <div class="back4-left">
+            <div class="b4-co">Your HVAC Co.</div>
+            <div class="b4-tag">Heating &amp; Cooling · Rogers, AR</div>
+            <div class="b4-div"></div>
+            <div class="b4-contact">
+              <div class="bc-phone">(479) 555-0100</div>
+              <div class="bc-info">
+                [Street Address]<br>
+                Rogers, AR  72756<br>
+                yourhvacco.com<br>
+                info@yourhvacco.com
+              </div>
+            </div>
+            <div class="qr-placeholder">QR<br>Code<br>Here</div>
+            <div class="b4-certs">
+              <span>EPA 608</span>
+              <span>NATE</span>
+              <span>Licensed</span>
+              <span>Insured</span>
+            </div>
+          </div>
+          <div class="mail4-col">
+            <div class="m4-top">
+              <div class="stamp-box">Place<br>Stamp<br>Here</div>
+            </div>
+            <div class="m4-addr">
+              <div class="al">Deliver To:</div>
+              <div class="al-line"></div>
+              <div class="al-line"></div>
+              <div class="al-line"></div>
+            </div>
+            <div class="m4-footer">
+              <span>Sign Up Today — Plans Starting at $[XX]/Month</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /grid-wrapper -->
+
+</body>
+</html>

@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your HVAC Co. — Business Card Templates</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:ital,wght@0,300;0,400;0,600;0,700;0,900;1,600&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
+
+<style>
+/* ─── Reset ─────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─── Tokens ─────────────────────────────────────── */
+:root {
+  --navy:      #1B3A6B;
+  --navy-d:    #122849;
+  --navy-xd:   #0A1929;
+  --steel:     #2E6DA4;
+  --sky:       #D6E4F0;
+  --sky-d:     #A8C8E8;
+  --orange:    #E07B00;
+  --orange-lt: #FF9A2E;
+  --white:     #FFFFFF;
+  --offwhite:  #F8F9FC;
+  --paper:     #FEFEFE;
+  --gray-lt:   #E8EDF4;
+  --gray:      #94A3B8;
+  --gray-d:    #64748B;
+  --black:     #0F1923;
+
+  /* Standard 3.5 × 2 inch at 96 dpi = 336 × 192 px */
+  --bc-w: 336px;
+  --bc-h: 192px;
+}
+
+body {
+  background: #0d1520;
+  min-height: 100vh;
+  padding: 28px 20px 72px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Barlow', sans-serif;
+}
+
+/* ─── UI chrome ──────────────────────────────────── */
+.ui-bar {
+  width: 100%;
+  max-width: 1120px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.ui-bar label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #475569;
+}
+.ui-bar button {
+  font-size: 13px;
+  padding: 7px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--orange);
+  background: var(--orange);
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Barlow', sans-serif;
+  font-weight: 600;
+  transition: background .2s;
+}
+.ui-bar button:hover { background: var(--orange-lt); }
+.ui-bar .ui-note {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #334155;
+}
+
+/* ─── Layout grid ────────────────────────────────── */
+.cards-grid {
+  width: 100%;
+  max-width: 1120px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.card-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.row-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #334155;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.row-label .rl-num {
+  background: var(--orange);
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 3px;
+}
+.row-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #1a2636;
+}
+
+.pair-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.card-slot {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: flex-start;
+}
+.slot-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+/* ─── Card base ──────────────────────────────────── */
+.bc {
+  width: var(--bc-w);
+  height: var(--bc-h);
+  position: relative;
+  overflow: hidden;
+  border-radius: 5px;
+  flex-shrink: 0;
+  box-shadow:
+    0 8px 32px rgba(0,0,0,.55),
+    0 0 0 1px rgba(255,255,255,.05);
+}
+
+/* ════════════════════════════════════════════
+   CARD 1 — OWNER / CLASSIC EXECUTIVE
+   Front: Navy diagonal split, bold name
+   Back:  Dark navy, contact grid
+════════════════════════════════════════════ */
+.bc-1f {
+  background: var(--navy-xd);
+  display: flex;
+  flex-direction: column;
+}
+.bc-1f .top-accent {
+  height: 4px;
+  background: linear-gradient(90deg, var(--orange) 0%, var(--orange-lt) 100%);
+  flex-shrink: 0;
+}
+.bc-1f .body {
+  flex: 1;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+.bc-1f .left {
+  flex: 1;
+  padding: 14px 16px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+.bc-1f .left .role {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.bc-1f .left .name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 30px;
+  color: var(--white);
+  letter-spacing: .03em;
+  line-height: .95;
+  margin-top: 4px;
+}
+.bc-1f .left .certs {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+.bc-1f .left .certs span {
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  padding: 2px 7px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sky-d);
+}
+.bc-1f .left .certs span.hot {
+  background: rgba(224,123,0,.14);
+  border-color: rgba(224,123,0,.32);
+  color: var(--orange-lt);
+}
+.bc-1f .right {
+  width: 120px;
+  flex-shrink: 0;
+  background: var(--orange);
+  clip-path: polygon(18% 0, 100% 0, 100% 100%, 0 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 10px 12px 22px;
+  gap: 4px;
+}
+.bc-1f .right .co-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 22px;
+  color: #fff;
+  letter-spacing: .04em;
+  line-height: 1;
+  text-align: center;
+}
+.bc-1f .right .co-city {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.75);
+  text-align: center;
+}
+.bc-1f .footer {
+  background: var(--navy-d);
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.bc-1f .footer span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  color: var(--gray);
+  letter-spacing: .04em;
+}
+.bc-1f .footer .phone {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 14px;
+  color: var(--orange);
+  letter-spacing: .05em;
+}
+
+/* 1 BACK */
+.bc-1b {
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  padding: 16px 18px 14px;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.bc-1b::before {
+  content: '';
+  position: absolute;
+  bottom: -30px; right: -30px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: var(--orange);
+  opacity: .06;
+  pointer-events: none;
+}
+.bc-1b .co-logo {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.bc-1b .co-logo .logo-icon {
+  font-size: 26px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.bc-1b .co-logo .logo-text .ln {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 22px;
+  color: var(--white);
+  letter-spacing: .04em;
+  line-height: 1;
+}
+.bc-1b .co-logo .logo-text .lt {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.bc-1b .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 16px;
+}
+.bc-1b .contact-grid .ci {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.bc-1b .contact-grid .ci .c-icon {
+  font-size: 10px;
+  flex-shrink: 0;
+}
+.bc-1b .contact-grid .ci span {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9.5px;
+  color: var(--sky-d);
+}
+.bc-1b .tag-row {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.bc-1b .tag-row span {
+  background: rgba(255,255,255,.08);
+  border-radius: 3px;
+  padding: 2px 7px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--sky-d);
+}
+.bc-1b .tag-row span.hot {
+  background: rgba(224,123,0,.15);
+  color: var(--orange-lt);
+}
+
+/* ════════════════════════════════════════════
+   CARD 2 — TECHNICIAN / FIELD CREW
+   Front: Bold dark, tools icon strip
+   Back:  White/clean services list
+════════════════════════════════════════════ */
+.bc-2f {
+  background: var(--navy-xd);
+  display: flex;
+  flex-direction: column;
+}
+.bc-2f .stripe { height: 3px; background: var(--orange); flex-shrink: 0; }
+.bc-2f .main {
+  flex: 1;
+  display: flex;
+  padding: 12px 16px 10px;
+  gap: 12px;
+  align-items: center;
+}
+.bc-2f .main .initials-box {
+  width: 52px; height: 52px;
+  border-radius: 8px;
+  background: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 26px;
+  color: #fff;
+  letter-spacing: .02em;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(224,123,0,.4);
+}
+.bc-2f .main .info { flex: 1; }
+.bc-2f .main .info .role {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.bc-2f .main .info .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 22px;
+  color: var(--white);
+  letter-spacing: .03em;
+  line-height: 1;
+  margin-top: 2px;
+}
+.bc-2f .main .info .co {
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px;
+  color: var(--sky-d);
+  margin-top: 3px;
+}
+.bc-2f .main .info .certs {
+  display: flex;
+  gap: 4px;
+  margin-top: 6px;
+}
+.bc-2f .main .info .certs span {
+  background: rgba(224,123,0,.14);
+  border: 1px solid rgba(224,123,0,.3);
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--orange-lt);
+}
+.bc-2f .foot {
+  background: rgba(255,255,255,.04);
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.bc-2f .foot span {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9.5px;
+  color: var(--gray);
+}
+.bc-2f .foot .fp {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 14px;
+  color: var(--orange);
+  letter-spacing: .05em;
+}
+
+/* 2 BACK */
+.bc-2b {
+  background: var(--offwhite);
+  display: flex;
+  flex-direction: column;
+}
+.bc-2b .back-top {
+  background: var(--navy);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.bc-2b .back-top .bt-co {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 18px;
+  color: var(--white);
+  letter-spacing: .04em;
+}
+.bc-2b .back-top .bt-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.bc-2b .services-zone {
+  flex: 1;
+  padding: 10px 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px 20px;
+  align-content: start;
+}
+.bc-2b .services-zone .svc {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: .02em;
+}
+.bc-2b .services-zone .svc::before {
+  content: '';
+  width: 4px; height: 4px;
+  background: var(--orange);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.bc-2b .back-foot {
+  background: var(--orange);
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.bc-2b .back-foot span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+}
+.bc-2b .back-foot .bfp {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: .05em;
+}
+
+/* ════════════════════════════════════════════
+   CARD 3 — SERVICE MANAGER / CLEAN WHITE
+   Front: White card, left navy strip
+   Back:  Sky blue tone, service pledge
+════════════════════════════════════════════ */
+.bc-3f {
+  background: var(--paper);
+  display: flex;
+  border-top: 6px solid var(--navy);
+}
+.bc-3f .left-strip {
+  width: 6px;
+  background: var(--orange);
+  flex-shrink: 0;
+}
+.bc-3f .content {
+  flex: 1;
+  padding: 14px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bc-3f .content .top .role {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.bc-3f .content .top .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  color: var(--navy);
+  letter-spacing: .02em;
+  line-height: 1;
+  margin-top: 3px;
+}
+.bc-3f .content .top .co {
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px;
+  color: var(--steel);
+  margin-top: 2px;
+  font-style: italic;
+}
+.bc-3f .content .bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.bc-3f .content .bottom .ci {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 9.5px;
+  color: var(--gray-d);
+}
+.bc-3f .content .bottom .ci .ic { font-size: 9px; }
+.bc-3f .right-col {
+  width: 88px;
+  flex-shrink: 0;
+  background: var(--navy);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 8px;
+  gap: 5px;
+}
+.bc-3f .right-col .rc-co {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 16px;
+  color: var(--white);
+  letter-spacing: .04em;
+  text-align: center;
+  line-height: 1;
+}
+.bc-3f .right-col .rc-div {
+  width: 24px; height: 2px;
+  background: var(--orange);
+}
+.bc-3f .right-col .rc-cert {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sky);
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* 3 BACK */
+.bc-3b {
+  background: var(--sky);
+  display: flex;
+  flex-direction: column;
+  padding: 14px 18px 12px;
+  justify-content: space-between;
+}
+.bc-3b .pledge-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 13px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--navy);
+  line-height: 1.3;
+}
+.bc-3b .pledge-body {
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px;
+  color: var(--navy-d);
+  line-height: 1.6;
+  margin-top: 6px;
+}
+.bc-3b .bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+.bc-3b .bottom-row .co-name {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  color: var(--navy);
+  letter-spacing: .04em;
+}
+.bc-3b .bottom-row .contact-right {
+  text-align: right;
+}
+.bc-3b .bottom-row .contact-right .cr-phone {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 16px;
+  color: var(--orange);
+  letter-spacing: .04em;
+  line-height: 1;
+}
+.bc-3b .bottom-row .contact-right .cr-web {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9px;
+  color: var(--navy-d);
+}
+.bc-3b .certs-row {
+  display: flex;
+  gap: 4px;
+  margin-top: 8px;
+}
+.bc-3b .certs-row span {
+  background: var(--navy);
+  color: var(--sky-d);
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+/* ════════════════════════════════════════════
+   CARD 4 — SALES / ESTIMATE SPECIALIST
+   Front: Diagonal navy/white split
+   Back:  Dark, stats + QR placeholder
+════════════════════════════════════════════ */
+.bc-4f {
+  background: var(--white);
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+.bc-4f::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 185px; height: 100%;
+  background: var(--navy);
+  clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+  z-index: 0;
+}
+.bc-4f .left-side {
+  width: 168px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  padding: 14px 16px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bc-4f .left-side .ls-co {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 24px;
+  color: var(--white);
+  letter-spacing: .04em;
+  line-height: 1;
+}
+.bc-4f .left-side .ls-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--sky-d);
+  margin-top: 1px;
+}
+.bc-4f .left-side .ls-phone {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 16px;
+  color: var(--orange);
+  letter-spacing: .04em;
+  line-height: 1;
+}
+.bc-4f .left-side .ls-web {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9px;
+  color: var(--sky-d);
+}
+.bc-4f .right-side {
+  flex: 1;
+  position: relative;
+  z-index: 2;
+  padding: 14px 14px 12px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.bc-4f .right-side .rs-role {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+.bc-4f .right-side .rs-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--navy-xd);
+  letter-spacing: .02em;
+  line-height: 1;
+  margin-top: 2px;
+}
+.bc-4f .right-side .rs-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.bc-4f .right-side .rs-contact span {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9.5px;
+  color: var(--gray-d);
+}
+.bc-4f .right-side .rs-cta {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  margin-top: 4px;
+  width: fit-content;
+}
+
+/* 4 BACK */
+.bc-4b {
+  background: var(--navy-xd);
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px 12px;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.bc-4b::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 140px; height: 140px;
+  background: radial-gradient(circle, rgba(46,109,164,.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+.bc-4b .b4-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.bc-4b .b4-top .b4-co {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  color: var(--white);
+  letter-spacing: .04em;
+  line-height: 1;
+}
+.bc-4b .b4-top .b4-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-top: 2px;
+}
+.bc-4b .qr-box {
+  width: 56px; height: 56px;
+  border: 1.5px dashed rgba(255,255,255,.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.25);
+  text-align: center;
+  line-height: 1.4;
+  flex-shrink: 0;
+}
+.bc-4b .stats-row {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: 8px;
+}
+.bc-4b .stats-row .si {
+  flex: 1;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,.06);
+  padding: 0 4px;
+}
+.bc-4b .stats-row .si:last-child { border-right: none; }
+.bc-4b .stats-row .si .sv {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  color: var(--orange);
+  line-height: 1;
+}
+.bc-4b .stats-row .si .sl {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sky-d);
+  margin-top: 1px;
+}
+
+/* ════════════════════════════════════════════
+   CARD 5 — DISPATCHER / OFFICE STAFF
+   Front: Clean steel blue, minimal
+   Back:  White, service hours emphasis
+════════════════════════════════════════════ */
+.bc-5f {
+  background: var(--steel);
+  display: flex;
+  flex-direction: column;
+}
+.bc-5f .s5-top {
+  flex: 1;
+  padding: 14px 18px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.bc-5f .s5-top::before {
+  content: '';
+  position: absolute;
+  top: -20px; right: -20px;
+  width: 100px; height: 100px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.05);
+}
+.bc-5f .s5-top::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; right: 20px;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+}
+.bc-5f .s5-top .role {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.65);
+  position: relative;
+  z-index: 2;
+}
+.bc-5f .s5-top .name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 900;
+  font-size: 26px;
+  color: var(--white);
+  letter-spacing: .02em;
+  line-height: .95;
+  margin-top: 3px;
+  position: relative;
+  z-index: 2;
+}
+.bc-5f .s5-top .co {
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px;
+  color: rgba(255,255,255,.65);
+  position: relative;
+  z-index: 2;
+}
+.bc-5f .s5-top .contact-pills {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+  z-index: 2;
+}
+.bc-5f .s5-top .contact-pills span {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9.5px;
+  color: rgba(255,255,255,.8);
+}
+.bc-5f .s5-bottom {
+  background: rgba(0,0,0,.25);
+  padding: 7px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.bc-5f .s5-bottom .sb-co {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 16px;
+  color: rgba(255,255,255,.75);
+  letter-spacing: .04em;
+}
+.bc-5f .s5-bottom .sb-certs {
+  display: flex;
+  gap: 4px;
+}
+.bc-5f .s5-bottom .sb-certs span {
+  background: rgba(255,255,255,.12);
+  border-radius: 2px;
+  padding: 1px 5px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.7);
+}
+
+/* 5 BACK */
+.bc-5b {
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  border-top: 4px solid var(--steel);
+  border-bottom: 4px solid var(--orange);
+}
+.bc-5b .hours-zone {
+  flex: 1;
+  padding: 12px 18px;
+  display: flex;
+  gap: 16px;
+}
+.bc-5b .hours-zone .hz-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.bc-5b .hours-zone .hz-left .hz-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin-bottom: 2px;
+}
+.bc-5b .hours-zone .hz-left .hr-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px;
+  color: var(--navy);
+}
+.bc-5b .hours-zone .hz-left .hr-item .hr-day { color: var(--gray-d); font-size: 9.5px; }
+.bc-5b .hours-zone .hz-left .hr-item .hr-time { font-weight: 600; font-size: 9.5px; }
+.bc-5b .hours-zone .hz-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 4px;
+  background: var(--navy);
+  border-radius: 6px;
+  padding: 8px;
+}
+.bc-5b .hours-zone .hz-right .emer-icon { font-size: 22px; }
+.bc-5b .hours-zone .hz-right .emer-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sky);
+  line-height: 1.2;
+}
+.bc-5b .hours-zone .hz-right .emer-phone {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 16px;
+  color: var(--orange);
+  letter-spacing: .04em;
+  line-height: 1;
+}
+.bc-5b .footer-5 {
+  background: var(--offwhite);
+  border-top: 1px solid var(--gray-lt);
+  padding: 5px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.bc-5b .footer-5 .f5-co {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 14px;
+  color: var(--navy);
+  letter-spacing: .04em;
+}
+.bc-5b .footer-5 .f5-web {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9px;
+  color: var(--steel);
+}
+
+/* ════════════════════════════════════════════
+   CARD 6 — COMPANY / REFERRAL CARD
+   Front: Full navy, bold offer
+   Back:  Coupon-style referral
+════════════════════════════════════════════ */
+.bc-6f {
+  background: var(--navy-xd);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.bc-6f::before {
+  content: '';
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 160px; height: 160px;
+  background: radial-gradient(circle, rgba(224,123,0,.14) 0%, transparent 70%);
+  pointer-events: none;
+}
+.bc-6f .f6-acct {
+  height: 5px;
+  background: linear-gradient(90deg, var(--navy) 0%, var(--orange) 60%, var(--orange-lt) 100%);
+  flex-shrink: 0;
+}
+.bc-6f .f6-body {
+  flex: 1;
+  padding: 12px 18px 8px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+  z-index: 2;
+}
+.bc-6f .f6-body .f6-left { flex: 1; }
+.bc-6f .f6-body .f6-left .f6-co {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 28px;
+  color: var(--white);
+  letter-spacing: .04em;
+  line-height: 1;
+}
+.bc-6f .f6-body .f6-left .f6-tag {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--sky);
+  margin-top: 1px;
+}
+.bc-6f .f6-body .f6-left .f6-desc {
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px;
+  color: var(--gray);
+  margin-top: 5px;
+  line-height: 1.4;
+}
+.bc-6f .f6-body .f6-right {
+  flex-shrink: 0;
+  background: var(--orange);
+  border-radius: 8px;
+  padding: 10px 12px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(224,123,0,.4);
+}
+.bc-6f .f6-body .f6-right .pr-from {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.75);
+}
+.bc-6f .f6-body .f6-right .pr-price {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 38px;
+  color: #fff;
+  line-height: 1;
+}
+.bc-6f .f6-body .f6-right .pr-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
+}
+.bc-6f .f6-foot {
+  background: rgba(255,255,255,.04);
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 6px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+.bc-6f .f6-foot span {
+  font-family: 'Barlow', sans-serif;
+  font-size: 9.5px;
+  color: var(--gray);
+}
+.bc-6f .f6-foot .f6p {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 15px;
+  color: var(--orange);
+  letter-spacing: .05em;
+}
+
+/* 6 BACK — Referral coupon */
+.bc-6b {
+  background: var(--offwhite);
+  border: 2.5px dashed var(--orange);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.bc-6b .ref-top {
+  background: var(--orange);
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.bc-6b .ref-top .rt-label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 18px;
+  color: #fff;
+  letter-spacing: .04em;
+}
+.bc-6b .ref-top .rt-scissors {
+  font-size: 16px;
+  transform: rotate(-90deg);
+  display: block;
+}
+.bc-6b .ref-body {
+  flex: 1;
+  padding: 10px 16px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.bc-6b .ref-body .rb-amt {
+  flex-shrink: 0;
+  text-align: center;
+}
+.bc-6b .ref-body .rb-amt .rba-val {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 48px;
+  color: var(--orange);
+  line-height: 1;
+}
+.bc-6b .ref-body .rb-amt .rba-label {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--gray-d);
+}
+.bc-6b .ref-body .rb-div {
+  width: 1px;
+  height: 50px;
+  background: var(--gray-lt);
+  flex-shrink: 0;
+}
+.bc-6b .ref-body .rb-text h4 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--navy);
+  line-height: 1.1;
+}
+.bc-6b .ref-body .rb-text p {
+  font-family: 'Barlow', sans-serif;
+  font-size: 10px;
+  color: var(--gray-d);
+  margin-top: 3px;
+  line-height: 1.4;
+}
+.bc-6b .ref-foot {
+  background: var(--navy);
+  padding: 5px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.bc-6b .ref-foot span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--sky);
+}
+.bc-6b .ref-foot .rfp {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 14px;
+  color: var(--orange);
+  letter-spacing: .05em;
+}
+
+/* ── Print ───────────────────────────────────── */
+@media print {
+  body { background: white; padding: 0; }
+  .ui-bar { display: none !important; }
+  .row-label, .slot-tag { color: #888; }
+}
+</style>
+</head>
+<body>
+
+<div class="ui-bar">
+  <label>Your HVAC Co. — Business Card Templates</label>
+  <button onclick="window.print()">🖨️ Print / Save PDF</button>
+  <span class="ui-note">6 designs × Front + Back · Standard 3.5 × 2 in · Replace all [brackets] before sending to printer</span>
+</div>
+
+<div class="cards-grid">
+
+  <!-- ═══ CARD 1 — OWNER / EXECUTIVE ═══ -->
+  <div class="card-row">
+    <div class="row-label"><span class="rl-num">1</span> Owner / Executive — Bold Dark with Orange Price Panel</div>
+    <div class="pair-row">
+
+      <div class="card-slot">
+        <div class="slot-tag">▲ Front</div>
+        <div class="bc bc-1f">
+          <div class="top-accent"></div>
+          <div class="body">
+            <div class="left">
+              <div>
+                <div class="role">Owner &amp; Founder</div>
+                <div class="name">[First Name]<br>[Last Name]</div>
+              </div>
+              <div class="certs">
+                <span class="hot">EPA 608</span>
+                <span class="hot">NATE</span>
+                <span>Licensed</span>
+                <span>Insured</span>
+              </div>
+            </div>
+            <div class="right">
+              <div class="co-name">Your HVAC Co.</div>
+              <div class="co-city">Rogers, AR</div>
+            </div>
+          </div>
+          <div class="footer">
+            <span>(479) 555-0100</span>
+            <span>yourhvacco.com</span>
+            <span class="phone">(479) 555-0100</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-slot">
+        <div class="slot-tag">▼ Back</div>
+        <div class="bc bc-1b">
+          <div class="co-logo">
+            <div class="logo-icon">🌡️</div>
+            <div class="logo-text">
+              <div class="ln">Your HVAC Co.</div>
+              <div class="lt">Heating &amp; Cooling · Rogers, AR</div>
+            </div>
+          </div>
+          <div class="contact-grid">
+            <div class="ci"><span class="c-icon">📞</span><span>(479) 555-0100</span></div>
+            <div class="ci"><span class="c-icon">📧</span><span>owner@yourhvacco.com</span></div>
+            <div class="ci"><span class="c-icon">🌐</span><span>yourhvacco.com</span></div>
+            <div class="ci"><span class="c-icon">📍</span><span>Rogers, AR  72756</span></div>
+          </div>
+          <div class="tag-row">
+            <span class="hot">EPA 608 Universal</span>
+            <span class="hot">NATE Certified</span>
+            <span>Licensed &amp; Bonded</span>
+            <span>Fully Insured</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ CARD 2 — TECHNICIAN ═══ -->
+  <div class="card-row">
+    <div class="row-label"><span class="rl-num">2</span> Field Technician — Initials Avatar + Services Back</div>
+    <div class="pair-row">
+
+      <div class="card-slot">
+        <div class="slot-tag">▲ Front</div>
+        <div class="bc bc-2f">
+          <div class="stripe"></div>
+          <div class="main">
+            <div class="initials-box">[FL]</div>
+            <div class="info">
+              <div class="role">HVAC Technician</div>
+              <div class="name">[First] [Last]</div>
+              <div class="co">Your HVAC Co. · Rogers, AR</div>
+              <div class="certs">
+                <span>EPA 608</span>
+                <span>NATE</span>
+                <span>Licensed</span>
+              </div>
+            </div>
+          </div>
+          <div class="foot">
+            <span>[tech@yourhvacco.com]</span>
+            <span class="fp">(479) 555-0100</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-slot">
+        <div class="slot-tag">▼ Back</div>
+        <div class="bc bc-2b">
+          <div class="back-top">
+            <div class="bt-co">Your HVAC Co.</div>
+            <div class="bt-tag">Licensed · Insured · Certified</div>
+          </div>
+          <div class="services-zone">
+            <div class="svc">AC Service &amp; Repair</div>
+            <div class="svc">Furnace &amp; Heating</div>
+            <div class="svc">Heat Pump Systems</div>
+            <div class="svc">Mini-Split / VRF</div>
+            <div class="svc">Maintenance Plans</div>
+            <div class="svc">Indoor Air Quality</div>
+            <div class="svc">New Installations</div>
+            <div class="svc">24/7 Emergency</div>
+          </div>
+          <div class="back-foot">
+            <span>yourhvacco.com</span>
+            <span class="bfp">(479) 555-0100</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ CARD 3 — SERVICE MANAGER ═══ -->
+  <div class="card-row">
+    <div class="row-label"><span class="rl-num">3</span> Service Manager — Clean White + Service Pledge Back</div>
+    <div class="pair-row">
+
+      <div class="card-slot">
+        <div class="slot-tag">▲ Front</div>
+        <div class="bc bc-3f">
+          <div class="left-strip"></div>
+          <div class="content">
+            <div class="top">
+              <div class="role">Service Manager</div>
+              <div class="name">[First Name] [Last Name]</div>
+              <div class="co">Your HVAC Co. · Rogers, AR</div>
+            </div>
+            <div class="bottom">
+              <div class="ci"><span class="ic">📞</span> (479) 555-0100</div>
+              <div class="ci"><span class="ic">📧</span> [name@yourhvacco.com]</div>
+              <div class="ci"><span class="ic">🌐</span> yourhvacco.com</div>
+            </div>
+          </div>
+          <div class="right-col">
+            <div class="rc-co">Your HVAC Co.</div>
+            <div class="rc-div"></div>
+            <div class="rc-cert">EPA 608<br>NATE<br>Licensed</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-slot">
+        <div class="slot-tag">▼ Back</div>
+        <div class="bc bc-3b">
+          <div>
+            <div class="pledge-head">"We don't leave until<br>the job is done right."</div>
+            <div class="pledge-body">Your HVAC Co. — Rogers, AR's trusted heating and cooling team. Upfront pricing, no surprise fees, 100% satisfaction guaranteed on every service call.</div>
+          </div>
+          <div>
+            <div class="bottom-row">
+              <div class="co-name">Your HVAC Co.</div>
+              <div class="contact-right">
+                <div class="cr-phone">(479) 555-0100</div>
+                <div class="cr-web">yourhvacco.com</div>
+              </div>
+            </div>
+            <div class="certs-row">
+              <span>EPA 608</span>
+              <span>NATE</span>
+              <span>Licensed</span>
+              <span>Insured</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ CARD 4 — SALES / ESTIMATOR ═══ -->
+  <div class="card-row">
+    <div class="row-label"><span class="rl-num">4</span> Sales / Estimator — Diagonal Split + Stats &amp; QR Back</div>
+    <div class="pair-row">
+
+      <div class="card-slot">
+        <div class="slot-tag">▲ Front</div>
+        <div class="bc bc-4f">
+          <div class="left-side">
+            <div>
+              <div class="ls-co">Your HVAC Co.</div>
+              <div class="ls-tag">Rogers, AR</div>
+            </div>
+            <div>
+              <div class="ls-phone">(479) 555-0100</div>
+              <div class="ls-web">yourhvacco.com</div>
+            </div>
+          </div>
+          <div class="right-side">
+            <div>
+              <div class="rs-role">Comfort Advisor</div>
+              <div class="rs-name">[First]<br>[Last]</div>
+            </div>
+            <div>
+              <div class="rs-contact">
+                <span>(555) 555-0102</span>
+                <span>[sales@yourhvacco.com]</span>
+              </div>
+              <div class="rs-cta">Free Estimates</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-slot">
+        <div class="slot-tag">▼ Back</div>
+        <div class="bc bc-4b">
+          <div class="b4-top">
+            <div>
+              <div class="b4-co">Your HVAC Co.</div>
+              <div class="b4-tag">Heating &amp; Cooling Excellence</div>
+            </div>
+            <div class="qr-box">QR<br>Code<br>Here</div>
+          </div>
+          <div class="stats-row">
+            <div class="si"><div class="sv">[X]+</div><div class="sl">Yrs Serving NW AR</div></div>
+            <div class="si"><div class="sv">[X,000]+</div><div class="sl">Jobs Done</div></div>
+            <div class="si"><div class="sv">4.9★</div><div class="sl">Google Rating</div></div>
+            <div class="si"><div class="sv">Free</div><div class="sl">Estimates</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ CARD 5 — DISPATCHER / OFFICE ═══ -->
+  <div class="card-row">
+    <div class="row-label"><span class="rl-num">5</span> Dispatcher / Office — Steel Blue + Hours Back</div>
+    <div class="pair-row">
+
+      <div class="card-slot">
+        <div class="slot-tag">▲ Front</div>
+        <div class="bc bc-5f">
+          <div class="s5-top">
+            <div>
+              <div class="role">Dispatcher / Customer Service</div>
+              <div class="name">[First Name]<br>[Last Name]</div>
+              <div class="co">Your HVAC Co. · Rogers, AR</div>
+            </div>
+            <div class="contact-pills">
+              <span>📞 (479) 555-0100</span>
+              <span>📧 [dispatch@yourhvacco.com]</span>
+              <span>🌐 yourhvacco.com</span>
+            </div>
+          </div>
+          <div class="s5-bottom">
+            <div class="sb-co">Your HVAC Co.</div>
+            <div class="sb-certs">
+              <span>Licensed</span>
+              <span>Insured</span>
+              <span>EPA 608</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-slot">
+        <div class="slot-tag">▼ Back</div>
+        <div class="bc bc-5b">
+          <div class="hours-zone">
+            <div class="hz-left">
+              <div class="hz-label">Office Hours</div>
+              <div class="hr-item"><span class="hr-day">Mon – Fri</span><span class="hr-time">7AM – 6PM</span></div>
+              <div class="hr-item"><span class="hr-day">Saturday</span><span class="hr-time">8AM – 3PM</span></div>
+              <div class="hr-item"><span class="hr-day">Sunday</span><span class="hr-time">Emergency Only</span></div>
+              <div class="hr-item" style="margin-top:4px;"><span class="hr-day">Holidays</span><span class="hr-time">Emergency Only</span></div>
+            </div>
+            <div class="hz-right">
+              <div class="emer-icon">🚨</div>
+              <div class="emer-label">24 / 7<br>Emergency</div>
+              <div class="emer-phone">(479) 555-0100</div>
+            </div>
+          </div>
+          <div class="footer-5">
+            <div class="f5-co">Your HVAC Co.</div>
+            <div class="f5-web">yourhvacco.com</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══ CARD 6 — COMPANY / REFERRAL ═══ -->
+  <div class="card-row">
+    <div class="row-label"><span class="rl-num">6</span> Company / Referral Card — Offer Front + Coupon Back</div>
+    <div class="pair-row">
+
+      <div class="card-slot">
+        <div class="slot-tag">▲ Front</div>
+        <div class="bc bc-6f">
+          <div class="f6-acct"></div>
+          <div class="f6-body">
+            <div class="f6-left">
+              <div class="f6-co">Your HVAC Co.</div>
+              <div class="f6-tag">Rogers, AR · EPA 608 · NATE Certified</div>
+              <div class="f6-desc">Professional heating &amp; cooling service. Upfront pricing, same-day availability, 100% satisfaction guaranteed.</div>
+            </div>
+            <div class="f6-right">
+              <div class="pr-from">AC Tune-Up</div>
+              <div class="pr-price">$89</div>
+              <div class="pr-label">Starting At</div>
+            </div>
+          </div>
+          <div class="f6-foot">
+            <span>(479) 555-0100 · yourhvacco.com</span>
+            <span class="f6p">(479) 555-0100</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-slot">
+        <div class="slot-tag">▼ Back (Referral Coupon)</div>
+        <div class="bc bc-6b">
+          <div class="ref-top">
+            <div class="rt-label">✂ Referral Reward — Give to a Friend</div>
+            <span class="rt-scissors">✂</span>
+          </div>
+          <div class="ref-body">
+            <div class="rb-amt">
+              <div class="rba-val">$[XX]</div>
+              <div class="rba-label">Credit</div>
+            </div>
+            <div class="rb-div"></div>
+            <div class="rb-text">
+              <h4>Refer a Friend,<br>Both of You Save</h4>
+              <p>Hand this card to a neighbor. When they book service, you each receive a $[XX] credit toward your next call. No expiration.</p>
+            </div>
+          </div>
+          <div class="ref-foot">
+            <span>Your HVAC Co. · Rogers, AR</span>
+            <span class="rfp">(479) 555-0100</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /cards-grid -->
+
+</body>
+</html>
