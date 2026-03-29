@@ -1,6 +1,13 @@
-# Troubleshooting Guide Preview Replacement
+# Task: Cleanup 02_PRODUCTS foldes
 
-- [x] Copy `free-troubleshooting-guide.png` to `assets/images/hvac-troubleshooting-preview.png`
-- [x] Delete original `free-troubleshooting-guide.png`
-- [x] Verify homepage preview
-- [x] Verify checklist page preview
+## Progress
+- [ ] Create implementation plan
+- [ ] Obtain user approval
+- [ ] Commit current state
+- [ ] Delete "Image" folders in 02_PRODUCTS
+- [ ] Delete "Product-Files" folders in 02_PRODUCTS
+- [ ] Verify deletion
+- [ ] Commit final state
+
+## Review
+- Verification of recursive deletion.
