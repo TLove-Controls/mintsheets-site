@@ -1,13 +1,12 @@
-# Task: Cleanup 02_PRODUCTS foldes
+# Task: Cleanup 02_PRODUCTS foldes (Plural "Images")
 
 ## Progress
-- [x] Create implementation plan
+- [x] Initial research for "Images"
+- [x] Update implementation plan
 - [x] Obtain user approval
-- [x] Commit current state
-- [x] Delete "Image" folders in 02_PRODUCTS
-- [x] Delete "Product-Files" folders in 02_PRODUCTS
-- [x] Verify deletion
-- [x] Commit final state
+- [x] Delete "Images" (plural) folders in 02_PRODUCTS
+- [/] Verify deletion
+- [ ] Commit final state
 
 ## Review
-- Verification of recursive deletion.
+- Verification of recursive deletion for "Images".
