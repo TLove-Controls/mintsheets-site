@@ -394,6 +394,15 @@ h1 {
     font-size: 0.96rem;
 }
 
+.card-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    display: block;
+}
+
 .icon {
     width: 46px;
     height: 46px;
