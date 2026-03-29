@@ -6,8 +6,8 @@
 - [x] Commit current state
 - [x] Delete "Image" folders in 02_PRODUCTS
 - [x] Delete "Product-Files" folders in 02_PRODUCTS
-- [/] Verify deletion
-- [ ] Commit final state
+- [x] Verify deletion
+- [x] Commit final state
 
 ## Review
 - Verification of recursive deletion.
