@@ -6,7 +6,9 @@
 - [x] Obtain user approval
 - [x] Delete "Images" (plural) folders in 02_PRODUCTS
 - [x] Verify deletion
+- [x] Regenerate directorytree.md without 02_PRODUCTS
 - [x] Commit final state
 
 ## Review
 - Verification of recursive deletion for "Images".
+- Verification of directorytree.md contents.
