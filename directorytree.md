@@ -1,6 +1,30 @@
 - 📂 **.agents/**
   - 📂 **rules/**
     - 📄 GEMINI.md
+- 📂 **02_PRODUCTS/**
+  - 📂 **01_HTML_Web_Apps/**
+    - 📂 **01_hvac_flow_rate_calculator/**
+      - 📄 HVAC_flow_rate_calculator.html
+    - 📂 **02_hvac_bid_calculator/**
+      - 📄 hvac_bid_calculator.html
+    - 📂 **03_HVAC_Business_Valuation_Calculator/**
+      - 📄 HVAC_Business_Valuation_Calculator.html
+    - 📂 **04_HVAC_CFM_Calculator/**
+      - 📄 hvac_cfm_calculator.html
+    - 📂 **05_HVAC_Duct_Size_Calculator/**
+      - 📄 hvac_duct_size_calculator.html
+    - 📂 **06_HVAC_Energy_Savings_Calculator/**
+      - 📄 hvac_energy_savings_calculator.html
+    - 📂 **07_HVAC_Labor_Cost_Calculator/**
+      - 📄 hvac_labor_cost_calculator.html
+    - 📂 **08_HVAC_Load_Calculator/**
+      - 📄 HVAC_Load_Calculator.html
+    - 📂 **09_HVAC_Profit_Margin_Calculator/**
+      - 📄 HVAC_Profit_Margin_Calculator.html
+    - 📂 **10_HVAC_Service Markup_Calculator/**
+      - 📄 HVAC_Service_Markup_Calculator.html
+    - 📂 **11_HVAC_Service_Price_Calculator/**
+      - 📄 HVAC_Service_Price_Calculator.html
 - 📄 .gitignore
 - 📄 directorytree.md
 - 📄 index.html
