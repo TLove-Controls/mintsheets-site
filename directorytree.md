@@ -1,7 +1,6 @@
 ﻿- 📂 **.agents/**
   - 📂 **rules/**
     - 📄 GEMINI.md
-- 📄 .gitignore
 - 📂 **admin/**
   - 📂 **notes/**
     - 📄 landing-page-workflow.md
@@ -273,5 +272,3 @@
     - 📄 logo.png
 - 📂 **shop/**
   - 📄 index.html
-- 📂 **site/**
-- 📂 **tasks/**
