@@ -149,10 +149,36 @@ async function connectRepo() {
         
         notify('Connected to repository: ' + repoHandle.name);
         await scanRepo();
+        startWatcherHeartbeat();
     } catch (err) {
         console.error('Connection error:', err);
         notify(err.message, 'danger');
     }
+}
+
+async function startWatcherHeartbeat() {
+    const watcherStatus = document.getElementById('watcher-status');
+    setInterval(async () => {
+        if (!repoHandle) return;
+        try {
+            const fileHandle = await repoHandle.getFileHandle('admin/dashboard/.heartbeat');
+            const file = await fileHandle.getFile();
+            const lastMod = file.lastModified;
+            const now = Date.now();
+            
+            // If modified in the last 20 seconds, it's active
+            if (now - lastMod < 20000) {
+                watcherStatus.innerText = 'Watcher: Active';
+                watcherStatus.classList.remove('missing');
+            } else {
+                watcherStatus.innerText = 'Watcher: Offline';
+                watcherStatus.classList.add('missing');
+            }
+        } catch (e) {
+            watcherStatus.innerText = 'Watcher: Offline';
+            watcherStatus.classList.add('missing');
+        }
+    }, 10000);
 }
 
 async function scanRepo() {
