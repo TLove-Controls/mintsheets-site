@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint Sheets Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <div class="brand-mark">MS</div>
+            <h2 class="m-0" style="font-size: 18px;">Mint Sheets</h2>
+        </div>
+        <nav class="nav-links">
+            <div class="nav-item active" data-panel="panel-dashboard">Dashboard</div>
+            <div class="nav-item" data-panel="panel-products">Product Manager</div>
+            <div class="nav-item" data-panel="panel-bundles">Bundle Manager</div>
+        </nav>
+        <div class="sidebar-footer">
+            <div id="repo-status" class="status-badge missing">Not Connected</div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="flex">
+                <h1 id="panel-title" style="font-size: 20px;">Dashboard</h1>
+            </div>
+            <div class="flex">
+                <button id="btn-sync" class="btn btn-secondary hidden">
+                    <span id="sync-icon">🔄</span> Sync All Products
+                </button>
+                <button id="btn-connect" class="btn btn-primary">Connect Repository</button>
+            </div>
+        </header>
+
+        <!-- Panels -->
+        <div class="panel-container">
+            <!-- Panel: Connection Initial (Dashboard) -->
+            <section id="panel-dashboard" class="panel">
+                <div id="welcome-message">
+                    <h2>Welcome to the Admin Dashboard</h2>
+                    <p style="color: var(--muted); max-width: 600px;">
+                        This is a local-only tool. To begin, click <strong>Connect Repository</strong> and select your project's root folder (<code>mintsheets-site</code>).
+                    </p>
+                </div>
+                <div id="dashboard-stats" class="hidden">
+                    <div class="grid">
+                        <div class="card">
+                            <h3 class="card-title">Project Overview</h3>
+                            <p id="stats-summary" style="margin-top: 12px; color: var(--muted);">Scanning repository...</p>
+                        </div>
+                        <div class="card">
+                            <h3 class="card-title">Quick Links</h3>
+                            <div class="card-actions">
+                                <a href="../../index.html" target="_blank" class="btn btn-secondary btn-sm">View Root</a>
+                                <a href="../../shop/index.html" target="_blank" class="btn btn-secondary btn-sm">View Shop</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Panel: Products -->
+            <section id="panel-products" class="panel hidden">
+                <div class="flex" style="justify-content: space-between; margin-bottom: 24px;">
+                    <h2 class="m-0">Products</h2>
+                    <button id="btn-new-product" class="btn btn-primary">New Product Wizard</button>
+                </div>
+                <div id="product-list" class="grid">
+                    <!-- Products will be injected here -->
+                    <p style="color: var(--muted);">No products found or repository not connected.</p>
+                </div>
+            </section>
+
+            <!-- Panel: Bundles -->
+            <section id="panel-bundles" class="panel hidden">
+                <div class="flex" style="justify-content: space-between; margin-bottom: 24px;">
+                    <h2 class="m-0">Bundles</h2>
+                    <button id="btn-new-bundle" class="btn btn-primary">New Bundle</button>
+                </div>
+                <div id="bundle-list" class="grid">
+                    <!-- Bundles will be injected here -->
+                    <p style="color: var(--muted);">No bundles found or repository not connected.</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div id="overlay-product" class="overlay">
+        <div class="modal">
+            <h2 style="margin-top: 0;">New Product Wizard</h2>
+            <p style="font-size: 14px; color: var(--muted); margin-bottom: 24px;">This will generate the full folder structure for your product.</p>
+            <div class="form-group">
+                <label for="prod-name">Product Name</label>
+                <input type="text" id="prod-name" placeholder="e.g. HVAC Service Pack">
+            </div>
+            <div class="form-group">
+                <label for="prod-slug">Product Slug (folder name)</label>
+                <input type="text" id="prod-slug" placeholder="e.g. hvac-service-pack">
+            </div>
+            <div class="flex" style="justify-content: flex-end; margin-top: 32px;">
+                <button class="btn btn-secondary btn-close-modal">Cancel</button>
+                <button id="btn-create-product" class="btn btn-primary">Create Product</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay-bundle" class="overlay">
+        <div class="modal">
+            <h2 style="margin-top: 0;">New Bundle</h2>
+            <div class="form-group">
+                <label for="bundle-name">Bundle Name</label>
+                <input type="text" id="bundle-name" placeholder="e.g. Complete HVAC Bundle">
+            </div>
+            <div class="form-group">
+                <label for="bundle-slug">Bundle Slug (URL name)</label>
+                <input type="text" id="bundle-slug" placeholder="e.g. complete-hvac-bundle">
+            </div>
+            <div class="flex" style="justify-content: flex-end; margin-top: 32px;">
+                <button class="btn btn-secondary btn-close-modal">Cancel</button>
+                <button id="btn-create-bundle" class="btn btn-primary">Create Bundle</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="notif-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html>
