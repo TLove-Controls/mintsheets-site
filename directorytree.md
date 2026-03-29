@@ -1,6 +1,7 @@
 - 📂 **.agents/**
   - 📂 **rules/**
     - 📄 GEMINI.md
+- 📄 .gitignore
 - 📄 CNAME
 - 📄 directorytree.md
 - 📄 index.html
