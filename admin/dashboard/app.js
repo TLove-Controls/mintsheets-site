@@ -281,15 +281,23 @@ window.handleImageChange = async (event, slug) => {
     const file = event.target.files[0];
     if (!file) return;
 
+    const product = products.find(p => p.slug === slug);
     notify(`Updating image for ${slug}...`);
+    
     try {
         const prodDir = await repoHandle.getDirectoryHandle('products');
         const productHandle = await prodDir.getDirectoryHandle(slug);
         const assetsDir = await productHandle.getDirectoryHandle('assets');
         
-        // Naming convention: slug-preview.ext
-        const ext = file.name.split('.').pop();
-        const fileName = `${slug}-preview.${ext}`;
+        // Priority 1: Use existing filename if found during scan
+        // Priority 2: Use slug-based naming
+        let fileName;
+        if (product && product.previewHandle) {
+            fileName = product.previewHandle.name;
+        } else {
+            const ext = file.name.split('.').pop();
+            fileName = `${slug}-preview.${ext}`;
+        }
         
         const fileHandle = await assetsDir.getFileHandle(fileName, { create: true });
         const writable = await fileHandle.createWritable();
