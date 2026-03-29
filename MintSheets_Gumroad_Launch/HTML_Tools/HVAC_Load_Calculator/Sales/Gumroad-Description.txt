@@ -1,160 +1,91 @@
-```markdown
-# Gumroad Description.txt
-## Product: Missed Call Text-Back Automator for HVAC
+# HVAC Load Calculator — Close Jobs With Confidence
 
 ---
 
-**TITLE: Missed Call Text-Back Automator for HVAC**
-
+**TITLE: HVAC Load Calculator (Manual J Style Estimator)**
 **PRICE: $47**
 
-**SHORT DESCRIPTION (under 140 characters):**
-Never lose another lead. Automatically texts every missed caller with a booking link.
+**SHORT DESCRIPTION:**
+Stop guessing tonnage. Calculate accurate HVAC loads in minutes and close more jobs.
 
 ---
 
 ## FULL DESCRIPTION
 
-**You're losing money every time the phone rings and no one answers.**
+Most HVAC companies guess system sizes — and lose money.
 
-It happens every day in every HVAC shop:
-- The office is closed
-- Everyone's on another line
-- The techs are in the field
-- You're in a meeting
+Oversized = inefficiency
+Undersized = callbacks
+Guessing = lost jobs
 
-That missed call becomes a voicemail. That voicemail becomes a lead that calls your competitor instead.
-
-**This template fixes that.**
+**If you can’t explain your numbers, you lose the sale.**
 
 ---
 
-### What It Does
+### What This Does
 
-When your business misses a call, this automation:
+Calculate HVAC loads in under 2 minutes:
 
-1. **Detects the missed call** from your call log (Google Voice, RingCentral, or any system that logs to Google Sheets)
-2. **Checks if the number is in your database** (so existing customers get a different message than new leads)
-3. **Sends a personalized text message** within 2 minutes
-4. **Logs everything** so you know which leads were captured
+* Cooling (BTU + Tons)
+* Heating
+* Furnace size
+* Full breakdown
 
-The text includes your business name and a link where they can book an appointment instantly.
+No spreadsheets. No software. No guessing.
 
 ---
 
 ### What You Get
 
-- ✅ **Complete Make.com scenario** (ready to import—no building required)
-- ✅ **Google Sheets template** with working formulas
-- ✅ **Airtable base** (optional—for customer matching)
-- ✅ **Step-by-step PDF guide** with screenshots
-- ✅ **Video walkthrough** showing exactly how to set it up
-- ✅ **Sample text messages** you can copy/paste
+* Pro HVAC Load Calculator (HTML)
+* Manual J-style logic
+* Instant results
+* Printable + customizable
 
-**Total setup time: 15 minutes**
+Runs in your browser. No install needed.
 
 ---
 
-### The Text They Receive
+### Why It Works
 
-> "Hi, you just called [Your Business Name]. We must have missed you. Book your appointment here: [booking.link] Reply STOP to opt out."
-
-You can customize this. Use your own words. Change the link. Add your tech's direct number. It's yours.
-
----
-
-### Why HVAC Owners Buy This
-
-**"I installed this on a Thursday. By Monday, I had booked two jobs from calls I would have missed."** — Rogers, AR HVAC owner
-
-**"Worth it for the peace of mind alone. I don't worry about after-hours calls anymore."** — Fayetteville, AR
-
-**"My wife used to answer the office phone while making dinner. Now she actually gets to eat."** — Springdale, AR
-
----
-
-### How It Works (The Technical Part—Skip if You Just Want It to Work)
-
-This template connects:
-- **Google Sheets** (your missed call log)
-- **Make.com** (the automation engine)
-- **Twilio** (sends the texts)
-- **Airtable** (optional—matches numbers to customers)
-
-You need accounts for these tools. If you don't have them, the setup guide walks you through signing up (most have free tiers).
-
-**No coding. No IT guy. No monthly contracts.**
-
----
-
-### What You Need Before Buying
-
-- A Google account (free)
-- A Make.com account (free trial works, Pro is $9/month)
-- A Twilio account (~$1 to start, pay as you go for texts)
-- A call logging system that exports to Google Sheets (Google Voice does this automatically; RingCentral and others can be set up in 5 minutes)
-
----
-
-### Who This Is NOT For
-
-- Companies using a paper call log (you need digital call records)
-- People who don't want to spend 15 minutes setting something up
-- Businesses that never miss calls (if you exist, congratulations)
+Show real numbers → build trust → close more jobs
 
 ---
 
 ### Guarantee
 
-Digital products aren't returnable, but **I stand behind this template.**
-
-If you follow the setup guide and it doesn't work exactly as described, email me within 30 days and I'll refund your money. No questions. I'd rather you be happy than keep $47.
+30-day refund if it doesn’t help you quote faster or close more jobs.
 
 ---
 
 ### About MintSheets
 
-I build automation templates for HVAC companies in Northwest Arkansas. I got tired of watching good shops lose leads because they were too busy doing the actual work. These templates fix that.
-
-You do the HVAC. Let the automation handle the follow-up.
+Simple tools for HVAC companies to make more money, save time, and close more jobs.
 
 ---
 
-**Click the button below to get instant access.**
-
-(Then check your email—your download link and setup guide will be there in under 2 minutes.)
+**Instant download after purchase.**
 
 ---
 
-## ADDITIONAL GUMROAD FIELDS
+## TAGS
 
-**Cover Image Description:**
-A simple screenshot showing: iPhone ringing (missed call) → text message appearing on same phone with booking link. Clean, professional, shows the before/after.
+HVAC, load calculator, Manual J, HVAC tools, contractor tools, estimating, HVAC sales
 
-**Tags:**
-HVAC, automation, missed calls, text messaging, HVAC marketing, lead capture, small business, HVAC tools
+---
 
-**Preview Video Description:**
-60-second Loom video showing:
-0:00 - Missed call comes in
-0:15 - Text appears on customer phone
-0:30 - Make.com dashboard showing the automation running
-0:45 - Booking confirmation
+## FAQ
 
-**FAQ (for Gumroad sidebar):**
+**Q: Is this a full Manual J?**
+A: It follows Manual J principles but is simplified for speed.
 
-Q: Do I need to know how to code?
-A: No. If you can copy and paste, you can install this.
+**Q: Do I install anything?**
+A: No. It runs as a single HTML file.
 
-Q: Will this work with my phone system?
-A: If your calls log to Google Sheets, yes. Google Voice works out of the box. Most VoIP systems can export to Sheets with free add-ons.
+**Q: Can I customize it?**
+A: Yes — branding and inputs are editable.
 
-Q: Can I change the text message?
-A: Yes. Edit it in Make.com in about 30 seconds. The guide shows you where.
+**Q: Is this a subscription?**
+A: No. One-time purchase.
 
-Q: What if my texts don't send?
-A: Email me. I'll help you troubleshoot. Most issues are fixed in 5 minutes.
-
-Q: Is this a monthly subscription?
-A: No. One payment. You own it forever.
 ```
