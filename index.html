@@ -3,235 +3,197 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Mint Sheets | HVAC Business Tools, Calculators & Templates</title>
+  <title>MintSheets | Free HVAC Technical Calculators & Field Tools</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Specialized digital storefront for professional HVAC business tools, calculators, and templates built for pricing, reporting, and operations." />
+    content="Free online HVAC calculators for technicians and contractors. Tools for load calculation, duct sizing, CFM, flow rate, and business pricing." />
   <link rel="canonical" href="https://mintsheets.com/" />
   <link rel="icon" type="image/png" href="brand/favicon.png">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Mint Sheets | HVAC Business Tools, Calculators & Templates" />
+  <meta property="og:title" content="MintSheets | Free HVAC Technical Calculators" />
   <meta property="og:description"
-    content="Professional HVAC tools, calculators, and templates for pricing, reporting, and operations. Built for contractors, techs, and office teams." />
+    content="Professional HVAC field tools and business calculators. Accurate, fast, and mobile-ready for contractors and technicians." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mintsheets.com/" />
-  <!-- Optional: <meta property="og:image" content="https://mintsheets.com/og-image.jpg" /> -->
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Mint Sheets | HVAC Business Tools, Calculators & Templates" />
-  <meta name="twitter:description"
-    content="Professional HVAC tools, calculators, and templates for pricing, reporting, and operations. Built for contractors, techs, and office teams." />
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Mint Sheets",
-    "image": "https://mintsheets.comshared/images/logo.png?v=1.4",
-    "@id": "https://mintsheets.com/",
-    "url": "https://mintsheets.com/",
-    "logo": "https://mintsheets.comshared/images/logo.png?v=1.4",
-    "description": "Specialized source for HVAC business tools, calculators, and templates."
-  }
-  </script>
 
   <link rel="stylesheet" href="shared/css/styles.css?v=1.3">
+  <style>
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+    .calc-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      padding: 30px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+    .calc-card:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: #E07B00;
+      transform: translateY(-5px);
+    }
+    .calc-card h3 {
+      margin: 0 0 12px 0;
+      font-size: 1.4rem;
+      color: #E8F2FF;
+    }
+    .calc-card p {
+      margin: 0 0 25px 0;
+      font-size: 0.95rem;
+      color: #A0B3C6;
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+    .calc-card .btn {
+      align-self: flex-start;
+      padding: 10px 20px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .category-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: #E07B00;
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: block;
+    }
+  </style>
 </head>
-
 
 <body>
   <header class="site-header">
     <div class="container nav">
       <a href="/" class="brand">
         <img src="shared/images/logo.png?v=1.4" alt="Mint Sheets Logo" height="80" style="border-radius: 8px;">
-        
       </a>
 
       <nav class="nav-links">
-        <a href="/shop/">Shop</a>
-        <a href="/shop/#calculators">Calculators</a>
-        <a href="/shop/#spreadsheets">Spreadsheets</a>
-        <a href="/shop/#documents">Documents</a>
-        <a href="/shop/#bundles">Bundles</a>
-        <a href="#contact">Contact</a>
+        <a href="/">Calculators</a>
+        <a href="#troubleshooting-checklist">Free Guide</a>
+        <a href="mailto:support@mintsheets.com">Support</a>
       </nav>
     </div>
   </header>
 
   <main>
-    <section class="hero">
+    <section class="hero" style="padding: 100px 0 60px 0;">
       <div class="container">
-        <div class="hero-card hero-card-centered">
+        <div class="hero-card hero-card-centered" style="background: none; border: none; box-shadow: none; padding: 0;">
           <div class="fade-up">
-            <div class="eyebrow">Digital Storefront for HVAC Files</div>
-            <h1>HVAC Business Tools, Calculators & Templates</h1>
-            <p class="hero-subheadline">
-              Professional calculators and ready-to-use files for pricing, reporting, and efficient HVAC operations. 
+            <div class="eyebrow" style="color: #E07B00;">Free Professional Resources</div>
+            <h1 style="font-size: 3.5rem; margin-bottom: 20px;">HVAC Calculator Hub</h1>
+            <p class="hero-subheadline" style="max-width: 800px; margin: 0 auto 40px auto; font-size: 1.25rem;">
+              Mobile-ready technical tools and business calculators designed for field technicians, 
+              system designers, and HVAC company owners.
             </p>
-            <p class="hero-copy">
-              Access a library of professional HVAC spreadsheets and documents designed to help you 
-              bid accurately and report clearly. Download and start using them today.
-            </p>
-
-            <div class="hero-actions">
-              <a class="btn btn-cta" href="#shop">Shop All Tools</a>
-              <a class="btn btn-secondary" href="#troubleshooting-checklist">Get Free Troubleshooting Checklist</a>
-            </div>
-
-            <p class="hero-note">
-              Instant-download digital products for HVAC contractors.
-            </p>
-
-            <div class="trust-row">
-              
-              <span>Ready to Download and Use</span>
-              <span>Practical Tools for Operations</span>
-            </div>
           </div>
         </div>
       </div>
     </section>
 
-
-
-
-
-    <section class="section" id="shop">
+    <section class="section" id="calculators" style="padding-top: 0;">
       <div class="container">
-        <div class="section-card">
-          <div class="section-header fade-up">
-            <h2>Featured Categories</h2>
-            <p>Professional tools organized by how you work.</p>
-          </div>
-          <div class="grid-4">
-            <a href="/shop/#calculators" class="card fade-up delay-1">
-              <div class="icon">C</div>
-              <h3>Calculators</h3>
-              <p>Interactive HTML tools for rapid field results.</p>
-            </a>
-            <a href="/shop/#spreadsheets" class="card fade-up delay-2">
-              <div class="icon">S</div>
-              <h3>Spreadsheet Templates</h3>
-              <p>Heavy-duty XLSX files for reporting and price books.</p>
-            </a>
-            <a href="/shop/#documents" class="card fade-up delay-3">
-              <div class="icon">D</div>
-              <h3>Business Documents</h3>
-              <p>Essential DOCX templates for proposals and invoices.</p>
-            </a>
-            <a href="/shop/#bundles" class="card fade-up delay-4">
-              <div class="icon">B</div>
-              <h3>Bundles</h3>
-              <p>High-value collections to professionalize your business.</p>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+        <div class="calc-grid">
+          
+          <!-- LOAD -->
+          <a href="/hvac-load-calculator/" class="calc-card fade-up">
+            <span class="category-label">Engineering</span>
+            <h3>Load Calculator</h3>
+            <p>Rapid heating and cooling load estimations for residential and light commercial spaces.</p>
+            <span class="btn btn-secondary">Open Tool</span>
+          </a>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-card">
-          <div class="section-header fade-up">
-            <h2>Featured Products</h2>
-            <p>Practical tools for pricing, reporting, and operations.</p>
-          </div>
-          <div class="grid-3-2">
-            <div class="card fade-up delay-1">
-              <img src="/products/hvac-load-calculator/assets/hvac-load-preview.png" alt="HVAC Load Calculator Preview" class="card-img" style="margin-bottom: 20px;">
-              <h3>HVAC Load Calculator</h3>
-              <p>Professional heating and cooling load calculations for rapid technical assessments.</p>
-              <div class="hero-actions" style="margin-top: 20px;">
-                <a href="/p/hvac-load-calculator" class="btn btn-secondary" style="min-height: 40px; font-size: 14px;">View Product</a>
-              </div>
-            </div>
-            <div class="card fade-up delay-2">
-              <img src="/products/hvac-bid-calculator/assets/hvac-bid-preview.jpg" alt="HVAC Bid Calculator Preview" class="card-img" style="margin-bottom: 20px;">
-              <h3>HVAC Bid Calculator</h3>
-              <p>Tool for estimating job costs, labor, and profit margins on residential and commercial bids.</p>
-              <div class="hero-actions" style="margin-top: 20px;">
-                <a href="/p/hvac-bid-calculator" class="btn btn-secondary" style="min-height: 40px; font-size: 14px;">View Product</a>
-              </div>
-            </div>
-            <div class="card fade-up delay-3">
-              <img src="/products/hvac-service-price-calculator/assets/hvac-service-price-preview.jpg" alt="HVAC Service Price Calculator Preview" class="card-img" style="margin-bottom: 20px;">
-              <h3>HVAC Service Price Calculator</h3>
-              <p>Browser-based tool for estimating service rates, dispatch fees, and profitability.</p>
-              <div class="hero-actions" style="margin-top: 20px;">
-                <a href="/p/hvac-service-price-calculator" class="btn btn-secondary" style="min-height: 40px; font-size: 14px;">View Product</a>
-              </div>
-            </div>
-            <div class="card fade-up delay-4">
-              <img src="/products/hvac-price-book/assets/hvac-price-book-preview.jpg" alt="HVAC Price Book Template Preview" class="card-img" style="margin-bottom: 20px;">
-              <h3>HVAC Price Book Template</h3>
-              <p>XLSX flat-rate price book to organize service parts, labor, and common repairs.</p>
-              <div class="hero-actions" style="margin-top: 20px;">
-                <a href="/p/hvac-price-book" class="btn btn-secondary" style="min-height: 40px; font-size: 14px;">View Product</a>
-              </div>
-            </div>
-            <div class="card fade-up delay-1">
-              <img src="/products/hvac-markup-chart/assets/hvac-markup-chart-preview.jpg" alt="HVAC Markup Chart Template Preview" class="card-img" style="margin-bottom: 20px;">
-              <h3>HVAC Markup Chart Template</h3>
-              <p>Reference table for calculating material markup and protecting target profit margins.</p>
-              <div class="hero-actions" style="margin-top: 20px;">
-                <a href="/p/hvac-markup-chart" class="btn btn-secondary" style="min-height: 40px; font-size: 14px;">View Product</a>
-              </div>
-            </div>
-            <div class="card fade-up delay-2">
-              <img src="/products/hvac-air-balance-report/assets/hvac-air-balance-preview.png" alt="HVAC Air Balance Report Template Preview" class="card-img" style="margin-bottom: 20px;">
-              <h3>HVAC Air Balance Report Template</h3>
-              <p>Technical report for field commissioning, equipment startup, and air balance verification.</p>
-              <div class="hero-actions" style="margin-top: 20px;">
-                <a href="/p/air-balance-report" class="btn btn-secondary" style="min-height: 40px; font-size: 14px;">View Product</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          <!-- DUCT -->
+          <a href="/hvac-duct-size-calculator/" class="calc-card fade-up" style="animation-delay: 0.1s;">
+            <span class="category-label">Design</span>
+            <h3>Duct Size Calculator</h3>
+            <p>Dimension round and rectangular ductwork based on CFM requirements and friction rates.</p>
+            <span class="btn btn-secondary">Open Tool</span>
+          </a>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-card">
-          <div class="section-header fade-up">
-            <h2>Why Mint Sheets</h2>
-            <p>Specialized digital tools built for the mechanical trade.</p>
-          </div>
-          <div class="grid-3">
-            <div class="card fade-up delay-1">
-              <div class="icon">✓</div>
-              <h3>Built for HVAC Workflows</h3>
-              <p>Templates using trade-specific logic for heating, cooling, and air balance calculations.</p>
-            </div>
-            <div class="card fade-up delay-2">
-              <div class="icon">↓</div>
-              <h3>Ready to Download and Use</h3>
-              <p>Standard XLSX and DOCX files that open instantly in Excel and Word on any device.</p>
-            </div>
-            <div class="card fade-up delay-3">
-              <div class="icon">$</div>
-              <h3>Practical Tools for Operations</h3>
-              <p>Files structured to protect your margins, simplify reporting, and professionalize field operations.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+          <!-- FLOW RATE -->
+          <a href="/hvac-flow-rate-calculator/" class="calc-card fade-up" style="animation-delay: 0.2s;">
+            <span class="category-label">Technical</span>
+            <h3>Flow Rate Calculator</h3>
+            <p>Determine system airflow (CFM) using temperature rise, static pressure, or sensible heat delta.</p>
+            <span class="btn btn-secondary">Open Tool</span>
+          </a>
 
-    <section class="section">
-      <div class="container">
-        <div class="cta-panel fade-up">
-          <h2>The HVAC Service Document Pack</h2>
-          <p>
-            Get a professional set of service checklists, maintenance reports, and proposal 
-            templates in one bundle. Built for consistent field operations.
-          </p>
-          <div class="hero-actions" style="justify-content: center;">
-            <a href="/bundles/hvac-service-document-pack" class="btn btn-cta">View Bundle</a>
-          </div>
+          <!-- BID -->
+          <a href="/hvac-bid-calculator/" class="calc-card fade-up" style="animation-delay: 0.3s;">
+            <span class="category-label">Business</span>
+            <h3>Bid Calculator</h3>
+            <p>Estimate job costs, labor burden, and overhead to protect your project profit margins.</p>
+            <span class="btn btn-secondary">Open Tool</span>
+          </a>
+
+          <!-- SERVICE PRICE -->
+          <a href="/hvac-service-price-calculator/" class="calc-card fade-up" style="animation-delay: 0.4s;">
+            <span class="category-label">Pricing</span>
+            <h3>Service Price Calculator</h3>
+            <p>Generate flat rate pricing for service calls including travel, labor, and parts markup.</p>
+            <span class="btn btn-secondary">Open Tool</span>
+          </a>
+
+          <!-- CFM -->
+          <a href="/hvac-cfm-calculator/" class="calc-card fade-up" style="animation-delay: 0.5s;">
+            <span class="category-label">Airflow</span>
+            <h3>CFM Calculator</h3>
+            <p>Calculate required room airflow based on square footage or sensible heat load requirements.</p>
+            <span class="btn btn-secondary">Open Tool</span>
+          </a>
+
+          <!-- PROFIT MARGIN -->
+          <a href="/hvac-profit-margin-calculator/" class="calc-card fade-up" style="animation-delay: 0.6s;">
+            <span class="category-label">Financial</span>
+            <h3>Profit Margin Calculator</h3>
+            <p>Analyze the profitability of any service job or installation project after all costs.</p>
+            <span class="btn btn-secondary">Open Tool</span>
+          </a>
+
+          <!-- LABOR COST -->
+          <a href="/hvac-labor-cost-calculator/" class="calc-card fade-up" style="animation-delay: 0.7s;">
+            <span class="category-label">Operations</span>
+            <h3>Labor Cost Calculator</h3>
+            <p>Calculate the true burdened cost of your technicians including taxes, insurance, and benefits.</p>
+            <span class="btn btn-secondary">Open Tool</span>
+          </a>
+
+          <!-- ENERGY SAVINGS -->
+          <a href="/hvac-energy-savings-calculator/" class="calc-card fade-up" style="animation-delay: 0.8s;">
+            <span class="category-label">Efficiency</span>
+            <h3>Energy Savings Calculator</h3>
+            <p>Project utility bill savings and ROI for customers upgrading to higher SEER/AFUE equipment.</p>
+            <span class="btn btn-secondary">Open Tool</span>
+          </a>
+
+          <!-- VALUATION -->
+          <a href="/hvac-business-valuation-calculator/" class="calc-card fade-up" style="animation-delay: 0.9s;">
+            <span class="category-label">Strategy</span>
+            <h3>Business Valuation</h3>
+            <p>Estimate the market value of your HVAC company based on EBITDA and asset multiples.</p>
+            <span class="btn btn-secondary">Open Tool</span>
+          </a>
+
+          <!-- MARKUP -->
+          <a href="/hvac-service-markup-calculator/" class="calc-card fade-up" style="animation-delay: 1.0s;">
+            <span class="category-label">Pricing</span>
+            <h3>Service Markup Tool</h3>
+            <p>Determine the correct markup percentages for parts and materials to hit net profit goals.</p>
+            <span class="btn btn-secondary">Open Tool</span>
+          </a>
+
         </div>
       </div>
     </section>
@@ -243,10 +205,10 @@
             <div>
               <span class="badge badge-docx" style="margin-bottom: 20px;">Free Resource</span>
               <h2 style="font-size: 2.2rem; margin-top: 0;">HVAC Troubleshooting Guide</h2>
-              <p style="font-size: 1.1rem; color: var(--muted); margin-bottom: 30px;">
+              <p style="font-size: 1.1rem; color: #7A98B8; margin-bottom: 30px;">
                 Download our symptom-based technical guide used by professionals to ensure 
                 consistency and precision on every service call. From 'no-start' diagnostics 
-                to airflow verification, we've mapped it all out.
+                to airflow verification.
               </p>
               <div class="hero-actions" style="justify-content: flex-start;">
                 <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-cta">Get Free Guide</a>
@@ -260,119 +222,37 @@
       </div>
     </section>
 
-    <section class="section" id="faq">
-      <div class="container">
-        <div class="section-card">
-          <div class="section-header fade-up">
-            <h2>Frequently asked questions</h2>
-            <p>Common questions about using Mint Sheets digital tools.</p>
-          </div>
-
-          <div class="faq-list">
-            <details class="faq-item fade-up delay-1">
-              <summary>What file formats do I get?</summary>
-              <div class="faq-content">
-                You receive HTML files for interactive calculators, XLSX files for spreadsheet templates, 
-                and DOCX files for business documents.
-              </div>
-            </details>
-
-            <details class="faq-item fade-up delay-2">
-              <summary>Do the calculators work on mobile?</summary>
-              <div class="faq-content">
-                Yes. Our HTML calculators are mobile-responsive and work on any smartphone or tablet 
-                with a modern web browser.
-              </div>
-            </details>
-
-            <details class="faq-item fade-up delay-3">
-              <summary>Can I edit the templates?</summary>
-              <div class="faq-content">
-                Absolutely. All XLSX and DOCX files are unlocked and fully editable in Microsoft Excel 
-                and Microsoft Word.
-              </div>
-            </details>
-
-            <details class="faq-item fade-up delay-4">
-              <summary>Can I use these for my own HVAC company?</summary>
-              <div class="faq-content">
-                Yes. Your purchase includes a license for unlimited internal use within your own 
-                HVAC business operations.
-              </div>
-            </details>
-
-            <details class="faq-item fade-up delay-5">
-              <summary>What software do I need to open the files?</summary>
-              <div class="faq-content">
-                We recommend Microsoft Excel and Microsoft Word for the best experience. The calculators 
-                only require a standard web browser.
-              </div>
-            </details>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta">
-      <div class="container">
-        <div class="cta-panel fade-up">
-          <h2>Ready to Streamline Your HVAC Business?</h2>
-          <p>Professional tools and templates designed for pricing, reporting, and operations.</p>
-          <div class="hero-actions" style="justify-content: center;">
-            <a href="/shop" class="btn btn-cta">Shop All Tools</a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
-  <footer class="footer" id="contact">
+  <footer class="footer" id="contact" style="border-top: 1px solid rgba(255,255,255,0.05); padding: 80px 0 40px 0;">
     <div class="container">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: left; margin-bottom: 60px;">
         <div>
           <div class="brand" style="margin-bottom: 20px;">
             <img src="shared/images/logo.png?v=1.4" alt="Mint Sheets Logo" height="64" style="border-radius: 6px;">
-            
           </div>
-          <p style="font-size: 14px;">Specialized digital storefront for HVAC business tools, calculators, and templates.</p>
+          <p style="font-size: 14px; color: #7A98B8;">Free technical tools and business calculators for the HVAC trade.</p>
         </div>
         <div>
-          <h4 style="color: var(--text); margin-bottom: 20px;">Products</h4>
+          <h4 style="color: #E8F2FF; margin-bottom: 20px;">Calculators</h4>
           <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 2;">
-            <li><a href="/p/hvac-load-calculator/">HVAC Load Calculator</a></li>
-            <li><a href="/p/hvac-bid-calculator/">HVAC Bid Calculator</a></li>
-            <li><a href="/p/hvac-service-price-calculator/">Service Price Calculator</a></li>
-            <li><a href="/p/hvac-price-book/">HVAC Price Book</a></li>
+            <li><a href="/hvac-load-calculator/">Load Calculator</a></li>
+            <li><a href="/hvac-bid-calculator/">Bid Calculator</a></li>
+            <li><a href="/hvac-duct-size-calculator/">Duct Size Calculator</a></li>
+            <li><a href="/hvac-flow-rate-calculator/">Flow Rate Calculator</a></li>
           </ul>
         </div>
         <div>
-          <h4 style="color: var(--text); margin-bottom: 20px;">Categories</h4>
+          <h4 style="color: #E8F2FF; margin-bottom: 20px;">Support</h4>
           <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 2;">
-            <li><a href="/shop/#calculators">Calculators</a></li>
-            <li><a href="/shop/#spreadsheets">Spreadsheet Templates</a></li>
-            <li><a href="/shop/#documents">Business Documents</a></li>
-            <li><a href="/shop/#bundles">Bundles</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 style="color: var(--text); margin-bottom: 20px;">Support</h4>
-          <ul style="list-style: none; padding: 0; font-size: 14px; line-height: 2;">
+            <li><a href="mailto:support@mintsheets.com">Email Support</a></li>
             <li><a href="#troubleshooting-checklist">Troubleshooting Guide</a></li>
-            <li><a href="mailto:tyler.love@mintsheets.com">Email Support</a></li>
-            <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
       </div>
-      <p>&copy; 2026 Mint Sheets. Professional Tools for HVAC Operations.</p>
+      <p style="color: #556B82;">&copy; 2026 MintSheets. Professional Tools for HVAC Operations.</p>
     </div>
   </footer>
 </body>
 
 </html>
-
-
-
-
-
-
-

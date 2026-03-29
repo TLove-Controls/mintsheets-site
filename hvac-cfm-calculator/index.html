@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVAC CFM Calculator | Airflow and Duct Capacity Tool | MintSheets</title>
+<meta name="description" content="Free online HVAC CFM calculator. Determine required airflow for any room based on heat load or square footage. Perfect for technical system sizing.">
+<style>
+  /* ── DESIGN TOKENS ─────────────────────────────────────── */
+  :root {
+    --navy:      #1B3A6B;
+    --steel:     #2E6DA4;
+    --sky:       #D6E4F0;
+    --orange:    #E07B00;
+    --orange-lt: #FFF3E0;
+    --white:     #FFFFFF;
+    --row-alt:   #F4F6F8;
+    --gray-text: #555;
+    --border:    #C8D6E5;
+    --shadow:    0 2px 8px rgba(27,58,107,.13);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background: #EEF2F7;
+    color: #222;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ────────────────────────────────────────────── */
+  .doc-header {
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 28px;
+    border-bottom: 4px solid var(--orange);
+  }
+  .doc-header .company {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: .5px;
+  }
+  .doc-header .company span { color: var(--orange); }
+  .doc-header .doc-title {
+    color: var(--sky);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: right;
+    letter-spacing: .3px;
+  }
+
+  /* ── PAGE WRAPPER ──────────────────────────────────────── */
+  .page { max-width: 960px; margin: 0 auto; padding: 24px 16px 40px; }
+
+  /* ── HERO BANNER ───────────────────────────────────────── */
+  .hero {
+    background: var(--navy);
+    color: var(--white);
+    text-align: center;
+    padding: 22px 28px 18px;
+    border-radius: 4px 4px 0 0;
+    margin-bottom: 0;
+  }
+  .hero h1 { font-size: 22px; font-weight: 700; letter-spacing: .5px; }
+  .hero p  { color: var(--sky); font-size: 13px; margin-top: 4px; }
+
+  /* ── SECTION BANNER ────────────────────────────────────── */
+  .section-banner {
+    background: var(--navy);
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    padding: 9px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+  }
+  .section-banner .icon { font-size: 16px; }
+
+  /* ── CARD ──────────────────────────────────────────────── */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    margin-bottom: 24px;
+    border-radius: 0 0 4px 4px;
+  }
+
+  /* ── SUB-HEADER ROW ────────────────────────────────────── */
+  .sub-header {
+    background: var(--steel);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 12px;
+    padding: 7px 14px;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+  }
+
+  /* ── INPUT TABLE ───────────────────────────────────────── */
+  .input-table { width: 100%; border-collapse: collapse; }
+  .input-table tr:nth-child(even) td { background: var(--row-alt); }
+  .input-table td {
+    padding: 9px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .input-table td:first-child {
+    font-weight: 600;
+    color: var(--navy);
+    width: 42%;
+  }
+  .input-table td:last-child { text-align: right; }
+  .input-table input, .input-table select {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 5px 9px;
+    width: 160px;
+    color: #222;
+    background: #fff;
+    outline: none;
+    transition: border-color .2s;
+  }
+  .input-table input:focus, .input-table select:focus {
+    border-color: var(--steel);
+    box-shadow: 0 0 0 2px rgba(46,109,164,.15);
+  }
+  .unit-label {
+    font-size: 11px;
+    color: var(--gray-text);
+    margin-left: 6px;
+  }
+
+  /* ── CALC BUTTON ───────────────────────────────────────── */
+  .btn-row {
+    padding: 14px 14px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: var(--sky);
+    border-top: 1px solid var(--border);
+  }
+  .btn-calc {
+    background: var(--orange);
+    color: var(--white);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    border-radius: 3px;
+    padding: 9px 28px;
+    cursor: pointer;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+    transition: background .2s;
+  }
+  .btn-calc:hover { background: #c46d00; }
+  .btn-reset {
+    background: transparent;
+    color: var(--steel);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid var(--steel);
+    border-radius: 3px;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .btn-reset:hover { background: var(--sky); }
+
+  /* ── RESULTS TABLE ─────────────────────────────────────── */
+  .results-table { width: 100%; border-collapse: collapse; }
+  .results-table thead tr { background: var(--steel); }
+  .results-table thead th {
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    padding: 8px 12px;
+    text-align: left;
+  }
+  .results-table tbody tr:nth-child(even) td { background: var(--row-alt); }
+  .results-table tbody td {
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    vertical-align: middle;
+  }
+  .results-table tbody td:first-child { font-weight: 600; color: var(--navy); }
+  .results-table tfoot td {
+    background: var(--navy);
+    color: var(--white);
+    font-weight: 700;
+    padding: 10px 12px;
+    font-size: 13px;
+  }
+
+  /* status badges */
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 3px;
+    padding: 2px 8px;
+    letter-spacing: .3px;
+  }
+  .badge-pass  { background: #DFF5E1; color: #1A6B2D; border: 1px solid #A8DAAF; }
+  .badge-warn  { background: #FFF3CD; color: #856404; border: 1px solid #FFD966; }
+  .badge-fail  { background: #FDDEDE; color: #8B1A1A; border: 1px solid #F2AAAA; }
+  .badge-info  { background: var(--sky); color: var(--navy); border: 1px solid var(--border); }
+
+  /* ── TIPS BOX ──────────────────────────────────────────── */
+  .tips-box {
+    border-left: 4px solid var(--orange);
+    background: var(--orange-lt);
+    padding: 12px 16px;
+    margin: 14px;
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: #444;
+  }
+  .tips-box strong { color: var(--orange); font-size: 13px; }
+  .tips-box ul { margin: 6px 0 0 18px; }
+
+  /* ── HIDDEN / VISIBLE ──────────────────────────────────── */
+  .hidden { display: none; }
+
+  /* ── STARS ─────────────────────────────────────────────── */
+  .stars { color: var(--orange); letter-spacing: 4px; font-size: 18px; }
+
+  /* ── FOOTER ────────────────────────────────────────────── */
+  .doc-footer {
+    text-align: center;
+    color: var(--gray-text);
+    font-size: 11.5px;
+    padding: 14px 20px;
+    border-top: 1px solid var(--border);
+    background: var(--white);
+    margin-top: 30px;
+    box-shadow: var(--shadow);
+  }
+  .doc-footer .stars { font-size: 14px; display: block; margin-bottom: 4px; }
+
+  /* ── MULTI-COL INFO ROW ────────────────────────────────── */
+  .info-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border);
+  }
+  .info-cell {
+    padding: 12px 14px;
+    border-right: 1px solid var(--border);
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .info-cell:last-child { border-right: none; }
+  .info-cell strong { display: block; color: var(--navy); margin-bottom: 3px; font-size: 12.5px; }
+
+  @media (max-width: 640px) {
+    .info-row { grid-template-columns: 1fr; }
+    .info-cell { border-right: none; border-bottom: 1px solid var(--border); }
+    .doc-header { flex-direction: column; gap: 6px; text-align: center; }
+    .doc-header .doc-title { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── HEADER ──────────────────────────────────────────────── -->
+<header class="doc-header">
+  <div class="company">Your <span>HVAC</span> Co.</div>
+  <div class="doc-title">HVAC CFM CALCULATOR<br>Airflow Design & Verification Tool</div>
+</header>
+
+<header id="mint-header" style="background: #080F1A; border-bottom: 2px solid #E07B00; padding: 15px 0;">
+  <div style="max-width: 1100px; margin: 0 auto; display: flex; align-items: center; padding: 0 20px;">
+    <a href="/" style="text-decoration: none; color: #E8F2FF; font-family: sans-serif; font-weight: 900; font-size: 24px; text-transform: uppercase; letter-spacing: 1px;">
+      MintSheets<span style="color: #E07B00;">.</span>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+  <div id="mint-intro" style="margin: 40px auto; max-width: 1000px; padding: 0 20px;">
+    <h1 style="font-family: sans-serif; font-weight: 900; font-size: 42px; color: #1B3A6B; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px;">HVAC CFM Calculator</h1>
+    <p style="font-family: sans-serif; font-size: 18px; color: #666; line-height: 1.6; max-width: 800px;">Accurately calculate required CFM for residential and commercial spaces based on square footage and sensible heat load.</p>
+  </div>
+
+  <!-- ── HERO ─────────────────────────────────────────────── -->
+  <div class="hero">
+    <h1>⚡ HVAC CFM CALCULATOR</h1>
+    <p>Calculate required airflow for rooms, systems, and duct sizing — fast and accurate.</p>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 1 — ROOM CFM CALCULATOR
+  ═════════════════════════════════════════════════════════ -->
+  <div class="section-banner"><span class="icon">🏠</span> SECTION 1 — ROOM CFM CALCULATOR</div>
+  <div class="card">
+    <div class="sub-header">Room Parameters — Enter Values Below</div>
+    <table class="input-table">
+      <tr>
+        <td>Calculation Method</td>
+        <td><select id="method" onchange="toggleMethod()">
+          <option value="sqft">By Square Footage (Manual J Simplified)</option>
+          <option value="acph">By Air Changes Per Hour (ACPH)</option>
+          <option value="btuh">By BTUH Load</option>
+        </select></td>
+      </tr>
+      <!-- SQFT METHOD -->
+      <tr class="method-sqft">
+        <td>Room Square Footage<span class="unit-label">ft²</span></td>
+        <td><input type="number" id="sqft" placeholder="e.g. 250" min="0"></td>
+      </tr>
+      <tr class="method-sqft">
+        <td>Ceiling Height<span class="unit-label">ft</span></td>
+        <td><input type="number" id="ceiling_h" placeholder="e.g. 9" min="0" value="9"></td>
+      </tr>
+      <tr class="method-sqft">
+        <td>CFM per Square Foot Factor</td>
+        <td><select id="cfm_factor">
+          <option value="0.5">0.5 — Light residential (mild climate)</option>
+          <option value="0.75" selected>0.75 — Standard residential</option>
+          <option value="1.0">1.0 — High-load / hot climate</option>
+          <option value="1.25">1.25 — Commercial / heavy internal loads</option>
+          <option value="custom">Custom factor…</option>
+        </select>
+        <input type="number" id="custom_factor" class="hidden" placeholder="e.g. 0.8" min="0.1" max="5" step="0.05" style="width:120px;margin-top:4px;">
+        </td>
+      </tr>
+      <!-- ACPH METHOD -->
+      <tr class="method-acph hidden">
+        <td>Room Volume<span class="unit-label">ft³</span></td>
+        <td><input type="number" id="room_vol" placeholder="e.g. 2250" min="0"></td>
+      </tr>
+      <tr class="method-acph hidden">
+        <td>Air Changes Per Hour (ACPH)</td>
+        <td><select id="acph_val">
+          <option value="4">4 — Bedrooms (ASHRAE 62.2)</option>
+          <option value="6" selected>6 — Living areas</option>
+          <option value="8">8 — Kitchens / baths</option>
+          <option value="10">10 — Commercial office</option>
+          <option value="15">15 — Retail / restaurant</option>
+          <option value="custom_acph">Custom…</option>
+        </select>
+        <input type="number" id="custom_acph" class="hidden" placeholder="e.g. 7" min="1" max="60" style="width:120px;margin-top:4px;">
+        </td>
+      </tr>
+      <!-- BTUH METHOD -->
+      <tr class="method-btuh hidden">
+        <td>Room Sensible Heat Load<span class="unit-label">BTUH</span></td>
+        <td><input type="number" id="btuh_load" placeholder="e.g. 6000" min="0"></td>
+      </tr>
+      <tr class="method-btuh hidden">
+        <td>Supply Air Temperature<span class="unit-label">°F</span></td>
+        <td><input type="number" id="supply_temp" placeholder="e.g. 55" min="40" max="75" value="55"></td>
+      </tr>
+      <tr class="method-btuh hidden">
+        <td>Room Design Temperature<span class="unit-label">°F</span></td>
+        <td><input type="number" id="room_temp" placeholder="e.g. 75" min="60" max="85" value="75"></td>
+      </tr>
+    </table>
+    <div class="btn-row">
+      <button class="btn-calc" onclick="calcRoom()">⚡ CALCULATE CFM</button>
+      <button class="btn-reset" onclick="resetRoom()">↺ Reset</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="room_results" class="hidden">
+      <div class="sub-header">📊 Results — Room CFM</div>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Calculated</th>
+            <th>Unit</th>
+            <th>Spec / Guideline</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="room_tbody"></tbody>
+        <tfoot><tr id="room_tfoot"><td colspan="6">—</td></tr></tfoot>
+      </table>
+    </div>
+
+    <div class="tips-box">
+      <strong>⚡ Pro Tips — Room CFM</strong>
+      <ul>
+        <li>Manual J simplified: use 0.75 CFM/ft² for most NW Arkansas homes.</li>
+        <li>ACPH method is ideal for ventilation-critical spaces (kitchens, baths).</li>
+        <li>BTUH method is the most accurate — use post-load calc data when possible.</li>
+        <li>Minimum supply air: 50 CFM per room per ASHRAE 62.2.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 2 — DUCT SIZING CALCULATOR
+  ═════════════════════════════════════════════════════════ -->
+  <div class="section-banner"><span class="icon">🔧</span> SECTION 2 — DUCT SIZING CALCULATOR</div>
+  <div class="card">
+    <div class="sub-header">Duct Parameters — Enter Airflow & Friction Rate</div>
+    <table class="input-table">
+      <tr>
+        <td>Design CFM for Duct<span class="unit-label">CFM</span></td>
+        <td><input type="number" id="duct_cfm" placeholder="e.g. 400" min="1"></td>
+      </tr>
+      <tr>
+        <td>Friction Rate<span class="unit-label">in. w.g./100 ft</span></td>
+        <td><select id="friction">
+          <option value="0.06">0.06 — Low velocity / long runs</option>
+          <option value="0.08" selected>0.08 — Standard residential</option>
+          <option value="0.10">0.10 — Moderate velocity</option>
+          <option value="0.12">0.12 — Higher velocity / shorter runs</option>
+        </select></td>
+      </tr>
+      <tr>
+        <td>Duct Shape</td>
+        <td><select id="duct_shape" onchange="toggleDuctShape()">
+          <option value="round">Round</option>
+          <option value="rect">Rectangular</option>
+          <option value="flex">Flexible (Flex Duct)</option>
+        </select></td>
+      </tr>
+      <tr id="rect_row" class="hidden">
+        <td>Known Dimension (Width)<span class="unit-label">in</span></td>
+        <td><input type="number" id="rect_w" placeholder="e.g. 12" min="4" max="48"></td>
+      </tr>
+    </table>
+    <div class="btn-row">
+      <button class="btn-calc" onclick="calcDuct()">⚡ SIZE MY DUCT</button>
+      <button class="btn-reset" onclick="resetDuct()">↺ Reset</button>
+    </div>
+
+    <div id="duct_results" class="hidden">
+      <div class="sub-header">📊 Results — Duct Sizing</div>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Calculated</th>
+            <th>Unit</th>
+            <th>Spec</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="duct_tbody"></tbody>
+        <tfoot><tr id="duct_tfoot"><td colspan="6">—</td></tr></tfoot>
+      </table>
+    </div>
+
+    <div class="tips-box">
+      <strong>⚡ Pro Tips — Duct Sizing</strong>
+      <ul>
+        <li>Flex duct: derate velocity by ~15% vs. rigid sheet metal for the same CFM.</li>
+        <li>Target face velocity: 500–750 FPM for supply, 400–600 FPM for return.</li>
+        <li>Rule of thumb: 400 CFM per ton → 1-ton system needs ~400 CFM total.</li>
+        <li>Oversized ducts cause low velocity, poor throw, and comfort complaints.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 3 — SYSTEM TOTAL CFM & TONNAGE CHECK
+  ═════════════════════════════════════════════════════════ -->
+  <div class="section-banner"><span class="icon">📊</span> SECTION 3 — SYSTEM TOTAL CFM &amp; TONNAGE CHECK</div>
+  <div class="card">
+    <div class="sub-header">Equipment Parameters</div>
+    <table class="input-table">
+      <tr>
+        <td>System Tonnage<span class="unit-label">tons</span></td>
+        <td><input type="number" id="sys_tons" placeholder="e.g. 3" min="0.5" max="25" step="0.5"></td>
+      </tr>
+      <tr>
+        <td>Measured / Design Total CFM<span class="unit-label">CFM</span></td>
+        <td><input type="number" id="sys_cfm" placeholder="e.g. 1200" min="100"></td>
+      </tr>
+      <tr>
+        <td>Blower Motor Type</td>
+        <td><select id="blower_type">
+          <option value="psc">PSC (Single-speed)</option>
+          <option value="ecm">ECM / Variable Speed</option>
+        </select></td>
+      </tr>
+    </table>
+    <div class="btn-row">
+      <button class="btn-calc" onclick="calcSystem()">⚡ CHECK SYSTEM CFM</button>
+      <button class="btn-reset" onclick="resetSystem()">↺ Reset</button>
+    </div>
+
+    <div id="sys_results" class="hidden">
+      <div class="sub-header">📊 Results — System Verification</div>
+      <table class="results-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Measured</th>
+            <th>Unit</th>
+            <th>Spec</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="sys_tbody"></tbody>
+        <tfoot><tr id="sys_tfoot"><td colspan="6">—</td></tr></tfoot>
+      </table>
+    </div>
+
+    <!-- INFO ROW -->
+    <div class="info-row">
+      <div class="info-cell">
+        <strong>🏆 Industry Standard</strong>
+        400 CFM/ton is the residential baseline per ACCA Manual D. Range 350–450 CFM/ton is acceptable.
+      </div>
+      <div class="info-cell">
+        <strong>🔧 ECM Advantage</strong>
+        ECM motors self-adjust to maintain target CFM regardless of static pressure. PSC motors lose CFM as static rises.
+      </div>
+      <div class="info-cell">
+        <strong>⚡ Commissioning Tip</strong>
+        Measure total external static pressure (TESP). At 0.5 in. w.g. TESP, most residential systems deliver rated CFM.
+      </div>
+    </div>
+  </div>
+
+</div><!-- /page -->
+
+<!-- ── FOOTER ───────────────────────────────────────────────── -->
+<footer class="doc-footer">
+  <span class="stars">★ ★ ★ ★ ★</span>
+  <strong>Your HVAC Co.</strong> — Rogers, AR &amp; Surrounding Areas<br>
+  (555) 867-5309 &nbsp;│&nbsp; www.yourhvac.com &nbsp;│&nbsp; EPA 608 Universal &nbsp;│&nbsp; NATE Certified<br>
+  <span style="color:#aaa;font-size:10.5px;margin-top:4px;display:block;">For reference only. Always perform a full Manual J load calculation for final equipment sizing.</span>
+</footer>
+
+<!-- ═══════════════════ JAVASCRIPT ═══════════════════════════ -->
+<script>
+/* ── HELPERS ──────────────────────────────────────────────── */
+const $ = id => document.getElementById(id);
+const show = id => $(id).classList.remove('hidden');
+const hide = id => $(id).classList.add('hidden');
+function badge(type, label) {
+  return `<span class="badge badge-${type}">${label}</span>`;
+}
+function row(param, val, unit, spec, status, notes) {
+  const b = status === 'PASS' ? badge('pass','✔ PASS')
+          : status === 'WARN' ? badge('warn','⚠ WARN')
+          : status === 'FAIL' ? badge('fail','✘ FAIL')
+          : badge('info', status);
+  return `<tr>
+    <td>${param}</td><td><strong>${val}</strong></td><td>${unit}</td>
+    <td>${spec}</td><td>${b}</td><td style="font-size:11.5px;color:#555">${notes}</td>
+  </tr>`;
+}
+function footRow(label, value, colspan=6) {
+  return `<td colspan="${colspan}">⚡ ${label}: <strong>${value}</strong></td>`;
+}
+
+/* ── METHOD TOGGLE ────────────────────────────────────────── */
+function toggleMethod() {
+  const m = $('method').value;
+  ['sqft','acph','btuh'].forEach(k => {
+    document.querySelectorAll('.method-'+k).forEach(el => el.classList.toggle('hidden', k !== m));
+  });
+  hide('room_results');
+}
+function toggleDuctShape() {
+  const s = $('duct_shape').value;
+  $('rect_row').classList.toggle('hidden', s !== 'rect');
+}
+
+/* ── CFM FACTOR CUSTOM ────────────────────────────────────── */
+$('cfm_factor').addEventListener('change', () => {
+  $('custom_factor').classList.toggle('hidden', $('cfm_factor').value !== 'custom');
+});
+$('acph_val').addEventListener('change', () => {
+  $('custom_acph').classList.toggle('hidden', $('acph_val').value !== 'custom_acph');
+});
+
+/* ══════════════════════════════════════════════════════════
+   CALC 1 — ROOM CFM
+══════════════════════════════════════════════════════════ */
+function calcRoom() {
+  const method = $('method').value;
+  let cfm, rows = '', secondaryRows = '';
+
+  if (method === 'sqft') {
+    const sf = parseFloat($('sqft').value);
+    const ch = parseFloat($('ceiling_h').value) || 9;
+    let factor = $('cfm_factor').value === 'custom'
+      ? parseFloat($('custom_factor').value)
+      : parseFloat($('cfm_factor').value);
+    if (!sf || !factor) { alert('Please enter square footage and factor.'); return; }
+    cfm = sf * factor;
+    const vol = sf * ch;
+    const acph = (cfm * 60) / vol;
+    rows += row('Room Square Footage', sf.toLocaleString(), 'ft²', '—', 'INFO', 'User input');
+    rows += row('CFM/ft² Factor Applied', factor.toFixed(2), 'CFM/ft²', '0.75 typical', 'INFO', 'Selected method');
+    rows += row('Required CFM', cfm.toFixed(0), 'CFM', '≥50 CFM min', cfm >= 50 ? 'PASS' : 'FAIL', 'ASHRAE 62.2 minimum');
+    rows += row('Implied Volume', vol.toFixed(0), 'ft³', '—', 'INFO', `At ${ch} ft ceiling`);
+    rows += row('Effective ACPH', acph.toFixed(1), 'ACH', '6–10 typical', (acph >= 4 && acph <= 15) ? 'PASS' : 'WARN', 'Cross-reference check');
+
+  } else if (method === 'acph') {
+    const vol = parseFloat($('room_vol').value);
+    let acph = $('acph_val').value === 'custom_acph'
+      ? parseFloat($('custom_acph').value)
+      : parseFloat($('acph_val').value);
+    if (!vol || !acph) { alert('Please enter room volume and ACPH.'); return; }
+    cfm = (vol * acph) / 60;
+    rows += row('Room Volume', vol.toLocaleString(), 'ft³', '—', 'INFO', 'User input');
+    rows += row('Air Changes Per Hour', acph.toFixed(0), 'ACH/hr', '4–15 typical', 'INFO', 'Selected value');
+    rows += row('Required CFM', cfm.toFixed(0), 'CFM', '≥50 CFM min', cfm >= 50 ? 'PASS' : 'WARN', 'ASHRAE 62.2');
+    rows += row('CFM/ft² Implied', (cfm / (vol / 8)).toFixed(2), 'CFM/ft²', '0.5–1.25', 'INFO', 'At 8 ft ceiling assumption');
+
+  } else { // btuh
+    const btuh = parseFloat($('btuh_load').value);
+    const ts   = parseFloat($('supply_temp').value) || 55;
+    const tr   = parseFloat($('room_temp').value) || 75;
+    if (!btuh) { alert('Please enter BTUH load.'); return; }
+    const dt = tr - ts;
+    if (dt <= 0) { alert('Room temp must be greater than supply temp.'); return; }
+    cfm = btuh / (1.08 * dt);
+    const status = cfm >= 50 ? 'PASS' : 'FAIL';
+    rows += row('Sensible Heat Load', btuh.toLocaleString(), 'BTUH', '—', 'INFO', 'User input');
+    rows += row('ΔT (Room − Supply)', dt.toFixed(0), '°F', '15–25°F typical', (dt>=15&&dt<=25)?'PASS':'WARN', 'Affects comfort & dehumidification');
+    rows += row('Required CFM', cfm.toFixed(0), 'CFM', '≥50 CFM min', status, 'Q=1.08×CFM×ΔT');
+    rows += row('Tons Implied', (btuh/12000).toFixed(2), 'tons', '—', 'INFO', 'Sensible only');
+  }
+
+  $('room_tbody').innerHTML = rows;
+  $('room_tfoot').innerHTML = footRow('Required Room CFM (Rounded)', Math.ceil(cfm/5)*5 + ' CFM');
+  show('room_results');
+}
+function resetRoom() {
+  ['sqft','ceiling_h','room_vol','btuh_load','supply_temp','room_temp','custom_factor','custom_acph'].forEach(id => $(id).value = '');
+  $('cfm_factor').value = '0.75'; $('acph_val').value = '6'; $('method').value = 'sqft';
+  toggleMethod(); hide('room_results');
+}
+
+/* ══════════════════════════════════════════════════════════
+   CALC 2 — DUCT SIZING
+══════════════════════════════════════════════════════════ */
+function calcDuct() {
+  const cfm = parseFloat($('duct_cfm').value);
+  const fr  = parseFloat($('friction').value);
+  const shape = $('duct_shape').value;
+  if (!cfm) { alert('Enter the design CFM for the duct.'); return; }
+
+  /* Diameter from friction chart approximation:
+     D = 1.3 * (cfm^0.625) / (fr^0.25) — Altshul-Tsal formula proxy */
+  let dFlex = 1.3 * Math.pow(cfm, 0.625) / Math.pow(fr * 100, 0.25);
+  /* Rigid round needs slightly smaller diameter */
+  let dRound = dFlex * 0.92;
+  /* Round up to nearest standard size */
+  const stds = [4,5,6,7,8,9,10,12,14,16,18,20,22,24];
+  const nextStd = d => stds.find(s => s >= d) || stds[stds.length-1];
+
+  const dRec  = shape === 'flex' ? nextStd(dFlex) : nextStd(dRound);
+  const area  = Math.PI * Math.pow(dRec/24, 2) / 4; // ft²
+  const vel   = cfm / area;
+  const velOk = vel >= 400 && vel <= 900;
+  let rows = '';
+
+  rows += row('Design CFM', cfm, 'CFM', '—', 'INFO', 'User input');
+  rows += row('Friction Rate', fr.toFixed(2), 'in. w.g./100 ft', '0.06–0.12', 'INFO', 'Per ACCA Manual D');
+  rows += row('Min Calculated Diameter', (shape==='flex' ? dFlex : dRound).toFixed(1), 'in', '—', 'INFO', 'Before rounding');
+  rows += row('Recommended Duct Size', dRec, 'in Ø', 'Next std size', 'PASS', shape === 'flex' ? 'Flex duct' : shape === 'rect' ? 'Rect equiv.' : 'Round rigid');
+  rows += row('Face Velocity', vel.toFixed(0), 'FPM', '400–900 FPM', velOk ? 'PASS' : 'WARN', vel < 400 ? 'Low — noise/comfort risk' : vel > 900 ? 'High — noise risk' : 'Acceptable');
+
+  if (shape === 'rect' && $('rect_w').value) {
+    const w = parseFloat($('rect_w').value);
+    const rectArea = Math.PI * Math.pow(dRec/2, 2); // in²
+    const h = Math.ceil(rectArea / w);
+    rows += row('Rectangular Equivalent', `${w}" × ${h}"`, 'in', `Equiv. to ${dRec}" Ø`, 'INFO', 'Width user-defined, height calculated');
+  }
+
+  $('duct_tbody').innerHTML = rows;
+  $('duct_tfoot').innerHTML = footRow('Recommended Size', `${dRec}" ${shape === 'flex' ? 'Flex' : 'Round'} — ${vel.toFixed(0)} FPM`);
+  show('duct_results');
+}
+function resetDuct() {
+  $('duct_cfm').value = ''; $('rect_w').value = '';
+  $('duct_shape').value = 'round'; $('friction').value = '0.08';
+  hide('rect_row'); hide('duct_results');
+}
+
+/* ══════════════════════════════════════════════════════════
+   CALC 3 — SYSTEM CHECK
+══════════════════════════════════════════════════════════ */
+function calcSystem() {
+  const tons  = parseFloat($('sys_tons').value);
+  const cfm   = parseFloat($('sys_cfm').value);
+  const blower = $('blower_type').value;
+  if (!tons || !cfm) { alert('Enter both tonnage and total CFM.'); return; }
+
+  const targetCfm   = tons * 400;
+  const cfmPerTon   = cfm / tons;
+  const deviation   = ((cfm - targetCfm) / targetCfm * 100);
+  const withinSpec  = Math.abs(deviation) <= 12.5; // ±50 CFM/ton tolerance
+  const status      = withinSpec ? 'PASS' : Math.abs(deviation) <= 20 ? 'WARN' : 'FAIL';
+
+  let rows = '';
+  rows += row('System Tonnage', tons.toFixed(1), 'tons', '—', 'INFO', 'Nameplate');
+  rows += row('Target CFM (400 CFM/ton)', targetCfm.toFixed(0), 'CFM', '—', 'INFO', 'ACCA baseline');
+  rows += row('Measured / Design CFM', cfm.toFixed(0), 'CFM', `${targetCfm-50}–${targetCfm+50} CFM`, status, 'Your system');
+  rows += row('CFM per Ton', cfmPerTon.toFixed(0), 'CFM/ton', '350–450', (cfmPerTon>=350&&cfmPerTon<=450)?'PASS':'WARN', 'Industry standard range');
+  rows += row('Deviation from Target', (deviation > 0 ? '+' : '') + deviation.toFixed(1) + '%', '%', '< ±12.5%', withinSpec ? 'PASS' : 'WARN', deviation < 0 ? 'Undersupplied — check for restrictions' : 'Oversupplied — check for bypass');
+  rows += row('Blower Type', blower === 'ecm' ? 'ECM / Variable Speed' : 'PSC Single-speed', '—', '—', blower === 'ecm' ? 'PASS' : 'INFO', blower === 'ecm' ? 'Self-compensating — best practice' : 'Verify at design static pressure');
+
+  $('sys_tbody').innerHTML = rows;
+  $('sys_tfoot').innerHTML = footRow('System Assessment', `${cfmPerTon.toFixed(0)} CFM/ton — ${status}`);
+  show('sys_results');
+}
+function resetSystem() {
+  $('sys_tons').value = ''; $('sys_cfm').value = '';
+  $('blower_type').value = 'psc'; hide('sys_results');
+}
+</script>
+    <footer id="mint-footer" style="background: #0F2240; border-top: 1px solid #2A4A72; padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+      <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+        <h3 style="color: #E07B00; font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <a href="/hvac-flow-rate-calculator/" style="color: #7A98B8; text-decoration: none; font-size: 14px;">Flow Rate Calculator</a>
+          <a href="/hvac-bid-calculator/" style="color: #7A98B8; text-decoration: none; font-size: 14px;">Bid Calculator</a>
+          <a href="/hvac-load-calculator/" style="color: #7A98B8; text-decoration: none; font-size: 14px;">Load Calculator</a>
+          <a href="/hvac-duct-size-calculator/" style="color: #7A98B8; text-decoration: none; font-size: 14px;">Duct Size Calculator</a>
+        </div>
+        <p style="margin-top: 40px; color: #556B82; font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+

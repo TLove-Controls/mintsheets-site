@@ -1,3 +1,0 @@
-# Lessons Learned
-
-- (none yet)

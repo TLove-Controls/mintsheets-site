@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVAC Bid Calculator | HVAC Estimate, Pricing & Margin Tool | MintSheets</title>
+<meta name="description" content="Free online HVAC bid calculator for estimating job costs, labor, and profit margins. Professional pricing tool for residential and commercial HVAC contractors.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1B3A6B;
+    --steel: #2E6DA4;
+    --sky: #D6E4F0;
+    --orange: #E07B00;
+    --orange-light: #FFF3E0;
+    --white: #FFFFFF;
+    --row-alt: #F4F6F8;
+    --border: #C8D6E5;
+    --text: #1A1A1A;
+    --muted: #5A6A7A;
+    --success: #1B6B3A;
+    --success-bg: #E6F4EC;
+    --danger: #8B1A1A;
+    --danger-bg: #FDEAEA;
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #E8EDF3;
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    background: var(--white);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.12);
+  }
+
+  /* BRANDED HEADER */
+  .doc-header {
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    border-bottom: 4px solid var(--orange);
+  }
+  .doc-header .company {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  .doc-header .company span {
+    color: var(--orange);
+  }
+  .doc-header .doc-title {
+    color: var(--white);
+    font-size: 13px;
+    text-align: right;
+    opacity: 0.9;
+  }
+  .doc-header .doc-title strong {
+    display: block;
+    font-size: 15px;
+    color: var(--orange);
+  }
+
+  /* SECTION BANNERS */
+  .section-banner {
+    background: var(--navy);
+    color: var(--white);
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 0;
+  }
+  .section-banner .icon {
+    font-size: 16px;
+    color: var(--orange);
+  }
+
+  /* SUB-HEADERS */
+  .sub-header {
+    background: var(--sky);
+    color: var(--steel);
+    font-size: 13px;
+    font-weight: bold;
+    padding: 7px 20px;
+    border-left: 4px solid var(--steel);
+  }
+
+  /* CONTENT AREA */
+  .content {
+    padding: 16px 20px;
+  }
+
+  /* FORM GRID */
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 20px;
+  }
+  .form-grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px 16px;
+  }
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .form-group.full {
+    grid-column: 1 / -1;
+  }
+  label {
+    font-size: 12px;
+    font-weight: bold;
+    color: var(--steel);
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+  input[type="text"],
+  input[type="number"],
+  select,
+  textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    padding: 7px 10px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    background: var(--white);
+    color: var(--text);
+    transition: border-color 0.15s;
+    width: 100%;
+  }
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--steel);
+    box-shadow: 0 0 0 2px rgba(46,109,164,0.15);
+  }
+  textarea { resize: vertical; min-height: 60px; }
+
+  /* LINE ITEMS TABLE */
+  .line-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .line-table thead tr {
+    background: var(--navy);
+    color: var(--white);
+  }
+  .line-table thead th {
+    padding: 9px 10px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .line-table tbody tr:nth-child(even) { background: var(--row-alt); }
+  .line-table tbody tr:nth-child(odd) { background: var(--white); }
+  .line-table tbody tr:hover { background: var(--sky); }
+  .line-table tbody td {
+    padding: 6px 8px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+  .line-table tfoot tr {
+    background: var(--sky);
+  }
+  .line-table tfoot td {
+    padding: 8px 10px;
+    font-weight: bold;
+    border-top: 2px solid var(--steel);
+  }
+  .line-table input {
+    padding: 5px 7px;
+    font-size: 13px;
+  }
+
+  /* REMOVE BTN */
+  .btn-remove {
+    background: none;
+    border: 1px solid #C44;
+    color: #C44;
+    border-radius: 3px;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    transition: all 0.1s;
+  }
+  .btn-remove:hover { background: #C44; color: white; }
+
+  /* ACTION BUTTONS */
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 12px 20px;
+    background: var(--row-alt);
+    border-top: 1px solid var(--border);
+  }
+  .btn {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 9px 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.15s, transform 0.1s;
+  }
+  .btn:hover { opacity: 0.88; }
+  .btn:active { transform: scale(0.98); }
+  .btn-primary { background: var(--navy); color: white; }
+  .btn-orange { background: var(--orange); color: white; }
+  .btn-steel { background: var(--steel); color: white; }
+  .btn-outline { background: white; color: var(--navy); border: 2px solid var(--navy); }
+  .btn-sm { padding: 6px 12px; font-size: 12px; }
+
+  /* SUMMARY PANEL */
+  .summary-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .summary-left { padding: 16px 20px; }
+  .summary-right {
+    background: var(--navy);
+    color: white;
+    padding: 16px 20px;
+  }
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    font-size: 13px;
+  }
+  .summary-row:last-child { border-bottom: none; }
+  .summary-row.total {
+    font-weight: bold;
+    font-size: 18px;
+    color: var(--orange);
+    border-top: 2px solid var(--orange);
+    margin-top: 6px;
+    padding-top: 8px;
+    border-bottom: none;
+  }
+  .summary-row.total .label { color: white; }
+
+  /* MARGIN SLIDER */
+  .margin-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  .margin-row label {
+    min-width: 140px;
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  .margin-row input[type="range"] {
+    flex: 1;
+    accent-color: var(--orange);
+    border: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  .margin-badge {
+    background: var(--orange);
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 3px;
+    padding: 3px 10px;
+    min-width: 48px;
+    text-align: center;
+  }
+
+  /* GOOD / BETTER / BEST */
+  .tier-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 16px 20px;
+  }
+  .tier-card {
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .tier-card.best { border-color: var(--orange); }
+  .tier-header {
+    background: var(--steel);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  .tier-card.best .tier-header { background: var(--orange); }
+  .tier-card.good .tier-header { background: var(--muted); }
+  .tier-price {
+    text-align: center;
+    padding: 14px 10px 8px;
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--navy);
+  }
+  .tier-price small {
+    display: block;
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: normal;
+  }
+  .tier-features {
+    list-style: none;
+    padding: 0 12px 12px;
+    font-size: 12px;
+    color: var(--text);
+  }
+  .tier-features li {
+    padding: 3px 0;
+    border-bottom: 1px solid var(--row-alt);
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+  }
+  .tier-features li::before {
+    content: "✓";
+    color: var(--steel);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  .tier-card.best .tier-features li::before { color: var(--orange); }
+
+  /* PRO TIPS */
+  .tips-box {
+    background: var(--orange-light);
+    border-left: 4px solid var(--orange);
+    padding: 12px 16px;
+    margin: 0 20px 16px;
+    font-size: 13px;
+  }
+  .tips-box strong { color: var(--orange); }
+
+  /* FOOTER */
+  .doc-footer {
+    background: var(--row-alt);
+    border-top: 2px solid var(--border);
+    text-align: center;
+    padding: 12px 20px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+  .doc-footer strong { color: var(--navy); }
+
+  /* ORANGE HIGHLIGHT TAG */
+  .highlight {
+    background: var(--orange);
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: white; }
+    .no-print { display: none !important; }
+    .page { box-shadow: none; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .form-grid, .form-grid-3, .tier-grid, .summary-panel {
+      grid-template-columns: 1fr;
+    }
+    .summary-right { background: var(--sky); color: var(--navy); }
+    .summary-row.total { color: var(--orange); }
+    .summary-row.total .label { color: var(--navy); }
+  }
+
+  .divider { height: 6px; background: var(--sky); }
+  .spacer { height: 10px; }
+</style>
+</head>
+<body>
+<header id="mint-header" style="background: #080F1A; border-bottom: 2px solid #E07B00; padding: 15px 0;">
+  <div style="max-width: 1100px; margin: 0 auto; display: flex; align-items: center; padding: 0 20px;">
+    <a href="/" style="text-decoration: none; color: #E8F2FF; font-family: sans-serif; font-weight: 900; font-size: 24px; text-transform: uppercase; letter-spacing: 1px;">
+      MintSheets<span style="color: #E07B00;">.</span>
+    </a>
+  </div>
+</header>
+
+<div class="page">
+  <div id="mint-intro" style="margin: 40px auto; max-width: 1000px; padding: 0 20px;">
+    <h1 style="font-family: sans-serif; font-weight: 900; font-size: 42px; color: #1B3A6B; text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px;">HVAC Bid Calculator</h1>
+    <p style="font-family: sans-serif; font-size: 18px; color: #666; line-height: 1.6; max-width: 800px;">Create professional estimates, calculate labor burden, and protect your profit margins with this comprehensive HVAC bidding tool.</p>
+  </div>
+
+  <!-- BRANDED HEADER -->
+  <div class="doc-header">
+    <div class="company">Your<span>HVAC</span>Co.</div>
+    <div class="doc-title">
+      <strong>⚡ HVAC Bid Calculator</strong>
+      Residential &amp; Light Commercial
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 1: JOB INFO -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">📋</span> SECTION 1 — JOB INFORMATION
+  </div>
+  <div class="content">
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Customer Name</label>
+        <input type="text" id="custName" placeholder="First Last">
+      </div>
+      <div class="form-group">
+        <label>Service Address</label>
+        <input type="text" id="custAddr" placeholder="123 Main St, Rogers, AR">
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" id="custPhone" placeholder="(479) 555-0100">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" id="custEmail" placeholder="customer@email.com">
+      </div>
+      <div class="form-group">
+        <label>Job Type</label>
+        <select id="jobType">
+          <option>New Installation</option>
+          <option>Replacement / Changeout</option>
+          <option>Repair</option>
+          <option>Maintenance Agreement</option>
+          <option>Duct Work</option>
+          <option>Commercial Service</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Estimate Date</label>
+        <input type="text" id="jobDate" placeholder="MM/DD/YYYY">
+      </div>
+      <div class="form-group">
+        <label>Technician / Salesperson</label>
+        <input type="text" id="techName" placeholder="Tech Name">
+      </div>
+      <div class="form-group">
+        <label>Estimate # </label>
+        <input type="text" id="estNum" placeholder="EST-2026-001">
+      </div>
+      <div class="form-group full">
+        <label>Job Notes / Scope of Work</label>
+        <textarea id="jobNotes" placeholder="Describe the scope of work, site conditions, access issues, special requirements..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 2: SYSTEM SPECS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">🔧</span> SECTION 2 — SYSTEM SPECIFICATIONS
+  </div>
+  <div class="content">
+    <div class="form-grid-3">
+      <div class="form-group">
+        <label>System Type</label>
+        <select id="sysType">
+          <option>Split System A/C + Furnace</option>
+          <option>Heat Pump (Split)</option>
+          <option>Package Unit</option>
+          <option>Mini-Split (Ductless)</option>
+          <option>Geothermal</option>
+          <option>Boiler System</option>
+          <option>Commercial RTU</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tonnage / Capacity</label>
+        <select id="tonnage">
+          <option>1.5 Ton</option>
+          <option>2.0 Ton</option>
+          <option>2.5 Ton</option>
+          <option>3.0 Ton</option>
+          <option>3.5 Ton</option>
+          <option>4.0 Ton</option>
+          <option>5.0 Ton</option>
+          <option>7.5 Ton</option>
+          <option>10 Ton</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>SEER2 Rating</label>
+        <select id="seer">
+          <option>14.3 SEER2 (Standard)</option>
+          <option>15.2 SEER2</option>
+          <option>16 SEER2</option>
+          <option>18 SEER2</option>
+          <option>20+ SEER2 (High Efficiency)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Furnace AFUE</label>
+        <select id="afue">
+          <option>N/A (No Furnace)</option>
+          <option>80% AFUE</option>
+          <option>96% AFUE</option>
+          <option>98% AFUE</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Brand / Manufacturer</label>
+        <select id="brand">
+          <option>Lennox</option>
+          <option>Carrier</option>
+          <option>Trane</option>
+          <option>Rheem</option>
+          <option>Goodman</option>
+          <option>Amana</option>
+          <option>York</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Sq Ft Served</label>
+        <input type="number" id="sqft" placeholder="e.g. 2000">
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 3: LINE ITEMS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">💰</span> SECTION 3 — MATERIALS &amp; LABOR LINE ITEMS
+  </div>
+  <div class="content" style="padding-bottom: 0;">
+    <div class="sub-header">Equipment &amp; Materials</div>
+    <div class="spacer"></div>
+    <table class="line-table" id="materialTable">
+      <thead>
+        <tr>
+          <th style="width:36%">Description</th>
+          <th style="width:12%">Qty</th>
+          <th style="width:16%">Unit Cost ($)</th>
+          <th style="width:16%">Extended ($)</th>
+          <th style="width:12%">Category</th>
+          <th class="no-print" style="width:8%">Del</th>
+        </tr>
+      </thead>
+      <tbody id="materialBody">
+        <!-- rows injected by JS -->
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" style="text-align:right; color: var(--steel);">Materials Subtotal:</td>
+          <td id="matTotal" style="color: var(--navy);">$0.00</td>
+          <td colspan="2"></td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="spacer"></div>
+    <div class="sub-header" style="margin-top:10px;">Labor</div>
+    <div class="spacer"></div>
+    <table class="line-table" id="laborTable">
+      <thead>
+        <tr>
+          <th style="width:36%">Task / Description</th>
+          <th style="width:12%">Hours</th>
+          <th style="width:16%">Rate ($/hr)</th>
+          <th style="width:16%">Extended ($)</th>
+          <th style="width:12%">Type</th>
+          <th class="no-print" style="width:8%">Del</th>
+        </tr>
+      </thead>
+      <tbody id="laborBody"></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" style="text-align:right; color: var(--steel);">Labor Subtotal:</td>
+          <td id="laborTotal" style="color: var(--navy);">$0.00</td>
+          <td colspan="2"></td>
+        </tr>
+      </tfoot>
+    </table>
+    <div class="spacer"></div>
+  </div>
+
+  <div class="btn-row no-print">
+    <button class="btn btn-steel btn-sm" onclick="addRow('material')">+ Add Material Line</button>
+    <button class="btn btn-steel btn-sm" onclick="addRow('labor')">+ Add Labor Line</button>
+    <button class="btn btn-outline btn-sm" onclick="loadDefaults()">⚡ Load Typical Defaults</button>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 4: PRICING SUMMARY -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">📊</span> SECTION 4 — PRICING SUMMARY &amp; MARGIN CONTROL
+  </div>
+  <div class="summary-panel">
+    <div class="summary-left">
+      <div class="sub-header" style="margin-bottom:12px;">Adjustments</div>
+
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>Refrigerant Charge / Lbs</label>
+        <div style="display:flex;gap:8px;">
+          <input type="number" id="refLbs" placeholder="Lbs" style="width:80px;" oninput="recalc()">
+          <input type="number" id="refRate" placeholder="$/lb (e.g. 65)" style="flex:1;" oninput="recalc()">
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>Permit / Inspection Fee ($)</label>
+        <input type="number" id="permitFee" placeholder="0.00" oninput="recalc()">
+      </div>
+
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>Haul-Away / Disposal ($)</label>
+        <input type="number" id="disposalFee" placeholder="0.00" oninput="recalc()">
+      </div>
+
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>Discount / Coupon ($)</label>
+        <input type="number" id="discount" placeholder="0.00" oninput="recalc()">
+      </div>
+
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>Tax Rate (%)</label>
+        <input type="number" id="taxRate" placeholder="8.5" value="8.5" oninput="recalc()">
+      </div>
+
+      <div class="form-group">
+        <label>Financing Option</label>
+        <select id="financing" onchange="recalc()">
+          <option value="0">No Financing</option>
+          <option value="3">12-Month SAC (+3%)</option>
+          <option value="5">18-Month SAC (+5%)</option>
+          <option value="8">60-Month (+8%)</option>
+          <option value="12">84-Month (+12%)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="summary-right">
+      <div style="font-size:13px;font-weight:bold;margin-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:8px;">
+        COST BREAKDOWN
+      </div>
+
+      <div class="margin-row">
+        <label>Overhead &amp; Profit Margin</label>
+        <input type="range" min="0" max="60" value="30" id="marginSlider" oninput="updateMargin()">
+        <div class="margin-badge" id="marginBadge">30%</div>
+      </div>
+
+      <div style="height:8px;"></div>
+      <div class="summary-row"><span>Materials Cost</span><span id="s-mat">$0.00</span></div>
+      <div class="summary-row"><span>Labor Cost</span><span id="s-lab">$0.00</span></div>
+      <div class="summary-row"><span>Refrigerant</span><span id="s-ref">$0.00</span></div>
+      <div class="summary-row"><span>Permit / Disposal</span><span id="s-fees">$0.00</span></div>
+      <div class="summary-row" style="border-top:1px solid rgba(255,255,255,0.3);margin-top:4px;padding-top:4px;">
+        <span>Raw Cost</span><span id="s-raw">$0.00</span>
+      </div>
+      <div class="summary-row"><span>Markup (<span id="s-mkpct">30</span>%)</span><span id="s-markup">$0.00</span></div>
+      <div class="summary-row"><span>Discount</span><span id="s-disc" style="color:#FF9966;">-$0.00</span></div>
+      <div class="summary-row"><span>Financing Fee</span><span id="s-fin">$0.00</span></div>
+      <div class="summary-row"><span>Tax</span><span id="s-tax">$0.00</span></div>
+      <div class="summary-row total">
+        <span class="label">TOTAL BID</span>
+        <span id="s-total">$0.00</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 5: GOOD/BETTER/BEST TIERS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">🏆</span> SECTION 5 — GOOD / BETTER / BEST PROPOSAL TIERS
+    <span class="highlight">Auto-Calculated</span>
+  </div>
+  <div class="tier-grid">
+    <div class="tier-card good">
+      <div class="tier-header">⬛ GOOD</div>
+      <div class="tier-price" id="t-good">$0<small>Standard Efficiency</small></div>
+      <ul class="tier-features">
+        <li>Base system (14.3 SEER2)</li>
+        <li>Standard 1-yr parts &amp; labor</li>
+        <li>Basic digital thermostat</li>
+        <li>Standard installation</li>
+      </ul>
+    </div>
+    <div class="tier-card">
+      <div class="tier-header">🥈 BETTER</div>
+      <div class="tier-price" id="t-better">$0<small>Mid Efficiency (+8%)</small></div>
+      <ul class="tier-features">
+        <li>16 SEER2 system</li>
+        <li>2-yr parts &amp; labor warranty</li>
+        <li>Smart thermostat included</li>
+        <li>Premium air filter</li>
+      </ul>
+    </div>
+    <div class="tier-card best">
+      <div class="tier-header">🥇 BEST</div>
+      <div class="tier-price" id="t-best">$0<small>High Efficiency (+18%)</small></div>
+      <ul class="tier-features">
+        <li>18+ SEER2 system</li>
+        <li>5-yr parts &amp; labor warranty</li>
+        <li>Smart thermostat + zoning</li>
+        <li>UV air purifier included</li>
+        <li>Annual tune-up included</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 6: TRACKING LOG -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">📝</span> SECTION 6 — BID TRACKING &amp; FOLLOW-UP LOG
+  </div>
+  <div class="content" style="padding-bottom: 0;">
+    <table class="line-table" style="font-size:12px;">
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Est. #</th>
+          <th>Date</th>
+          <th>Bid Amount</th>
+          <th>Follow-Up</th>
+          <th>Status</th>
+          <th class="no-print">Action</th>
+        </tr>
+      </thead>
+      <tbody id="logBody">
+        <tr style="color:var(--muted);font-style:italic;">
+          <td colspan="7" style="text-align:center;padding:12px;">
+            No bids logged yet — click "Save to Log" to add this bid.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="spacer"></div>
+  </div>
+
+  <!-- PRO TIPS -->
+  <div class="tips-box">
+    <strong>⚡ Pro Tips for Winning More Bids</strong><br>
+    Always present all three tiers in person — 60% of customers choose Better or Best when offered. · Lead with financing options to shift the conversation from price to monthly payment. · Include a photo of the old unit in the proposal to justify the replacement. · Follow up within 24 hours — bid acceptance drops by 40% after 3 days.
+  </div>
+
+  <!-- ACTION ROW -->
+  <div class="btn-row no-print" style="justify-content: space-between; align-items: center;">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="saveBid()">💾 Save to Log</button>
+      <button class="btn btn-orange" onclick="window.print()">🖨️ Print / Save PDF</button>
+      <button class="btn btn-steel" onclick="clearAll()">🗑️ Clear All</button>
+    </div>
+    <div style="font-size:12px;color:var(--muted);">
+      Margin: <strong id="footer-margin" style="color:var(--navy);">30%</strong> &nbsp;|&nbsp;
+      Total: <strong id="footer-total" style="color:var(--orange);">$0.00</strong>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="doc-footer">
+    <strong>Your HVAC Co.</strong> &nbsp;|&nbsp; (555) 867-5309 &nbsp;|&nbsp; www.yourhvac.com &nbsp;|&nbsp; Rogers, AR &nbsp;|&nbsp; EPA 608 Universal · NATE Certified
+    <br><span style="font-size:10px;margin-top:3px;display:block;">★ ★ ★ ★ ★ — Licensed · Bonded · Insured · Serving Northwest Arkansas</span>
+  </div>
+
+</div><!-- /page -->
+
+<script>
+var matRows = [];
+var labRows = [];
+var logEntries = [];
+var margin = 30;
+
+function fmtMoney(n) {
+  return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
+function makeRow(type, desc, qty, rate, category) {
+  var id = Date.now() + Math.random();
+  var row = { id: id, type: type, desc: desc || '', qty: parseFloat(qty) || 0, rate: parseFloat(rate) || 0, category: category || '' };
+  if (type === 'material') matRows.push(row);
+  else labRows.push(row);
+  renderTables();
+  recalc();
+  return row;
+}
+
+function addRow(type) {
+  makeRow(type, '', 1, 0, type === 'material' ? 'Equipment' : 'Install');
+}
+
+function removeRow(id, type) {
+  if (type === 'material') matRows = matRows.filter(r => r.id !== id);
+  else labRows = labRows.filter(r => r.id !== id);
+  renderTables();
+  recalc();
+}
+
+function renderTables() {
+  renderTableFor('materialBody', matRows, 'material',
+    ['Equipment','Refrigerant','Accessories','Supplies','Parts','Other'],
+    'Qty','Unit Cost ($)');
+  renderTableFor('laborBody', labRows, 'labor',
+    ['Install','Removal','Start-Up','Service','Travel','Other'],
+    'Hours','Rate ($/hr)');
+}
+
+function renderTableFor(bodyId, rows, type, cats, qtyLabel, rateLabel) {
+  var body = document.getElementById(bodyId);
+  if (!rows.length) { body.innerHTML = '<tr><td colspan="6" style="color:var(--muted);text-align:center;padding:10px;font-style:italic;">No items — use Add button below.</td></tr>'; return; }
+  body.innerHTML = rows.map(function(r, i) {
+    var bg = i % 2 === 0 ? '#fff' : 'var(--row-alt)';
+    var catOpts = cats.map(c => '<option'+(r.category===c?' selected':'')+'>'+c+'</option>').join('');
+    var ext = (r.qty * r.rate).toFixed(2);
+    return '<tr style="background:'+bg+'">'
+      +'<td><input type="text" value="'+escHtml(r.desc)+'" onchange="updateRow('+r.id+',\'desc\',this.value,\''+type+'\')"></td>'
+      +'<td><input type="number" value="'+r.qty+'" style="width:60px;" onchange="updateRow('+r.id+',\'qty\',this.value,\''+type+'\')"></td>'
+      +'<td><input type="number" value="'+r.rate+'" onchange="updateRow('+r.id+',\'rate\',this.value,\''+type+'\')"></td>'
+      +'<td style="font-weight:bold;color:var(--navy);">$'+ext+'</td>'
+      +'<td><select onchange="updateRow('+r.id+',\'category\',this.value,\''+type+'\')">' +catOpts+'</select></td>'
+      +'<td class="no-print"><button class="btn-remove" onclick="removeRow('+r.id+',\''+type+'\')">✕</button></td>'
+      +'</tr>';
+  }).join('');
+}
+
+function escHtml(s) { return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
+
+function updateRow(id, field, val, type) {
+  var rows = type === 'material' ? matRows : labRows;
+  var r = rows.find(function(x){ return x.id === id; });
+  if (!r) return;
+  if (field === 'qty' || field === 'rate') r[field] = parseFloat(val) || 0;
+  else r[field] = val;
+  renderTables();
+  recalc();
+}
+
+function updateMargin() {
+  margin = parseInt(document.getElementById('marginSlider').value);
+  document.getElementById('marginBadge').textContent = margin + '%';
+  recalc();
+}
+
+function recalc() {
+  var matSum = matRows.reduce(function(a,r){ return a + r.qty * r.rate; }, 0);
+  var labSum = labRows.reduce(function(a,r){ return a + r.qty * r.rate; }, 0);
+  var refLbs = parseFloat(document.getElementById('refLbs').value) || 0;
+  var refRate = parseFloat(document.getElementById('refRate').value) || 0;
+  var refCost = refLbs * refRate;
+  var permit = parseFloat(document.getElementById('permitFee').value) || 0;
+  var disposal = parseFloat(document.getElementById('disposalFee').value) || 0;
+  var discount = parseFloat(document.getElementById('discount').value) || 0;
+  var taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+  var finPct = parseFloat(document.getElementById('financing').value) || 0;
+
+  var raw = matSum + labSum + refCost + permit + disposal;
+  var mkup = raw * margin / 100;
+  var subtotal = raw + mkup - discount;
+  var finFee = subtotal * finPct / 100;
+  var taxable = subtotal + finFee;
+  var tax = taxable * taxRate / 100;
+  var total = taxable + tax;
+
+  document.getElementById('matTotal').textContent = fmtMoney(matSum);
+  document.getElementById('laborTotal').textContent = fmtMoney(labSum);
+
+  document.getElementById('s-mat').textContent = fmtMoney(matSum);
+  document.getElementById('s-lab').textContent = fmtMoney(labSum);
+  document.getElementById('s-ref').textContent = fmtMoney(refCost);
+  document.getElementById('s-fees').textContent = fmtMoney(permit + disposal);
+  document.getElementById('s-raw').textContent = fmtMoney(raw);
+  document.getElementById('s-mkpct').textContent = margin;
+  document.getElementById('s-markup').textContent = fmtMoney(mkup);
+  document.getElementById('s-disc').textContent = '-' + fmtMoney(discount);
+  document.getElementById('s-fin').textContent = fmtMoney(finFee);
+  document.getElementById('s-tax').textContent = fmtMoney(tax);
+  document.getElementById('s-total').textContent = fmtMoney(total);
+
+  document.getElementById('footer-margin').textContent = margin + '%';
+  document.getElementById('footer-total').textContent = fmtMoney(total);
+
+  document.getElementById('t-good').innerHTML = fmtMoney(total) + '<small>Standard Efficiency</small>';
+  document.getElementById('t-better').innerHTML = fmtMoney(total * 1.08) + '<small>Mid Efficiency (+8%)</small>';
+  document.getElementById('t-best').innerHTML = fmtMoney(total * 1.18) + '<small>High Efficiency (+18%)</small>';
+}
+
+function loadDefaults() {
+  matRows = [];
+  labRows = [];
+  var mats = [
+    ['Condensing Unit (3-Ton 14.3 SEER2)', 1, 1850, 'Equipment'],
+    ['Air Handler / Evaporator Coil', 1, 620, 'Equipment'],
+    ['Refrigerant Line Set (25 ft)', 1, 120, 'Supplies'],
+    ['Programmable Thermostat', 1, 85, 'Accessories'],
+    ['Disconnect Box / Whip', 1, 65, 'Parts'],
+    ['Drain Pan & PVC Condensate Line', 1, 40, 'Supplies'],
+    ['Misc. Supplies (wire, tape, fittings)', 1, 55, 'Supplies'],
+  ];
+  var labs = [
+    ['Remove & Haul Old Equipment', 2, 95, 'Removal'],
+    ['Install Condensing Unit', 3, 95, 'Install'],
+    ['Install Air Handler / Coil', 2.5, 95, 'Install'],
+    ['Refrigerant Line Set & Charge', 2, 95, 'Install'],
+    ['Electrical Connections & Test', 1.5, 95, 'Install'],
+    ['Start-Up & Commissioning', 1, 95, 'Start-Up'],
+  ];
+  mats.forEach(function(m){ matRows.push({ id: Date.now()+Math.random(), type:'material', desc:m[0], qty:m[1], rate:m[2], category:m[3] }); });
+  labs.forEach(function(l){ labRows.push({ id: Date.now()+Math.random(), type:'labor', desc:l[0], qty:l[1], rate:l[2], category:l[3] }); });
+  document.getElementById('refLbs').value = 8;
+  document.getElementById('refRate').value = 65;
+  document.getElementById('permitFee').value = 125;
+  document.getElementById('disposalFee').value = 75;
+  document.getElementById('taxRate').value = 8.5;
+  renderTables();
+  recalc();
+}
+
+function saveBid() {
+  var name = document.getElementById('custName').value || '(No Name)';
+  var num = document.getElementById('estNum').value || 'EST-???';
+  var date = document.getElementById('jobDate').value || new Date().toLocaleDateString();
+  var total = document.getElementById('s-total').textContent;
+
+  logEntries.push({ name: name, num: num, date: date, total: total, followUp: '', status: 'Pending' });
+
+  var body = document.getElementById('logBody');
+  body.innerHTML = logEntries.map(function(e, i) {
+    var bg = i % 2 === 0 ? '#fff' : 'var(--row-alt)';
+    return '<tr style="background:'+bg+'">'
+      +'<td>'+escHtml(e.name)+'</td>'
+      +'<td>'+escHtml(e.num)+'</td>'
+      +'<td>'+escHtml(e.date)+'</td>'
+      +'<td style="font-weight:bold;color:var(--navy);">'+e.total+'</td>'
+      +'<td><input type="text" value="'+escHtml(e.followUp)+'" placeholder="Follow-up date" style="width:110px;font-size:11px;padding:3px 6px;" onchange="logEntries['+i+'].followUp=this.value"></td>'
+      +'<td><select style="font-size:11px;padding:3px;" onchange="logEntries['+i+'].status=this.value"><option'+(e.status==='Pending'?' selected':'')+'>Pending</option><option'+(e.status==='Sent'?' selected':'')+'>Sent</option><option'+(e.status==='Won'?' selected':'')+'>Won</option><option'+(e.status==='Lost'?' selected':'')+'>Lost</option></select></td>'
+      +'<td class="no-print"><button class="btn-remove" onclick="logEntries.splice('+i+',1);document.getElementById(\'logBody\').innerHTML=\'Removed.\';saveBid.call({skipRender:true})">✕</button></td>'
+      +'</tr>';
+  }).join('');
+}
+
+function clearAll() {
+  if (!confirm('Clear all line items and fields?')) return;
+  matRows = []; labRows = [];
+  ['custName','custAddr','custPhone','custEmail','techName','estNum','jobDate','jobNotes',
+   'sqft','refLbs','refRate','permitFee','disposalFee','discount'].forEach(function(id){
+    var el = document.getElementById(id); if (el) el.value = '';
+  });
+  document.getElementById('taxRate').value = '8.5';
+  document.getElementById('marginSlider').value = 30;
+  margin = 30;
+  document.getElementById('marginBadge').textContent = '30%';
+  renderTables();
+  recalc();
+}
+
+// Auto-fill today's date
+(function() {
+  var d = new Date();
+  var str = (d.getMonth()+1).toString().padStart(2,'0') + '/' + d.getDate().toString().padStart(2,'0') + '/' + d.getFullYear();
+  document.getElementById('jobDate').value = str;
+  var n = Math.floor(Math.random()*900)+100;
+  document.getElementById('estNum').value = 'EST-' + d.getFullYear() + '-' + n;
+})();
+
+renderTables();
+recalc();
+</script>
+    <footer id="mint-footer" style="background: #0F2240; border-top: 1px solid #2A4A72; padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+      <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+        <h3 style="color: #E07B00; font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <a href="/hvac-flow-rate-calculator/" style="color: #7A98B8; text-decoration: none; font-size: 14px;">Flow Rate Calculator</a>
+          <a href="/hvac-load-calculator/" style="color: #7A98B8; text-decoration: none; font-size: 14px;">Load Calculator</a>
+          <a href="/hvac-service-price-calculator/" style="color: #7A98B8; text-decoration: none; font-size: 14px;">Service Price Calculator</a>
+          <a href="/hvac-duct-size-calculator/" style="color: #7A98B8; text-decoration: none; font-size: 14px;">Duct Size Calculator</a>
+        </div>
+        <p style="margin-top: 40px; color: #556B82; font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
