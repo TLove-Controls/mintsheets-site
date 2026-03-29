@@ -1,288 +1,277 @@
-﻿- 📂 **assets/**
--     📂 **css/**
--         📄 styles.css
--         📄 styles_OLD.css
--     📂 **docs/**
--         📄 hvac-troubleshooting-checklist.docx
--     📂 **images/**
--         📄 hvac-air-balance-preview.png
--         📄 hvac-bid-preview.png
--         📄 hvac-bundle-preview.png
--         📄 hvac-invoice-preview.png
--         📄 hvac-load-preview.png
--         📄 hvac-markup-chart-preview.jpg
--         📄 hvac-price-book-preview.jpg
--         📄 hvac-proposal-preview.jpg
--         📄 hvac-service-price-preview.jpg
--         📄 hvac-service-report-preview.png
--         📄 hvac-troubleshooting-preview.png
--         📄 logo.png
-- 📂 **bundles/**
--     📂 **hvac-service-document-pack/**
--         📄 index.html
-- 📂 **free/**
--     📂 **hvac-troubleshooting-checklist/**
--         📄 index.html
-- 📂 **logo_&_brand_color_scheme/**
--     📄 brand-color-scheme.docx
--     📄 ChromeSetup.exe
--     📄 favicon-without-background.png
--     📄 logo-with-background.ico
--     📄 logo-with-background.png
--     📄 logo-without-background (1).png
-- 📂 **MintSheets_Gumroad_Launch/**
--     📂 **Bundles/**
--     📂 **DOCX_Templates/**
--         📂 **HVAC_Invoice_Template/**
--             📂 **Documentation/**
--                 📄 Quick-Start-Checklist.pdf
--                 📄 README.txt
--                 📄 Setup-Guide.pdf
--                 📄 Troubleshooting.pdf
--             📂 **Images/**
--                 📄 1.png
--                 📄 2.png
--                 📄 3.png
--                 📄 THUMBNAIL.jpg
--             📂 **Product-Files/**
--                 📄 airtable-base-link.txt
--                 📄 google-sheet-template.xlsx
--                 📄 make-scenario-link.txt
--                 📄 README.txt
--             📂 **Sales/**
--                 📄 Email-Swipes.txt
--                 📄 Gumroad-Description.txt
--                 📄 README.txt
--                 📄 Social-Media-Posts.txt
--             📄 HVAC_Invoice_Template.docx
--         📂 **HVAC_Proposal_Template/**
--             📂 **Documentation/**
--                 📄 Quick-Start-Checklist.pdf
--                 📄 README.txt
--                 📄 Setup-Guide.pdf
--                 📄 Troubleshooting.pdf
--             📂 **Images/**
--                 📄 Screenshot 2026-03-28 132508.png
--                 📄 Screenshot 2026-03-28 132529.png
--                 📄 Screenshot 2026-03-28 132538.png
--                 📄 Screenshot 2026-03-28 132549.png
--                 📄 thumbnail.jpg
--             📂 **Product-Files/**
--                 📄 airtable-base-link.txt
--                 📄 google-sheet-template.xlsx
--                 📄 make-scenario-link.txt
--                 📄 README.txt
--             📂 **Sales/**
--                 📄 Email-Swipes.txt
--                 📄 Gumroad-Description.txt
--                 📄 README.txt
--                 📄 Social-Media-Posts.txt
--             📄 HVAC_Proposal_Template.docx
--         📂 **HVAC_Service_Report_Template/**
--             📂 **Documentation/**
--                 📄 Quick-Start-Checklist.pdf
--                 📄 README.txt
--                 📄 Setup-Guide.pdf
--                 📄 Troubleshooting.pdf
--             📂 **Images/**
--                 📄 1.png
--                 📄 2.png
--                 📄 3.png
--                 📄 4.png
--                 📄 thumbnail.jpg
--             📂 **Product-Files/**
--                 📄 airtable-base-link.txt
--                 📄 google-sheet-template.xlsx
--                 📄 make-scenario-link.txt
--                 📄 README.txt
--             📂 **Sales/**
--                 📄 Email-Swipes.txt
--                 📄 Gumroad-Description.txt
--                 📄 README.txt
--                 📄 Social-Media-Posts.txt
--             📄 HVAC_Service_Report_Template.docx
--     📂 **HTML_Tools/**
--         📂 **HVAC_Bid_Calculator/**
--             📂 **Documentation/**
--             📂 **Images/**
--                 📄 1.png
--                 📄 2.png
--                 📄 3.png
--                 📄 4.png
--                 📄 thumbnail.jpg
--             📂 **Sales/**
--             📄 hvac_bid_calculator.html
--         📂 **HVAC_Load_Calculator/**
--             📂 **Documentation/**
--                 📄 Documentation.md
--                 📄 Quick-Start-Checklist.pdf
--                 📄 README.txt
--                 📄 Setup-Guide.pdf
--                 📄 Troubleshooting.pdf
--             📂 **Images/**
--                 📄 1.png
--                 📄 2.png
--                 📄 3.png
--                 📄 thumbnail.jpg
--             📂 **Product-Files/**
--                 📄 airtable-base-link.txt
--                 📄 google-sheet-template.xlsx
--                 📄 make-scenario-link.txt
--                 📄 README.txt
--             📂 **Sales/**
--                 📄 Email-Swipes.txt
--                 📄 Gumroad-Description.txt
--                 📄 README.txt
--                 📄 Social-Media-Posts.txt
--             📄 HVAC_Load_Calculator.html
--         📂 **HVAC_Service_Price_Calculator/**
--             📂 **Documentation/**
--                 📄 Documentation.md
--                 📄 Quick-Start-Checklist.pdf
--                 📄 README.txt
--                 📄 Setup-Guide.pdf
--                 📄 Troubleshooting.pdf
--             📂 **Images/**
--                 📄 1.png
--                 📄 2.png
--                 📄 3.png
--                 📄 4.png
--                 📄 thumbnail.jpg
--             📂 **Product-Files/**
--                 📄 airtable-base-link.txt
--                 📄 google-sheet-template.xlsx
--                 📄 make-scenario-link.txt
--                 📄 README.txt
--             📂 **Sales/**
--                 📄 Email-Swipes.txt
--                 📄 Gumroad-Description.txt
--                 📄 README.txt
--                 📄 Social-Media-Posts.txt
--             📄 HVAC_Service_Price_Calculator.html
--     📂 **Screenshots/**
--     📂 **XLSX_Templates/**
--         📂 **HVAC_Air_Balance_Report_Template/**
--             📂 **Documentation/**
--                 📄 Quick-Start-Checklist.pdf
--                 📄 README.txt
--                 📄 Setup-Guide.pdf
--                 📄 Troubleshooting.pdf
--             📂 **Images/**
--                 📄 1.png
--                 📄 2.png
--                 📄 3.png
--                 📄 thumbnail.jpg
--             📂 **Product-Files/**
--                 📄 airtable-base-link.txt
--                 📄 google-sheet-template.xlsx
--                 📄 make-scenario-link.txt
--                 📄 README.txt
--             📂 **Sales/**
--                 📄 Email-Swipes.txt
--                 📄 Gumroad-Description.txt
--                 📄 README.txt
--                 📄 Social-Media-Posts.txt
--             📄 HVAC_Air_Balance_Report_Template.xlsx
--         📂 **HVAC_Markup_Chart_Template/**
--             📂 **Documentation/**
--                 📄 Quick-Start-Checklist.pdf
--                 📄 README.txt
--                 📄 Setup-Guide.pdf
--                 📄 Troubleshooting.pdf
--             📂 **Images/**
--                 📄 1.png
--                 📄 2.png
--                 📄 3.png
--                 📄 4.png
--                 📄 thumbnail.jpg
--             📂 **Product-Files/**
--                 📄 airtable-base-link.txt
--                 📄 google-sheet-template.xlsx
--                 📄 make-scenario-link.txt
--                 📄 README.txt
--             📂 **Sales/**
--                 📄 Email-Swipes.txt
--                 📄 Gumroad-Description.txt
--                 📄 README.txt
--                 📄 Social-Media-Posts.txt
--             📄 HVAC_Markup_Chart_Template.xlsx
--         📂 **HVAC_Price_Book_Template/**
--             📂 **Documentation/**
--                 📄 Quick-Start-Checklist.pdf
--                 📄 README.txt
--                 📄 Setup-Guide.pdf
--                 📄 Troubleshooting.pdf
--             📂 **Images/**
--                 📄 1.png
--                 📄 2.png
--                 📄 3.png
--                 📄 4.png
--                 📄 5.png
--                 📄 thumbnail.jpg
--             📂 **Product-Files/**
--                 📄 airtable-base-link.txt
--                 📄 google-sheet-template.xlsx
--                 📄 make-scenario-link.txt
--                 📄 README.txt
--             📂 **Sales/**
--                 📄 Email-Swipes.txt
--                 📄 Gumroad-Description.txt
--                 📄 README.txt
--                 📄 Social-Media-Posts.txt
--             📄 HVAC_Price_Book_Template.xlsx
-- 📂 **monday-com/**
--     📂 **AI_Notetaker_Pitch_Deck/**
--         📄 Notetaker Pitch Deck.pptx
--     📂 **Campaigns_Pitch_Deck/**
--         📄 Campaigns Pitch Deck.pptx
--     📂 **CRM_Pitch_Deck/**
--         📄 Monday CRM Pitch Deck.pptx
-- 📂 **p/**
--     📂 **air-balance-report/**
--         📄 index.html
--     📂 **hvac-bid-calculator/**
--         📄 index.html
--     📂 **hvac-invoice-template/**
--         📄 index.html
--     📂 **hvac-load-calculator/**
--         📄 index.html
--     📂 **hvac-markup-chart/**
--         📄 index.html
--     📂 **hvac-price-book/**
--         📄 index.html
--     📂 **hvac-proposal-template/**
--         📄 index.html
--     📂 **hvac-service-price-calculator/**
--         📄 index.html
--     📂 **hvac-service-report-template/**
--         📄 index.html
-- 📂 **shop/**
--     📄 index.html
-- 📂 **tasks/**
--     📄 lessons.md
--     📄 todo.md
-- 📂 **temp_brand_info/**
-- 📂 **temp_brand_info_2/**
--     📂 **_rels/**
--         📄 .rels
--     📂 **word/**
--         📂 **_rels/**
--             📄 document.xml.rels
--         📂 **theme/**
--             📄 theme1.xml
--         📄 document.xml
--         📄 fontTable.xml
--         📄 numbering.xml
--         📄 settings.xml
--         📄 styles.xml
--     📄 [Content_Types].xml
-- 📂 **tmp/**
--     📄 generate_tree.ps1
+﻿- 📂 **.agents/**
+  - 📂 **rules/**
+    - 📄 GEMINI.md
 - 📄 .gitignore
-- 📄 brand-color-scheme.zip
+- 📂 **admin/**
+  - 📂 **notes/**
+    - 📄 landing-page-workflow.md
+  - 📂 **sales-assets/**
+    - 📂 **monday-com/**
+      - 📂 **AI_Notetaker_Pitch_Deck/**
+        - 📄 Notetaker Pitch Deck.pptx
+      - 📂 **Campaigns_Pitch_Deck/**
+        - 📄 Campaigns Pitch Deck.pptx
+      - 📂 **CRM_Pitch_Deck/**
+        - 📄 Monday CRM Pitch Deck.pptx
+  - 📂 **scripts/**
+    - 📄 sync-product-pages.ps1
+  - 📂 **tasks/**
+    - 📄 lessons.md
+    - 📄 todo.md
+- 📂 **brand/**
+  - 📄 brand-color-scheme.docx
+  - 📄 brand-color-scheme.zip
+  - 📄 favicon.png
+  - 📄 favicon-without-background.png
+  - 📄 logo-with-background.ico
+  - 📄 logo-with-background.png
+  - 📄 logo-without-background (1).png
+- 📂 **bundles/**
+  - 📂 **hvac-service-document-pack/**
+    - 📄 index.html
 - 📄 CNAME
 - 📄 directorytree.md
-- 📄 favicon.png
+- 📂 **free/**
+  - 📂 **hvac-troubleshooting-checklist/**
+    - 📄 index.html
+    - 📂 **source/**
+      - 📄 hvac-troubleshooting-checklist.docx
 - 📄 index.html
-- 📄 index_OLD.html
+- 📂 **MintSheets_Gumroad_Launch/**
+  - 📂 **DOCX_Templates/**
+    - 📂 **HVAC_Invoice_Template/**
+      - 📄 HVAC_Invoice_Template.docx
+    - 📂 **HVAC_Proposal_Template/**
+      - 📄 HVAC_Proposal_Template.docx
+    - 📂 **HVAC_Service_Report_Template/**
+      - 📄 HVAC_Service_Report_Template.docx
+  - 📂 **XLSX_Templates/**
+    - 📂 **HVAC_Air_Balance_Report_Template/**
+      - 📄 HVAC_Air_Balance_Report_Template.xlsx
+    - 📂 **HVAC_Markup_Chart_Template/**
+      - 📄 HVAC_Markup_Chart_Template.xlsx
+    - 📂 **HVAC_Price_Book_Template/**
+      - 📄 HVAC_Price_Book_Template.xlsx
+- 📄 mintsheets-sitev01.code-workspace
+- 📂 **p/**
+  - 📂 **air-balance-report/**
+    - 📄 index.html
+  - 📂 **hvac-bid-calculator/**
+    - 📄 index.html
+  - 📂 **hvac-invoice-template/**
+    - 📄 index.html
+  - 📂 **hvac-load-calculator/**
+    - 📄 index.html
+  - 📂 **hvac-markup-chart/**
+    - 📄 index.html
+  - 📂 **hvac-price-book/**
+    - 📄 index.html
+  - 📂 **hvac-proposal-template/**
+    - 📄 index.html
+  - 📂 **hvac-service-price-calculator/**
+    - 📄 index.html
+  - 📂 **hvac-service-report-template/**
+    - 📄 index.html
+- 📂 **products/**
+  - 📂 **hvac-air-balance-report/**
+    - 📂 **assets/**
+      - 📄 1.png
+      - 📄 2.png
+      - 📄 3.png
+      - 📄 hvac-air-balance-preview.png
+      - 📄 thumbnail.jpg
+    - 📂 **docs/**
+      - 📄 Quick-Start-Checklist.pdf
+      - 📄 Setup-Guide.pdf
+      - 📄 Troubleshooting.pdf
+    - 📂 **product-page/**
+      - 📄 index.html
+    - 📂 **sales/**
+      - 📄 Email-Swipes.txt
+      - 📄 Gumroad-Description.txt
+      - 📄 Social-Media-Posts.txt
+    - 📂 **source/**
+      - 📄 airtable-base-link.txt
+      - 📄 google-sheet-template.xlsx
+      - 📄 make-scenario-link.txt
+  - 📂 **hvac-bid-calculator/**
+    - 📂 **assets/**
+      - 📄 1.png
+      - 📄 2.png
+      - 📄 3.png
+      - 📄 4.png
+      - 📄 hvac-bid-preview.png
+      - 📄 thumbnail.jpg
+    - 📂 **product-page/**
+      - 📄 index.html
+    - 📂 **source/**
+      - 📄 hvac_bid_calculator.html
+  - 📂 **hvac-invoice-template/**
+    - 📂 **assets/**
+      - 📄 1.png
+      - 📄 2.png
+      - 📄 3.png
+      - 📄 hvac-invoice-preview.png
+      - 📄 THUMBNAIL.jpg
+    - 📂 **docs/**
+      - 📄 Quick-Start-Checklist.pdf
+      - 📄 Setup-Guide.pdf
+      - 📄 Troubleshooting.pdf
+    - 📂 **product-page/**
+      - 📄 index.html
+    - 📂 **sales/**
+      - 📄 Email-Swipes.txt
+      - 📄 Gumroad-Description.txt
+      - 📄 Social-Media-Posts.txt
+    - 📂 **source/**
+      - 📄 airtable-base-link.txt
+      - 📄 google-sheet-template.xlsx
+      - 📄 make-scenario-link.txt
+  - 📂 **hvac-load-calculator/**
+    - 📂 **assets/**
+      - 📄 1.png
+      - 📄 2.png
+      - 📄 3.png
+      - 📄 hvac-load-preview.png
+      - 📄 thumbnail.jpg
+    - 📂 **docs/**
+      - 📄 Documentation.md
+      - 📄 Quick-Start-Checklist.pdf
+      - 📄 Setup-Guide.pdf
+      - 📄 Troubleshooting.pdf
+    - 📂 **product-page/**
+      - 📄 index.html
+    - 📂 **sales/**
+      - 📄 Email-Swipes.txt
+      - 📄 Gumroad-Description.txt
+      - 📄 Social-Media-Posts.txt
+    - 📂 **source/**
+      - 📄 airtable-base-link.txt
+      - 📄 google-sheet-template.xlsx
+      - 📄 HVAC_Load_Calculator.html
+      - 📄 make-scenario-link.txt
+  - 📂 **hvac-markup-chart/**
+    - 📂 **assets/**
+      - 📄 1.png
+      - 📄 2.png
+      - 📄 3.png
+      - 📄 4.png
+      - 📄 hvac-markup-chart-preview.jpg
+      - 📄 thumbnail.jpg
+    - 📂 **docs/**
+      - 📄 Quick-Start-Checklist.pdf
+      - 📄 Setup-Guide.pdf
+      - 📄 Troubleshooting.pdf
+    - 📂 **product-page/**
+      - 📄 index.html
+    - 📂 **sales/**
+      - 📄 Email-Swipes.txt
+      - 📄 Gumroad-Description.txt
+      - 📄 Social-Media-Posts.txt
+    - 📂 **source/**
+      - 📄 airtable-base-link.txt
+      - 📄 google-sheet-template.xlsx
+      - 📄 make-scenario-link.txt
+  - 📂 **hvac-price-book/**
+    - 📂 **assets/**
+      - 📄 1.png
+      - 📄 2.png
+      - 📄 3.png
+      - 📄 4.png
+      - 📄 5.png
+      - 📄 hvac-price-book-preview.jpg
+      - 📄 thumbnail.jpg
+    - 📂 **docs/**
+      - 📄 Quick-Start-Checklist.pdf
+      - 📄 Setup-Guide.pdf
+      - 📄 Troubleshooting.pdf
+    - 📂 **product-page/**
+      - 📄 index.html
+    - 📂 **sales/**
+      - 📄 Email-Swipes.txt
+      - 📄 Gumroad-Description.txt
+      - 📄 Social-Media-Posts.txt
+    - 📂 **source/**
+      - 📄 airtable-base-link.txt
+      - 📄 google-sheet-template.xlsx
+      - 📄 make-scenario-link.txt
+  - 📂 **hvac-proposal-template/**
+    - 📂 **assets/**
+      - 📄 hvac-proposal-preview.jpg
+      - 📄 Screenshot 2026-03-28 132508.png
+      - 📄 Screenshot 2026-03-28 132529.png
+      - 📄 Screenshot 2026-03-28 132538.png
+      - 📄 Screenshot 2026-03-28 132549.png
+      - 📄 thumbnail.jpg
+    - 📂 **docs/**
+      - 📄 Quick-Start-Checklist.pdf
+      - 📄 Setup-Guide.pdf
+      - 📄 Troubleshooting.pdf
+    - 📂 **product-page/**
+      - 📄 index.html
+    - 📂 **sales/**
+      - 📄 Email-Swipes.txt
+      - 📄 Gumroad-Description.txt
+      - 📄 Social-Media-Posts.txt
+    - 📂 **source/**
+      - 📄 airtable-base-link.txt
+      - 📄 google-sheet-template.xlsx
+      - 📄 make-scenario-link.txt
+  - 📂 **hvac-service-price-calculator/**
+    - 📂 **assets/**
+      - 📄 1.png
+      - 📄 2.png
+      - 📄 3.png
+      - 📄 4.png
+      - 📄 hvac-service-price-preview.jpg
+      - 📄 thumbnail.jpg
+    - 📂 **docs/**
+      - 📄 Documentation.md
+      - 📄 Quick-Start-Checklist.pdf
+      - 📄 Setup-Guide.pdf
+      - 📄 Troubleshooting.pdf
+    - 📂 **product-page/**
+      - 📄 index.html
+    - 📂 **sales/**
+      - 📄 Email-Swipes.txt
+      - 📄 Gumroad-Description.txt
+      - 📄 Social-Media-Posts.txt
+    - 📂 **source/**
+      - 📄 airtable-base-link.txt
+      - 📄 google-sheet-template.xlsx
+      - 📄 HVAC_Service_Price_Calculator.html
+      - 📄 make-scenario-link.txt
+  - 📂 **hvac-service-report-template/**
+    - 📂 **assets/**
+      - 📄 1.png
+      - 📄 2.png
+      - 📄 3.png
+      - 📄 4.png
+      - 📄 hvac-service-report-preview.png
+      - 📄 thumbnail.jpg
+    - 📂 **docs/**
+      - 📄 Quick-Start-Checklist.pdf
+      - 📄 Setup-Guide.pdf
+      - 📄 Troubleshooting.pdf
+    - 📂 **product-page/**
+      - 📄 index.html
+    - 📂 **sales/**
+      - 📄 Email-Swipes.txt
+      - 📄 Gumroad-Description.txt
+      - 📄 Social-Media-Posts.txt
+    - 📂 **source/**
+      - 📄 airtable-base-link.txt
+      - 📄 google-sheet-template.xlsx
+      - 📄 make-scenario-link.txt
 - 📄 README.md
+- 📂 **shared/**
+  - 📂 **css/**
+    - 📄 styles.css
+  - 📂 **images/**
+    - 📄 hvac-bundle-preview.png
+    - 📄 hvac-troubleshooting-preview.png
+    - 📄 logo.png
+- 📂 **shop/**
+  - 📄 index.html
+- 📂 **site/**
+- 📂 **tasks/**
