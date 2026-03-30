@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVAC Duct Size Calculator | Duct Sizing Chart & Static Pressure Calculator | MintSheets</title>
+<meta name="description" content="Free HVAC duct size calculator. Size round, rectangular, and flex ductwork by CFM and friction rate. Includes TESP static pressure budget and duct sizing chart reference.">
+<link rel="canonical" href="https://mintsheets.com/hvac-duct-size-calculator/" />
+<meta property="og:title" content="HVAC Duct Size Calculator | Ductwork Dimensioning & Airflow | MintSheets" />
+<meta property="og:description" content="Free online HVAC duct size calculator. Calculate round and rectangular duct dimensions based on CFM and friction rate." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://mintsheets.com/hvac-duct-size-calculator/" />
+    <link rel="stylesheet" href="../styles.css?v=1.5">
+    <link rel="stylesheet" href="../shared/css/calculators.css?v=1.7">
+    <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+</head>
+<body>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a href="/" class="brand">
+          <img src="../brand/logo-without-background.png" alt="MintSheets Logo">
+        </a>
+  
+        <nav class="nav-links">
+          <a href="/">Calculators</a>
+          <a href="/#troubleshooting-checklist">Free Guide</a>
+          <a href="mailto:support@mintsheets.com">Support</a>
+        </nav>
+        
+        <div class="header-actions">
+          <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+          <div style="margin-bottom: 30px; text-align: center;">
+            <div class="eyebrow">Technical Tool</div>
+            <h1 style="margin: 10px auto; max-width: none;">HVAC Duct Size Calculator with Friction Rate</h1>
+            <p style="color: var(--muted);">Duct sizing chart and static pressure calculator — size your ductwork by CFM and friction rate.</p>
+            <p style="margin-top: 20px; line-height: 1.6; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
+              This HVAC duct size calculator allows you to size round, rectangular, and flex ductwork using the equal friction method. Integrating with your <a href="/hvac-load-calculator/" style="color: var(--primary); text-decoration: none;">Manual J load</a>, it ensures that your trunk and branch ducts are dimensioned for noise-free, efficient airflow. Designed for HVAC installers and designers.
+            </p>
+          </div>
+
+<!-- Ad Placeholder: Top Banner -->
+          <div class="ad-slot ad-top"></div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 1 — DUCT SIZING
+═════════════════════════════════════════════════════════════ -->
+<div class="section-banner">
+  <span class="icon">📐</span> SECTION 1 — DUCT SIZE BY AIRFLOW &amp; FRICTION
+  <span class="tag">MANUAL D</span>
+</div>
+<div class="card card-first">
+
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('round')">⭕ Round Duct</button>
+    <button class="tab-btn" onclick="switchTab('rect')">▭ Rectangular Duct</button>
+    <button class="tab-btn" onclick="switchTab('flex')">〰 Flex Duct</button>
+  </div>
+
+  <!-- ROUND TAB -->
+  <div id="tab-round" class="tab-panel active">
+    <div class="sub-header">⭕ Round Duct Parameters</div>
+    <div class="form-grid">
+      <table class="input-table">
+        <tr>
+          <td class="label">Design CFM<span class="help">Airflow through this duct segment</span></td>
+          <td class="field"><input type="number" id="r_cfm" placeholder="e.g. 350" min="1" max="5000"></td>
+        </tr>
+        <tr>
+          <td class="label">Friction Rate<span class="help">in. w.g. per 100 ft — 0.08 standard residential</span></td>
+          <td class="field">
+            <div class="slider-wrap">
+              <input type="range" id="r_fr_range" min="4" max="15" value="8" step="1" oninput="syncFR('r')">
+              <span class="slider-val" id="r_fr_display">0.08</span>
+            </div>
+            <input type="number" id="r_fr" value="0.08" min="0.04" max="0.15" step="0.01" style="width:90px;margin-top:6px;" oninput="syncFRInput('r')">
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Duct Type<span class="help">Material affects friction correction</span></td>
+          <td class="field">
+            <select id="r_material">
+              <option value="1.0">Galvanized Sheet Metal (rigid)</option>
+              <option value="1.05">Aluminum (rigid)</option>
+              <option value="0.95">Spiral / Snap-lock (rigid)</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">System Type<span class="help">Affects target velocity range</span></td>
+          <td class="field">
+            <select id="r_sys">
+              <option value="supply">Supply Air</option>
+              <option value="return">Return Air</option>
+              <option value="exhaust">Exhaust / Transfer</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <table class="input-table">
+        <tr>
+          <td class="label">Duct Run Length<span class="help">Straight duct length for pressure drop</span></td>
+          <td class="field"><input type="number" id="r_len" placeholder="e.g. 40" min="1" max="500"> <span style="font-size:11px;color:var(--muted)">ft</span></td>
+        </tr>
+        <tr>
+          <td class="label">Number of 90° Elbows<span class="help">Each adds ~equiv. length (see notes)</span></td>
+          <td class="field"><input type="number" id="r_elbows" value="0" min="0" max="20"></td>
+        </tr>
+        <tr>
+          <td class="label">Number of Tees / Wyes<span class="help">Branch fittings in the run</span></td>
+          <td class="field"><input type="number" id="r_tees" value="0" min="0" max="10"></td>
+        </tr>
+        <tr>
+          <td class="label">Number of Transitions<span class="help">Size changes / reducers</span></td>
+          <td class="field"><input type="number" id="r_trans" value="0" min="0" max="10"></td>
+        </tr>
+      </table>
+    </div>
+    <div class="btn-row">
+      <button class="btn-calc" onclick="calcRound()">⚡ CALCULATE ROUND DUCT</button>
+      <button class="btn-reset" onclick="resetRound()">↺ Reset</button>
+      <span class="btn-info">Results include standard size recommendation</span>
+    </div>
+    <div id="r_results" class="hidden">
+      <div class="sub-header" style="border-left-color:var(--primary);color:var(--primary);">📊 Results — Round Duct</div>
+      <div class="result-hero" id="r_hero"></div>
+      <div class="table-scroll">
+          <table class="line-table">
+          <thead><tr><th>Parameter</th><th>Calculated</th><th>Unit</th><th>Spec / Guideline</th><th>Status</th><th>Notes</th></tr></thead>
+          <tbody id="r_tbody"></tbody>
+          <tfoot><tr id="r_tfoot"><td colspan="6">—</td></tr></tfoot>
+        </table>
+      </div>
+      <div id="r_duct_viz" class="duct-visual-wrap"></div>
+    </div>
+  </div>
+
+  <!-- RECTANGULAR TAB -->
+  <div id="tab-rect" class="tab-panel">
+    <div class="sub-header">▭ Rectangular Duct Parameters</div>
+    <div class="form-grid">
+      <table class="input-table">
+        <tr>
+          <td class="label">Design CFM<span class="help">Airflow through this duct segment</span></td>
+          <td class="field"><input type="number" id="rct_cfm" placeholder="e.g. 600" min="1" max="8000"></td>
+        </tr>
+        <tr>
+          <td class="label">Friction Rate<span class="help">in. w.g. per 100 ft</span></td>
+          <td class="field">
+            <div class="slider-wrap">
+              <input type="range" id="rct_fr_range" min="4" max="15" value="8" step="1" oninput="syncFR('rct')">
+              <span class="slider-val" id="rct_fr_display">0.08</span>
+            </div>
+            <input type="number" id="rct_fr" value="0.08" min="0.04" max="0.15" step="0.01" style="width:90px;margin-top:6px;" oninput="syncFRInput('rct')">
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Known Height (b)<span class="help">Fixed dimension — solve for width</span></td>
+          <td class="field"><input type="number" id="rct_b" placeholder="e.g. 8" min="4" max="48"> <span style="font-size:11px;color:var(--muted)">in</span></td>
+        </tr>
+        <tr>
+          <td class="label">Aspect Ratio Target<span class="help">Keep ≤4:1 per Manual D</span></td>
+          <td class="field">
+            <select id="rct_ar">
+              <option value="2">Max 2:1 — lowest pressure loss</option>
+              <option value="3" selected>Max 3:1 — standard residential</option>
+              <option value="4">Max 4:1 — space-constrained</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <table class="input-table">
+        <tr>
+          <td class="label">System Type</td>
+          <td class="field">
+            <select id="rct_sys">
+              <option value="supply">Supply Air</option>
+              <option value="return">Return Air</option>
+              <option value="exhaust">Exhaust / Transfer</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Duct Run Length<span class="help">ft</span></td>
+          <td class="field"><input type="number" id="rct_len" placeholder="e.g. 35" min="1" max="500"> <span style="font-size:11px;color:var(--muted)">ft</span></td>
+        </tr>
+        <tr>
+          <td class="label">Number of 90° Elbows</td>
+          <td class="field"><input type="number" id="rct_elbows" value="0" min="0" max="20"></td>
+        </tr>
+        <tr>
+          <td class="label">Number of Transitions / Tees</td>
+          <td class="field"><input type="number" id="rct_tees" value="0" min="0" max="10"></td>
+        </tr>
+      </table>
+    </div>
+    <div class="btn-row">
+      <button class="btn-calc" onclick="calcRect()">⚡ CALCULATE RECTANGULAR DUCT</button>
+      <button class="btn-reset" onclick="resetRect()">↺ Reset</button>
+    </div>
+    <div id="rct_results" class="hidden">
+      <div class="sub-header" style="border-left-color:var(--primary);color:var(--primary);">📊 Results — Rectangular Duct</div>
+      <div class="result-hero" id="rct_hero"></div>
+      <div class="table-scroll">
+          <table class="line-table">
+          <thead><tr><th>Parameter</th><th>Calculated</th><th>Unit</th><th>Spec / Guideline</th><th>Status</th><th>Notes</th></tr></thead>
+          <tbody id="rct_tbody"></tbody>
+          <tfoot><tr id="rct_tfoot"><td colspan="6">—</td></tr></tfoot>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLEX TAB -->
+  <div id="tab-flex" class="tab-panel">
+    <div class="sub-header">〰 Flex Duct Parameters</div>
+    <div class="form-grid">
+      <table class="input-table">
+        <tr>
+          <td class="label">Design CFM<span class="help">Airflow through this flex run</span></td>
+          <td class="field"><input type="number" id="fx_cfm" placeholder="e.g. 150" min="1" max="2000"></td>
+        </tr>
+        <tr>
+          <td class="label">Friction Rate<span class="help">Use lower value — flex is higher loss</span></td>
+          <td class="field">
+            <div class="slider-wrap">
+              <input type="range" id="fx_fr_range" min="4" max="12" value="8" step="1" oninput="syncFR('fx')">
+              <span class="slider-val" id="fx_fr_display">0.08</span>
+            </div>
+            <input type="number" id="fx_fr" value="0.08" min="0.04" max="0.12" step="0.01" style="width:90px;margin-top:6px;" oninput="syncFRInput('fx')">
+          </td>
+        </tr>
+        <tr>
+          <td class="label">Flex Duct Type</td>
+          <td class="field">
+            <select id="fx_type">
+              <option value="1.25">Non-metallic / Standard (×1.25 correction)</option>
+              <option value="1.15" selected>Insulated flex R-6 (×1.15 correction)</option>
+              <option value="1.1">Premium / Low-friction flex (×1.10)</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+      <table class="input-table">
+        <tr>
+          <td class="label">Run Length<span class="help">Keep flex runs ≤6 ft when possible</span></td>
+          <td class="field"><input type="number" id="fx_len" placeholder="e.g. 6" min="1" max="50"> <span style="font-size:11px;color:var(--muted)">ft</span></td>
+        </tr>
+        <tr>
+          <td class="label">Installation Quality</td>
+          <td class="field">
+            <select id="fx_install">
+              <option value="1.0">Fully extended (ideal)</option>
+              <option value="1.15" selected>Slight sag / bends (typical)</option>
+              <option value="1.35">Kinked or poorly supported</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td class="label">System Type</td>
+          <td class="field">
+            <select id="fx_sys">
+              <option value="supply">Supply Air</option>
+              <option value="return">Return Air</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="btn-row">
+      <button class="btn-calc" onclick="calcFlex()">⚡ CALCULATE FLEX DUCT</button>
+      <button class="btn-reset" onclick="resetFlex()">↺ Reset</button>
+      <span class="btn-info">Correction factors applied per ACCA</span>
+    </div>
+    <div id="fx_results" class="hidden">
+      <div class="sub-header navy">📊 Results — Flex Duct</div>
+      <div class="result-hero" id="fx_hero"></div>
+      <div class="table-scroll">
+      <table class="line-table">
+        <thead><tr><th>Parameter</th><th>Calculated</th><th>Unit</th><th>Spec / Guideline</th><th>Status</th><th>Notes</th></tr></thead>
+        <tbody id="fx_tbody"></tbody>
+        <tfoot><tr id="fx_tfoot"><td colspan="6">—</td></tr></tfoot>
+      </table>
+      </div>
+    </div>
+    <div class="tips-box">
+      <div class="tips-title">⚠ Flex Duct Critical Notes</div>
+      <ul>
+        <li>Flex duct loses 15–35% efficiency when kinked or compressed — always fully extend.</li>
+        <li>Max recommended flex run: 6 ft for branch takeoffs; avoid long trunk flex runs.</li>
+        <li>Insulated flex R-6 is the residential standard; R-8 required in attics per IECC 2021.</li>
+        <li>Never use flex as a main trunk — use rigid sheet metal for all trunk lines.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- STANDARD SIZES REFERENCE -->
+  <div class="sub-header orange">📋 STANDARD ROUND DUCT SIZES — CLICK TO HIGHLIGHT</div>
+  <div class="std-sizes-grid" id="std_grid"></div>
+
+  <div class="tips-box">
+    <div class="tips-title">⚡ Pro Tips — Duct Sizing</div>
+    <ul>
+      <li><strong>Equal Friction Method:</strong> Design at 0.08 in. w.g./100 ft for most residential systems.</li>
+      <li><strong>Target velocities:</strong> Supply mains 700–900 FPM · Branch ducts 500–700 FPM · Returns 400–600 FPM.</li>
+      <li><strong>Oversizing is a trap:</strong> Low velocity = poor throw, condensation risk, comfort complaints.</li>
+      <li><strong>Aspect ratio:</strong> Keep rectangular ducts at 3:1 or less; 4:1 maximum per ACCA Manual D.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 2 — STATIC PRESSURE BUDGET
+═════════════════════════════════════════════════════════════ -->
+<div class="section-banner">
+  <span class="icon">📊</span> SECTION 2 — TOTAL EXTERNAL STATIC PRESSURE BUDGET
+  <span class="tag">TESP</span>
+</div>
+<div class="card card-first">
+  <div class="sub-header">Enter Component Pressure Drops — in. w.g.</div>
+  <div class="form-grid">
+    <table class="input-table">
+      <tr><td class="label">Equipment Nameplate TESP Rating<span class="help">From the blower performance table</span></td>
+        <td class="field"><input type="number" id="sp_rated" placeholder="e.g. 0.50" min="0.1" max="2.0" step="0.01"> <span style="font-size:11px;color:var(--muted)">in. w.g.</span></td></tr>
+      <tr><td class="label">Supply Filter (clean)<span class="help">1" fiberglass ≈0.05 · 1" pleated ≈0.10</span></td>
+        <td class="field"><input type="number" id="sp_filter" placeholder="0.10" min="0" max="0.5" step="0.01" value="0.10"></td></tr>
+      <tr><td class="label">Evaporator Coil (wet)<span class="help">Typically 0.20–0.35 in. w.g.</span></td>
+        <td class="field"><input type="number" id="sp_coil" placeholder="0.25" min="0" max="0.5" step="0.01" value="0.25"></td></tr>
+      <tr><td class="label">Supply Duct System<span class="help">Total supply side pressure drop</span></td>
+        <td class="field"><input type="number" id="sp_supply" placeholder="e.g. 0.08" min="0" max="0.5" step="0.01"></td></tr>
+    </table>
+    <table class="input-table">
+      <tr><td class="label">Return Duct System<span class="help">Total return side pressure drop</span></td>
+        <td class="field"><input type="number" id="sp_return" placeholder="e.g. 0.05" min="0" max="0.5" step="0.01"></td></tr>
+      <tr><td class="label">Supply Diffusers / Grilles<span class="help">Terminal devices pressure drop</span></td>
+        <td class="field"><input type="number" id="sp_diffusers" placeholder="0.03" min="0" max="0.2" step="0.01" value="0.03"></td></tr>
+      <tr><td class="label">Return Grilles / Filter Grille<span class="help">Typical 0.03–0.08</span></td>
+        <td class="field"><input type="number" id="sp_ret_grille" placeholder="0.03" min="0" max="0.2" step="0.01" value="0.03"></td></tr>
+      <tr><td class="label">Additional Components<span class="help">HRV, dampers, UV, humidifier, etc.</span></td>
+        <td class="field"><input type="number" id="sp_other" placeholder="0.00" min="0" max="0.5" step="0.01" value="0"></td></tr>
+    </table>
+  </div>
+  <div class="btn-row">
+    <button class="btn-calc" onclick="calcSP()">⚡ CHECK STATIC PRESSURE BUDGET</button>
+    <button class="btn-reset" onclick="resetSP()">↺ Reset</button>
+  </div>
+  <div id="sp_results" class="hidden">
+    <div class="sub-header navy">📊 Results — Static Pressure Budget</div>
+    <div class="result-hero" id="sp_hero"></div>
+    <div class="table-scroll">
+    <table class="line-table">
+      <thead><tr><th>Component</th><th>Pressure Drop</th><th>Unit</th><th>Typical Range</th><th>Status</th><th>Notes</th></tr></thead>
+      <tbody id="sp_tbody"></tbody>
+      <tfoot><tr id="sp_tfoot"><td colspan="6">—</td></tr></tfoot>
+    </table>
+    </div>
+  </div>
+  <div class="info-row">
+    <div class="info-cell">
+      <strong>🏆 Residential Target</strong>
+      Most residential systems are rated for 0.50 in. w.g. TESP. Design your duct system to use no more than 80% of this budget.
+    </div>
+    <div class="info-cell">
+      <strong>🔧 High Static Symptoms</strong>
+      High TESP causes reduced airflow, poor comfort, coil freeze-up, compressor strain, and noise. Measure and solve — don't just set a higher fan speed.
+    </div>
+    <div class="info-cell">
+      <strong>⚡ Commissioning Note</strong>
+      Measure TESP at the blower with a digital manometer at rated CFM. Supply and return taps should be within 6" of the air handler.
+    </div>
+  </div>
+</div>
+
+</div><!-- /page -->
+
+<!-- Ad Placeholder: Mid Content -->
+<div class="ad-slot ad-mid"></div>
+
+
+
+<!-- ════════════════════════════════════════════════════════════ JAVASCRIPT -->
+<script>
+/* ── CONSTANTS ───────────────────────────────────────────── */
+const STD_ROUND = [4,5,6,7,8,9,10,12,14,16,18,20,22,24,26,28,30];
+// Approx CFM range per size at 0.08 in.wg/100ft for reference
+const STD_CFM = {4:'20–50',5:'40–80',6:'60–130',7:'90–175',8:'130–240',9:'180–310',10:'230–400',12:'360–600',14:'520–840',16:'720–1120',18:'960–1450',20:'1250–1800',22:'1570–2200',24:'1950–2700',26:'2370–3250',28:'2850–3850',30:'3380–4500'};
+
+/* ── HELPERS ─────────────────────────────────────────────── */
+const $  = id => document.getElementById(id);
+const show = id => $(id).classList.remove('hidden');
+const hide = id => $(id).classList.add('hidden');
+
+function badge(type, label) {
+  return `<span class="badge badge-${type}">${label}</span>`;
+}
+function statusBadge(st) {
+  return st === 'PASS' ? badge('pass','✔ PASS')
+       : st === 'WARN' ? badge('warn','⚠ WARN')
+       : st === 'FAIL' ? badge('fail','✘ FAIL')
+       : badge('info', st);
+}
+function tr(param, val, unit, spec, status, notes) {
+  return `<tr>
+    <td class="param">${param}</td>
+    <td class="value">${val}</td>
+    <td>${unit}</td>
+    <td>${spec}</td>
+    <td>${statusBadge(status)}</td>
+    <td style="font-size:11.5px;color:var(--gray)">${notes}</td>
+  </tr>`;
+}
+function nextStd(d) {
+  return STD_ROUND.find(s => s >= d) || STD_ROUND[STD_ROUND.length-1];
+}
+function velRange(sys) {
+  if (sys === 'return')  return {lo:300, hi:600, ideal:'300–600'};
+  if (sys === 'exhaust') return {lo:200, hi:500, ideal:'200–500'};
+  return {lo:400, hi:900, ideal:'400–900'};
+}
+function velStatus(vel, sys) {
+  const r = velRange(sys);
+  if (vel >= r.lo && vel <= r.hi) return 'PASS';
+  if (vel < r.lo * 0.8 || vel > r.hi * 1.2) return 'FAIL';
+  return 'WARN';
+}
+
+/* ── FRICTION / DIAMETER FORMULA (Darcy-Weisbach proxy) ──── */
+// D (inches) = 1.3 * (CFM^0.625) / (FR_per100ft^0.25)  — simplified Altshul-Tsal
+function calcDiameter(cfm, fr_per100ft) {
+  return 1.3 * Math.pow(cfm, 0.625) / Math.pow(fr_per100ft, 0.25);
+}
+// Area ft² from diameter inches
+function areaFromDiam(d_in) {
+  return Math.PI * Math.pow(d_in / 24, 2) / 4;
+}
+// Pressure drop for a duct run
+function pressureDrop(fr, totalEqLen) {
+  return (fr / 100) * totalEqLen;
+}
+// Equiv length of fittings (round duct, approximate)
+function equivLen(diam_in, elbows, tees, transitions) {
+  const e90  = diam_in * 1.5;   // each 90° elbow
+  const eTee = diam_in * 2.5;
+  const eTr  = diam_in * 0.5;
+  return elbows * e90 + tees * eTee + transitions * eTr;
+}
+// Rectangular to round equivalent diameter (ASHRAE)
+function rectEquivDiam(a, b) {
+  return 1.3 * Math.pow(a * b, 0.625) / Math.pow(a + b, 0.25);
+}
+function resultHeroHTML(sizeLabel, vel, pd, status) {
+  const statusColor = status === 'PASS' ? 'var(--success)' : status === 'WARN' ? 'var(--warning)' : 'var(--danger)';
+  return `
+    <div class="result-hero-main">
+      <div class="label">Recommended Size</div>
+      <div class="value">${sizeLabel}</div>
+      <div class="sub">Calculated per ACCA Manual D Equal Friction Method</div>
+    </div>
+    <div class="result-hero-cells">
+      <div class="result-hero-cell">
+        <div class="rc-label">Face Velocity</div>
+        <div class="rc-val">${vel}<span class="rc-unit">FPM</span></div>
+      </div>
+      <div class="result-hero-cell">
+        <div class="rc-label">Pressure Drop</div>
+        <div class="rc-val">${pd}<span class="rc-unit">in. w.g.</span></div>
+      </div>
+      <div class="result-hero-cell" style="grid-column:1/-1">
+        <div class="rc-label">Status</div>
+        <div style="margin-top:4px">${statusBadge(status)}</div>
+      </div>
+    </div>`;
+}
+
+/* ── ROUND DUCT CALC ─────────────────────────────────────── */
+function calcRound() {
+  const cfm  = parseFloat($('r_cfm').value);
+  const fr   = parseFloat($('r_fr').value);
+  const mat  = parseFloat($('r_material').value);
+  const sys  = $('r_sys').value;
+  const len  = parseFloat($('r_len').value) || 0;
+  const elb  = parseInt($('r_elbows').value) || 0;
+  const tee  = parseInt($('r_tees').value) || 0;
+  const trans = parseInt($('r_trans').value) || 0;
+  if (!cfm || !fr) { alert('Please enter CFM and friction rate.'); return; }
+
+  const fr_eff  = fr * mat;
+  const dCalc   = calcDiameter(cfm, fr_eff * 100);
+  const dRec    = nextStd(dCalc);
+  const area    = areaFromDiam(dRec);
+  const vel     = Math.round(cfm / area);
+  const eqFit   = equivLen(dRec, elb, tee, trans);
+  const totalLen = len + eqFit;
+  const pd      = len > 0 ? pressureDrop(fr_eff, totalLen).toFixed(3) : '—';
+  const vr      = velRange(sys);
+  const vs      = velStatus(vel, sys);
+  const overallStatus = vs;
+
+  highlightStd(dRec);
+  $('r_hero').innerHTML = resultHeroHTML(`${dRec}" Round`, vel.toLocaleString(), pd, overallStatus);
+
+  let rows = '';
+  rows += tr('Design CFM', cfm.toLocaleString(), 'CFM', '—', 'INFO', 'User input');
+  rows += tr('Friction Rate (design)', fr.toFixed(2), 'in. w.g./100 ft', '0.06–0.10', (fr>=0.06&&fr<=0.10)?'PASS':'WARN', 'ACCA Manual D standard');
+  rows += tr('Material Correction', mat.toFixed(2), '×', '1.0 = galvanized', 'INFO', 'Applied to friction rate');
+  rows += tr('Calculated Diameter', dCalc.toFixed(2), 'in', '—', 'INFO', 'Before rounding to standard');
+  rows += tr('Recommended Standard Size', dRec + '"', 'in Ø', 'Next larger std size', 'PASS', 'Round up — never down');
+  rows += tr('Face Velocity', vel.toLocaleString(), 'FPM', vr.ideal + ' FPM', vs, sys + ' air target');
+  if (len > 0) {
+    rows += tr('Straight Run Length', len, 'ft', '—', 'INFO', 'User input');
+    rows += tr('Fitting Equiv. Length', eqFit.toFixed(0), 'ft', '—', 'INFO', `${elb} elbows, ${tee} tees, ${trans} transitions`);
+    rows += tr('Total Equiv. Length', totalLen.toFixed(0), 'ft', '—', 'INFO', 'Straight + fittings');
+    rows += tr('Pressure Drop (this run)', pd, 'in. w.g.', '< 0.08 target', parseFloat(pd) <= 0.08 ? 'PASS' : 'WARN', 'At designed friction rate');
+  }
+  rows += tr('Aspect Ratio', 'N/A', '—', 'N/A (round)', 'INFO', 'Round duct — no aspect ratio');
+
+  $('r_tbody').innerHTML = rows;
+  $('r_tfoot').innerHTML = `<td colspan="6">⚡ Recommended: <strong>${dRec}" Round Rigid Duct</strong> — ${vel.toLocaleString()} FPM — ${pd !== '—' ? pd + ' in. w.g. pressure drop' : 'Enter run length for pressure drop'}</td>`;
+
+  // SVG visualization
+  $('r_duct_viz').innerHTML = ductSVG(dRec, vel, sys);
+  show('r_results');
+}
+function resetRound() {
+  ['r_cfm','r_len','r_elbows','r_tees','r_trans'].forEach(id => { $(id).value = ''; });
+  $('r_elbows').value = 0; $('r_tees').value = 0; $('r_trans').value = 0;
+  hide('r_results'); clearStdHighlight();
+}
+
+/* ── RECTANGULAR DUCT CALC ───────────────────────────────── */
+function calcRect() {
+  const cfm  = parseFloat($('rct_cfm').value);
+  const fr   = parseFloat($('rct_fr').value);
+  const b    = parseFloat($('rct_b').value);
+  const arMax = parseFloat($('rct_ar').value);
+  const sys  = $('rct_sys').value;
+  const len  = parseFloat($('rct_len').value) || 0;
+  const elb  = parseInt($('rct_elbows').value) || 0;
+  const tees = parseInt($('rct_tees').value) || 0;
+  if (!cfm || !fr || !b) { alert('Please enter CFM, friction rate, and duct height.'); return; }
+
+  // Equiv diam from target FR
+  const dEquiv = calcDiameter(cfm, fr * 100);
+  // Required cross-section area in in²
+  const reqArea_in2 = Math.PI * Math.pow(dEquiv/2, 2);
+  // Solve for width: a = reqArea / b, cap at arMax × b
+  let a = reqArea_in2 / b;
+  a = Math.min(a, arMax * b);
+  // Round up to nearest inch
+  const aFinal = Math.ceil(a);
+  const bFinal = Math.ceil(b);
+  const actualArea_in2 = aFinal * bFinal;
+  const actualArea_ft2 = actualArea_in2 / 144;
+  const vel = Math.round(cfm / actualArea_ft2);
+  const ar  = (Math.max(aFinal, bFinal) / Math.min(aFinal, bFinal)).toFixed(1);
+  const arOk = parseFloat(ar) <= 4;
+  const vr  = velRange(sys);
+  const vs  = velStatus(vel, sys);
+  const dEq = rectEquivDiam(aFinal, bFinal).toFixed(1);
+
+  let eqFit = equivLen(parseFloat(dEq), elb, tees, 0);
+  let totalLen = len + eqFit;
+  let pd = len > 0 ? pressureDrop(fr, totalLen).toFixed(3) : '—';
+
+  $('rct_hero').innerHTML = resultHeroHTML(`${aFinal}" × ${bFinal}"`, vel.toLocaleString(), pd, vs);
+
+  let rows = '';
+  rows += tr('Design CFM', cfm.toLocaleString(), 'CFM', '—', 'INFO', 'User input');
+  rows += tr('Friction Rate', fr.toFixed(2), 'in. w.g./100 ft', '0.06–0.10', (fr>=0.06&&fr<=0.10)?'PASS':'WARN', 'Manual D standard');
+  rows += tr('Fixed Height (b)', bFinal, 'in', '—', 'INFO', 'User-defined dimension');
+  rows += tr('Calculated Width (a)', aFinal, 'in', '—', 'PASS', 'Rounded up to whole inch');
+  rows += tr('Final Size', `${aFinal}" × ${bFinal}"`, 'in', '—', 'PASS', 'Width × Height');
+  rows += tr('Round Equiv. Diameter', dEq, 'in', `${nextStd(parseFloat(dEq))}" round equiv.`, 'INFO', 'ASHRAE equivalent');
+  rows += tr('Face Velocity', vel.toLocaleString(), 'FPM', vr.ideal, vs, sys + ' air');
+  rows += tr('Aspect Ratio', ar + ':1', '—', '≤4:1 (Manual D)', arOk ? 'PASS' : 'FAIL', arOk ? 'Within limit' : 'Exceeds Manual D maximum');
+  if (len > 0) {
+    rows += tr('Pressure Drop', pd, 'in. w.g.', '< 0.08', parseFloat(pd)<=0.08?'PASS':'WARN', `${totalLen.toFixed(0)} ft equiv. length`);
+  }
+
+  $('rct_tbody').innerHTML = rows;
+  $('rct_tfoot').innerHTML = `<td colspan="6">⚡ Recommended: <strong>${aFinal}" × ${bFinal}" Rectangular Duct</strong> — AR ${ar}:1 — ${vel.toLocaleString()} FPM</td>`;
+  show('rct_results');
+}
+function resetRect() {
+  ['rct_cfm','rct_b','rct_len','rct_elbows','rct_tees'].forEach(id => $(id).value = '');
+  $('rct_elbows').value = 0; $('rct_tees').value = 0;
+  hide('rct_results');
+}
+
+/* ── FLEX DUCT CALC ──────────────────────────────────────── */
+function calcFlex() {
+  const cfm    = parseFloat($('fx_cfm').value);
+  const fr     = parseFloat($('fx_fr').value);
+  const fxCorr = parseFloat($('fx_type').value);
+  const instCorr = parseFloat($('fx_install').value);
+  const len    = parseFloat($('fx_len').value) || 0;
+  const sys    = $('fx_sys').value;
+  if (!cfm || !fr) { alert('Please enter CFM and friction rate.'); return; }
+
+  const fr_eff = fr * fxCorr * instCorr;
+  const dCalc  = calcDiameter(cfm, fr_eff * 100);
+  const dRec   = nextStd(dCalc);
+  const area   = areaFromDiam(dRec);
+  const vel    = Math.round(cfm / area);
+  const vr     = velRange(sys);
+  const vs     = velStatus(vel, sys);
+  const pd     = len > 0 ? pressureDrop(fr_eff, len).toFixed(3) : '—';
+  const lenWarn = len > 6 ? 'WARN' : 'PASS';
+
+  $('fx_hero').innerHTML = resultHeroHTML(`${dRec}" Flex`, vel.toLocaleString(), pd, vs);
+
+  let rows = '';
+  rows += tr('Design CFM', cfm.toLocaleString(), 'CFM', '—', 'INFO', 'User input');
+  rows += tr('Base Friction Rate', fr.toFixed(2), 'in. w.g./100 ft', '0.06–0.08 flex max', (fr<=0.08)?'PASS':'WARN', 'Before corrections');
+  rows += tr('Flex Type Correction', fxCorr.toFixed(2), '×', '1.10–1.25', 'INFO', 'Applied to friction rate');
+  rows += tr('Install Quality Correction', instCorr.toFixed(2), '×', '1.0 ideal', instCorr <= 1.0 ? 'PASS' : 'WARN', 'Sag/kink penalty');
+  rows += tr('Effective Friction Rate', fr_eff.toFixed(3), 'in. w.g./100 ft', '—', 'INFO', 'All corrections applied');
+  rows += tr('Calculated Diameter', dCalc.toFixed(2), 'in', '—', 'INFO', 'Pre-rounding');
+  rows += tr('Recommended Flex Size', dRec + '"', 'in Ø', 'Next std size', 'PASS', 'Always round up for flex');
+  rows += tr('Face Velocity', vel.toLocaleString(), 'FPM', vr.ideal, vs, 'Flex — target lower end of range');
+  if (len > 0) {
+    rows += tr('Run Length', len, 'ft', '≤6 ft recommended', lenWarn, len > 6 ? 'Consider rigid duct' : 'Acceptable');
+    rows += tr('Pressure Drop', pd, 'in. w.g.', '< 0.05 target', parseFloat(pd)<=0.05?'PASS':'WARN', 'Corrected for flex type & install');
+  }
+
+  $('fx_tbody').innerHTML = rows;
+  $('fx_tfoot').innerHTML = `<td colspan="6">⚡ Recommended: <strong>${dRec}" Insulated Flex Duct</strong> — ${vel.toLocaleString()} FPM — Eff. FR: ${fr_eff.toFixed(3)}</td>`;
+  show('fx_results');
+}
+function resetFlex() {
+  ['fx_cfm','fx_len'].forEach(id => $(id).value = '');
+  hide('fx_results');
+}
+
+/* ── STATIC PRESSURE ─────────────────────────────────────── */
+function calcSP() {
+  const rated = parseFloat($('sp_rated').value);
+  if (!rated) { alert('Enter the equipment TESP rating.'); return; }
+
+  const components = [
+    { name: 'Supply Filter (clean)',         id: 'sp_filter',    typical: '0.05–0.15', lo: 0.02, hi: 0.20 },
+    { name: 'Evaporator Coil (wet)',          id: 'sp_coil',      typical: '0.20–0.35', lo: 0.10, hi: 0.40 },
+    { name: 'Supply Duct System',             id: 'sp_supply',    typical: '0.06–0.12', lo: 0,    hi: 0.20 },
+    { name: 'Return Duct System',             id: 'sp_return',    typical: '0.04–0.10', lo: 0,    hi: 0.18 },
+    { name: 'Supply Diffusers / Grilles',     id: 'sp_diffusers', typical: '0.02–0.06', lo: 0,    hi: 0.10 },
+    { name: 'Return Grilles / Filter Grille', id: 'sp_ret_grille',typical: '0.02–0.06', lo: 0,    hi: 0.10 },
+    { name: 'Additional Components',          id: 'sp_other',     typical: '0.00–0.10', lo: 0,    hi: 0.20 },
+  ];
+
+  let total = 0;
+  let rows = '';
+  for (const c of components) {
+    const val = parseFloat($(c.id).value) || 0;
+    total += val;
+    const hi = val > c.hi ? 'WARN' : 'PASS';
+    rows += tr(c.name, val.toFixed(3), 'in. w.g.', c.typical, val > c.hi ? 'WARN' : 'INFO', val === 0 ? 'Not entered / not applicable' : '');
+  }
+
+  const budget   = rated * 0.80;
+  const remain   = budget - total;
+  const pct      = ((total / rated) * 100).toFixed(0);
+  const budgetSt = total <= budget ? 'PASS' : total <= rated ? 'WARN' : 'FAIL';
+  rows += tr('─── TOTAL TESP', total.toFixed(3), 'in. w.g.', `≤ ${budget.toFixed(2)} (80% of rated)`, budgetSt, `${pct}% of rated capacity used`);
+
+  const headColor = budgetSt === 'PASS' ? 'var(--green)' : budgetSt === 'WARN' ? '#856404' : 'var(--fail)';
+  $('sp_hero').innerHTML = `
+    <div class="result-hero-main">
+      <div class="label">Total External Static Pressure</div>
+      <div class="value">${total.toFixed(3)} <span style="font-size:18px;opacity:.7">in. w.g.</span></div>
+      <div class="sub">${pct}% of rated capacity · ${remain >= 0 ? remain.toFixed(3) + ' in. w.g. remaining budget' : 'Over budget by ' + Math.abs(remain).toFixed(3) + ' in. w.g.'}</div>
+    </div>
+    <div class="result-hero-cells">
+      <div class="result-hero-cell">
+        <div class="rc-label">Equipment Rated</div>
+        <div class="rc-val">${rated.toFixed(2)}<span class="rc-unit">in. w.g.</span></div>
+      </div>
+      <div class="result-hero-cell">
+        <div class="rc-label">80% Design Budget</div>
+        <div class="rc-val">${budget.toFixed(2)}<span class="rc-unit">in. w.g.</span></div>
+      </div>
+      <div class="result-hero-cell" style="grid-column:1/-1">
+        <div class="rc-label">Status</div>
+        <div style="margin-top:4px">${statusBadge(budgetSt)}</div>
+      </div>
+    </div>`;
+
+  $('sp_tbody').innerHTML = rows;
+  $('sp_tfoot').innerHTML = `<td colspan="6">⚡ TESP: <strong>${total.toFixed(3)} in. w.g.</strong> — ${pct}% of rated ${rated.toFixed(2)} — Budget Status: <strong>${budgetSt}</strong></td>`;
+  show('sp_results');
+}
+function resetSP() {
+  ['sp_rated','sp_supply','sp_return'].forEach(id => $(id).value = '');
+  $('sp_filter').value = 0.10; $('sp_coil').value = 0.25;
+  $('sp_diffusers').value = 0.03; $('sp_ret_grille').value = 0.03; $('sp_other').value = 0;
+  hide('sp_results');
+}
+
+/* ── TABS ────────────────────────────────────────────────── */
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase().includes(name));
+  });
+  ['round','rect','flex'].forEach(t => {
+    $('tab-'+t).classList.toggle('active', t === name);
+  });
+}
+
+/* ── SLIDER SYNC ─────────────────────────────────────────── */
+function syncFR(prefix) {
+  const raw = $(prefix + '_fr_range').value;
+  const val = (raw / 100).toFixed(2);
+  $(prefix + '_fr').value = val;
+  $(prefix + '_fr_display').textContent = val;
+}
+function syncFRInput(prefix) {
+  const val = parseFloat($(prefix + '_fr').value);
+  if (!isNaN(val)) {
+    $(prefix + '_fr_range').value = Math.round(val * 100);
+    $(prefix + '_fr_display').textContent = val.toFixed(2);
+  }
+}
+
+/* ── STD SIZE GRID ───────────────────────────────────────── */
+function buildStdGrid() {
+  const g = $('std_grid');
+  STD_ROUND.forEach(d => {
+    const div = document.createElement('div');
+    div.className = 'std-size-cell';
+    div.id = 'std_' + d;
+    div.innerHTML = `${d}"<span class="cfm-range">${STD_CFM[d]} CFM</span>`;
+    div.onclick = () => { clearStdHighlight(); div.classList.add('active'); };
+    g.appendChild(div);
+  });
+}
+function highlightStd(d) {
+  clearStdHighlight();
+  const el = $('std_' + d);
+  if (el) { el.classList.add('recommended'); el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+}
+function clearStdHighlight() {
+  STD_ROUND.forEach(d => {
+    const el = $('std_' + d);
+    if (el) el.classList.remove('recommended','active');
+  });
+}
+
+/* ── DUCT SVG ────────────────────────────────────────────── */
+function ductSVG(diam, vel, sys) {
+  const r  = Math.min(diam * 2.5, 80);
+  const cx = 100, cy = 70;
+  const velColor = vel > 900 ? 'var(--danger)' : vel < 300 ? 'var(--warning)' : 'var(--success)';
+  return `
+  <div class="duct-diagram">
+    <svg width="200" height="140" viewBox="0 0 200 140">
+      <defs>
+        <linearGradient id="dg" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#3A82C0;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#1B3A6B;stop-opacity:1"/>
+        </linearGradient>
+        <radialGradient id="shine" cx="35%" cy="35%">
+          <stop offset="0%" style="stop-color:rgba(255,255,255,.25)"/>
+          <stop offset="100%" style="stop-color:rgba(255,255,255,0)"/>
+        </radialGradient>
+      </defs>
+      <ellipse cx="${cx}" cy="${cy}" rx="${r}" ry="${r*0.35}" fill="#1B3A6B" opacity=".4"/>
+      <rect x="${cx-r}" y="${cy-r}" width="${r*2}" height="${r*1.4}" fill="url(#dg)" rx="3"/>
+      <ellipse cx="${cx}" cy="${cy-r}" rx="${r}" ry="${r*0.35}" fill="url(#dg)" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+      <ellipse cx="${cx}" cy="${cy-r}" rx="${r}" ry="${r*0.35}" fill="url(#shine)"/>
+      <ellipse cx="${cx}" cy="${cy-r+r*1.4}" rx="${r}" ry="${r*0.35}" fill="#1B3A6B" opacity=".6"/>
+      <text x="${cx}" y="${cy+10}" text-anchor="middle" font-family="Arial" font-size="14" font-weight="700" fill="white">${diam}"</text>
+      <text x="${cx}" y="${cy+25}" text-anchor="middle" font-family="Arial" font-size="9" fill="rgba(255,255,255,.75)">Ø ROUND</text>
+      <!-- velocity arrow -->
+      <line x1="${cx+r+8}" y1="${cy-r*0.4}" x2="${cx+r+8}" y2="${cy+r*0.55}" stroke="${velColor}" stroke-width="2" marker-end="url(#arrowDown)"/>
+      <text x="${cx+r+18}" y="${cy+5}" font-family="Arial" font-size="9" fill="${velColor}" font-weight="700">${vel}</text>
+      <text x="${cx+r+18}" y="${cy+16}" font-family="Arial" font-size="8" fill="${velColor}">FPM</text>
+      <defs>
+        <marker id="arrowDown" markerWidth="6" markerHeight="6" refX="3" refY="6" orient="auto">
+          <path d="M0,0 L6,0 L3,6 Z" fill="context-fill" style="fill:var(--success)"/>
+        </marker>
+      </defs>
+    </svg>
+  </div>
+  <div class="duct-callouts">
+    <div class="dc-row"><div class="dc-dot" style="background:var(--steel)"></div><strong>${diam}" Round</strong> — recommended size</div>
+    <div class="dc-row"><div class="dc-dot" style="background:var(--success)"></div>${vel.toLocaleString()} FPM face velocity</div>
+    <div class="dc-row"><div class="dc-dot" style="background:var(--orange)"></div>${sys.charAt(0).toUpperCase()+sys.slice(1)} air duct</div>
+  </div>`;
+}
+
+/* ── INIT ────────────────────────────────────────────────── */
+buildStdGrid();
+</script>
+        </div>
+      </section>
+
+      <!-- SEO CONTENT SECTION -->
+      <section class="section" id="seo-content">
+        <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
+          <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">How to Size HVAC Ductwork accurately</h2>
+          <p style="margin-bottom: 15px;">
+            The <strong>HVAC Duct Size Calculator</strong> is an essential field tool designed for contractors and technicians to correctly dimension ductwork. Using the Equal Friction Method derived from ACCA Manual D, this tool calculates the optimal size for round rigid, rectangular, and flexible ductwork based on your target Cubic Feet per Minute (CFM) and available friction rate.
+          </p>
+          <p style="margin-bottom: 15px;">
+            Understanding duct sizing is perhaps the most critical technical skill in residential HVAC. If ducts are severely undersized, air velocity increases, leading to objectionable noise and restricted airflow that hinders the equipment from delivering its rated capacity. Conversely, if ducts are drastically oversized, face velocity plummets, resulting in poor room air mixing and inadequate throw from supply registers.
+          </p>
+          
+          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Equal Friction Method Explained</h3>
+          <p style="margin-bottom: 15px;">
+            Before utilizing this calculator, you must know two values: the prescribed airflow (<a href="/hvac-cfm-calculator/" style="color: var(--primary); text-decoration: none;">calculated via a room CFM calculation</a>) and a target friction rate. For many residential applications with standard lengths, 0.08 in. w.g. per 100 feet is a common design friction rate for rigid round pipe. Note that flex duct inherently has higher resistance; thus, the tool automatically applies necessary correction factors depending on installation quality (e.g., whether the flex is pulled perfectly tight or has slight sag).
+          </p>
+          <p style="margin-bottom: 15px;">
+            In the <strong>Rectangular Duct</strong> section, the calculator also enforces aspect ratio limits. Manual D advises maintaining aspect ratios (the ratio of width to height) of 4:1 or less. Anything above this threshold drastically increases surface area and subsequent pressure loss.
+          </p>
+
+          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Static Pressure Budgeting</h3>
+          <p style="margin-bottom: 15px;">
+            Section 2 of the tool introduces a Total External Static Pressure (TESP) budget feature. Properly sizing ductwork is only half the battle; the blower must also successfully push air through filters, an evaporator coil, dampers, and grilles. By entering the rated TESP of your equipment (typically 0.50 in. w.g. for default residential air handlers), you can verify that the cumulative pressure drops of system components won't exceed the blower's capability. If you find the static pressure is too high, you can diagnose issues further using our <a href="/hvac-flow-rate-calculator/" style="color: var(--primary); text-decoration: none;">flow rate calculator</a>.
+          </p>
+          <p style="margin-bottom: 25px;">
+            Accurate duct design ensures comfort, system longevity, and happy customers. It's the technical foundation that supports everything else in a business, right down to the profitability driven by accurate quoting—a metric tracked closely in our <a href="/hvac-bid-calculator/" style="color: var(--primary); text-decoration: none;">HVAC bid calculator</a>.
+          </p>
+
+          <h2 style="font-size: 26px; margin-top: 40px; margin-bottom: 20px; color: #fff;">Frequently Asked Questions</h2>
+          <div style="margin-bottom: 20px;">
+            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">What friction rate should I use for duct sizing?</h3>
+            <p>For most residential applications, a friction rate of 0.10" per 100 feet of duct is used. However, for a high-performance design, you should calculate the Available Static Pressure (ASP) after accounting for the blower capacity and component losses (filter, coil, etc.).</p>
+          </div>
+          <div style="margin-bottom: 20px;">
+            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">Why is duct sizing important?</h3>
+            <p>Undersized ducts lead to excessive noise, high energy consumption, and premature blower motor failure. Properly dimensioned ductwork ensures that the system can deliver its full heating and cooling capacity to every room in the house.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Placeholder: Bottom Banner -->
+      <div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
+
+    </main>
+
+    <footer id="mint-footer">
+      <div class="container">
+        <h3 class="footer-title">Related HVAC Calculators</h3>
+        <div class="footer-grid">
+          <a href="/hvac-flow-rate-calculator/">Flow Rate Calculator</a>
+          <a href="/hvac-load-calculator/">Load Calculator</a>
+          <a href="/hvac-service-price-calculator/">Service Price Calculator</a>
+          <a href="/hvac-labor-cost-calculator/">Labor Cost Calculator</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+

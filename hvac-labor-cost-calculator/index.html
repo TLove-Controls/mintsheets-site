@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVAC Labor Cost Calculator | Estimating HVAC Labor Rates & Hours | MintSheets</title>
+<meta name="description" content="Free online HVAC labor cost calculator. Calculate fully burdened labor rates, technician costs, and project labor requirements for HVAC jobs.">
+<link rel="canonical" href="https://mintsheets.com/hvac-labor-cost-calculator/" />
+<meta property="og:title" content="HVAC Labor Cost Calculator | Estimating HVAC Labor Rates & Hours | MintSheets" />
+<meta property="og:description" content="Calculate fully burdened labor rates, technician costs, and project labor requirements for HVAC jobs." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://mintsheets.com/hvac-labor-cost-calculator/" />
+    <link rel="stylesheet" href="../styles.css?v=1.5">
+    <link rel="stylesheet" href="../shared/css/calculators.css?v=1.13">
+    <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+</head>
+<body>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a href="/" class="brand">
+          <img src="../brand/logo-without-background.png" alt="MintSheets Logo">
+        </a>
+  
+        <nav class="nav-links">
+          <a href="/">Calculators</a>
+          <a href="/#troubleshooting-checklist">Free Guide</a>
+          <a href="mailto:support@mintsheets.com">Support</a>
+        </nav>
+        
+        <div class="header-actions">
+          <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container section-card">
+          <div style="margin-bottom: 30px; text-align: center;">
+            <div class="eyebrow">Technical Tool</div>
+            <h1 style="margin: 10px auto; max-width: none;">HVAC Labor Cost Calculator (Billable Hourly Rate Tool)</h1>
+            <p style="color: var(--muted);">Fully burdened labor cost analysis — calculate your true hourly cost and set profitable billable rates.</p>
+            
+            <p style="margin-top: 20px; line-height: 1.6; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
+              The HVAC labor cost calculator helps you determine the true "fully burdened" cost of your technicians. By accounting for taxes, benefits, and overhead, you can ensure your <a href="/hvac-service-markup-calculator/" style="color: var(--primary); text-decoration: none;">service markup</a> and <a href="/hvac-bid-calculator/" style="color: var(--primary); text-decoration: none;">job bids</a> are based on actual costs, not just raw wages. Designed for HVAC business owners and service managers.
+            </p>
+          </div>
+  </div>
+  <!-- Ad Placeholder: Top Banner -->
+  <div class="ad-slot ad-top"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 1: JOB & TECHNICIAN INFO
+  ════════════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">📋</span> SECTION 1 — JOB &amp; TECHNICIAN INFORMATION
+  </div>
+  <div class="content">
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Technician Name</label>
+        <input type="text" id="techName" placeholder="First Last">
+      </div>
+      <div class="form-group">
+        <label>Skill / Classification</label>
+        <select id="techSkill" onchange="applyPreset()">
+          <option value="apprentice">Apprentice / Helper</option>
+          <option value="journeyman" selected>Journeyman Technician</option>
+          <option value="senior">Senior Technician</option>
+          <option value="master">Master / Lead Technician</option>
+          <option value="custom">Custom Rate</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Customer Name</label>
+        <input type="text" id="custName" placeholder="First Last">
+      </div>
+      <div class="form-group">
+        <label>Service Address</label>
+        <input type="text" id="custAddr" placeholder="123 Main St, Rogers, AR">
+      </div>
+      <div class="form-group">
+        <label>Work Order #</label>
+        <input type="text" id="woNum" placeholder="WO-2026-001">
+      </div>
+      <div class="form-group">
+        <label>Date</label>
+        <input type="text" id="jobDate" placeholder="MM/DD/YYYY">
+      </div>
+      <div class="form-group">
+        <label>Job Type</label>
+        <select id="jobType">
+          <option>New Installation</option>
+          <option>Replacement / Changeout</option>
+          <option selected>Service &amp; Repair</option>
+          <option>Preventive Maintenance</option>
+          <option>Diagnostic / Inspection</option>
+          <option>Duct Work</option>
+          <option>Commissioning / Start-Up</option>
+          <option>Commercial Service</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Pay Period / Week Ending</label>
+        <input type="text" id="payPeriod" placeholder="MM/DD/YYYY">
+      </div>
+      <div class="form-group full">
+        <label>Job Notes / Scope</label>
+        <textarea id="jobNotes" placeholder="Describe work performed, site conditions, equipment serviced, special circumstances..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 2: BASE WAGE & BURDEN RATES
+  ════════════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">💵</span> SECTION 2 — BASE WAGE &amp; BURDEN RATES
+  </div>
+
+  <div class="sub-header">Technician Base Wage Settings</div>
+  <div class="content">
+    <div class="info-box">
+      Select a skill tier above to auto-populate market-rate defaults, or enter a custom base wage. All burden fields are editable — adjust to match your actual payroll costs.
+    </div>
+    <div class="form-grid-3">
+      <div class="form-group">
+        <label>Base Hourly Wage ($/hr)</label>
+        <input type="number" id="baseWage" value="28.00" step="0.25" min="0" onchange="recalc()">
+      </div>
+      <div class="form-group">
+        <label>OT Rate Multiplier</label>
+        <select id="otMult" onchange="recalc()">
+          <option value="1.5" selected>1.5× (Standard OT)</option>
+          <option value="2.0">2.0× (Double Time)</option>
+          <option value="1.0">1.0× (Flat Rate / Salary)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>DT Rate Multiplier</label>
+        <select id="dtMult" onchange="recalc()">
+          <option value="2.0" selected>2.0× (Double Time)</option>
+          <option value="1.5">1.5× (OT Only)</option>
+          <option value="1.0">1.0× (None)</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-header">Employer Burden &amp; Overhead Rates</div>
+  <div class="content">
+    <div class="burden-grid">
+      <!-- Card 1: Payroll Taxes -->
+      <div class="burden-card">
+        <div class="bh">📊 Payroll Taxes</div>
+        <div class="bb">
+          <div class="br"><span>FICA (SS + Medicare)</span><span class="bv"><input type="number" id="bFICA" value="7.65" step="0.01" min="0" onchange="recalc()"> %</span></div>
+          <div class="br"><span>FUTA (Federal Unemployment)</span><span class="bv"><input type="number" id="bFUTA" value="0.60" step="0.01" min="0" onchange="recalc()"> %</span></div>
+          <div class="br"><span>SUTA (State Unemployment)</span><span class="bv"><input type="number" id="bSUTA" value="2.70" step="0.01" min="0" onchange="recalc()"> %</span></div>
+          <div class="br" style="margin-top:4px;background:var(--bg-soft);padding:3px 4px;border-radius:2px;"><span style="font-weight:bold;color:var(--text-light);">Payroll Tax Total</span><span class="bv" id="bTaxTotal" style="color:var(--text-light);">10.95%</span></div>
+        </div>
+      </div>
+      <!-- Card 2: Benefits -->
+      <div class="burden-card">
+        <div class="bh">🏥 Benefits &amp; Insurance</div>
+        <div class="bb">
+          <div class="br"><span>Health Insurance</span><span class="bv"><input type="number" id="bHealth" value="5.00" step="0.25" min="0" onchange="recalc()"> %</span></div>
+          <div class="br"><span>Workers' Comp</span><span class="bv"><input type="number" id="bWC" value="4.50" step="0.25" min="0" onchange="recalc()"> %</span></div>
+          <div class="br"><span>401k / Retirement</span><span class="bv"><input type="number" id="b401k" value="3.00" step="0.25" min="0" onchange="recalc()"> %</span></div>
+          <div class="br"><span>General Liability</span><span class="bv"><input type="number" id="bGL" value="2.00" step="0.25" min="0" onchange="recalc()"> %</span></div>
+          <div class="br" style="margin-top:4px;background:var(--bg-soft);padding:3px 4px;border-radius:2px;"><span style="font-weight:bold;color:var(--text-light);">Benefits Total</span><span class="bv" id="bBenTotal" style="color:var(--text-light);">14.50%</span></div>
+        </div>
+      </div>
+      <!-- Card 3: Overhead & Tools -->
+      <div class="burden-card">
+        <div class="bh orange">🔧 Overhead &amp; Tools</div>
+        <div class="bb">
+          <div class="br"><span>Vehicle / Fuel Allocation</span><span class="bv"><input type="number" id="bVehicle" value="4.00" step="0.25" min="0" onchange="recalc()"> %</span></div>
+          <div class="br"><span>Tools &amp; Equipment</span><span class="bv"><input type="number" id="bTools" value="2.50" step="0.25" min="0" onchange="recalc()"> %</span></div>
+          <div class="br"><span>Training / Certifications</span><span class="bv"><input type="number" id="bTraining" value="1.50" step="0.25" min="0" onchange="recalc()"> %</span></div>
+          <div class="br"><span>Admin / Dispatch Overhead</span><span class="bv"><input type="number" id="bAdmin" value="3.00" step="0.25" min="0" onchange="recalc()"> %</span></div>
+          <div class="br" style="margin-top:4px;background:var(--bg-soft);padding:3px 4px;border-radius:2px;"><span style="font-weight:bold;color:var(--text-light);">Overhead Total</span><span class="bv" id="bOHTotal" style="color:var(--text-light);">11.00%</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="spacer"></div>
+    <!-- Burden Summary Bar -->
+    <div class="burden-summary-bar">
+      <div class="bsb-label">Total Burden Rate</div>
+      <div class="bsb-value" id="totalBurdenPct">36.45%</div>
+      <div style="flex:1;min-width:200px;">
+        <div class="stacked-bar" id="burdenBar">
+          <div class="stacked-seg" style="background:#2E6DA4;width:30%;">Taxes</div>
+          <div class="stacked-seg" style="background:#3D8B37;width:40%;">Benefits</div>
+          <div class="stacked-seg" style="background:#E07B00;width:30%;">Overhead</div>
+        </div>
+        <div style="display:flex;gap:14px;font-size:10px;margin-top:3px;opacity:0.75;">
+          <span>■ Payroll Taxes</span><span style="color:var(--primary);">■ Benefits</span><span style="color:var(--accent);">■ Overhead</span>
+        </div>
+      </div>
+      <div class="bsb-details">
+        Burdened Rate: <strong id="burdenedRate">$38.22/hr</strong>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 3: HOURS WORKED
+  ════════════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">⏱️</span> SECTION 3 — HOURS WORKED
+  </div>
+
+  <div class="sub-header">Daily Time Entry</div>
+  <div class="content">
+    <div class="info-box">
+      Enter regular, overtime (40–48 hrs/wk), and double-time hours per day. Totals roll up automatically. FLSA OT threshold: 40 hrs/week.
+    </div>
+    <div class="table-scroll">
+    <table class="line-table" id="hoursTable">
+      <thead>
+        <tr>
+          <th style="width:100px;">Day</th>
+          <th style="width:90px;">Regular (hrs)</th>
+          <th style="width:90px;">OT (hrs)</th>
+          <th style="width:90px;">DT (hrs)</th>
+          <th style="width:90px;">Total (hrs)</th>
+          <th>Task / Description</th>
+          <th style="width:110px;">Site / Location</th>
+        </tr>
+      </thead>
+      <tbody id="hoursBody"></tbody>
+      <tfoot>
+        <tr>
+          <td><strong>TOTALS</strong></td>
+          <td id="ft-reg">0.0</td>
+          <td id="ft-ot">0.0</td>
+          <td id="ft-dt">0.0</td>
+          <td id="ft-total" style="color:var(--primary);">0.0</td>
+          <td colspan="2"></td>
+        </tr>
+      </tfoot>
+    </table>
+    </div>
+    <div class="btn-row no-print" style="padding:8px 0;background:none;border:none;">
+      <button class="btn btn-steel btn-sm" onclick="addDayRow()">➕ Add Day</button>
+      <button class="btn btn-outline btn-sm" onclick="loadWeek()">📅 Fill Standard Week (Mon–Fri)</button>
+    </div>
+  </div>
+
+  <div class="sub-header">Additional Labor Charges</div>
+  <div class="content">
+    <div class="form-grid-4">
+      <div class="form-group">
+        <label>Drive Time (hrs)</label>
+        <input type="number" id="driveHrs" value="0" step="0.25" min="0" onchange="recalc()">
+      </div>
+      <div class="form-group">
+        <label>Drive Rate ($/hr)</label>
+        <input type="number" id="driveRate" value="0" step="1" min="0" onchange="recalc()">
+      </div>
+      <div class="form-group">
+        <label>Mileage (miles)</label>
+        <input type="number" id="mileage" value="0" step="1" min="0" onchange="recalc()">
+      </div>
+      <div class="form-group">
+        <label>Mileage Rate ($/mi)</label>
+        <input type="number" id="mileageRate" value="0.67" step="0.01" min="0" onchange="recalc()">
+      </div>
+      <div class="form-group">
+        <label>Per Diem / Allowance ($)</label>
+        <input type="number" id="perDiem" value="0" step="5" min="0" onchange="recalc()">
+      </div>
+      <div class="form-group">
+        <label>Hazard / Specialty Pay ($)</label>
+        <input type="number" id="hazPay" value="0" step="5" min="0" onchange="recalc()">
+      </div>
+      <div class="form-group">
+        <label>Callback / Emergency Fee ($)</label>
+        <input type="number" id="cbFee" value="0" step="5" min="0" onchange="recalc()">
+      </div>
+      <div class="form-group">
+        <label>Misc. Adjustments ($)</label>
+        <input type="number" id="miscAdj" value="0" step="5" onchange="recalc()">
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Ad Placeholder: Mid Content -->
+    <div class="ad-slot ad-mid"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 4: BILLABLE RATE MATRIX
+  ════════════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">📊</span> SECTION 4 — BILLABLE RATE MATRIX
+  </div>
+
+  <div class="sub-header">Customer Billing Rate Configuration</div>
+  <div class="content">
+    <div class="info-box">
+      Set your billable rates for each time type and service tier. Effective margin is calculated vs your burdened cost.
+    </div>
+    <div class="table-scroll">
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th style="width:180px;">Time Type</th>
+          <th>Burdened Cost</th>
+          <th>Billable Rate</th>
+          <th>Markup $</th>
+          <th>Margin %</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Regular Time</strong> <span class="skill-badge badge-app">REG</span></td>
+          <td class="center" id="mr-reg-cost">—</td>
+          <td class="center"><input type="number" id="br-reg" value="125" step="1" min="0" onchange="recalc()"></td>
+          <td class="center" id="mr-reg-mkup">—</td>
+          <td class="center" id="mr-reg-marg">—</td>
+          <td class="center" id="mr-reg-status">—</td>
+        </tr>
+        <tr>
+          <td><strong>Overtime</strong> <span class="skill-badge badge-jny">OT</span></td>
+          <td class="center" id="mr-ot-cost">—</td>
+          <td class="center"><input type="number" id="br-ot" value="165" step="1" min="0" onchange="recalc()"></td>
+          <td class="center" id="mr-ot-mkup">—</td>
+          <td class="center" id="mr-ot-marg">—</td>
+          <td class="center" id="mr-ot-status">—</td>
+        </tr>
+        <tr>
+          <td><strong>Double Time</strong> <span class="skill-badge badge-mstr">DT</span></td>
+          <td class="center" id="mr-dt-cost">—</td>
+          <td class="center"><input type="number" id="br-dt" value="210" step="1" min="0" onchange="recalc()"></td>
+          <td class="center" id="mr-dt-mkup">—</td>
+          <td class="center" id="mr-dt-marg">—</td>
+          <td class="center" id="mr-dt-status">—</td>
+        </tr>
+        <tr>
+          <td><strong>Drive / Travel Time</strong></td>
+          <td class="center" id="mr-drv-cost">—</td>
+          <td class="center"><input type="number" id="br-drv" value="75" step="1" min="0" onchange="recalc()"></td>
+          <td class="center" id="mr-drv-mkup">—</td>
+          <td class="center" id="mr-drv-marg">—</td>
+          <td class="center" id="mr-drv-status">—</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 5: COST SUMMARY & BILLING TOTALS
+  ════════════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">💰</span> SECTION 5 — COST SUMMARY &amp; BILLING TOTALS
+  </div>
+
+  <div class="summary-panel">
+    <!-- LEFT: Stat Cards -->
+    <div class="summary-left">
+      <div class="sub-header" style="margin:-16px -20px 12px;padding-left:20px;border-radius: var(--radius-lg) var(--radius-lg) 0 0;">Labor Cost Breakdown</div>
+      <div class="stat-grid">
+        <div class="stat-card">
+          <div class="sc-label">Total Hours</div>
+          <div class="sc-value" id="sc-hours">0.0</div>
+          <div class="sc-sub" id="sc-hours-sub">0 reg · 0 OT · 0 DT</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-label">Raw Wage Cost</div>
+          <div class="sc-value" id="sc-rawwage">$0.00</div>
+          <div class="sc-sub">Before burden</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-label">Burden Amount</div>
+          <div class="sc-value" id="sc-burden">$0.00</div>
+          <div class="sc-sub" id="sc-burden-pct">0.00%</div>
+        </div>
+        <div class="stat-card">
+          <div class="sc-label">Total Labor Cost</div>
+          <div class="sc-value orange" id="sc-labcost">$0.00</div>
+          <div class="sc-sub">Wages + Burden</div>
+        </div>
+      </div>
+      <div class="spacer"></div>
+      <!-- Effective Rate Bar -->
+      <div style="font-size:12px;font-weight:bold;color:var(--text-light);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:4px;">Billing Efficiency</div>
+      <div class="meter-wrap">
+        <div class="meter-track"><div class="meter-fill" id="effMeter" style="width:0%;"></div></div>
+        <div class="meter-labels"><span>0%</span><span>Breakeven</span><span>50%</span><span>Target</span><span>100%</span></div>
+      </div>
+      <div style="font-size:12px;color:var(--muted);margin-top:4px;">Effective Margin: <strong id="effMargLabel" style="color:var(--primary);">—</strong></div>
+    </div>
+
+    <!-- RIGHT: Summary Totals -->
+    <div class="summary-right">
+      <div style="font-size:12px;font-weight:bold;text-transform:uppercase;letter-spacing:0.5px;opacity:0.7;margin-bottom:6px;">Billing Summary</div>
+
+      <div class="summary-row"><span class="label">Regular Labor (<span id="sr-reg-hrs">0.0</span> hrs)</span><span id="sr-reg">$0.00</span></div>
+      <div class="summary-row"><span class="label">Overtime Labor (<span id="sr-ot-hrs">0.0</span> hrs)</span><span id="sr-ot">$0.00</span></div>
+      <div class="summary-row"><span class="label">Double-Time Labor (<span id="sr-dt-hrs">0.0</span> hrs)</span><span id="sr-dt">$0.00</span></div>
+      <div class="summary-row subtotal"><span class="label">Drive / Travel</span><span id="sr-drv">$0.00</span></div>
+      <div class="summary-row"><span class="label">Mileage (<span id="sr-mi-mi">0</span> mi)</span><span id="sr-mi">$0.00</span></div>
+      <div class="summary-row"><span class="label">Per Diem &amp; Allowances</span><span id="sr-pd">$0.00</span></div>
+      <div class="summary-row"><span class="label">Hazard / Specialty Pay</span><span id="sr-haz">$0.00</span></div>
+      <div class="summary-row"><span class="label">Callback / Emergency</span><span id="sr-cb">$0.00</span></div>
+      <div class="summary-row"><span class="label">Misc. Adjustments</span><span id="sr-misc">$0.00</span></div>
+
+      <div class="summary-row subtotal">
+        <span class="label" style="opacity:0.7;">Total Cost (w/ Burden)</span>
+        <span id="sr-cost">$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span class="label" style="opacity:0.7;">Total Billable Amount</span>
+        <span id="sr-bill">$0.00</span>
+      </div>
+      <div class="summary-row">
+        <span class="label" style="opacity:0.7;">Gross Profit</span>
+        <span id="sr-gp" style="color:#7FDBCA;">$0.00</span>
+      </div>
+
+      <div class="summary-row grand">
+        <span class="label">INVOICE TOTAL</span>
+        <span id="sr-total">$0.00</span>
+      </div>
+
+      <div style="margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.2);">
+        <div style="font-size:11px;opacity:0.6;text-transform:uppercase;letter-spacing:0.4px;margin-bottom:6px;">Effective Rates</div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;"><span style="opacity:0.8;">Cost / Billable Hour</span><strong id="sr-costhr">—</strong></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;"><span style="opacity:0.8;">Revenue / Billable Hour</span><strong id="sr-billhr">—</strong></div>
+        <div style="display:flex;justify-content:space-between;font-size:12px;padding:3px 0;"><span style="opacity:0.8;">Gross Margin %</span><strong id="sr-gmpct" style="color:var(--accent);">—</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ════════════════════════════════════════════════════════════
+       SECTION 6: RATE COMPARISON BY SKILL TIER
+  ════════════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">🔍</span> SECTION 6 — SKILL TIER RATE COMPARISON
+  </div>
+  <div class="content">
+    <div class="info-box">Reference table for market-standard rates in Northwest Arkansas. Use to benchmark technician pay grades and set competitive billing rates.</div>
+    <div class="table-scroll">
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th style="width: 120px;">Skill Tier</th>
+          <th>Base Wage</th>
+          <th>Burdened Cost<br><span style="font-size: 0.8em; opacity: 0.7;">(~36%)</span></th>
+          <th>Rec. Bill Rate</th>
+          <th>Margin %</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="skill-badge badge-app">APPRENTICE</span> Helper / Trainee</td>
+          <td class="center">$16–$20/hr</td>
+          <td class="center">$21.76–$27.20</td>
+          <td class="center">$65–$85/hr</td>
+          <td class="center"><span class="chip chip-green">60–68%</span></td>
+          <td>Must be paired with journeyman; cannot pull permits.</td>
+        </tr>
+        <tr>
+          <td><span class="skill-badge badge-jny">JOURNEYMAN</span> EPA 608 Certified</td>
+          <td class="center">$24–$32/hr</td>
+          <td class="center">$32.64–$43.52</td>
+          <td class="center">$95–$125/hr</td>
+          <td class="center"><span class="chip chip-green">65–72%</span></td>
+          <td>Standard field tech; can run service calls solo.</td>
+        </tr>
+        <tr>
+          <td><strong>SENIOR</strong> 5+ yrs exp.</td>
+          <td class="center">$30–$40/hr</td>
+          <td class="center">$40.80–$54.40</td>
+          <td class="center">$125–$160/hr</td>
+          <td class="center"><span class="chip chip-green">67–73%</span></td>
+          <td>Complex diagnostics, commercial equipment.</td>
+        </tr>
+        <tr>
+          <td><span class="skill-badge badge-mstr">MASTER</span> NATE + Master License</td>
+          <td class="center">$38–$55/hr</td>
+          <td class="center">$51.68–$74.80</td>
+          <td class="center">$150–$210/hr</td>
+          <td class="center"><span class="chip chip-warn">65–70%</span></td>
+          <td>Lead tech; commissioning, design, permits.</td>
+        </tr>
+        <tr style="background:var(--bg-soft)!important;">
+          <td colspan="3" style="font-weight:bold;color:var(--accent);">After-Hours / Emergency Premium (add to base bill rate)</td>
+          <td class="center" style="font-weight:bold;color:var(--accent);">+$35–$60/hr</td>
+          <td class="center"><span class="chip chip-warn">Varies</span></td>
+          <td>Applies evenings, weekends, holidays.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- PRO TIPS -->
+  <div class="tips-box">
+    <strong>⚡ Labor Cost Pro Tips</strong><br>
+    Know your burdened rate before pricing any job — raw wage is typically only 64–70% of true labor cost. · Set OT billing rates at ≥ 1.3× your standard billable rate to maintain margin on overtime hours. · Use the rate matrix to ensure all time types generate positive margin — drive time at flat rate often loses money. · Review burden percentages quarterly; WC rates can swing significantly based on EMR history.
+  </div>
+
+  <!-- ACTION ROW -->
+  <div class="btn-row no-print" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap; margin-top: 30px;">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+      <button class="btn btn-orange" onclick="loadDefaults()">📋 Load Sample Data</button>
+      <button class="btn btn-steel" onclick="clearAll()">🗑️ Clear All</button>
+    </div>
+    <div style="font-size:12px;color:var(--text-light); font-weight: 500;">
+      Total Hours: <strong id="footer-hrs" style="color:var(--primary);">0.0</strong>
+      &nbsp;|&nbsp;
+      Invoice Total: <strong id="footer-total" style="color:var(--accent);">$0.00</strong>
+    </div>
+  </div>
+
+
+
+      <!-- SEO CONTENT SECTION -->
+      <section class="section" id="seo-content">
+        <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
+          <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">Why "Fully Burdened" Labor Matters</h2>
+          <p style="margin-bottom: 15px;">
+            The <strong>HVAC Labor Cost Calculator</strong> exposes the true cost of putting a technician in the field. A common pitfall for developing residential and commercial HVAC companies is confusing a technician's base hourly wage with their actual cost to the business. To price jobs accurately, you must understand your fully burdened labor rate.
+          </p>
+          <p style="margin-bottom: 15px;">
+            In <strong>Section 2</strong> of the tool, you define the Base Wage and immediately begin stacking the "burden." Burden includes Employer Payroll Taxes (FICA, FUTA, SUTA), Benefits & Insurance (Health, Workers' Comp, 401k), and overhead items (vehicle fuel allocations, tool maintenance). Typically, an HVAC technician's total burden rate falls between 25% and 40%. A technician making a base wage of $28.00/hr may actually cost the business $38.22/hr once burdened.
+          </p>
+          
+          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Setting Your Billable Rate Matrix</h3>
+          <p style="margin-bottom: 15px;">
+            Once you know what the labor costs you, <strong>Section 4: Billable Rate Matrix</strong> allows you to formulate your prices. Understanding your cost allows you to manipulate your Billable Rate until you hit a safe, sustainable Gross Margin percentage. It explicitly breaks down your margin on Regular Time, target margins for Overtime (minimizing profit erosion due to time-and-a-half payouts), and flat-fee elements like drive time.
+          </p>
+          <p style="margin-bottom: 15px;">
+            You can verify your established margin targets are sufficient to maintain broader company longevity by using our <a href="/hvac-profit-margin-calculator/" style="color: var(--primary); text-decoration: none;">profit margin calculator</a> for flat-rate business strategy, or estimate how labor scaling impacts your overall enterprise using our <a href="/hvac-business-valuation-calculator/" style="color: var(--primary); text-decoration: none;">business valuation calculator</a>.
+          </p>
+          <p style="margin-bottom: 25px;">
+            The next time you generate a proposal using an <a href="/hvac-bid-calculator/" style="color: var(--primary); text-decoration: none;">HVAC bid calculator</a>, you can be 100% confident your labor lines aren't just covering costs—they are actively generating the gross profit necessary to fuel your company's growth.
+          </p>
+
+          <h2 style="font-size: 26px; margin-top: 40px; margin-bottom: 20px; color: #fff;">Frequently Asked Questions</h2>
+          <div style="margin-bottom: 20px;">
+            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">What is a "fully burdened" labor rate?</h3>
+            <p>A fully burdened rate includes the technician's base wage plus all employer-paid costs such as payroll taxes (FICA, SUI, FUI), workers' compensation insurance, health benefits, retirement matching, and an allocation for overhead like vehicle fuel and tools.</p>
+          </div>
+          <div style="margin-bottom: 20px;">
+            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">Why is my labor margin lower than my parts margin?</h3>
+            <p>Labor often carries higher risk and overhead than parts. While parts markups are straightforward, labor must cover unbillable time, travel, and callback risks. Using a higher billable rate ensures that your labor force remains a profit center, not just a pass-through cost.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Placeholder: Bottom Banner -->
+      <div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
+
+<script>
+// ──────────────────────────────────────────────────────────
+// State
+// ──────────────────────────────────────────────────────────
+var dayRows = [];
+var DAYS = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
+
+// Preset wages by skill tier
+var PRESETS = {
+  apprentice: { wage: 18.00, brReg: 75,  brOt: 100, brDt: 130, brDrv: 55 },
+  journeyman: { wage: 28.00, brReg: 125, brOt: 165, brDt: 210, brDrv: 75 },
+  senior:     { wage: 36.00, brReg: 145, brOt: 195, brDt: 250, brDrv: 85 },
+  master:     { wage: 48.00, brReg: 175, brOt: 235, brDt: 300, brDrv: 100 },
+  custom:     { wage: 28.00, brReg: 125, brOt: 165, brDt: 210, brDrv: 75 }
+};
+
+function applyPreset() {
+  var tier = document.getElementById('techSkill').value;
+  var p = PRESETS[tier];
+  if (!p) return;
+  document.getElementById('baseWage').value = p.wage.toFixed(2);
+  document.getElementById('br-reg').value  = p.brReg;
+  document.getElementById('br-ot').value   = p.brOt;
+  document.getElementById('br-dt').value   = p.brDt;
+  document.getElementById('br-drv').value  = p.brDrv;
+  recalc();
+}
+
+// ──────────────────────────────────────────────────────────
+// Day rows
+// ──────────────────────────────────────────────────────────
+function addDayRow(day, reg, ot, dt, task, site) {
+  var id = Date.now() + Math.random();
+  var idx = dayRows.length % 7;
+  dayRows.push({
+    id: id,
+    day:  day  || DAYS[idx] || 'Day ' + (dayRows.length + 1),
+    reg:  parseFloat(reg)  || 0,
+    ot:   parseFloat(ot)   || 0,
+    dt:   parseFloat(dt)   || 0,
+    task: task || '',
+    site: site || ''
+  });
+  renderHours();
+  recalc();
+}
+
+function removeDay(id) {
+  dayRows = dayRows.filter(function(r){ return r.id !== id; });
+  renderHours();
+  recalc();
+}
+
+function updateDay(id, field, val) {
+  var r = dayRows.find(function(x){ return x.id === id; });
+  if (!r) return;
+  if (field === 'reg' || field === 'ot' || field === 'dt') r[field] = parseFloat(val) || 0;
+  else r[field] = val;
+  renderHours();
+  recalc();
+}
+
+function renderHours() {
+  var body = document.getElementById('hoursBody');
+  if (!dayRows.length) {
+    body.innerHTML = '<tr><td colspan="7" style="color:var(--muted);text-align:center;padding:12px;font-style:italic;">No days entered — use Add Day or Fill Week below.</td></tr>';
+    updateFooterTotals(0,0,0);
+    return;
+  }
+
+  var totReg=0, totOt=0, totDt=0;
+  body.innerHTML = dayRows.map(function(r, i) {
+    var rowTotal = r.reg + r.ot + r.dt;
+    totReg += r.reg; totOt += r.ot; totDt += r.dt;
+    var bg = i % 2 === 0 ? 'transparent' : 'var(--bg-soft)';
+    return '<tr style="background:' + bg + '">'
+      + '<td><select onchange="updateDay(' + r.id + ',\'day\',this.value)">'
+      + DAYS.map(function(d){ return '<option' + (r.day===d?' selected':'') + '>' + d + '</option>'; }).join('')
+      + '</select></td>'
+      + '<td><input type="number" value="' + r.reg + '" step="0.25" min="0" style="width:70px;" onchange="updateDay(' + r.id + ',\'reg\',this.value)"></td>'
+      + '<td><input type="number" value="' + r.ot  + '" step="0.25" min="0" style="width:70px;" onchange="updateDay(' + r.id + ',\'ot\',this.value)"></td>'
+      + '<td><input type="number" value="' + r.dt  + '" step="0.25" min="0" style="width:70px;" onchange="updateDay(' + r.id + ',\'dt\',this.value)"></td>'
+      + '<td style="font-weight:bold;color:var(--primary);text-align:center;">' + rowTotal.toFixed(2) + '</td>'
+      + '<td><input type="text" value="' + escHtml(r.task) + '" placeholder="Work performed..." onchange="updateDay(' + r.id + ',\'task\',this.value)"></td>'
+      + '<td><input type="text" value="' + escHtml(r.site) + '" placeholder="Site / address" style="font-size:12px;" onchange="updateDay(' + r.id + ',\'site\',this.value)"></td>'
+      + '</tr>';
+  }).join('');
+
+  updateFooterTotals(totReg, totOt, totDt);
+}
+
+function updateFooterTotals(reg, ot, dt) {
+  var total = reg + ot + dt;
+  document.getElementById('ft-reg').textContent   = reg.toFixed(1);
+  document.getElementById('ft-ot').textContent    = ot.toFixed(1);
+  document.getElementById('ft-dt').textContent    = dt.toFixed(1);
+  document.getElementById('ft-total').textContent = total.toFixed(1);
+}
+
+function loadWeek() {
+  dayRows = [];
+  [['Monday',8,0,0],['Tuesday',8,0,0],['Wednesday',8,0,0],['Thursday',8,0,0],['Friday',8,0,0]].forEach(function(d) {
+    dayRows.push({ id: Date.now()+Math.random(), day:d[0], reg:d[1], ot:d[2], dt:d[3], task:'', site:'' });
+  });
+  renderHours();
+  recalc();
+}
+
+// ──────────────────────────────────────────────────────────
+// Helpers
+// ──────────────────────────────────────────────────────────
+function fmtMoney(n) {
+  return '$' + n.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+function fmtPct(n) { return n.toFixed(1) + '%'; }
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+}
+function pct(id) { return (parseFloat(document.getElementById(id).value) || 0) / 100; }
+function num(id) { return parseFloat(document.getElementById(id).value) || 0; }
+
+// ──────────────────────────────────────────────────────────
+// Main recalculation
+// ──────────────────────────────────────────────────────────
+function recalc() {
+  var baseWage = num('baseWage');
+  var otMult   = parseFloat(document.getElementById('otMult').value) || 1.5;
+  var dtMult   = parseFloat(document.getElementById('dtMult').value) || 2.0;
+
+  // Burden totals
+  var taxPct  = pct('bFICA')  + pct('bFUTA')  + pct('bSUTA');
+  var benPct  = pct('bHealth')+ pct('bWC')     + pct('b401k') + pct('bGL');
+  var ohPct   = pct('bVehicle')+ pct('bTools') + pct('bTraining') + pct('bAdmin');
+  var totalBurden = taxPct + benPct + ohPct;
+
+  document.getElementById('bTaxTotal').textContent = fmtPct(taxPct * 100);
+  document.getElementById('bBenTotal').textContent = fmtPct(benPct * 100);
+  document.getElementById('bOHTotal').textContent  = fmtPct(ohPct * 100);
+  document.getElementById('totalBurdenPct').textContent = fmtPct(totalBurden * 100);
+
+  var burdenedReg = baseWage * (1 + totalBurden);
+  var burdenedOt  = baseWage * otMult * (1 + totalBurden);
+  var burdenedDt  = baseWage * dtMult * (1 + totalBurden);
+  var burdenedDrv = baseWage * 0.6 * (1 + totalBurden); // drive at 60% base
+
+  document.getElementById('burdenedRate').textContent = '$' + burdenedReg.toFixed(2) + '/hr';
+
+  // Stacked bar
+  var tb100 = totalBurden * 100 || 1;
+  document.getElementById('burdenBar').innerHTML =
+    '<div class="stacked-seg" style="background:#2E6DA4;width:' + (taxPct/totalBurden*100).toFixed(1) + '%;">Taxes</div>'
+  + '<div class="stacked-seg" style="background:#3D8B37;width:' + (benPct/totalBurden*100).toFixed(1) + '%;">Benefits</div>'
+  + '<div class="stacked-seg" style="background:#E07B00;width:' + (ohPct/totalBurden*100).toFixed(1) + '%;">OH</div>';
+
+  // Hours
+  var totReg=0, totOt=0, totDt=0;
+  dayRows.forEach(function(r){ totReg+=r.reg; totOt+=r.ot; totDt+=r.dt; });
+  var totalHrs = totReg + totOt + totDt;
+
+  // Raw wages (no burden)
+  var rawWage = totReg * baseWage + totOt * baseWage * otMult + totDt * baseWage * dtMult;
+  var burdenAmt = rawWage * totalBurden;
+  var totalLabCost = rawWage + burdenAmt;
+
+  // Extra costs
+  var driveAmt   = num('driveHrs')  * num('driveRate');
+  var mileAmt    = num('mileage')   * num('mileageRate');
+  var pdAmt      = num('perDiem');
+  var hazAmt     = num('hazPay');
+  var cbAmt      = num('cbFee');
+  var miscAmt    = num('miscAdj');
+  var extraCost  = driveAmt + mileAmt + pdAmt + hazAmt + cbAmt + miscAmt;
+  var totalCost  = totalLabCost + extraCost;
+
+  // Billing
+  var brReg = num('br-reg');
+  var brOt  = num('br-ot');
+  var brDt  = num('br-dt');
+  var brDrv = num('br-drv');
+
+  var billReg  = totReg * brReg;
+  var billOt   = totOt  * brOt;
+  var billDt   = totDt  * brDt;
+  var billDrv  = num('driveHrs') * brDrv;
+  var billBase = billReg + billOt + billDt + billDrv + mileAmt + pdAmt + hazAmt + cbAmt + miscAmt;
+  var totalBill = billBase;
+  var grossProfit = totalBill - totalCost;
+  var gm = totalBill > 0 ? (grossProfit / totalBill * 100) : 0;
+
+  // ── Update rate matrix ──
+  function matrixRow(costRate, billRate, prefix) {
+    var mkup = billRate - costRate;
+    var marg = billRate > 0 ? (mkup / billRate * 100) : 0;
+    var status = marg >= 50 ? '<span class="chip chip-green">✓ Healthy</span>'
+               : marg >= 30 ? '<span class="chip chip-warn">⚠ Low</span>'
+               : '<span class="chip chip-red">✕ Below Cost</span>';
+    document.getElementById('mr-' + prefix + '-cost').textContent = '$' + costRate.toFixed(2);
+    document.getElementById('mr-' + prefix + '-mkup').textContent = mkup >= 0 ? fmtMoney(mkup) : '-' + fmtMoney(Math.abs(mkup));
+    document.getElementById('mr-' + prefix + '-marg').innerHTML  = '<strong>' + fmtPct(marg) + '</strong>';
+    document.getElementById('mr-' + prefix + '-status').innerHTML = status;
+  }
+  matrixRow(burdenedReg, brReg, 'reg');
+  matrixRow(burdenedOt,  brOt,  'ot');
+  matrixRow(burdenedDt,  brDt,  'dt');
+  matrixRow(burdenedDrv, brDrv, 'drv');
+
+  // ── Stat cards ──
+  document.getElementById('sc-hours').textContent     = totalHrs.toFixed(1);
+  document.getElementById('sc-hours-sub').textContent = totReg.toFixed(1)+' reg · '+totOt.toFixed(1)+' OT · '+totDt.toFixed(1)+' DT';
+  document.getElementById('sc-rawwage').textContent   = fmtMoney(rawWage);
+  document.getElementById('sc-burden').textContent    = fmtMoney(burdenAmt);
+  document.getElementById('sc-burden-pct').textContent= fmtPct(totalBurden * 100) + ' burden rate';
+  document.getElementById('sc-labcost').textContent   = fmtMoney(totalLabCost);
+
+  // Efficiency meter
+  var effMeter = Math.min(Math.max(gm, 0), 100);
+  var meterEl = document.getElementById('effMeter');
+  meterEl.style.width = effMeter + '%';
+  meterEl.style.background = gm >= 50 ? 'var(--success)' : gm >= 30 ? 'var(--warning)' : 'var(--danger)';
+  document.getElementById('effMargLabel').textContent = fmtPct(gm);
+
+  // ── Summary rows ──
+  document.getElementById('sr-reg-hrs').textContent = totReg.toFixed(1);
+  document.getElementById('sr-ot-hrs').textContent  = totOt.toFixed(1);
+  document.getElementById('sr-dt-hrs').textContent  = totDt.toFixed(1);
+  document.getElementById('sr-mi-mi').textContent   = num('mileage').toFixed(0);
+
+  document.getElementById('sr-reg').textContent  = fmtMoney(billReg);
+  document.getElementById('sr-ot').textContent   = fmtMoney(billOt);
+  document.getElementById('sr-dt').textContent   = fmtMoney(billDt);
+  document.getElementById('sr-drv').textContent  = fmtMoney(billDrv);
+  document.getElementById('sr-mi').textContent   = fmtMoney(mileAmt);
+  document.getElementById('sr-pd').textContent   = fmtMoney(pdAmt);
+  document.getElementById('sr-haz').textContent  = fmtMoney(hazAmt);
+  document.getElementById('sr-cb').textContent   = fmtMoney(cbAmt);
+  document.getElementById('sr-misc').textContent = fmtMoney(miscAmt);
+  document.getElementById('sr-cost').textContent = fmtMoney(totalCost);
+  document.getElementById('sr-bill').textContent = fmtMoney(totalBill);
+  document.getElementById('sr-gp').textContent   = fmtMoney(grossProfit);
+  document.getElementById('sr-total').textContent= fmtMoney(totalBill);
+
+  var effCostHr = totalHrs > 0 ? totalCost / totalHrs : 0;
+  var effBillHr = totalHrs > 0 ? totalBill / totalHrs : 0;
+  document.getElementById('sr-costhr').textContent = totalHrs > 0 ? fmtMoney(effCostHr) + '/hr' : '—';
+  document.getElementById('sr-billhr').textContent = totalHrs > 0 ? fmtMoney(effBillHr) + '/hr' : '—';
+  document.getElementById('sr-gmpct').textContent  = fmtPct(gm);
+
+  document.getElementById('footer-hrs').textContent   = totalHrs.toFixed(1);
+  document.getElementById('footer-total').textContent = fmtMoney(totalBill);
+}
+
+// ──────────────────────────────────────────────────────────
+// Load sample data
+// ──────────────────────────────────────────────────────────
+function loadDefaults() {
+  document.getElementById('techName').value  = 'Jake Morrison';
+  document.getElementById('techSkill').value = 'journeyman';
+  document.getElementById('custName').value  = 'Henderson Residence';
+  document.getElementById('custAddr').value  = '4821 Pinnacle Hills Pkwy, Rogers, AR';
+  document.getElementById('jobType').value   = 'Replacement / Changeout';
+  document.getElementById('jobNotes').value  = '3-ton split system replacement. Condenser in backyard; air handler in attic. Limited attic access — add 1 hr for staging.';
+
+  applyPreset(); // sets wage and bill rates from journeyman preset
+
+  dayRows = [];
+  [
+    ['Monday',    8, 0, 0, 'Demo & rough-in condenser pad, line set run', '4821 Pinnacle Hills Pkwy'],
+    ['Tuesday',   8, 2, 0, 'Install air handler, electrical rough-in, refrigerant charge', '4821 Pinnacle Hills Pkwy'],
+    ['Wednesday', 4, 0, 0, 'Start-up, commissioning, customer walk-through', '4821 Pinnacle Hills Pkwy'],
+  ].forEach(function(d) {
+    dayRows.push({ id: Date.now()+Math.random(), day:d[0], reg:d[1], ot:d[2], dt:d[3], task:d[4], site:d[5] });
+  });
+
+  document.getElementById('driveHrs').value   = 1.5;
+  document.getElementById('driveRate').value  = 75;
+  document.getElementById('mileage').value    = 42;
+  document.getElementById('mileageRate').value= 0.67;
+  document.getElementById('hazPay').value     = 50;
+
+  renderHours();
+  recalc();
+}
+
+// ──────────────────────────────────────────────────────────
+// Clear all
+// ──────────────────────────────────────────────────────────
+function clearAll() {
+  if (!confirm('Clear all entries and reset the calculator?')) return;
+  dayRows = [];
+  ['techName','custName','custAddr','jobNotes','payPeriod'].forEach(function(id){
+    var el = document.getElementById(id); if (el) el.value = '';
+  });
+  document.getElementById('driveHrs').value   = 0;
+  document.getElementById('driveRate').value  = 0;
+  document.getElementById('mileage').value    = 0;
+  document.getElementById('mileageRate').value= 0.67;
+  document.getElementById('perDiem').value    = 0;
+  document.getElementById('hazPay').value     = 0;
+  document.getElementById('cbFee').value      = 0;
+  document.getElementById('miscAdj').value    = 0;
+  document.getElementById('techSkill').value  = 'journeyman';
+  applyPreset();
+  renderHours();
+  recalc();
+}
+
+// ──────────────────────────────────────────────────────────
+// Init
+// ──────────────────────────────────────────────────────────
+(function init() {
+  var d = new Date();
+  var str = (d.getMonth()+1).toString().padStart(2,'0') + '/' + d.getDate().toString().padStart(2,'0') + '/' + d.getFullYear();
+  document.getElementById('jobDate').value = str;
+  var n = Math.floor(Math.random()*900)+100;
+  document.getElementById('woNum').value = 'WO-' + d.getFullYear() + '-' + n;
+  renderHours();
+  recalc();
+})();
+</script>
+        </div>
+      </section>
+    </main>
+
+    <footer id="mint-footer">
+      <div class="container">
+        <h3 class="footer-title">Related HVAC Calculators</h3>
+        <div class="footer-grid">
+          <a href="/hvac-flow-rate-calculator/">Flow Rate Calculator</a>
+          <a href="/hvac-load-calculator/">Load Calculator</a>
+          <a href="/hvac-service-price-calculator/">Service Price Calculator</a>
+          <a href="/hvac-duct-size-calculator/">Duct Size Calculator</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVAC Static Pressure Calculator | Total External Static Pressure (TESP) | MintSheets</title>
+<meta name="description" content="Free HVAC static pressure calculator. Calculate total external static pressure (TESP), available duct static, and diagnose high static pressure problems. Technical tool for HVAC technicians.">
+<link rel="canonical" href="https://mintsheets.com/hvac-static-pressure-calculator/" />
+<meta property="og:title" content="HVAC Static Pressure Calculator | TESP Calculator | MintSheets" />
+<meta property="og:description" content="Calculate total external static pressure (TESP) for HVAC systems. Diagnose high static pressure and size your duct system budget per ACCA Manual D." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://mintsheets.com/hvac-static-pressure-calculator/" />
+<link rel="stylesheet" href="../styles.css?v=1.5">
+<link rel="stylesheet" href="../shared/css/calculators.css">
+<link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+</head>
+<body>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a href="/" class="brand">
+          <img src="../brand/logo-without-background.png" alt="MintSheets Logo">
+        </a>
+  
+        <nav class="nav-links">
+          <a href="/">Calculators</a>
+          <a href="/#troubleshooting-checklist">Free Guide</a>
+          <a href="mailto:support@mintsheets.com">Support</a>
+        </nav>
+        
+        <div class="header-actions">
+          <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container section-card">
+          <div style="margin-bottom: 30px; text-align: center;">
+            <div class="eyebrow">Technical Tool</div>
+            <h1 style="margin: 10px auto; max-width: none;">HVAC Static Pressure Calculator (Total External Static)</h1>
+            <p style="color: var(--muted);">Total External Static Pressure (TESP) budget analysis per ACCA Manual D.</p>
+            
+            <p style="margin-top: 20px; line-height: 1.6; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
+              The HVAC static pressure calculator helps technicians diagnose airflow restrictions and verify blower performance. By analyzing component pressure drops against your <a href="/hvac-cfm-calculator/" style="color: var(--primary); text-decoration: none;">target CFM</a>, you can identify high-static issues before they lead to coil freezing or compressor failure. Essential for <a href="/hvac-duct-size-calculator/" style="color: var(--primary); text-decoration: none;">duct design</a> verification.
+            </p>
+          </div>
+
+          <!-- Ad Placeholder: Top Banner -->
+          <div class="ad-slot ad-top"></div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 1 — EQUIPMENT & COMPONENT INPUTS
+════════════════════════════════════════════════════════════════ -->
+<div class="section-banner"><span class="icon">⚡</span> SECTION 1 — EQUIPMENT & COMPONENT STATIC PRESSURE INPUTS</div>
+<div class="card">
+  <div class="sub-header">Enter Nameplate Rating & All Component Pressure Drops (in. w.g.)</div>
+  <div class="form-grid">
+
+    <div>
+      <div class="sub-header" style="font-size:12px; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; color:var(--primary);">Equipment</div>
+      <table class="input-table">
+        <tr>
+          <td>Equipment Rated TESP <span class="help">From blower performance table (typical: 0.50 in.w.g.)</span></td>
+          <td><input type="number" id="sp_rated" value="0.50" min="0.1" max="2.0" step="0.01" oninput="calcSP()"> <span style="font-size:11px;color:var(--muted);">in. w.g.</span></td>
+        </tr>
+        <tr>
+          <td>Evaporator Coil (wet) <span class="help">Typical: 0.20–0.35 in.w.g.</span></td>
+          <td><input type="number" id="sp_coil" value="0.25" min="0" max="0.5" step="0.01" oninput="calcSP()"> <span style="font-size:11px;color:var(--muted);">in. w.g.</span></td>
+        </tr>
+        <tr>
+          <td>Supply Filter (clean) <span class="help">1" fiberglass ≈0.05 · 1" pleated ≈0.10 · 4" media ≈0.15</span></td>
+          <td><input type="number" id="sp_filter" value="0.10" min="0" max="0.5" step="0.01" oninput="calcSP()"> <span style="font-size:11px;color:var(--muted);">in. w.g.</span></td>
+        </tr>
+        <tr>
+          <td>Supply Diffusers &amp; Grilles <span class="help">Typical: 0.02–0.06 in.w.g.</span></td>
+          <td><input type="number" id="sp_diffusers" value="0.03" min="0" max="0.2" step="0.01" oninput="calcSP()"> <span style="font-size:11px;color:var(--muted);">in. w.g.</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <div>
+      <div class="sub-header" style="font-size:12px; margin-bottom:8px; text-transform:uppercase; letter-spacing:1px; color:var(--primary);">Accessories & Ductwork</div>
+      <table class="input-table">
+        <tr>
+          <td>Return Grilles / Filter Grille <span class="help">Typical: 0.03–0.08 in.w.g.</span></td>
+          <td><input type="number" id="sp_ret_grille" value="0.03" min="0" max="0.2" step="0.01" oninput="calcSP()"> <span style="font-size:11px;color:var(--muted);">in. w.g.</span></td>
+        </tr>
+        <tr>
+          <td>Humidifier <span class="help">Bypass humidifiers: 0.05–0.15 in.w.g.</span></td>
+          <td><input type="number" id="sp_humid" value="0.00" min="0" max="0.3" step="0.01" oninput="calcSP()"> <span style="font-size:11px;color:var(--muted);">in. w.g.</span></td>
+        </tr>
+        <tr>
+          <td>UV / Media Air Cleaner <span class="help">UV lights ≈0 · media cleaners 0.05–0.20</span></td>
+          <td><input type="number" id="sp_uv" value="0.00" min="0" max="0.3" step="0.01" oninput="calcSP()"> <span style="font-size:11px;color:var(--muted);">in. w.g.</span></td>
+        </tr>
+        <tr>
+          <td>Other Accessories (HRV, dampers, etc.)</td>
+          <td><input type="number" id="sp_other" value="0.00" min="0" max="0.5" step="0.01" oninput="calcSP()"> <span style="font-size:11px;color:var(--muted);">in. w.g.</span></td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 2 — DUCT SYSTEM INPUTS
+════════════════════════════════════════════════════════════════ -->
+<div class="section-banner" style="margin-top:20px;"><span class="icon">📐</span> SECTION 2 — DUCT SYSTEM PRESSURE BUDGET</div>
+<div class="card">
+  <div class="sub-header">Duct System Parameters — Equal Friction Method (ACCA Manual D)</div>
+  <div class="form-grid">
+    <table class="input-table">
+      <tr>
+        <td>Supply Duct System Drop</td>
+        <td><input type="number" id="sp_supply_duct" value="0.08" min="0" max="0.5" step="0.01" oninput="calcSP()"> <span style="font-size:11px;color:var(--muted);">in. w.g.</span></td>
+      </tr>
+      <tr>
+        <td>Return Duct System Drop</td>
+        <td><input type="number" id="sp_return_duct" value="0.05" min="0" max="0.5" step="0.01" oninput="calcSP()"> <span style="font-size:11px;color:var(--muted);">in. w.g.</span></td>
+      </tr>
+    </table>
+    <table class="input-table">
+      <tr>
+        <td>System CFM <span class="help">Total blower airflow (for verification)</span></td>
+        <td><input type="number" id="sp_cfm" placeholder="e.g. 1200" min="100" oninput="calcSP()"> <span style="font-size:11px;color:var(--muted);">CFM</span></td>
+      </tr>
+      <tr>
+        <td>System Tonnage <span class="help">Used to cross-check CFM/ton</span></td>
+        <td><input type="number" id="sp_tons" placeholder="e.g. 3" min="0.5" max="25" step="0.5" oninput="calcSP()"> <span style="font-size:11px;color:var(--muted);">tons</span></td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════
+     SECTION 3 — RESULTS
+════════════════════════════════════════════════════════════════ -->
+<div class="section-banner" style="margin-top:20px;"><span class="icon">📊</span> SECTION 3 — STATIC PRESSURE RESULTS</div>
+<div class="results-box" id="spResultsBox">
+  <div class="form-grid">
+    <div style="text-align:center; border-right: 1px solid var(--line);">
+      <div class="result-label">Total TESP Used</div>
+      <div class="result-value" id="tesp_total">—</div>
+      <div class="result-label" style="margin-top:5px;" id="tesp_pct">—% of rated capacity</div>
+    </div>
+    <div style="text-align:center;">
+      <div class="result-label">Available Duct Budget Remaining</div>
+      <div class="result-value" style="color: var(--accent);" id="tesp_remain">—</div>
+      <div class="result-label" style="margin-top:5px;" id="tesp_status">—</div>
+    </div>
+  </div>
+
+  <div class="sub-header" style="margin-top: 20px;">Detailed Component Breakdown</div>
+  <div class="table-scroll">
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Pressure Drop</th>
+          <th>Typical Range</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="spBreakdown"></tbody>
+    </table>
+  </div>
+
+  <div id="cfmTonCheck" style="margin-top:16px; display:none;">
+    <div class="sub-header">Airflow Verification</div>
+    <div class="results-box" style="padding: 15px; margin-top: 0;">
+      <span id="cfmTonResult" style="font-size:15px;"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Info Cards -->
+<div class="info-row" style="margin-top: 20px;">
+  <div class="info-cell">
+    <strong>🏆 Residential Target</strong>
+    Most residential systems are rated for 0.50 in. w.g. TESP. Design your duct system to use no more than 80% of this budget, leaving margin for filter loading and coil fouling.
+  </div>
+  <div class="info-cell">
+    <strong>🔧 High Static Symptoms</strong>
+    High TESP causes reduced CFM, poor comfort, evaporator coil freeze-up, compressor strain, and noise. Measure with a digital manometer — don't just increase fan speed.
+  </div>
+  <div class="info-cell">
+    <strong>⚡ Field Measurement Tip</strong>
+    Measure TESP at the blower with supply and return taps within 6" of the air handler. Ensure the system is at rated CFM before recording readings.
+  </div>
+</div>
+
+<!-- Ad Placeholder: Mid Content -->
+<div class="ad-slot ad-mid" style="margin-top: 20px;"></div>
+
+        </div>
+      </section>
+
+      <!-- SEO CONTENT SECTION -->
+      <section class="section" id="seo-content">
+        <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
+          <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">How to Use the HVAC Static Pressure Calculator</h2>
+          <p style="margin-bottom: 15px;">
+            The <strong>HVAC static pressure calculator</strong> is a field diagnostic tool for technicians and system designers. Total external static pressure (TESP) represents the sum of all resistance the blower motor must overcome to move air through the system. When TESP exceeds the equipment's rated capacity, airflow drops, coils may freeze, and efficiency suffers dramatically.
+          </p>
+          <p style="margin-bottom: 15px;">
+            This tool walks you through every component that contributes to your system's static pressure — the evaporator coil, supply filter, diffusers, grilles, humidifier, UV accessories, and both supply and return duct systems. By entering the pressure drop of each component, you get a clear picture of how much of your blower's rated TESP budget is consumed and what's left for the duct system.
+          </p>
+
+          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">What Is Total External Static Pressure (TESP)?</h3>
+          <p style="margin-bottom: 15px;">
+            TESP is the total resistance, measured in inches of water gauge (in. w.g.), that the blower must overcome. The "external" portion means everything outside the air handler casing — the duct system, filter grille, diffusers, and accessories. The filter and coil are sometimes included as "internal" drops depending on how the manufacturer specifies ratings, so always check the equipment data sheet.
+          </p>
+          <p style="margin-bottom: 15px;">
+            A system operating above its rated TESP behaves like a person breathing through a clogged mask — the blower motor works harder, produces more heat, and delivers less airflow. This is one of the leading causes of evaporator coil icing, hot/cold spots, and premature compressor failure. To size the ductwork correctly so that available static pressure remains within budget, refer to the <a href="/hvac-duct-size-calculator/" style="color: var(--primary); text-decoration: none;">duct size calculator</a>.
+          </p>
+
+          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">When to Measure Static Pressure</h3>
+          <p style="margin-bottom: 25px;">
+            Static pressure should be measured at commissioning on every new installation, during any diagnostic service call for airflow complaints, and whenever a new accessory (UV system, media filter, or HRV) is added. You can also verify the system is operating near its <a href="/hvac-rated-airflow-calculator/" style="color: var(--primary); text-decoration: none;">rated airflow target</a> by cross-checking CFM per ton. For a full system diagnostic including sensible and latent heat verification, use the <a href="/hvac-flow-rate-calculator/" style="color: var(--primary); text-decoration: none;">HVAC flow rate calculator</a>.
+          </p>
+
+          <h2 style="font-size: 26px; margin-top: 40px; margin-bottom: 20px; color: #fff;">Frequently Asked Questions</h2>
+          <div style="margin-bottom: 20px;">
+            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">What is a normal static pressure for a residential HVAC system?</h3>
+            <p>For most standard residential furnaces and air handlers, the maximum rated total external static pressure (TESP) is 0.50 in. w.g. High-efficiency variable speed blowers may handle up to 0.80 or 1.0 in. w.g., but anything above 0.50 should be investigated for potential airflow issues.</p>
+          </div>
+          <div style="margin-bottom: 20px;">
+            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">How do I lower my HVAC static pressure?</h3>
+            <p>The most common ways to lower static pressure are to use a lower-MERV or larger surface area filter (media cabinet), clean the evaporator coil, increase duct size (especially the return), or use less restrictive supply diffusers.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Placeholder: Bottom Banner -->
+      <div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
+
+    </main>    <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+      <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+        <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <a href="/hvac-duct-size-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Duct Size Calculator</a>
+          <a href="/hvac-flow-rate-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Flow Rate Calculator</a>
+          <a href="/hvac-cfm-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">CFM Calculator</a>
+          <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Load Calculator</a>
+          <a href="/hvac-airflow-per-room-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Airflow Per Room Calculator</a>
+        </div>
+        <p style="margin-top: 40px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      </div>
+    </footer>
+<script>
+const COMPONENTS = [
+  { id:'sp_coil',       label:'Evaporator Coil (wet)',          typical:'0.20–0.35', lo:0.10, hi:0.35 },
+  { id:'sp_filter',     label:'Supply Filter (clean)',           typical:'0.05–0.15', lo:0.02, hi:0.20 },
+  { id:'sp_diffusers',  label:'Supply Diffusers / Grilles',     typical:'0.02–0.06', lo:0,    hi:0.10 },
+  { id:'sp_ret_grille', label:'Return Grilles / Filter Grille', typical:'0.02–0.08', lo:0,    hi:0.10 },
+  { id:'sp_humid',      label:'Humidifier',                     typical:'0.00–0.15', lo:0,    hi:0.15 },
+  { id:'sp_uv',         label:'UV / Media Air Cleaner',         typical:'0.00–0.20', lo:0,    hi:0.20 },
+  { id:'sp_other',      label:'Other Accessories',              typical:'0.00–0.10', lo:0,    hi:0.15 },
+  { id:'sp_supply_duct',label:'Supply Duct System',             typical:'0.05–0.12', lo:0,    hi:0.20 },
+  { id:'sp_return_duct',label:'Return Duct System',             typical:'0.03–0.10', lo:0,    hi:0.18 },
+];
+
+function calcSP() {
+  const rated = parseFloat(document.getElementById('sp_rated').value) || 0;
+  if (!rated) return;
+
+  let total = 0;
+  let rows = '';
+  for (const c of COMPONENTS) {
+    const val = parseFloat(document.getElementById(c.id).value) || 0;
+    total += val;
+    let st, stStyle;
+    if (val === 0) { st = '—'; stStyle = 'color:var(--muted)'; }
+    else if (val > c.hi) { st = '⚠ HIGH'; stStyle = 'color:var(--accent); font-weight:bold'; }
+    else { st = '✔ OK'; stStyle = 'color:var(--primary); font-weight:bold'; }
+    rows += `<tr>
+      <td>${c.label}</td>
+      <td style="font-family:monospace; color:var(--text);">${val.toFixed(3)}</td>
+      <td style="color:var(--muted); font-size:12px;">${c.typical} in. w.g.</td>
+      <td style="${stStyle}">${st}</td>
+    </tr>`;
+  }
+  rows += `<tr style="border-top:2px solid var(--line); font-weight:bold;">
+    <td>TOTAL TESP</td>
+    <td style="font-family:monospace; color:var(--text); font-size:16px;">${total.toFixed(3)}</td>
+    <td style="color:var(--muted);">≤ ${(rated*0.8).toFixed(2)} target (80%)</td>
+    <td>${total <= rated*0.8 ? '<span style="color:var(--primary);font-weight:bold;">✔ WITHIN BUDGET</span>' : total <= rated ? '<span style="color:var(--accent);font-weight:bold;">⚠ NEAR LIMIT</span>' : '<span style="color:#E74C3C;font-weight:bold;">✘ OVER BUDGET</span>'}</td>
+  </tr>`;
+  document.getElementById('spBreakdown').innerHTML = rows;
+
+  const remain = rated - total;
+  const pct = ((total / rated) * 100).toFixed(0);
+  document.getElementById('tesp_total').textContent = total.toFixed(3) + ' in. w.g.';
+  document.getElementById('tesp_pct').textContent = pct + '% of rated ' + rated.toFixed(2);
+
+  if (remain >= 0) {
+    document.getElementById('tesp_remain').textContent = remain.toFixed(3) + ' in. w.g. remaining';
+    document.getElementById('tesp_status').textContent = total <= rated * 0.8 ? '✔ System within design budget' : '⚠ Operating above 80% — monitor closely';
+    document.getElementById('tesp_remain').style.color = total <= rated * 0.8 ? 'var(--primary)' : 'var(--accent)';
+  } else {
+    document.getElementById('tesp_remain').textContent = Math.abs(remain).toFixed(3) + ' in. w.g. OVER BUDGET';
+    document.getElementById('tesp_status').textContent = '✘ System exceeds rated capacity — reduce restrictions';
+    document.getElementById('tesp_remain').style.color = '#E74C3C';
+  }
+
+  // CFM/ton verification
+  const cfm = parseFloat(document.getElementById('sp_cfm').value);
+  const tons = parseFloat(document.getElementById('sp_tons').value);
+  if (cfm && tons) {
+    const cfmPerTon = cfm / tons;
+    const check = document.getElementById('cfmTonCheck');
+    check.style.display = 'block';
+    let status, color;
+    if (cfmPerTon >= 350 && cfmPerTon <= 450) { status = '✔ PASS — within 350–450 CFM/ton target'; color = 'var(--primary)'; }
+    else if (cfmPerTon >= 300 && cfmPerTon < 350) { status = '⚠ LOW — low airflow may indicate high static or restriction'; color = 'var(--accent)'; }
+    else if (cfmPerTon > 450) { status = '⚠ HIGH — possible oversized duct system or bypass'; color = 'var(--accent)'; }
+    else { status = '✘ FAIL — severely undersupplied; investigate immediately'; color = '#E74C3C'; }
+    document.getElementById('cfmTonResult').innerHTML = `<strong style="color:${color}">CFM per Ton: ${cfmPerTon.toFixed(0)} CFM/ton — ${status}</strong><br><span style="font-size:13px;color:var(--muted);">Target: 400 CFM/ton (350–450 acceptable range per ACCA)</span>`;
+  } else {
+    document.getElementById('cfmTonCheck').style.display = 'none';
+  }
+}
+
+window.onload = calcSP;
+</script>
+</body>
+</html>

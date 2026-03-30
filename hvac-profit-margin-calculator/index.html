@@ -1,0 +1,929 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVAC Profit Margin Calculator | Markup and Margin Analysis Tool | MintSheets</title>
+<meta name="description" content="Free online HVAC profit margin calculator. Calculate gross and net profit margins for HVAC jobs. Analysis tool for contractors to ensure profitability.">
+<link rel="canonical" href="https://mintsheets.com/hvac-profit-margin-calculator/" />
+<meta property="og:title" content="HVAC Profit Margin Calculator | Markup and Margin Analysis Tool | MintSheets" />
+<meta property="og:description" content="Calculate gross and net profit margins for HVAC jobs. Analysis tool for contractors to ensure profitability." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://mintsheets.com/hvac-profit-margin-calculator/" />
+        <link rel="stylesheet" href="../styles.css?v=1.5">
+    <link rel="stylesheet" href="../shared/css/calculators.css?v=1.12">
+    <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+</head>
+<body>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a href="/" class="brand">
+          <img src="../brand/logo-without-background.png" alt="MintSheets Logo">
+        </a>
+  
+        <nav class="nav-links">
+          <a href="/">Calculators</a>
+          <a href="/#troubleshooting-checklist">Free Guide</a>
+          <a href="mailto:support@mintsheets.com">Support</a>
+        </nav>
+        
+        <div class="header-actions">
+          <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container section-card">
+          <div style="margin-bottom: 30px; text-align: center;">
+            <div class="eyebrow">Technical Tool</div>
+            <h1 style="margin: 10px auto; max-width: none;">HVAC Profit Margin Calculator for Jobs & Bids</h1>
+            <p style="color: var(--muted);">Analyze your job profitability by calculating gross and net margins after accounting for all direct costs and overhead allocations.</p>
+            
+            <p style="margin-top: 20px; line-height: 1.6; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
+              The HVAC profit margin calculator allows you to protect your bottom line by analyzing exactly how overhead impacts your project revenue. By integrating your <a href="/hvac-labor-cost-calculator/" style="color: var(--primary); text-decoration: none;">burdened labor costs</a>, you can ensure that every bid is priced for long-term sustainability. Designed for HVAC contractors and business owners.
+            </p>
+          </div>
+  <!-- Ad Placeholder: Top Banner -->
+  <div class="ad-slot ad-top"></div>
+
+        <!-- SECTION 1 -->
+        <div class="section-banner">
+            <span>📊</span> SECTION 1 — REVENUE & COST INPUTS
+        </div>
+
+        <div class="form-grid-4" style="margin-top: 15px;">
+            <div class="form-group">
+                <label>Job/Project Name</label>
+                <input type="text" id="projectName" placeholder="e.g. Smith Residence AC Replacement">
+            </div>
+            <div class="form-group">
+                <label>Customer Name</label>
+                <input type="text" id="customerName" placeholder="Enter Customer Name">
+            </div>
+            <div class="form-group">
+                <label>Estimate Date</label>
+                <input type="text" id="estimateDate" value="10/24/2023">
+            </div>
+            <div class="form-group">
+                <label>Job Type</label>
+                <select id="jobType">
+                    <option>Replacement / Changeout</option>
+                    <option>New Installation</option>
+                    <option>Repair Service</option>
+                    <option>Maintenance Agreement</option>
+                    <option>Commercial Service</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="sub-header">Revenue Details</div>
+        <div class="form-grid-4">
+            <div class="form-group">
+                <label>Total Bid Amount ($)</label>
+                <input type="number" id="totalBid" value="12500" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Down Payment ($)</label>
+                <input type="number" id="downPayment" value="3750" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Financing Amount ($)</label>
+                <input type="number" id="financingAmount" value="8750" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Financing Fee (%)</label>
+                <select id="financingFee" onchange="calculateMargin()">
+                    <option value="0">No Financing</option>
+                    <option value="3">12-Month SAC (+3%)</option>
+                    <option value="5">18-Month SAC (+5%)</option>
+                    <option value="8">60-Month (+8%)</option>
+                    <option value="12">84-Month (+12%)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="sub-header">Direct Costs</div>
+        <div class="form-grid-4">
+            <div class="form-group">
+                <label>Equipment Cost ($)</label>
+                <input type="number" id="equipmentCost" value="4500" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Materials Cost ($)</label>
+                <input type="number" id="materialsCost" value="1200" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Labor Cost ($)</label>
+                <input type="number" id="laborCost" value="2800" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Refrigerant Cost ($)</label>
+                <input type="number" id="refrigerantCost" value="350" onchange="calculateMargin()">
+            </div>
+        </div>
+
+        <div class="form-grid-4" style="margin-top: 10px;">
+            <div class="form-group">
+                <label>Permit Fees ($)</label>
+                <input type="number" id="permitCost" value="150" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Disposal/Haul-Away ($)</label>
+                <input type="number" id="disposalCost" value="100" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Other Direct Costs ($)</label>
+                <input type="number" id="otherCost" value="200" onchange="calculateMargin()">
+            </div>
+            <div class="form-group">
+                <label>Discount Applied ($)</label>
+                <input type="number" id="discount" value="0" onchange="calculateMargin()">
+            </div>
+        </div>
+
+        <!-- SECTION 2 -->
+        <div class="section-banner">
+            <span>📈</span> SECTION 2 — OVERHEAD & OPERATING EXPENSES
+        </div>
+
+        <div class="form-grid-3">
+            <div class="calc-panel">
+                <div class="calc-panel-header">Fixed Overhead (Monthly)</div>
+                <div class="form-group">
+                    <label>Rent/Lease ($)</label>
+                    <input type="number" id="rentCost" value="3500" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Utilities ($)</label>
+                    <input type="number" id="utilitiesCost" value="800" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Insurance ($)</label>
+                    <input type="number" id="insuranceCost" value="1200" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Software/Subscriptions ($)</label>
+                    <input type="number" id="softwareCost" value="400" onchange="calculateMargin()">
+                </div>
+            </div>
+            <div class="calc-panel">
+                <div class="calc-panel-header">Variable Overhead (Per Job)</div>
+                <div class="form-group">
+                    <label>Vehicle/Fuel ($)</label>
+                    <input type="number" id="vehicleCost" value="150" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Marketing/Advertising ($)</label>
+                    <input type="number" id="marketingCost" value="200" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Admin/Office ($)</label>
+                    <input type="number" id="adminCost" value="100" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Miscellaneous ($)</label>
+                    <input type="number" id="miscCost" value="75" onchange="calculateMargin()">
+                </div>
+            </div>
+            <div class="calc-panel">
+                <div class="calc-panel-header">Business Metrics</div>
+                <div class="form-group">
+                    <label>Jobs Per Month</label>
+                    <input type="number" id="jobsPerMonth" value="15" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Average Job Value ($)</label>
+                    <input type="number" id="avgJobValue" value="8500" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Tech Hours Per Job</label>
+                    <input type="number" id="techHours" value="8" onchange="calculateMargin()">
+                </div>
+                <div class="form-group">
+                    <label>Target Margin (%)</label>
+                    <input type="number" id="targetMargin" value="30" onchange="calculateMargin()">
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-box-title">💡 Overhead Allocation Tip</div>
+            <div>Fixed overhead is distributed across all jobs per month. For accurate profit calculation, ensure your monthly job count reflects realistic capacity. Industry standard overhead allocation is 15-25% of revenue.</div>
+        </div>
+
+        <!-- SECTION 3 -->
+        <div class="section-banner">
+            <span>💵</span> SECTION 3 — PROFIT MARGIN ANALYSIS
+        </div>
+
+        <div class="results-box">
+            <div class="form-grid-4">
+                <div class="result-card">
+                    <div class="result-label">Gross Profit</div>
+                    <div class="result-value" id="grossProfit">$0</div>
+                    <div class="result-label" id="grossMarginPct">0% Margin</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Net Profit</div>
+                    <div class="result-value profit" id="netProfit">$0</div>
+                    <div class="result-label" id="netMarginPct">0% Margin</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Total Costs</div>
+                    <div class="result-value" id="totalCosts">$0</div>
+                    <div class="result-label">Direct + Overhead</div>
+                </div>
+                <div class="result-card">
+                    <div class="result-label">Break-Even Point</div>
+                    <div class="result-value" id="breakEven">$0</div>
+                    <div class="result-label">Minimum Bid Required</div>
+                </div>
+            </div>
+
+            <div class="sub-header" style="margin-top: 20px;">Profit Margin Status</div>
+            <div style="display: flex; align-items: center; gap: 15px; margin: 15px 0;">
+                <span class="margin-indicator margin-high" id="marginStatus">CALCULATING...</span>
+                <div style="flex: 1;">
+                    <div class="progress-container">
+                        <div class="progress-bar" id="marginProgress" style="width: 0%;"></div>
+                    </div>
+                </div>
+                <span style="font-weight: bold; color: var(--primary);" id="marginValue">0%</span>
+            </div>
+
+            <div class="sub-header">Cost Breakdown Visualization</div>
+            <div class="breakdown-chart" id="breakdownChart">
+                <div class="breakdown-segment segment-materials" id="segMaterials" style="width: 0%;">0%</div>
+                <div class="breakdown-segment segment-labor" id="segLabor" style="width: 0%;">0%</div>
+                <div class="breakdown-segment segment-overhead" id="segOverhead" style="width: 0%;">0%</div>
+                <div class="breakdown-segment segment-profit" id="segProfit" style="width: 0%;">0%</div>
+            </div>
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color segment-materials"></div>
+                    <span>Materials/Equipment</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color segment-labor"></div>
+                    <span>Labor</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color segment-overhead"></div>
+                    <span>Overhead</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color segment-profit"></div>
+                    <span>Profit</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ad Placeholder: Mid Content -->
+        <div class="ad-slot ad-mid"></div>
+
+        <!-- SECTION 4 -->
+        <div class="section-banner">
+            <span>📋</span> SECTION 4 — DETAILED COST BREAKDOWN
+        </div>
+
+        <div class="table-scroll"><table class="line-table">
+            <thead>
+                <tr>
+                    <th>Parameter</th>
+                    <th class="text-right">Amount ($)</th>
+                    <th class="text-right">% of Revenue</th>
+                    <th>Status</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>REVENUE</strong></td>
+                    <td class="text-right bold" id="revTotal">$0</td>
+                    <td class="text-right bold">100%</td>
+                    <td class="text-center">—</td>
+                    <td>Total bid amount</td>
+                </tr>
+                <tr>
+                    <td>Equipment Cost</td>
+                    <td class="text-right" id="costEquipment">$0</td>
+                    <td class="text-right" id="pctEquipment">0%</td>
+                    <td class="text-center"><span class="status-badge status-healthy">OK</span></td>
+                    <td>HVAC unit, components</td>
+                </tr>
+                <tr>
+                    <td>Materials & Supplies</td>
+                    <td class="text-right" id="costMaterials">$0</td>
+                    <td class="text-right" id="pctMaterials">0%</td>
+                    <td class="text-center"><span class="status-badge status-healthy">OK</span></td>
+                    <td>Ductwork, refrigerant, etc.</td>
+                </tr>
+                <tr>
+                    <td>Labor (Direct)</td>
+                    <td class="text-right" id="costLabor">$0</td>
+                    <td class="text-right" id="pctLabor">0%</td>
+                    <td class="text-center"><span class="status-badge status-healthy">OK</span></td>
+                    <td>Installation technician hours</td>
+                </tr>
+                <tr>
+                    <td>Permits & Disposal</td>
+                    <td class="text-right" id="costPermits">$0</td>
+                    <td class="text-right" id="pctPermits">0%</td>
+                    <td class="text-center"><span class="status-badge status-healthy">OK</span></td>
+                    <td>City permits, old unit haul-away</td>
+                </tr>
+                <tr style="background-color: var(--bg-soft);">
+                    <td><strong>TOTAL DIRECT COSTS</strong></td>
+                    <td class="text-right bold" id="totalDirectCosts">$0</td>
+                    <td class="text-right bold" id="pctDirectCosts">0%</td>
+                    <td class="text-center">—</td>
+                    <td>Cost of Goods Sold (COGS)</td>
+                </tr>
+                <tr>
+                    <td>Allocated Overhead (Fixed)</td>
+                    <td class="text-right" id="costOverheadFixed">$0</td>
+                    <td class="text-right" id="pctOverheadFixed">0%</td>
+                    <td class="text-center"><span class="status-badge status-caution">VARIES</span></td>
+                    <td>Based on jobs/month</td>
+                </tr>
+                <tr>
+                    <td>Allocated Overhead (Variable)</td>
+                    <td class="text-right" id="costOverheadVar">$0</td>
+                    <td class="text-right" id="pctOverheadVar">0%</td>
+                    <td class="text-center"><span class="status-badge status-caution">VARIES</span></td>
+                    <td>Per-job overhead expenses</td>
+                </tr>
+                <tr style="background-color: var(--bg-soft);">
+                    <td><strong>TOTAL OVERHEAD</strong></td>
+                    <td class="text-right bold" id="totalOverhead">$0</td>
+                    <td class="text-right bold" id="pctOverhead">0%</td>
+                    <td class="text-center">—</td>
+                    <td>Operating expenses</td>
+                </tr>
+                <tr style="background-color: var(--primary); color: white;">
+                    <td><strong>NET PROFIT</strong></td>
+                    <td class="text-right bold" id="netProfitTable">$0</td>
+                    <td class="text-right bold" id="pctNetProfit">0%</td>
+                    <td class="text-center" id="profitStatus">—</td>
+                    <td>Bottom line profit</td>
+                </tr>
+            </tbody>
+        </table></div>
+
+        <div class="sub-header">Pricing Recommendations</div>
+        <div class="form-grid-3">
+            <div class="calc-panel">
+                <div class="calc-panel-header">⬛ GOOD (Minimum Margin)</div>
+                <div class="form-group">
+                    <label>Target Margin: 20%</label>
+                    <div class="result-value" id="goodPrice" style="font-size: 22px;">$0</div>
+                    <div class="info-text">Minimum acceptable profit</div>
+                </div>
+                <div class="slider-container">
+                    <input type="range" min="10" max="50" value="20" id="sliderGood" onchange="updateSlider('good')">
+                </div>
+            </div>
+            <div class="calc-panel">
+                <div class="calc-panel-header">🥈 BETTER (Target Margin)</div>
+                <div class="form-group">
+                    <label>Target Margin: 30%</label>
+                    <div class="result-value" style="font-size: 22px;" id="betterPrice">$0</div>
+                    <div class="info-text">Industry standard profit</div>
+                </div>
+                <div class="slider-container">
+                    <input type="range" min="10" max="50" value="30" id="sliderBetter" onchange="updateSlider('better')">
+                </div>
+            </div>
+            <div class="calc-panel">
+                <div class="calc-panel-header">🥇 BEST (Premium Margin)</div>
+                <div class="form-group">
+                    <label>Target Margin: 40%</label>
+                    <div class="result-value" style="font-size: 22px;" id="bestPrice">$0</div>
+                    <div class="info-text">High-efficiency premium</div>
+                </div>
+                <div class="slider-container">
+                    <input type="range" min="10" max="50" value="40" id="sliderBest" onchange="updateSlider('best')">
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-box-title">📊 Pricing Strategy Insights</div>
+            <div>
+                <strong>Current Bid:</strong> <span class="highlight" id="currentBidDisplay">$0</span> |
+                <strong>Recommended Price:</strong> <span class="highlight" id="recommendedPrice">$0</span> |
+                <strong>Adjustment Needed:</strong> <span class="highlight" id="adjustmentNeeded">$0</span>
+            </div>
+        </div>
+
+        <!-- SECTION 6 -->
+        <div class="section-banner">
+            <span>📝</span> SECTION 6 — PROFIT TRACKING LOG
+        </div>
+
+        <div class="table-scroll"><table class="line-table">
+            <thead>
+                <tr>
+                    <th>Customer</th>
+                    <th>Project</th>
+                    <th>Date</th>
+                    <th class="text-right">Bid Amount</th>
+                    <th class="text-right">Net Profit</th>
+                    <th>Margin %</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="profitLog">
+                <tr>
+                    <td colspan="7" class="text-center" style="color: #666; padding: 30px;">
+                        No profit logs yet — click "Save to Log" to add this calculation.
+                    </td>
+                </tr>
+            </tbody>
+        </table></div>
+
+        <div class="info-box">
+            <div class="info-box-title">⚡ Pro Tips for Maximizing Profit Margins</div>
+            <div>
+                • <strong>Present all three tiers</strong> — 60% of customers choose Better or Best when offered.<br>
+                • <strong>Lead with financing</strong> — shifts conversation from price to monthly payment.<br>
+                • <strong>Track actual vs. estimated</strong> — compare quoted hours to actual installation time.<br>
+                • <strong>Review overhead quarterly</strong> — ensure allocation reflects current business expenses.<br>
+                • <strong>Never go below 20%</strong> — margins under 20% risk business sustainability.
+            </div>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="btn-group">
+            <button class="btn btn-primary" onclick="saveToLog()">💾 Save to Log</button>
+            <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+            <button class="btn btn-accent" onclick="calculateMargin()">⚡ Recalculate</button>
+            <button class="btn btn-success" onclick="exportCSV()">📥 Export CSV</button>
+            <button class="btn btn-primary" style="background-color: #666;" onclick="clearAll()">🗑️ Clear All</button>
+        </div>
+
+        <div style="padding: 0 20px; margin-top: 15px;">
+            <div class="info-text">
+                <strong>Current Settings:</strong> Margin Target: <span class="highlight" id="footerMargin">30%</span> |
+                Total Costs: <span class="highlight" id="footerCosts">$0</span> |
+                Net Profit: <span class="highlight" id="footerProfit">$0</span>
+            </div>
+        </div>
+
+
+
+      <!-- SEO CONTENT SECTION -->
+      <section class="section" id="seo-content">
+        <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
+          <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">Dialing in Gross Margin versus Net Margin</h2>
+          <p style="margin-bottom: 15px;">
+            The <strong>HVAC Profit Margin Calculator</strong> is designed to protect contracting businesses from the common mistake of confusing gross profit with net profit. In the mechanical trades, cash flow can be deceiving. A busy season packed with installations doesn't automatically equate to a profitable year if your overhead drag is consuming the margins.
+          </p>
+          <p style="margin-bottom: 15px;">
+            <strong>Gross Margin</strong> is calculated simply: Revenue minus Direct Costs (Equipment, Materials, Direct Labor, Permits). Successful residential replacement companies typically aim for a 45% to 55% Gross Margin. However, <strong>Net Margin</strong> is what remains after your fixed monthly overhead (Rent, Utilities, Software, Admin Salaries) is allocated across your monthly job volume. By plugging your fixed expenses into Section 2 of the calculator, you can uncover exactly what percentage of a $10,000 system install is actually hitting your bottom line.
+          </p>
+          
+          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Margin Control and Pricing Strategy</h3>
+          <p style="margin-bottom: 15px;">
+            Once your overhead is accurately entered, the tool automatically calculates your Break-Even Point. Any bid below this line means you are paying for the privilege of working on the customer's home. Section 5 provides <strong>Tiered Pricing Recommendations (Good / Better / Best)</strong> based on your defined Target Margins. Implementing tiered pricing prevents you from competing on price alone, as customers naturally gravitate toward the middle "Better" option, securing your baseline profitability.
+          </p>
+          <p style="margin-bottom: 15px;">
+            To ensure your labor inputs are not creating artificial margin gaps, utilize our <a href="/hvac-labor-cost-calculator/" style="color: var(--primary); text-decoration: none;">labor cost calculator</a> to determine your fully burdened hourly rate before relying on the profit dashboard. When combined with a robust job breakdown from an <a href="/hvac-bid-calculator/" style="color: var(--primary); text-decoration: none;">HVAC bid calculator</a>, this margin analysis acts as your final financial safeguard before sending an estimate to a client.
+          </p>
+          <p style="margin-bottom: 25px;">
+            Consistently hitting target net margins of 15% to 20% transforms a contracting job into a highly sellable enterprise. You can track exactly how strong margin performance drives up your company's potential exit valuation via our <a href="/hvac-business-valuation-calculator/" style="color: var(--primary); text-decoration: none;">business valuation calculator</a>.
+          </p>
+
+          <h2 style="font-size: 26px; margin-top: 40px; margin-bottom: 20px; color: #fff;">Frequently Asked Questions</h2>
+          <div style="margin-bottom: 20px;">
+            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">What is a healthy profit margin for an HVAC company?</h3>
+            <p>While gross margins (revenue minus direct costs) should ideally be between 45% and 55%, a healthy net profit margin for a residential HVAC company is typically 10% to 20% after all overhead expenses are paid.</p>
+          </div>
+          <div style="margin-bottom: 20px;">
+            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">How do I increase my HVAC profit margins?</h3>
+            <p>The fastest ways to increase margin are to implement flat-rate pricing, offer tiered equipment options (Good/Better/Best), and improve operational efficiency to reduce unbillable "windshield time" between service calls.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Placeholder: Bottom Banner -->
+      <div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
+
+    <footer id="mint-footer">
+      <div class="container">
+        <h3 class="footer-title">Related HVAC Calculators</h3>
+        <div class="footer-grid">
+          <a href="/hvac-flow-rate-calculator/">Flow Rate Calculator</a>
+          <a href="/hvac-load-calculator/">Load Calculator</a>
+          <a href="/hvac-service-price-calculator/">Service Price Calculator</a>
+          <a href="/hvac-labor-cost-calculator/">Labor Cost Calculator</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      </div>
+    </footer>
+
+    <script>
+        // Profit Log Storage
+        let profitLog = [];
+
+        // Format currency
+        function formatCurrency(num) {
+            return '$' + num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        }
+
+        // Format percentage
+        function formatPercent(num) {
+            return num.toFixed(1) + '%';
+        }
+
+        // Main calculation function
+        function calculateMargin() {
+            // Revenue Inputs
+            const totalBid = parseFloat(document.getElementById('totalBid').value) || 0;
+            const downPayment = parseFloat(document.getElementById('downPayment').value) || 0;
+            const financingAmount = parseFloat(document.getElementById('financingAmount').value) || 0;
+            const financingFee = parseFloat(document.getElementById('financingFee').value) || 0;
+            const discount = parseFloat(document.getElementById('discount').value) || 0;
+
+            // Direct Costs
+            const equipmentCost = parseFloat(document.getElementById('equipmentCost').value) || 0;
+            const materialsCost = parseFloat(document.getElementById('materialsCost').value) || 0;
+            const laborCost = parseFloat(document.getElementById('laborCost').value) || 0;
+            const refrigerantCost = parseFloat(document.getElementById('refrigerantCost').value) || 0;
+            const permitCost = parseFloat(document.getElementById('permitCost').value) || 0;
+            const disposalCost = parseFloat(document.getElementById('disposalCost').value) || 0;
+            const otherCost = parseFloat(document.getElementById('otherCost').value) || 0;
+
+            // Fixed Overhead (Monthly)
+            const rentCost = parseFloat(document.getElementById('rentCost').value) || 0;
+            const utilitiesCost = parseFloat(document.getElementById('utilitiesCost').value) || 0;
+            const insuranceCost = parseFloat(document.getElementById('insuranceCost').value) || 0;
+            const softwareCost = parseFloat(document.getElementById('softwareCost').value) || 0;
+
+            // Variable Overhead (Per Job)
+            const vehicleCost = parseFloat(document.getElementById('vehicleCost').value) || 0;
+            const marketingCost = parseFloat(document.getElementById('marketingCost').value) || 0;
+            const adminCost = parseFloat(document.getElementById('adminCost').value) || 0;
+            const miscCost = parseFloat(document.getElementById('miscCost').value) || 0;
+
+            // Business Metrics
+            const jobsPerMonth = parseFloat(document.getElementById('jobsPerMonth').value) || 1;
+            const targetMargin = parseFloat(document.getElementById('targetMargin').value) || 30;
+
+            // Calculations
+            const financingFeeAmount = financingAmount * (financingFee / 100);
+            const netRevenue = totalBid - discount - financingFeeAmount;
+
+            // Direct Costs
+            const totalDirectCosts = equipmentCost + materialsCost + laborCost + refrigerantCost + permitCost + disposalCost + otherCost;
+
+            // Fixed Overhead Allocation (per job)
+            const totalFixedOverhead = rentCost + utilitiesCost + insuranceCost + softwareCost;
+            const allocatedFixedOverhead = totalFixedOverhead / jobsPerMonth;
+
+            // Variable Overhead (per job)
+            const totalVariableOverhead = vehicleCost + marketingCost + adminCost + miscCost;
+
+            // Total Overhead
+            const totalOverhead = allocatedFixedOverhead + totalVariableOverhead;
+
+            // Total Costs
+            const totalCosts = totalDirectCosts + totalOverhead;
+
+            // Profit Calculations
+            const grossProfit = netRevenue - totalDirectCosts;
+            const netProfit = netRevenue - totalCosts;
+
+            // Margin Calculations
+            const grossMarginPct = netRevenue > 0 ? (grossProfit / netRevenue) * 100 : 0;
+            const netMarginPct = netRevenue > 0 ? (netProfit / netRevenue) * 100 : 0;
+
+            // Break-Even Point
+            const breakEven = totalCosts;
+
+            // Update Results Display
+            document.getElementById('grossProfit').innerText = formatCurrency(grossProfit);
+            document.getElementById('grossMarginPct').innerText = formatPercent(grossMarginPct) + ' Margin';
+
+            document.getElementById('netProfit').innerText = formatCurrency(netProfit);
+            document.getElementById('netProfit').className = 'result-value ' + (netProfit >= 0 ? 'profit' : 'loss');
+            document.getElementById('netMarginPct').innerText = formatPercent(netMarginPct) + ' Margin';
+
+            document.getElementById('totalCosts').innerText = formatCurrency(totalCosts);
+            document.getElementById('breakEven').innerText = formatCurrency(breakEven);
+
+            // Margin Status
+            updateMarginStatus(netMarginPct);
+
+            // Update Breakdown Chart
+            updateBreakdownChart(equipmentCost, materialsCost, laborCost, totalOverhead, netProfit, netRevenue);
+
+            // Update Detailed Table
+            updateDetailedTable(netRevenue, equipmentCost, materialsCost, laborCost,
+                permitCost + disposalCost, allocatedFixedOverhead, totalVariableOverhead,
+                totalDirectCosts, totalOverhead, netProfit);
+
+            // Update Pricing Recommendations
+            updatePricingRecommendations(totalDirectCosts, totalOverhead, targetMargin);
+
+            // Update Footer
+            document.getElementById('footerMargin').innerText = formatPercent(netMarginPct);
+            document.getElementById('footerCosts').innerText = formatCurrency(totalCosts);
+            document.getElementById('footerProfit').innerText = formatCurrency(netProfit);
+            document.getElementById('currentBidDisplay').innerText = formatCurrency(totalBid);
+            document.getElementById('recommendedPrice').innerText = formatCurrency(document.getElementById('betterPrice').innerText.replace('$', ''));
+            const adjustment = totalBid - parseFloat(document.getElementById('betterPrice').innerText.replace('$', '').replace(/,/g, ''));
+            const adjustmentEl = document.getElementById('adjustmentNeeded');
+            adjustmentEl.innerText = (adjustment >= 0 ? '+' : '') + formatCurrency(adjustment);
+            adjustmentEl.style.color = adjustment >= 0 ? 'var(--success)' : 'var(--danger)';
+        }
+
+        function updateMarginStatus(marginPct) {
+            const statusEl = document.getElementById('marginStatus');
+            const progressEl = document.getElementById('marginProgress');
+            const valueEl = document.getElementById('marginValue');
+
+            valueEl.innerText = formatPercent(marginPct);
+
+            if (marginPct >= 30) {
+                statusEl.className = 'margin-indicator margin-high';
+                statusEl.innerText = '✅ HEALTHY MARGIN';
+                progressEl.className = 'progress-bar progress-good';
+                progressEl.style.width = Math.min(marginPct, 50) * 2 + '%';
+            } else if (marginPct >= 20) {
+                statusEl.className = 'margin-indicator margin-medium';
+                statusEl.innerText = '⚠️ ACCEPTABLE MARGIN';
+                progressEl.className = 'progress-bar progress-warning';
+                progressEl.style.width = Math.min(marginPct, 50) * 2 + '%';
+            } else {
+                statusEl.className = 'margin-indicator margin-low';
+                statusEl.innerText = '❌ LOW MARGIN';
+                progressEl.className = 'progress-bar progress-danger';
+                progressEl.style.width = Math.min(marginPct, 50) * 2 + '%';
+            }
+        }
+
+        function updateBreakdownChart(equip, mat, labor, overhead, profit, revenue) {
+            const total = revenue || 1;
+
+            const materialsTotal = equip + mat;
+            const matPct = (materialsTotal / total) * 100;
+            const laborPct = (labor / total) * 100;
+            const overheadPct = (overhead / total) * 100;
+            const profitPct = (profit / total) * 100;
+
+            document.getElementById('segMaterials').style.width = matPct + '%';
+            document.getElementById('segMaterials').innerText = matPct.toFixed(1) + '%';
+
+            document.getElementById('segLabor').style.width = laborPct + '%';
+            document.getElementById('segLabor').innerText = laborPct.toFixed(1) + '%';
+
+            document.getElementById('segOverhead').style.width = overheadPct + '%';
+            document.getElementById('segOverhead').innerText = overheadPct.toFixed(1) + '%';
+
+            document.getElementById('segProfit').style.width = Math.max(profitPct, 0) + '%';
+            document.getElementById('segProfit').innerText = Math.max(profitPct, 0).toFixed(1) + '%';
+        }
+
+        function updateDetailedTable(revenue, equip, mat, labor, permits, overheadFixed, overheadVar,
+            directCosts, overhead, netProfit) {
+
+            const total = revenue || 1;
+
+            document.getElementById('revTotal').innerText = formatCurrency(revenue);
+
+            document.getElementById('costEquipment').innerText = formatCurrency(equip);
+            document.getElementById('pctEquipment').innerText = formatPercent((equip / total) * 100);
+
+            document.getElementById('costMaterials').innerText = formatCurrency(mat);
+            document.getElementById('pctMaterials').innerText = formatPercent((mat / total) * 100);
+
+            document.getElementById('costLabor').innerText = formatCurrency(labor);
+            document.getElementById('pctLabor').innerText = formatPercent((labor / total) * 100);
+
+            document.getElementById('costPermits').innerText = formatCurrency(permits);
+            document.getElementById('pctPermits').innerText = formatPercent((permits / total) * 100);
+
+            document.getElementById('totalDirectCosts').innerText = formatCurrency(directCosts);
+            document.getElementById('pctDirectCosts').innerText = formatPercent((directCosts / total) * 100);
+
+            document.getElementById('costOverheadFixed').innerText = formatCurrency(overheadFixed);
+            document.getElementById('pctOverheadFixed').innerText = formatPercent((overheadFixed / total) * 100);
+
+            document.getElementById('costOverheadVar').innerText = formatCurrency(overheadVar);
+            document.getElementById('pctOverheadVar').innerText = formatPercent((overheadVar / total) * 100);
+
+            document.getElementById('totalOverhead').innerText = formatCurrency(overhead);
+            document.getElementById('pctOverhead').innerText = formatPercent((overhead / total) * 100);
+
+            document.getElementById('netProfitTable').innerText = formatCurrency(netProfit);
+            document.getElementById('pctNetProfit').innerText = formatPercent((netProfit / total) * 100);
+
+            const profitStatusEl = document.getElementById('profitStatus');
+            if (netProfit >= 0) {
+                profitStatusEl.innerHTML = '<span class="status-badge status-healthy">PROFIT</span>';
+            } else {
+                profitStatusEl.innerHTML = '<span class="status-badge status-critical">LOSS</span>';
+            }
+        }
+
+        function updatePricingRecommendations(directCosts, overhead, targetMargin) {
+            const totalCosts = directCosts + overhead;
+
+            // Calculate required price for different margin targets
+            const goodMargin = 20;
+            const betterMargin = 30;
+            const bestMargin = 40;
+
+            const goodPrice = totalCosts / (1 - (goodMargin / 100));
+            const betterPrice = totalCosts / (1 - (betterMargin / 100));
+            const bestPrice = totalCosts / (1 - (bestMargin / 100));
+
+            document.getElementById('goodPrice').innerText = formatCurrency(goodPrice);
+            document.getElementById('betterPrice').innerText = formatCurrency(betterPrice);
+            document.getElementById('bestPrice').innerText = formatCurrency(bestPrice);
+
+            // Update slider labels
+            document.querySelector('#sliderGood').previousElementSibling.innerText = 'Target Margin: ' + goodMargin + '%';
+            document.querySelector('#sliderBetter').previousElementSibling.innerText = 'Target Margin: ' + betterMargin + '%';
+            document.querySelector('#sliderBest').previousElementSibling.innerText = 'Target Margin: ' + bestMargin + '%';
+        }
+
+        function updateSlider(tier) {
+            const slider = document.getElementById('slider' + tier.charAt(0).toUpperCase() + tier.slice(1));
+            const margin = slider.value;
+
+            const directCosts = parseFloat(document.getElementById('equipmentCost').value) || 0 +
+                               parseFloat(document.getElementById('materialsCost').value) || 0 +
+                               parseFloat(document.getElementById('laborCost').value) || 0 +
+                               parseFloat(document.getElementById('refrigerantCost').value) || 0 +
+                               parseFloat(document.getElementById('permitCost').value) || 0 +
+                               parseFloat(document.getElementById('disposalCost').value) || 0 +
+                               parseFloat(document.getElementById('otherCost').value) || 0;
+
+            const rentCost = parseFloat(document.getElementById('rentCost').value) || 0;
+            const utilitiesCost = parseFloat(document.getElementById('utilitiesCost').value) || 0;
+            const insuranceCost = parseFloat(document.getElementById('insuranceCost').value) || 0;
+            const softwareCost = parseFloat(document.getElementById('softwareCost').value) || 0;
+            const vehicleCost = parseFloat(document.getElementById('vehicleCost').value) || 0;
+            const marketingCost = parseFloat(document.getElementById('marketingCost').value) || 0;
+            const adminCost = parseFloat(document.getElementById('adminCost').value) || 0;
+            const miscCost = parseFloat(document.getElementById('miscCost').value) || 0;
+            const jobsPerMonth = parseFloat(document.getElementById('jobsPerMonth').value) || 1;
+
+            const overhead = ((rentCost + utilitiesCost + insuranceCost + softwareCost) / jobsPerMonth) +
+                            vehicleCost + marketingCost + adminCost + miscCost;
+
+            const totalCosts = directCosts + overhead;
+            const price = totalCosts / (1 - (margin / 100));
+
+            document.getElementById(tier + 'Price').innerText = formatCurrency(price);
+        }
+
+        function saveToLog() {
+            const customerName = document.getElementById('customerName').value || 'Unknown';
+            const projectName = document.getElementById('projectName').value || 'Unnamed Project';
+            const estimateDate = document.getElementById('estimateDate').value;
+            const totalBid = parseFloat(document.getElementById('totalBid').value) || 0;
+            const netProfit = parseFloat(document.getElementById('netProfit').innerText.replace('$', '').replace(/,/g, '')) || 0;
+            const netMarginPct = parseFloat(document.getElementById('netMarginPct').innerText) || 0;
+
+            const logEntry = {
+                customer: customerName,
+                project: projectName,
+                date: estimateDate,
+                bid: totalBid,
+                profit: netProfit,
+                margin: netMarginPct
+            };
+
+            profitLog.push(logEntry);
+            renderProfitLog();
+
+            alert('✓ Profit calculation saved to log!');
+        }
+
+        function renderProfitLog() {
+            const tbody = document.getElementById('profitLog');
+
+            if (profitLog.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" class="text-center" style="color: #666; padding: 30px;">No profit logs yet — click "Save to Log" to add this calculation.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = profitLog.map(entry => {
+                let statusClass = 'status-healthy';
+                let statusText = 'PROFIT';
+                if (entry.profit < 0) {
+                    statusClass = 'status-critical';
+                    statusText = 'LOSS';
+                } else if (entry.margin < 20) {
+                    statusClass = 'status-caution';
+                    statusText = 'LOW';
+                }
+
+                return `
+                    <tr>
+                        <td>${entry.customer}</td>
+                        <td>${entry.project}</td>
+                        <td>${entry.date}</td>
+                        <td class="text-right">${formatCurrency(entry.bid)}</td>
+                        <td class="text-right ${entry.profit >= 0 ? 'text-success' : 'text-danger'}">${formatCurrency(entry.profit)}</td>
+                        <td>${formatPercent(entry.margin)}</td>
+                        <td class="text-center"><span class="status-badge ${statusClass}">${statusText}</span></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function exportCSV() {
+            if (profitLog.length === 0) {
+                alert('No data to export. Save some calculations first!');
+                return;
+            }
+
+            let csv = 'Customer,Project,Date,Bid Amount,Net Profit,Margin %,Status\n';
+            profitLog.forEach(entry => {
+                const status = entry.profit >= 0 ? (entry.margin >= 20 ? 'PROFIT' : 'LOW') : 'LOSS';
+                csv += `"${entry.customer}","${entry.project}","${entry.date}",${entry.bid},${entry.profit},${entry.margin},${status}\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'hvac_profit_log_' + new Date().toISOString().split('T')[0] + '.csv';
+            a.click();
+        }
+
+        function clearAll() {
+            if (confirm('Are you sure you want to clear all inputs and logs?')) {
+                // Reset inputs to defaults
+                document.getElementById('totalBid').value = 12500;
+                document.getElementById('downPayment').value = 3750;
+                document.getElementById('financingAmount').value = 8750;
+                document.getElementById('financingFee').value = 0;
+                document.getElementById('discount').value = 0;
+                document.getElementById('equipmentCost').value = 4500;
+                document.getElementById('materialsCost').value = 1200;
+                document.getElementById('laborCost').value = 2800;
+                document.getElementById('refrigerantCost').value = 350;
+                document.getElementById('permitCost').value = 150;
+                document.getElementById('disposalCost').value = 100;
+                document.getElementById('otherCost').value = 200;
+                document.getElementById('rentCost').value = 3500;
+                document.getElementById('utilitiesCost').value = 800;
+                document.getElementById('insuranceCost').value = 1200;
+                document.getElementById('softwareCost').value = 400;
+                document.getElementById('vehicleCost').value = 150;
+                document.getElementById('marketingCost').value = 200;
+                document.getElementById('adminCost').value = 100;
+                document.getElementById('miscCost').value = 75;
+                document.getElementById('jobsPerMonth').value = 15;
+                document.getElementById('avgJobValue').value = 8500;
+                document.getElementById('techHours').value = 8;
+                document.getElementById('targetMargin').value = 30;
+                document.getElementById('customerName').value = '';
+                document.getElementById('projectName').value = '';
+
+                profitLog = [];
+                renderProfitLog();
+                calculateMargin();
+            }
+        }
+
+        // Initialize on load
+        window.onload = function() {
+            const today = new Date();
+            document.getElementById('estimateDate').value = today.toLocaleDateString();
+            calculateMargin();
+        };
+    </script>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div style="opacity: 0.6;">
+          <p>&copy; 2026 MintSheets. All Rights Reserved.</p>
+          <p style="font-size: 12px; margin-top: 10px;">
+            For support or technical inquiries, contact <a href="mailto:support@mintsheets.com" style="text-decoration: underline;">support@mintsheets.com</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+
+
+

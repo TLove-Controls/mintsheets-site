@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Split Sizing Calculator | BTU Calculator for Ductless Systems | MintSheets</title>
+<meta name="description" content="Free mini split sizing calculator. Find the right BTU capacity for single-zone and multi-zone ductless mini split systems based on room size, climate zone, and heat load factors.">
+<link rel="canonical" href="https://mintsheets.com/hvac-mini-split-sizing-calculator/" />
+<meta property="og:title" content="Mini Split Sizing Calculator | BTU Calculator for Ductless Systems | MintSheets" />
+<meta property="og:description" content="Free mini split sizing calculator. Find the right BTU capacity for single-zone and multi-zone ductless mini split systems." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://mintsheets.com/hvac-mini-split-sizing-calculator/" />
+<link rel="stylesheet" href="../styles.css?v=1.5">
+<link rel="stylesheet" href="../shared/css/calculators.css">
+<link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+</head>
+<body>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a href="/" class="brand">
+          <img src="../brand/logo-without-background.png" alt="MintSheets Logo">
+        </a>
+  
+        <nav class="nav-links">
+          <a href="/">Calculators</a>
+          <a href="/#troubleshooting-checklist">Free Guide</a>
+          <a href="mailto:support@mintsheets.com">Support</a>
+        </nav>
+        
+        <div class="header-actions">
+          <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container section-card">
+          <div style="margin-bottom: 30px; text-align: center;">
+            <div class="eyebrow">Technical Tool</div>
+            <h1 style="margin: 10px auto; max-width: none;">Mini Split Sizing Calculator (BTU Capacity Tool)</h1>
+            <p style="color: var(--muted);">BTU capacity calculator for single-zone and multi-zone ductless mini split systems.</p>
+            
+            <p style="margin-top: 20px; line-height: 1.6; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
+              The mini split sizing calculator determines the precise heating and cooling load for ductless zones. By accounting for room volume and climate, you can select the correct head capacity for your <a href="/hvac-load-calculator/" style="color: var(--primary); text-decoration: none;">Manual J sizing</a> and ensure maximum <a href="/hvac-energy-savings-calculator/" style="color: var(--primary); text-decoration: none;">energy efficiency</a>.
+            </p>
+          </div>
+
+          <!-- Ad Placeholder: Top Banner -->
+          <div class="ad-slot ad-top"></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 1 — ROOM ZONE INPUTS
+═══════════════════════════════════════════════════════════ -->
+<div class="section-banner"><span class="icon">🏠</span> SECTION 1 — ZONE / ROOM INPUT</div>
+<div class="card">
+  <div class="sub-header">Enter Zone Parameters — One Row Per Room or Zone</div>
+
+  <div class="table-scroll" style="overflow-x: auto;">
+    <table class="input-table" id="zoneTable" style="width:100%; border-collapse:collapse;">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Room / Zone</th>
+          <th>Sq Ft</th>
+          <th>Ceiling Ht (ft)</th>
+          <th>Climate Zone</th>
+          <th>Sunlight</th>
+          <th>Occupants</th>
+          <th>BTU Required</th>
+          <th>Tons</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody id="zoneTbody"></tbody>
+    </table>
+  </div>
+
+  <div class="btn-row" style="margin-top: 14px;">
+    <button class="btn-calc" onclick="addZone()">+ Add Zone / Room</button>
+    <button class="btn-reset" onclick="loadSampleZones()">⚡ Load Sample</button>
+    <button class="btn-reset" onclick="clearAllZones()">🗑 Clear All</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SECTION 2 — SYSTEM SUMMARY
+═══════════════════════════════════════════════════════════ -->
+<div class="section-banner"><span class="icon">📊</span> SECTION 2 — SYSTEM SIZING SUMMARY</div>
+<div class="results-box" id="summaryBox" style="display:none;">
+  <div class="form-grid">
+    <div style="text-align:center; border-right: 1px solid var(--line);">
+      <div class="result-label">Total Cooling BTU Required</div>
+      <div class="result-value" id="totalBTU">—</div>
+      <div class="result-label" style="margin-top:5px;" id="totalTons">— Tons</div>
+    </div>
+    <div style="text-align:center;">
+      <div class="result-label">Recommended System</div>
+      <div class="result-value" style="color: var(--accent);" id="recSystem">—</div>
+      <div class="result-label" style="margin-top:5px;" id="recNote">—</div>
+    </div>
+  </div>
+
+  <div class="sub-header" style="margin-top: 20px;">Recommended Mini Split Configuration</div>
+  <div class="table-scroll">
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <th>Zone</th>
+          <th>BTU Load</th>
+          <th>Recommended Head Capacity</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody id="recTbody"></tbody>
+    </table>
+  </div>
+
+  <div class="tips-box" style="margin-top:16px;">
+    <strong>⚡ Sizing Rules Applied</strong>
+    <ul>
+      <li>Base: 20 BTU per sq ft (Manual J simplified) adjusted for ceiling height and climate zone.</li>
+      <li>Sun exposure adds up to 10% to cooling load; north-facing rooms reduce it by 10%.</li>
+      <li>Each additional occupant beyond 2 adds 600 BTU/hr sensible load.</li>
+      <li>Always select the <strong>next standard size up</strong> from the calculated load.</li>
+      <li>Total multi-zone outdoor unit capacity = sum of all indoor head loads × 1.10 safety factor.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Ad Placeholder: Mid Content -->
+<div class="ad-slot ad-mid" style="margin-top: 20px;"></div>
+
+        </div>
+      </section>
+
+      <!-- SEO CONTENT SECTION -->
+      <section class="section" id="seo-content">
+        <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
+          <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">How to Use the Mini Split Sizing Calculator</h2>
+          <p style="margin-bottom: 15px;">
+            This <strong>mini split sizing calculator</strong> determines the correct BTU capacity for ductless mini split systems in residential and light commercial applications. Proper mini split sizing is critical — an undersized unit will struggle to maintain comfort, while an oversized unit will short-cycle, fail to dehumidify, and wear out prematurely.
+          </p>
+          <p style="margin-bottom: 15px;">
+            Add each room or zone you intend to condition, enter the square footage, ceiling height, climate zone, and any solar exposure factors. The tool applies a simplified Manual J methodology — 20 BTU per square foot at standard 8-ft ceilings — and adjusts for the additional variables you input. For a more rigorous load analysis, use the <a href="/hvac-load-calculator/" style="color: var(--primary); text-decoration: none;">full HVAC load calculator</a> which accounts for windows, insulation, and infiltration.
+          </p>
+
+          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">How Many BTUs Does a Mini Split Need?</h3>
+          <p style="margin-bottom: 15px;">
+            A common rule of thumb is <strong>20 BTU per square foot</strong> for standard residential spaces in a moderate climate. However, this can vary significantly. Rooms with high ceilings require more BTUs since there is more air volume to condition. Spaces with large south- or west-facing windows carry a higher solar gain load, especially in hot climates. Kitchens require additional capacity due to appliance heat.
+          </p>
+          <p style="margin-bottom: 15px;">
+            Standard mini split capacities are typically available in 6,000, 9,000, 12,000, 18,000, 24,000, and 36,000 BTU sizes (referred to as 0.5, 0.75, 1.0, 1.5, 2.0, and 3.0 tons respectively). For multi-zone systems, the outdoor condenser must be sized to handle the simultaneous load of all running indoor heads. Our calculator includes a 10% safety factor on the total outdoor unit recommendation.
+          </p>
+
+          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Mini Split vs. Central HVAC Sizing</h3>
+          <p style="margin-bottom: 25px;">
+            Unlike central systems, mini splits allow zone-by-zone control, so each head unit is sized independently to its zone's load. This differs from central <a href="/hvac-cfm-calculator/" style="color: var(--primary); text-decoration: none;">CFM and ductwork-based design</a> where a single air handler serves the entire structure. When adding a mini split to a home, always verify that your project's total load is supported — the <a href="/hvac-energy-savings-calculator/" style="color: var(--primary); text-decoration: none;">energy savings calculator</a> can help confirm the ROI of switching to high-SEER ductless equipment.
+          </p>
+
+          <h2 style="font-size: 26px; margin-top: 40px; margin-bottom: 20px; color: #fff;">Frequently Asked Questions</h2>
+          <div style="margin-bottom: 20px;">
+            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">What size mini split do I need for a 500 sq ft room?</h3>
+            <p>For a standard 500 sq ft room with 8-foot ceilings in a moderate climate, a 12,000 BTU (1.0 ton) mini split is typically sufficient. However, if the room has vaulted ceilings or large windows, you may need to step up to an 18,000 BTU unit.</p>
+          </div>
+          <div style="margin-bottom: 20px;">
+            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">Can I put a 12,000 BTU head on a 9,000 BTU multi-zone port?</h3>
+            <p>No. You must match the indoor head capacity to the specified port ratings of the outdoor condenser. Oversizing a head unit relative to a port can lead to refrigerant imbalances and poor performance. Always check the manufacturer's combination submittal sheet.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Ad Placeholder: Bottom Banner -->
+      <div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
+
+    </main>
+
+    <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+      <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+        <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">HVAC Load Calculator</a>
+          <a href="/hvac-cfm-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">CFM Calculator</a>
+          <a href="/hvac-energy-savings-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Energy Savings Calculator</a>
+          <a href="/hvac-airflow-per-room-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Airflow Per Room Calculator</a>
+          <a href="/hvac-duct-size-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Duct Size Calculator</a>
+        </div>
+        <p style="margin-top: 40px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      </div>
+    </footer>
+
+<script>
+/* ── STANDARD MINI SPLIT SIZES ──────────────────────────── */
+const MINI_SIZES = [6000, 9000, 12000, 18000, 24000, 36000, 48000];
+const CLIMATE = {
+  mild:    { label: 'Mild (Zone 1–2)', factor: 0.90 },
+  moderate:{ label: 'Moderate (Zone 3)', factor: 1.00 },
+  hot:     { label: 'Hot (Zone 4–5)',    factor: 1.10 },
+  extreme: { label: 'Extreme (Zone 6–8)',factor: 1.20 }
+};
+const SUN = {
+  low:    { label: 'Low / North-facing',  factor: 0.90 },
+  avg:    { label: 'Average',             factor: 1.00 },
+  high:   { label: 'High / South-West-facing', factor: 1.10 }
+};
+
+let zones = [];
+
+function nextMiniSize(btu) {
+  return MINI_SIZES.find(s => s >= btu) || MINI_SIZES[MINI_SIZES.length - 1];
+}
+
+function calcZoneBTU(sqft, ceilHt, climateKey, sunKey, occupants) {
+  const base = sqft * 20;                           // 20 BTU/sqft baseline
+  const heightFactor = ceilHt / 8;                 // scale for ceiling height
+  const climateFac = CLIMATE[climateKey]?.factor || 1.0;
+  const sunFac = SUN[sunKey]?.factor || 1.0;
+  const occAdd = Math.max(0, (occupants - 2)) * 600; // extra occupants beyond 2
+  return Math.round(base * heightFactor * climateFac * sunFac + occAdd);
+}
+
+function renderZones() {
+  const tbody = document.getElementById('zoneTbody');
+  if (!zones.length) {
+    tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;padding:14px;color:#556B82;font-style:italic;">No zones — click Add Zone or Load Sample to begin.</td></tr>';
+    document.getElementById('summaryBox').style.display = 'none';
+    return;
+  }
+
+  tbody.innerHTML = zones.map((z, i) => {
+    const btu = calcZoneBTU(z.sqft, z.ceil, z.climate, z.sun, z.occ);
+    const tons = (btu / 12000).toFixed(2);
+    const climOpts = Object.entries(CLIMATE).map(([k,v]) =>
+      `<option value="${k}" ${k===z.climate?'selected':''}>${v.label}</option>`).join('');
+    const sunOpts = Object.entries(SUN).map(([k,v]) =>
+      `<option value="${k}" ${k===z.sun?'selected':''}>${v.label}</option>`).join('');
+    return `<tr>
+      <td style="color:var(--muted)">${i+1}</td>
+      <td><input type="text" value="${esc(z.name)}" onchange="zones[${i}].name=this.value" style="width:120px;background:var(--panel-elevated);border:1px solid var(--line);color:var(--text);padding:4px 8px;font-size:13px;border-radius:4px;"></td>
+      <td><input type="number" value="${z.sqft}" min="50" onchange="zones[${i}].sqft=parseFloat(this.value)||0;renderZones()" style="width:75px;background:var(--panel-elevated);border:1px solid var(--line);color:var(--accent);padding:4px 8px;font-size:13px;border-radius:4px;"></td>
+      <td><input type="number" value="${z.ceil}" min="7" max="20" step="0.5" onchange="zones[${i}].ceil=parseFloat(this.value)||8;renderZones()" style="width:60px;background:var(--panel-elevated);border:1px solid var(--line);color:var(--text);padding:4px 8px;font-size:13px;border-radius:4px;"></td>
+      <td><select onchange="zones[${i}].climate=this.value;renderZones()" style="background:var(--panel-elevated);border:1px solid var(--line);color:var(--text);padding:4px 8px;font-size:12px;border-radius:4px;">${climOpts}</select></td>
+      <td><select onchange="zones[${i}].sun=this.value;renderZones()" style="background:var(--panel-elevated);border:1px solid var(--line);color:var(--text);padding:4px 8px;font-size:12px;border-radius:4px;">${sunOpts}</select></td>
+      <td><input type="number" value="${z.occ}" min="0" max="20" onchange="zones[${i}].occ=parseInt(this.value)||0;renderZones()" style="width:55px;background:var(--panel-elevated);border:1px solid var(--line);color:var(--text);padding:4px 8px;font-size:13px;border-radius:4px;"></td>
+      <td style="color:var(--primary);font-weight:700;font-family:monospace;">${btu.toLocaleString()} BTU</td>
+      <td style="color:var(--muted);font-family:monospace;">${tons} tons</td>
+      <td><button onclick="removeZone(${i})" style="background:none;border:1px solid #C44;color:#C44;border-radius:3px;padding:2px 8px;cursor:pointer;font-size:11px;">✕</button></td>
+    </tr>`;
+  }).join('');
+
+  updateSummary();
+}
+
+function updateSummary() {
+  if (!zones.length) return;
+  const loads = zones.map(z => calcZoneBTU(z.sqft, z.ceil, z.climate, z.sun, z.occ));
+  const totalBTU = loads.reduce((a,b) => a+b, 0);
+  const totalTons = (totalBTU / 12000).toFixed(2);
+  const outdoorBTU = Math.round(totalBTU * 1.1);
+  const outdoorSize = nextMiniSize(outdoorBTU);
+
+  document.getElementById('totalBTU').textContent = totalBTU.toLocaleString() + ' BTU/hr';
+  document.getElementById('totalTons').textContent = totalTons + ' Tons Total';
+  document.getElementById('recSystem').textContent = (outdoorBTU / 12000).toFixed(1) + ' Ton Outdoor Unit';
+  document.getElementById('recNote').textContent = outdoorSize.toLocaleString() + ' BTU condenser (incl. 10% safety factor)';
+
+  const recRows = zones.map((z, i) => {
+    const btu = loads[i];
+    const recSize = nextMiniSize(btu);
+    const type = recSize <= 12000 ? 'Single-zone or multi-zone head' : recSize <= 24000 ? 'Multi-zone head or small single-zone' : 'Large single-zone or cassette head';
+    return `<tr>
+      <td>${z.name}</td>
+      <td style="color:var(--primary);font-family:monospace;">${btu.toLocaleString()} BTU</td>
+      <td style="font-weight:700;color:var(--accent);">${(recSize/1000).toFixed(0)}k BTU (${(recSize/12000).toFixed(2)} ton) head</td>
+      <td style="font-size:12px;color:var(--muted);">${type}</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('recTbody').innerHTML = recRows;
+  document.getElementById('summaryBox').style.display = 'block';
+}
+
+function addZone() {
+  zones.push({ name: 'Zone ' + (zones.length + 1), sqft: 200, ceil: 9, climate: 'moderate', sun: 'avg', occ: 2 });
+  renderZones();
+}
+function removeZone(i) {
+  zones.splice(i, 1);
+  renderZones();
+}
+function clearAllZones() {
+  zones = [];
+  renderZones();
+}
+function loadSampleZones() {
+  zones = [
+    { name: 'Living Room',   sqft: 320, ceil: 9,  climate: 'moderate', sun: 'high', occ: 3 },
+    { name: 'Master Bedroom',sqft: 250, ceil: 9,  climate: 'moderate', sun: 'avg',  occ: 2 },
+    { name: 'Bedroom 2',     sqft: 180, ceil: 8,  climate: 'moderate', sun: 'low',  occ: 1 },
+    { name: 'Home Office',   sqft: 140, ceil: 8,  climate: 'moderate', sun: 'avg',  occ: 2 },
+  ];
+  renderZones();
+}
+function esc(s) { return String(s).replace(/"/g,'&quot;'); }
+
+// Init
+loadSampleZones();
+</script>
+</body>
+</html>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVAC Bid Calculator | HVAC Estimate, Pricing & Margin Tool | MintSheets</title>
+<meta name="description" content="Free online HVAC bid calculator for estimating job costs, labor, and profit margins. Professional pricing tool for residential and commercial HVAC contractors.">
+<link rel="canonical" href="https://mintsheets.com/hvac-bid-calculator/" />
+<meta property="og:title" content="HVAC Bid Calculator | HVAC Estimate, Pricing & Margin Tool | MintSheets" />
+<meta property="og:description" content="Free online HVAC bid calculator for estimating job costs, labor, and profit margins." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://mintsheets.com/hvac-bid-calculator/" />
+    <link rel="stylesheet" href="../styles.css?v=1.5">
+    <link rel="stylesheet" href="../shared/css/calculators.css?v=1.9">
+    <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+</head>
+<body>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a href="/" class="brand">
+          <img src="../brand/logo-without-background.png" alt="MintSheets Logo">
+        </a>
+  
+        <nav class="nav-links">
+          <a href="/">Calculators</a>
+          <a href="/#troubleshooting-checklist">Free Guide</a>
+          <a href="mailto:support@mintsheets.com">Support</a>
+        </nav>
+        
+        <div class="header-actions">
+          <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container section-card">
+          <div style="margin-bottom: 30px; text-align: center;">
+            <div class="eyebrow">Business Tool</div>
+            <h1 style="margin: 10px auto; max-width: none;">HVAC Bid Calculator (Estimate, Pricing & Profit Margin Tool)</h1>
+            <p style="color: var(--muted);">Create professional estimates, calculate labor burden, and protect your profit margins.</p>
+            
+            <p style="margin-top: 20px; line-height: 1.6; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
+              This HVAC bid calculator helps you create professional estimates, calculate labor burden, and protect your profit margins. Combine it with our <a href="/hvac-load-calculator/" style="color: var(--primary); text-decoration: none;">load calculator</a> for accurate sizing-based bids. Designed for HVAC contractors, technicians, and sales teams.
+            </p>
+
+            <div style="margin-top: 30px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+              <h2 style="font-size: 22px; color: #fff; margin-bottom: 15px;">What This Calculator Does</h2>
+              <p style="margin-bottom: 15px; color: var(--text-light);">
+                The HVAC Bid Calculator integrates specialized inputs for equipment, materials, and burdened labor costs to produce a comprehensive project estimate. It utilizes your raw job costs and applies a target gross margin percentage through an interactive slider, allowing you to visually adjust profitability in real-time.
+              </p>
+              <p style="margin-bottom: 15px; color: var(--text-light);">
+                Beyond simple arithmetic, the tool automatically generates a tiered Good, Better, and Best proposal. This functionality helps you present options to customers—like shifting from a standard 14.3 SEER2 unit to a high-efficiency 18 SEER2 system—without having to recalculate three separate bids from scratch.
+              </p>
+            </div>
+          </div>
+
+
+  <!-- Ad Placeholder: Top Banner -->
+          <div class="ad-slot ad-top"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 1: JOB INFO -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">📋</span> SECTION 1 — JOB INFORMATION
+  </div>
+  <div class="content">
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Customer Name</label>
+        <input type="text" id="custName" placeholder="First Last">
+      </div>
+      <div class="form-group">
+        <label>Service Address</label>
+        <input type="text" id="custAddr" placeholder="123 Main St, Rogers, AR">
+      </div>
+      <div class="form-group">
+        <label>Phone</label>
+        <input type="text" id="custPhone" placeholder="(479) 555-0100">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" id="custEmail" placeholder="customer@email.com">
+      </div>
+      <div class="form-group">
+        <label>Job Type</label>
+        <select id="jobType">
+          <option>New Installation</option>
+          <option>Replacement / Changeout</option>
+          <option>Repair</option>
+          <option>Maintenance Agreement</option>
+          <option>Duct Work</option>
+          <option>Commercial Service</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Estimate Date</label>
+        <input type="text" id="jobDate" placeholder="MM/DD/YYYY">
+      </div>
+      <div class="form-group">
+        <label>Technician / Salesperson</label>
+        <input type="text" id="techName" placeholder="Tech Name">
+      </div>
+      <div class="form-group">
+        <label>Estimate # </label>
+        <input type="text" id="estNum" placeholder="EST-2026-001">
+      </div>
+      <div class="form-group full">
+        <label>Job Notes / Scope of Work</label>
+        <textarea id="jobNotes" placeholder="Describe the scope of work, site conditions, access issues, special requirements..."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 2: SYSTEM SPECS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">🔧</span> SECTION 2 — SYSTEM SPECIFICATIONS
+  </div>
+  <div class="content">
+    <div class="form-grid">
+      <div class="form-group">
+        <label>System Type</label>
+        <select id="sysType">
+          <option>Split System A/C + Furnace</option>
+          <option>Heat Pump (Split)</option>
+          <option>Package Unit</option>
+          <option>Mini-Split (Ductless)</option>
+          <option>Geothermal</option>
+          <option>Boiler System</option>
+          <option>Commercial RTU</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tonnage / Capacity</label>
+        <select id="tonnage">
+          <option>1.5 Ton</option>
+          <option>2.0 Ton</option>
+          <option>2.5 Ton</option>
+          <option>3.0 Ton</option>
+          <option>3.5 Ton</option>
+          <option>4.0 Ton</option>
+          <option>5.0 Ton</option>
+          <option>7.5 Ton</option>
+          <option>10 Ton</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>SEER2 Rating</label>
+        <select id="seer">
+          <option>14.3 SEER2 (Standard)</option>
+          <option>15.2 SEER2</option>
+          <option>16 SEER2</option>
+          <option>18 SEER2</option>
+          <option>20+ SEER2 (High Efficiency)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Furnace AFUE</label>
+        <select id="afue">
+          <option>N/A (No Furnace)</option>
+          <option>80% AFUE</option>
+          <option>96% AFUE</option>
+          <option>98% AFUE</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Brand / Manufacturer</label>
+        <select id="brand">
+          <option>Lennox</option>
+          <option>Carrier</option>
+          <option>Trane</option>
+          <option>Rheem</option>
+          <option>Goodman</option>
+          <option>Amana</option>
+          <option>York</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Sq Ft Served</label>
+        <input type="number" id="sqft" placeholder="e.g. 2000">
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 3: LINE ITEMS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">💰</span> SECTION 3 — MATERIALS &amp; LABOR LINE ITEMS
+  </div>
+  <div class="content" style="padding-bottom: 0;">
+    <div class="sub-header">Equipment &amp; Materials</div>
+    <div class="spacer"></div>
+    <div class="table-scroll">
+    <table class="line-table" id="materialTable">
+      <thead>
+        <tr>
+          <th style="width:36%">Description</th>
+          <th style="width:12%">Qty</th>
+          <th style="width:16%">Unit Cost ($)</th>
+          <th style="width:16%">Extended ($)</th>
+          <th style="width:12%">Category</th>
+          <th class="no-print" style="width:8%">Del</th>
+        </tr>
+      </thead>
+      <tbody id="materialBody">
+        <!-- rows injected by JS -->
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" style="text-align:right; color: var(--muted);">Materials Subtotal:</td>
+          <td id="matTotal" style="color: var(--primary);">$0.00</td>
+          <td colspan="2"></td>
+        </tr>
+      </tfoot>
+    </table>
+    </div>
+    <div class="spacer"></div>
+    <div class="sub-header" style="margin-top:10px;">Labor</div>
+    <div class="spacer"></div>
+    <div class="table-scroll">
+    <table class="line-table" id="laborTable">
+      <thead>
+        <tr>
+          <th style="width:36%">Task / Description</th>
+          <th style="width:12%">Hours</th>
+          <th style="width:16%">Rate ($/hr)</th>
+          <th style="width:16%">Extended ($)</th>
+          <th style="width:12%">Type</th>
+          <th class="no-print" style="width:8%">Del</th>
+        </tr>
+      </thead>
+      <tbody id="laborBody"></tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" style="text-align:right; color: var(--muted);">Labor Subtotal:</td>
+          <td id="laborTotal" style="color: var(--primary);">$0.00</td>
+          <td colspan="2"></td>
+        </tr>
+      </tfoot>
+    </table>
+    </div>
+    <div class="spacer"></div>
+  </div>
+
+  <div class="btn-row no-print">
+    <button class="btn btn-steel btn-sm" onclick="addRow('material')">+ Add Material Line</button>
+    <button class="btn btn-steel btn-sm" onclick="addRow('labor')">+ Add Labor Line</button>
+    <button class="btn btn-outline btn-sm" onclick="loadDefaults()">⚡ Load Typical Defaults</button>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Ad Placeholder: Mid Content -->
+    <div class="ad-slot ad-mid"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 4: PRICING SUMMARY -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">📊</span> SECTION 4 — PRICING SUMMARY &amp; MARGIN CONTROL
+  </div>
+  <div class="summary-panel">
+    <div class="summary-left">
+      <div class="sub-header" style="margin-bottom:12px;">Adjustments</div>
+
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>Refrigerant Charge / Lbs</label>
+        <div style="display:flex;gap:8px;">
+          <input type="number" id="refLbs" placeholder="Lbs" style="width:80px;" oninput="recalc()">
+          <input type="number" id="refRate" placeholder="$/lb (e.g. 65)" style="flex:1;" oninput="recalc()">
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>Permit / Inspection Fee ($)</label>
+        <input type="number" id="permitFee" placeholder="0.00" oninput="recalc()">
+      </div>
+
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>Haul-Away / Disposal ($)</label>
+        <input type="number" id="disposalFee" placeholder="0.00" oninput="recalc()">
+      </div>
+
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>Discount / Coupon ($)</label>
+        <input type="number" id="discount" placeholder="0.00" oninput="recalc()">
+      </div>
+
+      <div class="form-group" style="margin-bottom:10px;">
+        <label>Tax Rate (%)</label>
+        <input type="number" id="taxRate" placeholder="8.5" value="8.5" oninput="recalc()">
+      </div>
+
+      <div class="form-group">
+        <label>Financing Option</label>
+        <select id="financing" onchange="recalc()">
+          <option value="0">No Financing</option>
+          <option value="3">12-Month SAC (+3%)</option>
+          <option value="5">18-Month SAC (+5%)</option>
+          <option value="8">60-Month (+8%)</option>
+          <option value="12">84-Month (+12%)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="summary-right">
+      <div style="font-size:13px;font-weight:bold;margin-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:8px;">
+        COST BREAKDOWN
+      </div>
+
+      <div class="margin-row">
+        <label>Overhead &amp; Profit Margin</label>
+        <input type="range" min="0" max="60" value="30" id="marginSlider" oninput="updateMargin()">
+        <div class="margin-badge" id="marginBadge">30%</div>
+      </div>
+
+      <div style="height:8px;"></div>
+      <div class="summary-row"><span>Materials Cost</span><span id="s-mat">$0.00</span></div>
+      <div class="summary-row"><span>Labor Cost</span><span id="s-lab">$0.00</span></div>
+      <div class="summary-row"><span>Refrigerant</span><span id="s-ref">$0.00</span></div>
+      <div class="summary-row"><span>Permit / Disposal</span><span id="s-fees">$0.00</span></div>
+      <div class="summary-row" style="border-top:1px solid rgba(255,255,255,0.3);margin-top:4px;padding-top:4px;">
+        <span>Raw Cost</span><span id="s-raw">$0.00</span>
+      </div>
+      <div class="summary-row"><span>Markup (<span id="s-mkpct">30</span>%)</span><span id="s-markup">$0.00</span></div>
+      <div class="summary-row"><span>Discount</span><span id="s-disc" style="color:#FF9966;">-$0.00</span></div>
+      <div class="summary-row"><span>Financing Fee</span><span id="s-fin">$0.00</span></div>
+      <div class="summary-row"><span>Tax</span><span id="s-tax">$0.00</span></div>
+      <div class="summary-row total">
+        <span class="label">TOTAL BID</span>
+        <span id="s-total">$0.00</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 5: GOOD/BETTER/BEST TIERS -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">🏆</span> SECTION 5 — GOOD / BETTER / BEST PROPOSAL TIERS
+    <span class="highlight">Auto-Calculated</span>
+  </div>
+  <div class="tier-grid">
+    <div class="tier-card good">
+      <div class="tier-header">⬛ GOOD</div>
+      <div class="tier-price" id="t-good">$0<small>Standard Efficiency</small></div>
+      <ul class="tier-features">
+        <li>Base system (14.3 SEER2)</li>
+        <li>Standard 1-yr parts &amp; labor</li>
+        <li>Basic digital thermostat</li>
+        <li>Standard installation</li>
+      </ul>
+    </div>
+    <div class="tier-card">
+      <div class="tier-header">🥈 BETTER</div>
+      <div class="tier-price" id="t-better">$0<small>Mid Efficiency (+8%)</small></div>
+      <ul class="tier-features">
+        <li>16 SEER2 system</li>
+        <li>2-yr parts &amp; labor warranty</li>
+        <li>Smart thermostat included</li>
+        <li>Premium air filter</li>
+      </ul>
+    </div>
+    <div class="tier-card best">
+      <div class="tier-header">🥇 BEST</div>
+      <div class="tier-price" id="t-best">$0<small>High Efficiency (+18%)</small></div>
+      <ul class="tier-features">
+        <li>18+ SEER2 system</li>
+        <li>5-yr parts &amp; labor warranty</li>
+        <li>Smart thermostat + zoning</li>
+        <li>UV air purifier included</li>
+        <li>Annual tune-up included</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 6: TRACKING LOG -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  <div class="section-banner">
+    <span class="icon">📝</span> SECTION 6 — BID TRACKING &amp; FOLLOW-UP LOG
+  </div>
+  <div class="content" style="padding-bottom: 0;">
+    <div class="table-scroll">
+    <table class="line-table" style="font-size:12px;">
+      <thead>
+        <tr>
+          <th>Customer</th>
+          <th>Est. #</th>
+          <th>Date</th>
+          <th>Bid Amount</th>
+          <th>Follow-Up</th>
+          <th>Status</th>
+          <th class="no-print">Action</th>
+        </tr>
+      </thead>
+      <tbody id="logBody">
+        <tr style="color:var(--muted);font-style:italic;">
+          <td colspan="7" style="text-align:center;padding:12px;">
+            No bids logged yet — click "Save to Log" to add this bid.
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="spacer"></div>
+  </div>
+
+  <!-- PRO TIPS -->
+  <div class="tips-box">
+    <strong>⚡ Pro Tips for Winning More Bids</strong><br>
+    Always present all three tiers in person — 60% of customers choose Better or Best when offered. · Lead with financing options to shift the conversation from price to monthly payment. · Include a photo of the old unit in the proposal to justify the replacement. · Follow up within 24 hours — bid acceptance drops by 40% after 3 days.
+  </div>
+
+  <!-- ACTION ROW -->
+  <div class="btn-row no-print" style="justify-content: space-between; align-items: center;">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <button class="btn btn-primary" onclick="saveBid()">💾 Save to Log</button>
+      <button class="btn btn-orange" onclick="window.print()">🖨️ Print / Save PDF</button>
+      <button class="btn btn-steel" onclick="clearAll()">🗑️ Clear All</button>
+    </div>
+    <div style="font-size:12px;color:var(--muted);">
+      Margin: <strong id="footer-margin" style="color:var(--primary);">30%</strong> &nbsp;|&nbsp;
+      Total: <strong id="footer-total" style="color:var(--accent);">$0.00</strong>
+    </div>
+  </div>
+
+        </div>
+      </section>
+    </main>
+
+    <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+      <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+        <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <a href="/hvac-flow-rate-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Flow Rate Calculator</a>
+          <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Load Calculator</a>
+          <a href="/hvac-service-price-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Service Price Calculator</a>
+          <a href="/hvac-duct-size-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Duct Size Calculator</a>
+        </div>
+        <p style="margin-top: 40px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+

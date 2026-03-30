@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVAC CFM Calculator | Airflow Per Room Calculator | CFM Per Square Foot | MintSheets</title>
+<meta name="description" content="Free HVAC CFM calculator. Calculate airflow per room by square footage, BTUH load, or air changes per hour. Size supply registers and verify total system airflow balance.">
+<link rel="canonical" href="https://mintsheets.com/hvac-cfm-calculator/" />
+<meta property="og:title" content="HVAC CFM Calculator | Airflow and Duct Capacity Tool | MintSheets" />
+<meta property="og:description" content="Free online HVAC CFM calculator. Determine required airflow for any room based on heat load or square footage." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://mintsheets.com/hvac-cfm-calculator/" />
+    <link rel="stylesheet" href="../styles.css?v=1.5">
+    <link rel="stylesheet" href="../shared/css/calculators.css?v=1.12">
+    <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+</head>
+<body>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a href="/" class="brand">
+          <img src="../brand/logo-without-background.png" alt="MintSheets Logo">
+        </a>
+  
+        <nav class="nav-links">
+          <a href="/">Calculators</a>
+          <a href="/#troubleshooting-checklist">Free Guide</a>
+          <a href="mailto:support@mintsheets.com">Support</a>
+        </nav>
+        
+        <div class="header-actions">
+          <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container section-card">
+          <div style="margin-bottom: 30px; text-align: center;">
+            <div class="eyebrow">Technical Tool</div>
+            <h1 style="margin: 10px auto; max-width: none;">HVAC CFM Calculator for Airflow Design</h1>
+            <p style="color: var(--muted);">Airflow Design & Verification Tool — Calculate required CFM per room, per square foot, and for total systems.</p>
+            
+            <p style="margin-top: 20px; line-height: 1.6; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
+              This HVAC CFM calculator helps you determine the required airflow for any room based on heat load or square footage. Proper CFM distribution is essential for balancing a system according to <a href="/hvac-load-calculator/" style="color: var(--primary); text-decoration: none;">ACCA Manual J</a> and Manual S standards. Designed for HVAC technicians and system designers.
+            </p>
+          </div>
+
+          <!-- Ad Placeholder: Top Banner -->
+          <div class="ad-slot ad-top"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 1 — ROOM CFM CALCULATOR
+  ═════════════════════════════════════════════════════════ -->
+  <div class="section-banner"><span class="icon">🏠</span> SECTION 1 — ROOM CFM CALCULATOR</div>
+  <div class="card">
+    <div class="sub-header">Room Parameters — Enter Values Below</div>
+    
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Calculation Method</label>
+        <select id="method" onchange="toggleMethod()">
+          <option value="sqft">By Square Footage (Manual J Simplified)</option>
+          <option value="acph">By Air Changes Per Hour (ACPH)</option>
+          <option value="btuh">By BTUH Load</option>
+        </select>
+      </div>
+      
+      <!-- SQFT METHOD -->
+      <div class="form-group method-sqft">
+        <label>Room Square Footage <span class="unit-label">(ft²)</span></label>
+        <input type="number" id="sqft" placeholder="e.g. 250" min="0">
+      </div>
+      <div class="form-group method-sqft">
+        <label>Ceiling Height <span class="unit-label">(ft)</span></label>
+        <input type="number" id="ceiling_h" placeholder="e.g. 9" min="0" value="9">
+      </div>
+      <div class="form-group method-sqft">
+        <label>CFM per Square Foot Factor</label>
+        <select id="cfm_factor">
+          <option value="0.5">0.5 — Light residential (mild climate)</option>
+          <option value="0.75" selected>0.75 — Standard residential</option>
+          <option value="1.0">1.0 — High-load / hot climate</option>
+          <option value="1.25">1.25 — Commercial / heavy internal loads</option>
+          <option value="custom">Custom factor…</option>
+        </select>
+        <input type="number" id="custom_factor" class="hidden" placeholder="e.g. 0.8" min="0.1" max="5" step="0.05" style="margin-top:4px;">
+      </div>
+
+      <!-- ACPH METHOD -->
+      <div class="form-group method-acph hidden">
+        <label>Room Volume <span class="unit-label">(ft³)</span></label>
+        <input type="number" id="room_vol" placeholder="e.g. 2250" min="0">
+      </div>
+      <div class="form-group method-acph hidden">
+        <label>Air Changes Per Hour (ACPH)</label>
+        <select id="acph_val">
+          <option value="4">4 — Bedrooms (ASHRAE 62.2)</option>
+          <option value="6" selected>6 — Living areas</option>
+          <option value="8">8 — Kitchens / baths</option>
+          <option value="10">10 — Commercial office</option>
+          <option value="15">15 — Retail / restaurant</option>
+          <option value="custom_acph">Custom…</option>
+        </select>
+        <input type="number" id="custom_acph" class="hidden" placeholder="e.g. 7" min="1" max="60" style="margin-top:4px;">
+      </div>
+
+      <!-- BTUH METHOD -->
+      <div class="form-group method-btuh hidden">
+        <label>Room Sensible Heat Load <span class="unit-label">(BTUH)</span></label>
+        <input type="number" id="btuh_load" placeholder="e.g. 6000" min="0">
+      </div>
+      <div class="form-group method-btuh hidden">
+        <label>Supply Air Temperature <span class="unit-label">(°F)</span></label>
+        <input type="number" id="supply_temp" placeholder="e.g. 55" min="40" max="75" value="55">
+      </div>
+      <div class="form-group method-btuh hidden">
+        <label>Room Design Temperature <span class="unit-label">(°F)</span></label>
+        <input type="number" id="room_temp" placeholder="e.g. 75" min="60" max="85" value="75">
+      </div>
+    </div>
+
+    <div class="btn-row" style="margin-top:20px;">
+      <button class="btn-calc" onclick="calcRoom()">⚡ CALCULATE CFM</button>
+      <button class="btn-reset" onclick="resetRoom()">↺ Reset</button>
+    </div>
+
+    <!-- RESULTS -->
+    <div id="room_results" class="hidden">
+      <div class="sub-header">📊 Results — Room CFM</div>
+      <div class="table-scroll"><table class="line-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Calculated</th>
+            <th>Unit</th>
+            <th>Spec / Guideline</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="room_tbody"></tbody>
+        <tfoot><tr id="room_tfoot"><td colspan="6">—</td></tr></tfoot>
+      </table></div>
+    </div>
+
+    <div class="tips-box">
+      <strong>⚡ Pro Tips — Room CFM</strong>
+      <ul>
+        <li>Manual J simplified: use 0.75 CFM/ft² for most NW Arkansas homes.</li>
+        <li>ACPH method is ideal for ventilation-critical spaces (kitchens, baths).</li>
+        <li>BTUH method is the most accurate — use post-load calc data when possible.</li>
+        <li>Minimum supply air: 50 CFM per room per ASHRAE 62.2.</li>
+      </ul>
+    </div>
+  </div>
+
+          <!-- Ad Placeholder: Mid Content -->
+          <div class="ad-slot ad-mid"></div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 2 — DUCT SIZING CALCULATOR
+  ═════════════════════════════════════════════════════════ -->
+  <div class="section-banner"><span class="icon">🔧</span> SECTION 2 — DUCT SIZING CALCULATOR</div>
+  <div class="card">
+    <div class="sub-header">Duct Parameters — Enter Airflow & Friction Rate</div>
+    
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Design CFM for Duct <span class="unit-label">(CFM)</span></label>
+        <input type="number" id="duct_cfm" placeholder="e.g. 400" min="1">
+      </div>
+      <div class="form-group">
+        <label>Friction Rate <span class="unit-label">(in. w.g./100 ft)</span></label>
+        <select id="friction">
+          <option value="0.06">0.06 — Low velocity / long runs</option>
+          <option value="0.08" selected>0.08 — Standard residential</option>
+          <option value="0.10">0.10 — Moderate velocity</option>
+          <option value="0.12">0.12 — Higher velocity / shorter runs</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Duct Shape</label>
+        <select id="duct_shape" onchange="toggleDuctShape()">
+          <option value="round">Round</option>
+          <option value="rect">Rectangular</option>
+          <option value="flex">Flexible (Flex Duct)</option>
+        </select>
+      </div>
+      <div class="form-group hidden" id="rect_row">
+        <label>Known Dimension (Width) <span class="unit-label">(in)</span></label>
+        <input type="number" id="rect_w" placeholder="e.g. 12" min="4" max="48">
+      </div>
+    </div>
+
+    <div class="btn-row" style="margin-top:20px;">
+      <button class="btn-calc" onclick="calcDuct()">⚡ SIZE MY DUCT</button>
+      <button class="btn-reset" onclick="resetDuct()">↺ Reset</button>
+    </div>
+
+    <div id="duct_results" class="hidden">
+      <div class="sub-header">📊 Results — Duct Sizing</div>
+      <div class="table-scroll"><table class="line-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Calculated</th>
+            <th>Unit</th>
+            <th>Spec</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="duct_tbody"></tbody>
+        <tfoot><tr id="duct_tfoot"><td colspan="6">—</td></tr></tfoot>
+      </table></div>
+    </div>
+
+    <div class="tips-box">
+      <strong>⚡ Pro Tips — Duct Sizing</strong>
+      <ul>
+        <li>Flex duct: derate velocity by ~15% vs. rigid sheet metal for the same CFM.</li>
+        <li>Target face velocity: 500–750 FPM for supply, 400–600 FPM for return.</li>
+        <li>Rule of thumb: 400 CFM per ton → 1-ton system needs ~400 CFM total.</li>
+        <li>Oversized ducts cause low velocity, poor throw, and comfort complaints.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════
+       SECTION 3 — SYSTEM TOTAL CFM & TONNAGE CHECK
+  ═════════════════════════════════════════════════════════ -->
+  <div class="section-banner"><span class="icon">📊</span> SECTION 3 — SYSTEM TOTAL CFM &amp; TONNAGE CHECK</div>
+  <div class="card">
+    <div class="sub-header">Equipment Parameters</div>
+    
+    <div class="form-grid">
+      <div class="form-group">
+        <label>System Tonnage <span class="unit-label">(tons)</span></label>
+        <input type="number" id="sys_tons" placeholder="e.g. 3" min="0.5" max="25" step="0.5">
+      </div>
+      <div class="form-group">
+        <label>Measured / Design Total CFM <span class="unit-label">(CFM)</span></label>
+        <input type="number" id="sys_cfm" placeholder="e.g. 1200" min="100">
+      </div>
+      <div class="form-group">
+        <label>Blower Motor Type</label>
+        <select id="blower_type">
+          <option value="psc">PSC (Single-speed)</option>
+          <option value="ecm">ECM / Variable Speed</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="btn-row" style="margin-top:20px;">
+      <button class="btn-calc" onclick="calcSystem()">⚡ CHECK SYSTEM CFM</button>
+      <button class="btn-reset" onclick="resetSystem()">↺ Reset</button>
+    </div>
+
+    <div id="sys_results" class="hidden">
+      <div class="sub-header">📊 Results — System Verification</div>
+      <div class="table-scroll"><table class="line-table">
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Measured</th>
+            <th>Unit</th>
+            <th>Spec</th>
+            <th>Status</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody id="sys_tbody"></tbody>
+        <tfoot><tr id="sys_tfoot"><td colspan="6">—</td></tr></tfoot>
+      </table></div>
+    </div>
+
+    <!-- INFO ROW -->
+    <div class="info-row">
+      <div class="info-cell">
+        <strong>🏆 Industry Standard</strong>
+        400 CFM/ton is the residential baseline per ACCA Manual D. Range 350–450 CFM/ton is acceptable.
+      </div>
+      <div class="info-cell">
+        <strong>🔧 ECM Advantage</strong>
+        ECM motors self-adjust to maintain target CFM regardless of static pressure. PSC motors lose CFM as static rises.
+      </div>
+      <div class="info-cell">
+        <strong>⚡ Commissioning Tip</strong>
+        Measure total external static pressure (TESP). At 0.5 in. w.g. TESP, most residential systems deliver rated CFM.
+      </div>
+    </div>
+  </div>
+
+        </div>
+      </section>
+
+      <!-- SEO CONTENT SECTION -->
+      <section class="section" id="seo-content">
+        <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
+          <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">How to Calculate CFM Per Room and Per Square Foot</h2>
+          <p style="margin-bottom: 15px;">
+            The <strong>HVAC CFM Calculator</strong> is designed for technicians and system designers who need to determine the required airflow for a space. Knowing the essential Cubic Feet per Minute (CFM) allows you to properly size a room’s ductwork and ensure sufficient heating and cooling capacity.
+          </p>
+          <p style="margin-bottom: 15px;">
+            This tool offers three methods to calculate airflow: 
+            <strong>1. Square Footage:</strong> A simplified Manual J proxy often used for rapid estimates. It typically assumes 0.75 CFM per sq. ft for standard residential spaces.
+            <strong>2. Air Changes Per Hour (ACPH):</strong> Best for ventilation-critical areas such as kitchens, bathrooms, or commercial spaces following ASHRAE 62.2 guidelines.
+            <strong>3. BTUH Load:</strong> The most accurate method. If you know the sensible heat load of the room, input it along with your design supply and room temperatures to calculate the exact CFM required.
+          </p>
+          
+          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Understanding Duct Capacity & Sizing</h3>
+          <p style="margin-bottom: 15px;">
+            Once you determine the room's CFM requirement, Section 2 of this tool acts as a dedicated <a href="/hvac-duct-size-calculator/" style="color: var(--primary); text-decoration: none;">duct sizing calculator</a>. By inputting the required CFM and a target friction rate (commonly 0.08 in. w.g./100 ft for standard residential), the calculator outputs the recommended rigid or flex duct dimension. Utilizing the correct duct size prevents high velocity noise issues and ensures the system can deliver its rated capacity without excessive static pressure penalties.
+          </p>
+          <p style="margin-bottom: 15px;">
+            If you need to verify an existing unit’s total system airflow during commissioning or a diagnostic call, you might also find the <a href="/hvac-flow-rate-calculator/" style="color: var(--primary); text-decoration: none;">flow rate calculator</a> useful. It calculates airflow based on field-measured static pressure or sensible temperature rise across the heat exchanger.
+          </p>
+
+          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">System Verification Check</h3>
+          <p style="margin-bottom: 15px;">
+            As an industry rule of thumb, most residential systems require roughly 400 CFM per ton of cooling capacity. Section 3 allows you to verify if your measured CFM falls within the acceptable range of 350 to 450 CFM per ton. If your system is undersupplied, it could indicate restrictive ductwork, a dirty evaporator coil, or a failing blower motor. An oversupplied reading could indicate excessive bypass or a severely oversized return.
+          </p>
+          <p style="margin-bottom: 25px;">
+            Always consult comprehensive tools like the <a href="/hvac-load-calculator/" style="color: var(--primary); text-decoration: none;">HVAC load calculator</a> before committing to final system tonnage and static design. Accurate calculation at the beginning of a job prevents costly callbacks and protects your bottom line—a concept you can analyze further with our <a href="/hvac-profit-margin-calculator/" style="color: var(--primary); text-decoration: none;">profit margin calculator</a>.
+          </p>
+        </div>
+      </section>
+
+      <!-- Ad Placeholder: Bottom Banner -->
+      <div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
+
+    </main>
+
+    <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+      <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+        <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <a href="/hvac-flow-rate-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Flow Rate Calculator</a>
+          <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Load Calculator</a>
+          <a href="/hvac-service-price-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Service Price Calculator</a>
+          <a href="/hvac-duct-size-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Duct Size Calculator</a>
+        </div>
+        <p style="margin-top: 40px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      </div>
+    </footer>
+
+<!-- ═══════════════════ JAVASCRIPT ═══════════════════════════ -->
+<script>
+/* ── HELPERS ──────────────────────────────────────────────── */
+const $ = id => document.getElementById(id);
+const show = id => $(id).classList.remove('hidden');
+const hide = id => $(id).classList.add('hidden');
+function badge(type, label) {
+  return `<span class="badge badge-${type}">${label}</span>`;
+}
+function row(param, val, unit, spec, status, notes) {
+  const b = status === 'PASS' ? badge('pass','✔ PASS')
+          : status === 'WARN' ? badge('warn','⚠ WARN')
+          : status === 'FAIL' ? badge('fail','✘ FAIL')
+          : badge('info', status);
+  return `<tr>
+    <td>${param}</td><td><strong>${val}</strong></td><td>${unit}</td>
+    <td>${spec}</td><td>${b}</td><td style="font-size:11.5px;color:var(--muted)">${notes}</td>
+  </tr>`;
+}
+function footRow(label, value, colspan=6) {
+  return `<td colspan="${colspan}">⚡ ${label}: <strong>${value}</strong></td>`;
+}
+
+/* ── METHOD TOGGLE ────────────────────────────────────────── */
+function toggleMethod() {
+  const m = $('method').value;
+  ['sqft','acph','btuh'].forEach(k => {
+    document.querySelectorAll('.method-'+k).forEach(el => el.classList.toggle('hidden', k !== m));
+  });
+  hide('room_results');
+}
+function toggleDuctShape() {
+  const s = $('duct_shape').value;
+  $('rect_row').classList.toggle('hidden', s !== 'rect');
+}
+
+/* ── CFM FACTOR CUSTOM ────────────────────────────────────── */
+$('cfm_factor').addEventListener('change', () => {
+  $('custom_factor').classList.toggle('hidden', $('cfm_factor').value !== 'custom');
+});
+$('acph_val').addEventListener('change', () => {
+  $('custom_acph').classList.toggle('hidden', $('acph_val').value !== 'custom_acph');
+});
+
+/* ══════════════════════════════════════════════════════════
+   CALC 1 — ROOM CFM
+══════════════════════════════════════════════════════════ */
+function calcRoom() {
+  const method = $('method').value;
+  let cfm, rows = '', secondaryRows = '';
+
+  if (method === 'sqft') {
+    const sf = parseFloat($('sqft').value);
+    const ch = parseFloat($('ceiling_h').value) || 9;
+    let factor = $('cfm_factor').value === 'custom'
+      ? parseFloat($('custom_factor').value)
+      : parseFloat($('cfm_factor').value);
+    if (!sf || !factor) { alert('Please enter square footage and factor.'); return; }
+    cfm = sf * factor;
+    const vol = sf * ch;
+    const acph = (cfm * 60) / vol;
+    rows += row('Room Square Footage', sf.toLocaleString(), 'ft²', '—', 'INFO', 'User input');
+    rows += row('CFM/ft² Factor Applied', factor.toFixed(2), 'CFM/ft²', '0.75 typical', 'INFO', 'Selected method');
+    rows += row('Required CFM', cfm.toFixed(0), 'CFM', '≥50 CFM min', cfm >= 50 ? 'PASS' : 'FAIL', 'ASHRAE 62.2 minimum');
+    rows += row('Implied Volume', vol.toFixed(0), 'ft³', '—', 'INFO', `At ${ch} ft ceiling`);
+    rows += row('Effective ACPH', acph.toFixed(1), 'ACH', '6–10 typical', (acph >= 4 && acph <= 15) ? 'PASS' : 'WARN', 'Cross-reference check');
+
+  } else if (method === 'acph') {
+    const vol = parseFloat($('room_vol').value);
+    let acph = $('acph_val').value === 'custom_acph'
+      ? parseFloat($('custom_acph').value)
+      : parseFloat($('acph_val').value);
+    if (!vol || !acph) { alert('Please enter room volume and ACPH.'); return; }
+    cfm = (vol * acph) / 60;
+    rows += row('Room Volume', vol.toLocaleString(), 'ft³', '—', 'INFO', 'User input');
+    rows += row('Air Changes Per Hour', acph.toFixed(0), 'ACH/hr', '4–15 typical', 'INFO', 'Selected value');
+    rows += row('Required CFM', cfm.toFixed(0), 'CFM', '≥50 CFM min', cfm >= 50 ? 'PASS' : 'WARN', 'ASHRAE 62.2');
+    rows += row('CFM/ft² Implied', (cfm / (vol / 8)).toFixed(2), 'CFM/ft²', '0.5–1.25', 'INFO', 'At 8 ft ceiling assumption');
+
+  } else { // btuh
+    const btuh = parseFloat($('btuh_load').value);
+    const ts   = parseFloat($('supply_temp').value) || 55;
+    const tr   = parseFloat($('room_temp').value) || 75;
+    if (!btuh) { alert('Please enter BTUH load.'); return; }
+    const dt = tr - ts;
+    if (dt <= 0) { alert('Room temp must be greater than supply temp.'); return; }
+    cfm = btuh / (1.08 * dt);
+    const status = cfm >= 50 ? 'PASS' : 'FAIL';
+    rows += row('Sensible Heat Load', btuh.toLocaleString(), 'BTUH', '—', 'INFO', 'User input');
+    rows += row('ΔT (Room − Supply)', dt.toFixed(0), '°F', '15–25°F typical', (dt>=15&&dt<=25)?'PASS':'WARN', 'Affects comfort & dehumidification');
+    rows += row('Required CFM', cfm.toFixed(0), 'CFM', '≥50 CFM min', status, 'Q=1.08×CFM×ΔT');
+    rows += row('Tons Implied', (btuh/12000).toFixed(2), 'tons', '—', 'INFO', 'Sensible only');
+  }
+
+  $('room_tbody').innerHTML = rows;
+  $('room_tfoot').innerHTML = footRow('Required Room CFM (Rounded)', Math.ceil(cfm/5)*5 + ' CFM');
+  show('room_results');
+}
+function resetRoom() {
+  ['sqft','ceiling_h','room_vol','btuh_load','supply_temp','room_temp','custom_factor','custom_acph'].forEach(id => $(id).value = '');
+  $('cfm_factor').value = '0.75'; $('acph_val').value = '6'; $('method').value = 'sqft';
+  toggleMethod(); hide('room_results');
+}
+
+/* ══════════════════════════════════════════════════════════
+   CALC 2 — DUCT SIZING
+══════════════════════════════════════════════════════════ */
+function calcDuct() {
+  const cfm = parseFloat($('duct_cfm').value);
+  const fr  = parseFloat($('friction').value);
+  const shape = $('duct_shape').value;
+  if (!cfm) { alert('Enter the design CFM for the duct.'); return; }
+
+  /* Diameter from friction chart approximation:
+     D = 1.3 * (cfm^0.625) / (fr^0.25) — Altshul-Tsal formula proxy */
+  let dFlex = 1.3 * Math.pow(cfm, 0.625) / Math.pow(fr * 100, 0.25);
+  /* Rigid round needs slightly smaller diameter */
+  let dRound = dFlex * 0.92;
+  /* Round up to nearest standard size */
+  const stds = [4,5,6,7,8,9,10,12,14,16,18,20,22,24];
+  const nextStd = d => stds.find(s => s >= d) || stds[stds.length-1];
+
+  const dRec  = shape === 'flex' ? nextStd(dFlex) : nextStd(dRound);
+  const area  = Math.PI * Math.pow(dRec/24, 2) / 4; // ft²
+  const vel   = cfm / area;
+  const velOk = vel >= 400 && vel <= 900;
+  let rows = '';
+
+  rows += row('Design CFM', cfm, 'CFM', '—', 'INFO', 'User input');
+  rows += row('Friction Rate', fr.toFixed(2), 'in. w.g./100 ft', '0.06–0.12', 'INFO', 'Per ACCA Manual D');
+  rows += row('Min Calculated Diameter', (shape==='flex' ? dFlex : dRound).toFixed(1), 'in', '—', 'INFO', 'Before rounding');
+  rows += row('Recommended Duct Size', dRec, 'in Ø', 'Next std size', 'PASS', shape === 'flex' ? 'Flex duct' : shape === 'rect' ? 'Rect equiv.' : 'Round rigid');
+  rows += row('Face Velocity', vel.toFixed(0), 'FPM', '400–900 FPM', velOk ? 'PASS' : 'WARN', vel < 400 ? 'Low — noise/comfort risk' : vel > 900 ? 'High — noise risk' : 'Acceptable');
+
+  if (shape === 'rect' && $('rect_w').value) {
+    const w = parseFloat($('rect_w').value);
+    const rectArea = Math.PI * Math.pow(dRec/2, 2); // in²
+    const h = Math.ceil(rectArea / w);
+    rows += row('Rectangular Equivalent', `${w}" × ${h}"`, 'in', `Equiv. to ${dRec}" Ø`, 'INFO', 'Width user-defined, height calculated');
+  }
+
+  $('duct_tbody').innerHTML = rows;
+  $('duct_tfoot').innerHTML = footRow('Recommended Size', `${dRec}" ${shape === 'flex' ? 'Flex' : 'Round'} — ${vel.toFixed(0)} FPM`);
+  show('duct_results');
+}
+function resetDuct() {
+  $('duct_cfm').value = ''; $('rect_w').value = '';
+  $('duct_shape').value = 'round'; $('friction').value = '0.08';
+  hide('rect_row'); hide('duct_results');
+}
+
+/* ══════════════════════════════════════════════════════════
+   CALC 3 — SYSTEM CHECK
+══════════════════════════════════════════════════════════ */
+function calcSystem() {
+  const tons  = parseFloat($('sys_tons').value);
+  const cfm   = parseFloat($('sys_cfm').value);
+  const blower = $('blower_type').value;
+  if (!tons || !cfm) { alert('Enter both tonnage and total CFM.'); return; }
+
+  const targetCfm   = tons * 400;
+  const cfmPerTon   = cfm / tons;
+  const deviation   = ((cfm - targetCfm) / targetCfm * 100);
+  const withinSpec  = Math.abs(deviation) <= 12.5; // ±50 CFM/ton tolerance
+  const status      = withinSpec ? 'PASS' : Math.abs(deviation) <= 20 ? 'WARN' : 'FAIL';
+
+  let rows = '';
+  rows += row('System Tonnage', tons.toFixed(1), 'tons', '—', 'INFO', 'Nameplate');
+  rows += row('Target CFM (400 CFM/ton)', targetCfm.toFixed(0), 'CFM', '—', 'INFO', 'ACCA baseline');
+  rows += row('Measured / Design CFM', cfm.toFixed(0), 'CFM', `${targetCfm-50}–${targetCfm+50} CFM`, status, 'Your system');
+  rows += row('CFM per Ton', cfmPerTon.toFixed(0), 'CFM/ton', '350–450', (cfmPerTon>=350&&cfmPerTon<=450)?'PASS':'WARN', 'Industry standard range');
+  rows += row('Deviation from Target', (deviation > 0 ? '+' : '') + deviation.toFixed(1) + '%', '%', '< ±12.5%', withinSpec ? 'PASS' : 'WARN', deviation < 0 ? 'Undersupplied — check for restrictions' : 'Oversupplied — check for bypass');
+  rows += row('Blower Type', blower === 'ecm' ? 'ECM / Variable Speed' : 'PSC Single-speed', '—', '—', blower === 'ecm' ? 'PASS' : 'INFO', blower === 'ecm' ? 'Self-compensating — best practice' : 'Verify at design static pressure');
+
+  $('sys_tbody').innerHTML = rows;
+  $('sys_tfoot').innerHTML = footRow('System Assessment', `${cfmPerTon.toFixed(0)} CFM/ton — ${status}`);
+  show('sys_results');
+}
+function resetSystem() {
+  $('sys_tons').value = ''; $('sys_cfm').value = '';
+  $('blower_type').value = 'psc'; hide('sys_results');
+}
+</script>
+
+    <!-- SEO CONTENT SECTION -->
+    <section class="section" id="seo-content">
+      <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
+        <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">Mastering HVAC Airflow Calculation</h2>
+        <p style="margin-bottom: 15px;">
+          The <strong>HVAC CFM Calculator</strong> is an essential tool for ensuring that every room in a building receives the correct volume of conditioned air. Whether you're designing a new system or troubleshooting an existing one, calculating the cubic feet per minute (CFM) requirements precisely is the key to maintaining comfortable temperatures and proper air circulation.
+        </p>
+        <p style="margin-bottom: 15px;">
+          Using square footage alone is often insufficient for modern homes. By utilizing the BTUH Load method, this tool allows for a much more nuanced approach to airflow distribution. It ensures that rooms with higher heat gain—such as those with large south-facing windows—receive disproportionately more airflow than interior rooms, creating a perfectly balanced environment.
+        </p>
+        
+        <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Technical Verification</h3>
+        <p style="margin-bottom: 15px;">
+          Technicians can leverage the Air Changes per Hour (ACPH) feature for specialized environments like kitchens or workshops where ventilation is as important as temperature control. Once your CFM targets are set, use our <a href="/hvac-duct-size-calculator/" style="color: var(--primary); text-decoration: none;">duct sizing tool</a> to select the appropriate register and branch duct dimensions to deliver that air silently.
+        </p>
+
+        <h2 style="font-size: 26px; margin-top: 40px; margin-bottom: 20px; color: #fff;">Frequently Asked Questions</h2>
+        <div style="margin-bottom: 20px;">
+          <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">How much CFM do I need per ton?</h3>
+          <p>The industry standard is 400 CFM per ton of cooling. However, in humid climates, this may be reduced to 350 CFM to increase latent heat removal. In dry climates or for high-altitude applications, it may be increased to 450 CFM.</p>
+        </div>
+        <div style="margin-bottom: 20px;">
+          <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">How do I calculate CFM per room?</h3>
+          <p>The most accurate way is to divide the room's sensible heat load by the total system sensible heat load, then multiply by the total system CFM. This ensures that the airflow is proportional to the heat gain of the space.</p>
+        </div>
+      </div>
+    </section>
+
+</body>
+</html>
+
+
+
+
+
+
+

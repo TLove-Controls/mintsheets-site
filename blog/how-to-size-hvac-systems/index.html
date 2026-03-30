@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Size an HVAC System Properly | HVAC Sizing Guide | MintSheets</title>
+<meta name="description" content="Step-by-step guide to properly sizing an HVAC system. Learn how to use Manual J load calculations, CFM design, duct sizing, and static pressure checks with free online HVAC calculators.">
+<link rel="canonical" href="https://mintsheets.com/blog/how-to-size-hvac-systems/" />
+<meta property="og:title" content="How to Size an HVAC System Properly | MintSheets" />
+<meta property="og:description" content="Step-by-step HVAC sizing guide. Manual J load calculations, CFM design, duct sizing, and static pressure checks — with free online calculators for every step." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mintsheets.com/blog/how-to-size-hvac-systems/" />
+<link rel="stylesheet" href="../../styles.css?v=1.5">
+<link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+<style>
+  .article-wrap {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+    color: var(--text-light);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .article-wrap h2 {
+    font-size: 26px;
+    color: #fff;
+    margin: 40px 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--primary);
+  }
+  .article-wrap h3 {
+    font-size: 20px;
+    color: var(--primary);
+    margin: 30px 0 12px;
+  }
+  .article-wrap p { margin-bottom: 16px; }
+  .article-wrap ul, .article-wrap ol { padding-left: 24px; margin-bottom: 16px; }
+  .article-wrap li { margin-bottom: 8px; }
+  .article-wrap a { color: var(--primary); text-decoration: none; }
+  .article-wrap a:hover { text-decoration: underline; }
+  .step-card {
+    background: linear-gradient(135deg, #0B1C35, #0F2240);
+    border: 1px solid #2A4A72;
+    border-left: 4px solid var(--primary);
+    border-radius: 10px;
+    padding: 24px;
+    margin: 24px 0;
+  }
+  .step-number {
+    display: inline-block;
+    background: var(--primary);
+    color: #000;
+    font-weight: 900;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 2px 10px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .step-card h3 { color: #fff; margin: 0 0 10px; font-size: 18px; }
+  .step-card p { color: var(--text-light); margin-bottom: 10px; }
+  .tool-link {
+    display: inline-block;
+    background: rgba(74, 175, 255, 0.12);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: background 0.2s;
+  }
+  .tool-link:hover { background: rgba(74,175,255,0.25); text-decoration: none; }
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .tool-card {
+    background: #0B1C35;
+    border: 1px solid #2A4A72;
+    border-radius: 10px;
+    padding: 16px;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+    display: block;
+  }
+  .tool-card:hover { border-color: var(--primary); background: #0E2040; text-decoration: none; }
+  .tool-card-label { font-size: 11px; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; font-weight: 700; margin-bottom: 6px; }
+  .tool-card-title { color: #fff; font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .tool-card-desc { color: #7A98B8; font-size: 13px; line-height: 1.5; }
+  .article-meta { color: #7A98B8; font-size: 14px; margin-bottom: 30px; }
+  .callout {
+    background: rgba(224,123,0,0.08);
+    border: 1px solid rgba(224,123,0,0.3);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 20px 0;
+    color: #E07B00;
+    font-size: 14px;
+  }
+  .callout strong { color: #fff; }
+</style>
+</head>
+<body>
+
+    <header class="site-header">
+      <div class="container nav">
+        <a href="/" class="brand">
+          <img src="../../brand/logo-without-background.png" alt="MintSheets Logo">
+        </a>
+        <nav class="nav-links">
+          <a href="/">Calculators</a>
+          <a href="/#troubleshooting-checklist">Free Guide</a>
+          <a href="mailto:support@mintsheets.com">Support</a>
+        </nav>
+        <div class="header-actions">
+          <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container">
+          <div class="article-wrap">
+
+            <div class="eyebrow" style="margin-bottom:12px;">HVAC Sizing Guide</div>
+            <h1 style="font-size: 36px; color: #fff; margin-bottom: 10px; line-height: 1.25;">How to Size an HVAC System Properly</h1>
+            <p class="article-meta">Technical guide for HVAC contractors, estimators, and technicians · Updated 2026</p>
+
+            <p>
+              Proper HVAC system sizing is one of the most critical factors determining a system's long-term performance, comfort delivery, and energy efficiency. A system that is too small will run continuously and fail to maintain comfort during peak demand. A system that is too large will short-cycle — turning on and off too frequently — preventing full dehumidification cycles and causing premature equipment wear.
+            </p>
+            <p>
+              This guide walks through the four essential technical steps used to correctly size a residential or light commercial HVAC system, and provides links to free online tools for each step.
+            </p>
+
+            <div class="callout">
+              <strong>Important:</strong> This guide covers a simplified systematic approach. For permitted projects, always follow full ACCA Manual J, S, and D protocol. The tools referenced here are excellent for rapid estimates, pre-sales engineering, and field verification.
+            </div>
+
+            <!-- TOOLS OVERVIEW -->
+            <h2>The Four Steps to Properly Sizing an HVAC System</h2>
+            <p>Proper sizing follows a sequential workflow. Each step feeds into the next, and skipping any one of them creates risk of poor performance or premature failure.</p>
+
+            <!-- STEP 1 -->
+            <div class="step-card">
+              <div class="step-number">Step 1</div>
+              <h3>Calculate Heating &amp; Cooling Loads</h3>
+              <p>
+                Before selecting equipment, you must know the building's <strong>peak heating and cooling loads</strong> expressed in BTU/hr (British Thermal Units per hour). This is the foundation of Manual J, the ACCA-published methodology for residential load calculations.
+              </p>
+              <p>
+                Load calculations account for all heat gains and losses through the building envelope: windows (by orientation, glazing type, and solar exposure), walls (by insulation R-value and construction type), ceilings, floors, infiltration/air leakage, and internal heat sources (people, lighting, appliances).
+              </p>
+              <ul>
+                <li>Cooling load → determines required equipment tonnage (1 ton = 12,000 BTU/hr)</li>
+                <li>Heating load → determines furnace or heat pump heating capacity (BTU/hr or kW)</li>
+              </ul>
+              <a href="/hvac-load-calculator/" class="tool-link">→ Use the HVAC Load Calculator</a>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="step-card">
+              <div class="step-number">Step 2</div>
+              <h3>Determine Airflow Requirements (CFM)</h3>
+              <p>
+                Once the total load is known, calculate the required total system airflow in Cubic Feet per Minute (CFM). The residential standard is approximately <strong>400 CFM per ton</strong> of cooling capacity, though this can range from 350–450 depending on sensible heat ratio (SHR) requirements and climate.
+              </p>
+              <p>
+                For a room-by-room system design, you must also calculate the individual airflow requirement for each space. This room-level CFM determines the number and size of supply registers for each room and directly drives your duct system design.
+              </p>
+              <ul>
+                <li>Total system CFM = Equipment tons × 400 CFM/ton</li>
+                <li>Room CFM = Room sensible BTU ÷ (1.08 × ΔT between supply and room temperature)</li>
+                <li>Simplified: 0.75 CFM per square foot for standard residential spaces</li>
+              </ul>
+              <div style="display:flex; gap:12px; flex-wrap:wrap;">
+                <a href="/hvac-cfm-calculator/" class="tool-link">→ CFM Calculator</a>
+                <a href="/hvac-airflow-per-room-calculator/" class="tool-link">→ Airflow Per Room Calculator</a>
+              </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="step-card">
+              <div class="step-number">Step 3</div>
+              <h3>Size the Ductwork</h3>
+              <p>
+                With CFM per zone or room determined, the duct system must be designed to deliver the required airflow without excessive pressure loss or noise. ACCA Manual D governs duct design and uses the <strong>Equal Friction Method</strong> — sizing all duct segments to a consistent friction rate, typically 0.08 in. water gauge per 100 feet.
+              </p>
+              <p>
+                For each duct segment, enter the CFM it must carry and the target friction rate to receive a recommended round or rectangular duct size, face velocity, and pressure drop.
+              </p>
+              <ul>
+                <li>Target face velocity: 500–750 FPM for branch supply ducts, 700–900 FPM for trunk mains</li>
+                <li>Return air duct: 300–600 FPM to minimize noise and static pressure</li>
+                <li>Flex duct requires 15–25% size upsize vs. rigid sheet metal at the same CFM</li>
+              </ul>
+              <a href="/hvac-duct-size-calculator/" class="tool-link">→ Duct Size Calculator</a>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="step-card">
+              <div class="step-number">Step 4</div>
+              <h3>Verify Static Pressure Budget</h3>
+              <p>
+                After designing the duct system, verify that all component pressure drops — filter, evaporator coil, accessories, supply duct, and return duct — sum to less than the equipment's rated Total External Static Pressure (TESP). Exceeding rated TESP reduces blower airflow and can void equipment warranties.
+              </p>
+              <p>
+                Most residential air handlers are rated for <strong>0.50 in. w.g. TESP</strong>. Design your system to consume no more than 80% of this budget (0.40 in. w.g.) so there is margin for filter loading over time.
+              </p>
+              <ul>
+                <li>Coil + filter typically consume 0.30–0.45 in. w.g. on their own</li>
+                <li>High-MERV filters (MERV 13+) can consume 0.20+ in. w.g. clean — reassess with high-efficiency filtration</li>
+                <li>Always measure TESP at commissioning and compare to nameplate</li>
+              </ul>
+              <a href="/hvac-static-pressure-calculator/" class="tool-link">→ Static Pressure Calculator</a>
+            </div>
+
+            <!-- TOOLS SUMMARY -->
+            <h2>Free HVAC Sizing Tools</h2>
+            <p>MintSheets provides browser-based calculators for each step of the HVAC sizing process. No login required, no app download:</p>
+
+            <div class="tools-grid">
+              <a href="/hvac-load-calculator/" class="tool-card">
+                <div class="tool-card-label">Step 1 — Loads</div>
+                <div class="tool-card-title">HVAC Load Calculator</div>
+                <div class="tool-card-desc">Manual J simplified. Heating/cooling loads by envelope, windows, and internal gains.</div>
+              </a>
+              <a href="/hvac-cfm-calculator/" class="tool-card">
+                <div class="tool-card-label">Step 2 — Airflow</div>
+                <div class="tool-card-title">CFM Calculator</div>
+                <div class="tool-card-desc">Calculate system and room CFM by sq ft, BTUH, or ACPH method.</div>
+              </a>
+              <a href="/hvac-airflow-per-room-calculator/" class="tool-card">
+                <div class="tool-card-label">Step 2 — Room Design</div>
+                <div class="tool-card-title">Airflow Per Room Calculator</div>
+                <div class="tool-card-desc">Multi-room CFM allocation with register sizing and balance check.</div>
+              </a>
+              <a href="/hvac-duct-size-calculator/" class="tool-card">
+                <div class="tool-card-label">Step 3 — Duct Design</div>
+                <div class="tool-card-title">Duct Size Calculator</div>
+                <div class="tool-card-desc">Round, rectangular, and flex duct sizing per ACCA Manual D. Includes TESP budget.</div>
+              </a>
+              <a href="/hvac-static-pressure-calculator/" class="tool-card">
+                <div class="tool-card-label">Step 4 — Verification</div>
+                <div class="tool-card-title">Static Pressure Calculator</div>
+                <div class="tool-card-desc">TESP budget analysis. Component-by-component static pressure breakdown.</div>
+              </a>
+              <a href="/hvac-mini-split-sizing-calculator/" class="tool-card">
+                <div class="tool-card-label">Ductless Systems</div>
+                <div class="tool-card-title">Mini Split Sizing Calculator</div>
+                <div class="tool-card-desc">BTU capacity calculator for single-zone and multi-zone ductless systems.</div>
+              </a>
+            </div>
+
+            <!-- COMMON MISTAKES -->
+            <h2>Common HVAC Sizing Mistakes to Avoid</h2>
+            <h3>1. Sizing by Square Footage Alone</h3>
+            <p>
+              The "rule of thumb" of 1 ton per 500–600 sq ft is dangerously imprecise. A well-insulated modern home in a mild climate may need 1 ton per 900 sq ft. A poorly insulated older home with large south-facing windows in a hot climate may need 1 ton per 350 sq ft. Always run a load calculation.
+            </p>
+
+            <h3>2. Ignoring Latent Load in Humid Climates</h3>
+            <p>
+              In humid climates (Gulf Coast, Southeast, Pacific Northwest), latent load — the energy required to remove moisture — can represent 30–40% of total load. Oversized systems that short-cycle cannot adequately dehumidify, leading to comfort complaints and mold risk even when temperatures are met.
+            </p>
+
+            <h3>3. Skipping Duct Design</h3>
+            <p>
+              Equipment sizing without duct design is incomplete. An improperly sized duct system creates high static pressure that reduces airflow below design, effectively undersizing the equipment after it's installed. Always design the duct system to match the equipment's rated CFM at its rated TESP.
+            </p>
+
+            <h3>4. Ignoring Existing Duct Conditions on Replacements</h3>
+            <p>
+              On replacement jobs, measure the existing system's actual airflow and TESP before specifying new equipment. Older duct systems often have insufficient return air, undersized branch ducts, or excessive leakage that will degrade even a properly sized new system.
+            </p>
+
+            <!-- RELATED -->
+            <h2>Related HVAC Calculators</h2>
+            <p>Beyond system sizing, MintSheets provides tools for the business side of HVAC contracting:</p>
+            <ul>
+              <li><a href="/hvac-bid-calculator/">HVAC Bid Calculator</a> — Job costing and markup for accurate proposal pricing</li>
+              <li><a href="/hvac-labor-cost-calculator/">Labor Burden Calculator</a> — Calculate the true loaded cost of your technicians</li>
+              <li><a href="/hvac-energy-savings-calculator/">Energy Savings Calculator</a> — Show customers projected ROI from high-efficiency equipment</li>
+              <li><a href="/hvac-profit-margin-calculator/">Profit Margin Calculator</a> — Verify job profitability after all costs</li>
+            </ul>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div style="opacity: 0.6;">
+          <p>&copy; 2026 MintSheets. All Rights Reserved.</p>
+          <p style="font-size: 12px; margin-top: 10px;">
+            For support or technical inquiries, contact <a href="mailto:support@mintsheets.com" style="text-decoration: underline;">support@mintsheets.com</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+</body>
+</html>
