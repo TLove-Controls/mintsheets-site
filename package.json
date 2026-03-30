@@ -1,0 +1,12 @@
+{
+  "name": "mintsheets-site-assets",
+  "version": "1.0.0",
+  "description": "Image optimization helpers for mintsheets-site",
+  "scripts": {
+    "optimize-images": "node scripts/optimize-images.js"
+  },
+  "dependencies": {
+    "glob": "^8.1.0",
+    "sharp": "^0.32.0"
+  }
+}

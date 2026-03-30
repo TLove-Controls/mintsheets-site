@@ -64,13 +64,26 @@
   </style>
   <link rel="preload" as="style" href="styles.min.css?v=1.5" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="styles.min.css?v=1.5"></noscript>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-83YSB6HWN4', { 'anonymize_ip': true });
+</script>
 </head>
 
 <body>
   <header class="site-header">
     <div class="container nav">
       <a href="/" class="brand">
-        <img src="brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80">
+        <picture>
+          <source type="image/avif" srcset="brand/logo-without-background.avif">
+          <source type="image/webp" srcset="brand/logo-without-background.webp">
+          <img src="brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        </picture>
       </a>
 
       <nav class="nav-links">
@@ -94,7 +107,11 @@
   <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
     <div class="mobile-nav-header">
       <a href="/" class="brand">
-        <img src="brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80">
+        <picture>
+          <source type="image/avif" srcset="brand/logo-without-background.avif">
+          <source type="image/webp" srcset="brand/logo-without-background.webp">
+          <img src="brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        </picture>
       </a>
       <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
         <span></span><span></span>
