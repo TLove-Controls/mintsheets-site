@@ -9,6 +9,9 @@
 
   <title>Free HVAC Calculators for Contractors, Technicians, and Estimators | MintSheets</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://mintsheets.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <meta name="description"
     content="Free online HVAC calculators for technicians, estimators, and contractors. Tools for load calculation, duct sizing, CFM, mini split sizing, static pressure, airflow per room, and business pricing." />
   <link rel="canonical" href="https://mintsheets.com/" />
@@ -20,9 +23,47 @@
     content="Professional HVAC field tools and business calculators. Accurate, fast, and mobile-ready for contractors and technicians." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mintsheets.com/" />
+  <meta property="og:image" content="https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free HVAC Calculators for Contractors, Technicians, and Estimators | MintSheets" />
+  <meta name="twitter:description" content="Professional HVAC field tools and business calculators. Accurate, fast, and mobile-ready for contractors and technicians." />
+  <meta name="twitter:image" content="https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png" />
 
-  <!-- Link to the root Stylesheet provided by user -->
-  <link rel="stylesheet" href="styles.css?v=1.5">
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://mintsheets.com/",
+    "name": "MintSheets",
+    "description": "Free HVAC calculators for contractors, technicians, and estimators.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "MintSheets"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://mintsheets.com/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <style>
+    /* Critical CSS for first paint and header/navigation */
+    .site-header{position:sticky;top:0;z-index:50;background:rgba(15,23,42,0.82);backdrop-filter:blur(10px);border-bottom:1px solid #334155}
+    .nav{min-height:78px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand img{height:80px;width:auto;display:block}
+    .nav-links{display:flex;align-items:center;gap:22px;color:#94A3B8;font-size:15px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 22px;border-radius:999px;font-weight:700;font-size:15px;border:1px solid transparent;transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease,background .22s ease,color .22s ease;white-space:nowrap;cursor:pointer}
+    .btn-primary{background:#2ECC71;color:#0F172A;box-shadow:0 1px 2px rgba(0,0,0,.25),0 0 24px rgba(46,204,113,.18)}
+    .btn-cta{background:#00FFA3;color:#0F172A;box-shadow:0 1px 2px rgba(0,0,0,.25),0 0 32px rgba(0,255,163,.22)}
+    .hamburger{display:none;cursor:pointer;gap:4px;flex-direction:column;justify-content:center;width:36px;height:36px;border:0;background:0 0}
+    .hamburger span{width:100%;height:3px;background:#fff;border-radius:2px;display:block;transition:transform .2s ease-in-out}
+    @media (max-width:768px){.nav-links{display:none}.hamburger{display:flex}}
+  </style>
+  <link rel="preload" as="style" href="styles.min.css?v=1.5" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="styles.min.css?v=1.5"></noscript>
 </head>
 
 <body>
@@ -334,7 +375,7 @@
           </div>
 
           <div style="margin-top: 40px; text-align: center;">
-            <img src="shared/images/hvac-troubleshooting-preview.png" alt="Troubleshooting Checklist Preview"
+            <img loading="lazy" src="shared/images/hvac-troubleshooting-preview.png" alt="Troubleshooting Checklist Preview"
               style="max-width: 100%; width: 400px; margin: 0 auto; border-radius: 18px; box-shadow: var(--shadow-lg);">
           </div>
         </div>
@@ -364,28 +405,45 @@
 
   <script>
   (function () {
-    var btn     = document.getElementById('hamburger-btn');
-    var nav     = document.getElementById('mobile-nav');
+    var btn = document.getElementById('hamburger-btn');
+    var nav = document.getElementById('mobile-nav');
     var overlay = document.getElementById('mobile-nav-overlay');
-    var close   = document.getElementById('mobile-nav-close');
-    if (!btn) return;
-    function openMenu() {
-      document.body.classList.add('menu-open');
-      btn.classList.add('active');
-      btn.setAttribute('aria-expanded', 'true');
-      nav.setAttribute('aria-hidden', 'false');
+    var close = document.getElementById('mobile-nav-close');
+    var firstLink = nav && nav.querySelector('a');
+
+    if (!btn || !nav) return;
+
+    function setMenuState(open) {
+      document.body.classList.toggle('menu-open', open);
+      btn.classList.toggle('active', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      nav.setAttribute('aria-hidden', open ? 'false' : 'true');
+      if (open && firstLink) firstLink.focus();
     }
-    function closeMenu() {
-      document.body.classList.remove('menu-open');
-      btn.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
-      nav.setAttribute('aria-hidden', 'true');
-    }
-    btn.addEventListener('click', openMenu);
-    close.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
+
+    function openMenu() { setMenuState(true); }
+    function closeMenu() { setMenuState(false); }
+
+    btn.addEventListener('click', function () { setMenuState(!btn.classList.contains('active')); });
+    close && close.addEventListener('click', closeMenu);
+    overlay && overlay.addEventListener('click', closeMenu);
+
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeMenu();
+      if (e.key === 'Tab' && document.body.classList.contains('menu-open')) {
+        var focusable = Array.prototype.slice.call(nav.querySelectorAll('a, button'));
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     });
   })();
   </script>

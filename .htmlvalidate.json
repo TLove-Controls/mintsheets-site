@@ -1,0 +1,9 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "attr-no-duplication": "error",
+    "doctype-html5": "error",
+    "no-inline-style": "warn",
+    "require-sri": "off"
+  }
+}
