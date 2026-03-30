@@ -786,18 +786,21 @@ input[type="range"]::-webkit-slider-thumb {
 /* ── TIPS BOX & INFO ROW & INFO BOX (CFM / Utility Calculators) ── */
 .tips-box,
 .info-box {
-    border-left: 4px solid var(--primary);
-    background: rgba(46, 204, 113, 0.14);
+    border-left: 4px solid var(--primary) !important;
+    background: rgba(46, 204, 113, 0.14) !important;
+    background-color: rgba(46, 204, 113, 0.14) !important;
     padding: 16px 24px;
     margin: 24px 0 0 0;
     font-size: 13px;
     line-height: 1.7;
-    color: var(--text);
+    color: var(--text) !important;
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
 }
 .tips-box strong,
 .info-box strong,
 .info-box .info-box-title { color: var(--primary); font-size: 14px; display: block; margin-bottom: 8px; font-weight: 800; }
+.tips-box ul,
+.info-box ul { margin: 0 0 0 20px; padding: 0; color: var(--text-light) !important; }
 .tips-box ul,
 .info-box ul { margin: 0 0 0 20px; padding: 0; color: var(--text-light); }
 .tips-box li,
