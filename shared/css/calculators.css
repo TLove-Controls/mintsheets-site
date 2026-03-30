@@ -787,7 +787,7 @@ input[type="range"]::-webkit-slider-thumb {
 .tips-box,
 .info-box {
     border-left: 4px solid var(--primary);
-    background: rgba(46, 204, 113, 0.05);
+    background: rgba(46, 204, 113, 0.14);
     padding: 16px 24px;
     margin: 24px 0 0 0;
     font-size: 13px;
