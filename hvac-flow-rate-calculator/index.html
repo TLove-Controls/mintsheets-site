@@ -31,8 +31,33 @@
         <div class="header-actions">
           <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
         </div>
+      <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
       </div>
     </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="brand">
+        <img src="../brand/logo-without-background.png" alt="MintSheets Logo">
+      </a>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
+      <li><a href="/blog/how-to-size-hvac-systems/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
+      <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
+      <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
+    </ul>
+    <div class="mobile-nav-cta">
+      <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary">Free Resources</a>
+    </div>
+  </nav>
 
     <main>
       <section class="section">
@@ -873,6 +898,35 @@ calcStatic();
         </div>
       </div>
     </footer>
+
+  <script>
+  (function () {
+    var btn     = document.getElementById('hamburger-btn');
+    var nav     = document.getElementById('mobile-nav');
+    var overlay = document.getElementById('mobile-nav-overlay');
+    var close   = document.getElementById('mobile-nav-close');
+    if (!btn) return;
+    function openMenu() {
+      document.body.classList.add('menu-open');
+      btn.classList.add('active');
+      btn.setAttribute('aria-expanded', 'true');
+      nav.setAttribute('aria-hidden', 'false');
+    }
+    function closeMenu() {
+      document.body.classList.remove('menu-open');
+      btn.classList.remove('active');
+      btn.setAttribute('aria-expanded', 'false');
+      nav.setAttribute('aria-hidden', 'true');
+    }
+    btn.addEventListener('click', openMenu);
+    close.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeMenu();
+    });
+  })();
+  </script>
+
 </body>
 </html>
 
