@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Calculate CFM for Each Room | HVAC Airflow Guide | MintSheets</title>
+<meta name="description" content="Learn how to calculate CFM for each room in a house. Three methods: square footage, sensible heat load, and ACPH. Includes free CFM and airflow calculators.">
+<link rel="canonical" href="https://mintsheets.com/blog/how-to-calculate-cfm-per-room/" />
+<meta property="og:title" content="How to Calculate CFM for Each Room | MintSheets" />
+<meta property="og:description" content="Step-by-step guide to calculating room CFM for HVAC system design. Three methods with worked examples and free calculators." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mintsheets.com/blog/how-to-calculate-cfm-per-room/" />
+<meta name="author" content="MintSheets" />
+<meta name="article:published_time" content="2026-04-01T00:00:00Z" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to Calculate CFM for Each Room","url":"https://mintsheets.com/blog/how-to-calculate-cfm-per-room/","author":{"@type":"Organization","name":"MintSheets"},"publisher":{"@type":"Organization","name":"MintSheets"},"datePublished":"2026-04-01"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://mintsheets.com/blog/"},{"@type":"ListItem","position":3,"name":"How to Calculate CFM for Each Room","item":"https://mintsheets.com/blog/how-to-calculate-cfm-per-room/"}]}
+</script>
+<link rel="stylesheet" href="../../styles.min.css?v=1.5">
+<link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+<style>
+  .article-wrap{max-width:820px;margin:0 auto;padding:0 20px 60px;color:var(--text-light);font-size:16px;line-height:1.75}
+  .article-wrap h2{font-size:26px;color:#fff;margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--primary)}
+  .article-wrap h3{font-size:20px;color:var(--primary);margin:30px 0 12px}
+  .article-wrap p{margin-bottom:16px}
+  .article-wrap ul,.article-wrap ol{padding-left:24px;margin-bottom:16px}
+  .article-wrap li{margin-bottom:8px}
+  .article-wrap a{color:var(--primary);text-decoration:none}
+  .article-wrap a:hover{text-decoration:underline}
+  .step-card{background:linear-gradient(135deg,#0B1C35,#0F2240);border:1px solid #2A4A72;border-left:4px solid var(--primary);border-radius:10px;padding:24px;margin:24px 0}
+  .step-number{display:inline-block;background:var(--primary);color:#000;font-weight:900;font-size:12px;border-radius:4px;padding:2px 10px;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
+  .step-card h3{color:#fff;margin:0 0 10px;font-size:18px}
+  .step-card p{color:var(--text-light);margin-bottom:10px}
+  .tool-link{display:inline-block;background:rgba(74,175,255,0.12);border:1px solid var(--primary);color:var(--primary);padding:8px 18px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;margin-top:8px;transition:background 0.2s}
+  .tool-link:hover{background:rgba(74,175,255,0.25);text-decoration:none}
+  .article-meta{color:#7A98B8;font-size:14px;margin-bottom:30px}
+  .callout{background:rgba(224,123,0,0.08);border:1px solid rgba(224,123,0,0.3);border-radius:8px;padding:16px 20px;margin:20px 0;color:#E07B00;font-size:14px}
+  .callout strong{color:#fff}
+  .formula-box{background:#0B1C35;border:1px solid #2A4A72;border-radius:8px;padding:20px 24px;margin:20px 0;font-family:monospace;font-size:15px;color:var(--primary)}
+  .formula-box p{color:var(--text-light);font-family:sans-serif;font-size:14px;margin-top:10px;margin-bottom:0}
+  .data-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+  .data-table th{background:#0B1C35;color:var(--primary);padding:10px 14px;text-align:left;border-bottom:2px solid var(--primary)}
+  .data-table td{padding:10px 14px;border-bottom:1px solid #1E3452;color:var(--text-light)}
+  .breadcrumb{font-size:13px;color:#7A98B8;margin:16px 0 0;padding:0 0 16px;border-bottom:1px solid #1E3452}
+  .breadcrumb a{color:var(--primary);text-decoration:none}
+  .breadcrumb span{margin:0 6px}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-83YSB6HWN4');</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <picture>
+          <source type="image/avif" srcset="../../brand/logo-without-background.avif">
+          <source type="image/webp" srcset="../../brand/logo-without-background.webp">
+          <img src="../../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        </picture>
+      </a>
+      <nav class="nav-links">
+        <a href="/">Calculators</a>
+        <a href="/blog/how-to-size-hvac-systems/">Blog</a>
+        <a href="/#troubleshooting-checklist">Free Guide</a>
+        <a href="mailto:support@mintsheets.com">Support</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height:40px;">Free Resources</a>
+      </div>
+      <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="brand">
+        <picture>
+          <source type="image/avif" srcset="../../brand/logo-without-background.avif">
+          <source type="image/webp" srcset="../../brand/logo-without-background.webp">
+          <img src="../../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        </picture>
+      </a>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><span></span><span></span></button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
+      <li><a href="/blog/how-to-size-hvac-systems/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
+      <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
+      <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
+    </ul>
+    <div class="mobile-nav-cta"><a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary">Free Resources</a></div>
+  </nav>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="article-wrap">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span>How to Calculate CFM for Each Room
+          </nav>
+          <div class="eyebrow" style="margin-bottom:12px;">HVAC Design Guide</div>
+          <h1 style="font-size:36px;color:#fff;margin-bottom:10px;line-height:1.25;">How to Calculate CFM for Each Room</h1>
+          <p class="article-meta">System design reference for HVAC contractors and estimators · Updated 2026</p>
+
+          <p>Calculating the correct CFM (cubic feet per minute) for each room is a fundamental step in HVAC system design. Without accurate room-level airflow numbers, you risk rooms that are too hot in summer, too cold in winter, or that suffer from persistent humidity problems — even if the equipment itself is properly sized.</p>
+          <p>This guide covers three methods for calculating room CFM: the square footage method, the sensible heat load method, and the air changes per hour (ACPH) method. Each has appropriate use cases.</p>
+
+          <div class="callout">
+            <strong>Key Concept:</strong> Room CFM is not the same as total system CFM. Total system CFM (approximately 400 CFM/ton) must be distributed across all rooms in proportion to each room's individual load.
+          </div>
+
+          <h2>Method 1: Square Footage Method</h2>
+          <p>The square footage method is the fastest approach and appropriate for preliminary estimates and pre-sales engineering.</p>
+          <div class="formula-box">
+            Room CFM = Room Area (sq ft) × CFM/sq ft factor
+            <p>Standard residential: 0.75–1.0 CFM/sq ft · Hot climates or older homes: 1.0–1.25 CFM/sq ft</p>
+          </div>
+          <p><strong>Example:</strong> 200 sq ft bedroom × 0.75 = <strong>150 CFM</strong></p>
+          <p>This method works when all rooms have similar construction and orientation. It becomes less accurate when rooms differ in solar exposure or insulation quality.</p>
+
+          <h2>Method 2: Sensible Heat Load (Preferred)</h2>
+          <p>The sensible heat load method is the technically correct approach per ACCA Manual J/D. It calculates room CFM based on each room's actual sensible cooling or heating load in BTU/hr.</p>
+          <div class="step-card">
+            <div class="step-number">Formula</div>
+            <h3>CFM from Sensible Load</h3>
+            <p><strong>Cooling:</strong> Room CFM = Sensible BTU ÷ (1.08 × ΔT)</p>
+            <p><strong>Heating:</strong> Room CFM = Heating BTU ÷ (1.08 × ΔT)</p>
+            <p style="font-size:13px;color:#7A98B8;">ΔT = temp difference between supply air and room setpoint. Cooling ΔT = 18–22°F; heating ΔT = 50–70°F.</p>
+            <a href="/hvac-cfm-calculator/" class="tool-link">→ CFM Calculator</a>
+          </div>
+          <p><strong>Example:</strong> South-facing 200 sq ft room, 4,500 BTU sensible load, ΔT = 20°F:</p>
+          <ul><li>CFM = 4,500 ÷ (1.08 × 20) = <strong>208 CFM</strong></li></ul>
+          <p>This is higher than the sq ft method would suggest — reflecting the higher solar load. That's why load-based calculation produces better results.</p>
+
+          <h2>Method 3: Air Changes Per Hour (ACPH)</h2>
+          <p>Used for commercial spaces, kitchens, bathrooms, and spaces with specific ventilation requirements.</p>
+          <div class="formula-box">
+            Room CFM = (Room Volume × ACPH) ÷ 60
+            <p>Room Volume = Length × Width × Ceiling Height (cubic feet)</p>
+          </div>
+          <table class="data-table">
+            <thead><tr><th>Space Type</th><th>ACPH</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Bedrooms</td><td>4–6</td><td>Comfort and IAQ baseline</td></tr>
+              <tr><td>Living areas</td><td>6–8</td><td>Higher occupancy</td></tr>
+              <tr><td>Kitchens</td><td>7–10</td><td>Heat and moisture</td></tr>
+              <tr><td>Bathrooms</td><td>8–10</td><td>Moisture removal</td></tr>
+              <tr><td>Home offices</td><td>6–8</td><td>Equipment heat load</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Allocating CFM Across All Rooms</h2>
+          <div class="step-card">
+            <div class="step-number">Step 1</div>
+            <h3>Sum All Room CFM Values</h3>
+            <p>Total room CFMs should not exceed the equipment's rated airflow (tons × 400 CFM/ton). If they do, re-evaluate your load calculations or consider a larger system.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">Step 2</div>
+            <h3>Assign Registers and Size Ducts</h3>
+            <p>Each room's CFM determines the number and size of supply registers, and the required branch duct diameter. A 6" round duct carries approximately 75–100 CFM.</p>
+            <a href="/hvac-airflow-per-room-calculator/" class="tool-link">→ Airflow Per Room Calculator</a>
+            <a href="/hvac-duct-size-calculator/" class="tool-link" style="margin-left:8px;">→ Duct Size Calculator</a>
+          </div>
+
+          <h2>Common CFM Calculation Mistakes</h2>
+          <ul>
+            <li><strong>Using square footage alone for solar-exposed rooms</strong> — south and west-facing rooms need significantly more CFM</li>
+            <li><strong>Not verifying room total against system total</strong> — oversupplying some rooms starves others</li>
+            <li><strong>Ignoring duct leakage</strong> — unsealed ducts lose 20–30% of airflow before reaching registers</li>
+          </ul>
+
+          <h2>Related HVAC Calculators</h2>
+          <ul>
+            <li><a href="/hvac-cfm-calculator/">CFM Calculator</a> — Calculate system and room CFM by sq ft, BTUH, or ACPH</li>
+            <li><a href="/hvac-airflow-per-room-calculator/">Airflow Per Room Calculator</a> — Multi-room CFM allocation with register sizing</li>
+            <li><a href="/hvac-duct-size-calculator/">Duct Size Calculator</a> — Size branch ducts based on room CFM values</li>
+            <li><a href="/hvac-load-calculator/">HVAC Load Calculator</a> — Get room-level sensible loads to feed into CFM formulas</li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="mint-footer" style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 20px;">
+      <h3 style="color:var(--primary);font-weight:900;font-size:18px;text-transform:uppercase;margin-bottom:20px;letter-spacing:1px;">Related HVAC Calculators</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;">
+        <a href="/hvac-cfm-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">CFM Calculator</a>
+        <a href="/hvac-airflow-per-room-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Airflow Per Room Calculator</a>
+        <a href="/hvac-duct-size-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Duct Size Calculator</a>
+        <a href="/hvac-load-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Load Calculator</a>
+      </div>
+      <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);">
+        <a href="/privacy-policy/" style="color:var(--muted);text-decoration:none;">Privacy Policy</a>
+        <a href="/terms-of-service/" style="color:var(--muted);text-decoration:none;">Terms of Service</a>
+        <a href="/disclaimer/" style="color:var(--muted);text-decoration:none;">Disclaimer</a>
+        <a href="/cookie-policy/" style="color:var(--muted);text-decoration:none;">Cookie Policy</a>
+      </div>
+      <p style="margin-top:20px;color:var(--muted);font-size:12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+    </div>
+  </footer>
+  <script>
+  (function(){var btn=document.getElementById('hamburger-btn');var nav=document.getElementById('mobile-nav');var overlay=document.getElementById('mobile-nav-overlay');var close=document.getElementById('mobile-nav-close');if(!btn)return;function openMenu(){document.body.classList.add('menu-open');btn.classList.add('active');btn.setAttribute('aria-expanded','true');nav.setAttribute('aria-hidden','false');}function closeMenu(){document.body.classList.remove('menu-open');btn.classList.remove('active');btn.setAttribute('aria-expanded','false');nav.setAttribute('aria-hidden','true');}btn.addEventListener('click',openMenu);close&&close.addEventListener('click',closeMenu);overlay&&overlay.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});})();
+  </script>
+</body>
+</html>

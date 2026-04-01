@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Duct Sizing Explained (With Chart) | HVAC Duct Design Guide | MintSheets</title>
+<meta name="description" content="Complete duct sizing guide for HVAC professionals. Learn the equal friction method, duct sizing charts, round vs rectangular sizing, and how to design a duct system per ACCA Manual D.">
+<link rel="canonical" href="https://mintsheets.com/blog/duct-sizing-explained/" />
+<meta property="og:title" content="Duct Sizing Explained (With Chart) | MintSheets" />
+<meta property="og:description" content="How to size HVAC ductwork using the equal friction method. Includes duct sizing charts, velocity limits, flex vs sheet metal rules, and free calculator." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://mintsheets.com/blog/duct-sizing-explained/" />
+<meta name="author" content="MintSheets" />
+<meta name="article:published_time" content="2026-04-01T00:00:00Z" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Duct Sizing Explained (With Chart)","url":"https://mintsheets.com/blog/duct-sizing-explained/","author":{"@type":"Organization","name":"MintSheets"},"publisher":{"@type":"Organization","name":"MintSheets"},"datePublished":"2026-04-01"}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://mintsheets.com/blog/"},{"@type":"ListItem","position":3,"name":"Duct Sizing Explained","item":"https://mintsheets.com/blog/duct-sizing-explained/"}]}
+</script>
+<link rel="stylesheet" href="../../styles.min.css?v=1.5">
+<link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+<style>
+  .article-wrap{max-width:820px;margin:0 auto;padding:0 20px 60px;color:var(--text-light);font-size:16px;line-height:1.75}
+  .article-wrap h2{font-size:26px;color:#fff;margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--primary)}
+  .article-wrap h3{font-size:20px;color:var(--primary);margin:30px 0 12px}
+  .article-wrap p{margin-bottom:16px}
+  .article-wrap ul,.article-wrap ol{padding-left:24px;margin-bottom:16px}
+  .article-wrap li{margin-bottom:8px}
+  .article-wrap a{color:var(--primary);text-decoration:none}
+  .article-wrap a:hover{text-decoration:underline}
+  .step-card{background:linear-gradient(135deg,#0B1C35,#0F2240);border:1px solid #2A4A72;border-left:4px solid var(--primary);border-radius:10px;padding:24px;margin:24px 0}
+  .step-number{display:inline-block;background:var(--primary);color:#000;font-weight:900;font-size:12px;border-radius:4px;padding:2px 10px;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
+  .step-card h3{color:#fff;margin:0 0 10px;font-size:18px}
+  .step-card p{color:var(--text-light);margin-bottom:10px}
+  .tool-link{display:inline-block;background:rgba(74,175,255,0.12);border:1px solid var(--primary);color:var(--primary);padding:8px 18px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;margin-top:8px;transition:background 0.2s}
+  .tool-link:hover{background:rgba(74,175,255,0.25);text-decoration:none}
+  .article-meta{color:#7A98B8;font-size:14px;margin-bottom:30px}
+  .callout{background:rgba(224,123,0,0.08);border:1px solid rgba(224,123,0,0.3);border-radius:8px;padding:16px 20px;margin:20px 0;color:#E07B00;font-size:14px}
+  .callout strong{color:#fff}
+  .data-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+  .data-table th{background:#0B1C35;color:var(--primary);padding:10px 14px;text-align:left;border-bottom:2px solid var(--primary)}
+  .data-table td{padding:10px 14px;border-bottom:1px solid #1E3452;color:var(--text-light)}
+  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .breadcrumb{font-size:13px;color:#7A98B8;margin:16px 0 0;padding:0 0 16px;border-bottom:1px solid #1E3452}
+  .breadcrumb a{color:var(--primary);text-decoration:none}
+  .breadcrumb span{margin:0 6px}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-83YSB6HWN4');</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <picture>
+          <source type="image/avif" srcset="../../brand/logo-without-background.avif">
+          <source type="image/webp" srcset="../../brand/logo-without-background.webp">
+          <img src="../../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        </picture>
+      </a>
+      <nav class="nav-links">
+        <a href="/">Calculators</a>
+        <a href="/blog/how-to-size-hvac-systems/">Blog</a>
+        <a href="/#troubleshooting-checklist">Free Guide</a>
+        <a href="mailto:support@mintsheets.com">Support</a>
+      </nav>
+      <div class="header-actions">
+        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height:40px;">Free Resources</a>
+      </div>
+      <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="brand">
+        <picture>
+          <source type="image/avif" srcset="../../brand/logo-without-background.avif">
+          <source type="image/webp" srcset="../../brand/logo-without-background.webp">
+          <img src="../../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        </picture>
+      </a>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><span></span><span></span></button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
+      <li><a href="/blog/how-to-size-hvac-systems/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
+      <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
+      <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
+    </ul>
+    <div class="mobile-nav-cta"><a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary">Free Resources</a></div>
+  </nav>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="article-wrap">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span>Duct Sizing Explained
+          </nav>
+          <div class="eyebrow" style="margin-bottom:12px;">HVAC Design Guide</div>
+          <h1 style="font-size:36px;color:#fff;margin-bottom:10px;line-height:1.25;">Duct Sizing Explained (With Chart)</h1>
+          <p class="article-meta">System design reference for HVAC contractors and system designers · Updated 2026</p>
+
+          <p>Duct sizing is one of the most critical — and most often skipped — aspects of HVAC system design. Improperly sized ductwork creates high static pressure, reduces airflow, creates noise, and undermines the performance of even a correctly sized piece of equipment. This guide explains how duct sizing works, how to use the equal friction method, and what the duct sizing charts tell you.</p>
+
+          <div class="callout">
+            <strong>Industry Standard:</strong> ACCA Manual D is the HVAC industry standard for residential duct system design. The equal friction method in Manual D sizes all duct segments to a consistent friction rate — typically 0.08 in. w.g. per 100 feet — so the system stays within budget.
+          </div>
+
+          <h2>Why Duct Sizing Matters</h2>
+          <p>Every duct segment creates friction as air flows through it. Small ducts create more friction per foot than large ducts at the same airflow. If a duct is too small for its required CFM, the resulting high velocity creates:</p>
+          <ul>
+            <li><strong>Excessive static pressure</strong> — reducing total system airflow and blower efficiency</li>
+            <li><strong>Duct noise</strong> — register noise, rumble, and whistling from high velocity</li>
+            <li><strong>Uneven room temperatures</strong> — some rooms get adequate airflow, others are starved</li>
+            <li><strong>System short cycling</strong> — high static triggers safety limits on some equipment</li>
+          </ul>
+          <p>Conversely, oversized ducts waste materials, cost more to install, and can create low-velocity problems including stratification and poor mixing in large rooms.</p>
+
+          <h2>The Equal Friction Method — Step by Step</h2>
+
+          <div class="step-card">
+            <div class="step-number">Step 1</div>
+            <h3>Determine Available Duct Static Budget</h3>
+            <p>Start with your equipment's rated TESP (typically 0.50 in. w.g.). Subtract all non-duct component pressure drops: evaporator coil (~0.25), supply filter (~0.10), grilles and diffusers (~0.05). The remainder is your <strong>available duct static budget</strong>.</p>
+            <p>Example: 0.50 − 0.25 − 0.10 − 0.05 = <strong>0.10 in. w.g. available for ducts</strong></p>
+            <a href="/hvac-static-pressure-calculator/" class="tool-link">→ Static Pressure Calculator</a>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">Step 2</div>
+            <h3>Calculate Friction Rate</h3>
+            <p>Divide the available duct static budget by the longest duct run (in hundreds of feet of equivalent length). This gives you the target friction rate in in. w.g. per 100 equivalent feet.</p>
+            <p>Example: 0.10 in. w.g. ÷ 1.25 (longest run = 125 equiv. ft.) = <strong>0.08 in. w.g./100 ft.</strong></p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">Step 3</div>
+            <h3>Look Up Duct Size from Chart</h3>
+            <p>Using the calculated friction rate and the CFM each duct segment must carry, use the duct sizing chart (or calculator) to find the appropriate round duct diameter or rectangular duct dimensions.</p>
+            <a href="/hvac-duct-size-calculator/" class="tool-link">→ Duct Size Calculator</a>
+          </div>
+
+          <h2>Duct Sizing Chart: Round Duct (Rigid Sheet Metal)</h2>
+          <p>The following table shows approximate round duct sizes at a friction rate of 0.08 in. w.g./100 ft. for rigid sheet metal ductwork:</p>
+
+          <div class="table-scroll">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Round Duct Diameter</th>
+                  <th>Approx. Max CFM (0.08 FR)</th>
+                  <th>Face Velocity (FPM)</th>
+                  <th>Typical Use</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>4"</td><td>30–45 CFM</td><td>340–510</td><td>Small branch, bathroom</td></tr>
+                <tr><td>5"</td><td>55–75 CFM</td><td>400–550</td><td>Small bedroom branch</td></tr>
+                <tr><td>6"</td><td>85–110 CFM</td><td>430–560</td><td>Standard bedroom branch</td></tr>
+                <tr><td>7"</td><td>125–160 CFM</td><td>460–590</td><td>Larger bedroom or great room</td></tr>
+                <tr><td>8"</td><td>175–220 CFM</td><td>500–630</td><td>Large room or sub-trunk</td></tr>
+                <tr><td>10"</td><td>280–360 CFM</td><td>510–650</td><td>Main trunk section</td></tr>
+                <tr><td>12"</td><td>420–540 CFM</td><td>530–680</td><td>Trunk near air handler</td></tr>
+                <tr><td>14"</td><td>590–760 CFM</td><td>550–700</td><td>Main supply trunk</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <h2>Flex Duct vs. Rigid Sheet Metal</h2>
+          <p>Flex duct is commonly used in residential construction due to its lower labor cost and ease of installation. However, flex duct has significantly higher friction than equivalent rigid metal:</p>
+          <ul>
+            <li>Flex duct creates approximately <strong>30–50% more friction</strong> than rigid metal at the same diameter and CFM</li>
+            <li>This means a 6" flex duct carries only about 65–75 CFM vs. 85–100 CFM for 6" rigid at 0.08 FR</li>
+            <li>To achieve the same capacity, flex duct typically needs to be <strong>1–2 sizes larger</strong> than rigid metal</li>
+            <li>Compressed or bent flex duct dramatically increases friction — keep runs straight and fully extended</li>
+          </ul>
+
+          <h2>Velocity Limits for HVAC Ductwork</h2>
+          <p>Even if a duct is "correctly sized" by friction rate, it must also respect face velocity limits for noise control:</p>
+          <table class="data-table">
+            <thead><tr><th>Duct Location</th><th>Max Recommended Velocity (FPM)</th></tr></thead>
+            <tbody>
+              <tr><td>Supply trunk mains</td><td>700–900 FPM</td></tr>
+              <tr><td>Supply branch ducts</td><td>500–750 FPM</td></tr>
+              <tr><td>Return mains</td><td>500–700 FPM</td></tr>
+              <tr><td>Return branches</td><td>400–600 FPM</td></tr>
+              <tr><td>Supply registers/diffusers</td><td>300–500 FPM throw velocity</td></tr>
+            </tbody>
+          </table>
+
+          <h2>Common Duct Sizing Mistakes</h2>
+          <ul>
+            <li><strong>Using 1/4" per ton rules of thumb</strong> — these rules are unreliable and often produce undersized return systems</li>
+            <li><strong>Not accounting for equivalent length</strong> — elbows, tees, and transitions add friction equivalent to many feet of straight duct</li>
+            <li><strong>Installing kinked flex duct</strong> — a single 90° kink in a 6" flex can increase its effective resistance by 50–100%</li>
+            <li><strong>Forgetting the return air system</strong> — return ducts are as important as supply ducts; undersized returns are the #1 cause of high static pressure</li>
+          </ul>
+
+          <h2>Related HVAC Tools</h2>
+          <ul>
+            <li><a href="/hvac-duct-size-calculator/">Duct Size Calculator</a> — Size round and rectangular ducts by CFM and friction rate</li>
+            <li><a href="/hvac-static-pressure-calculator/">Static Pressure Calculator</a> — Verify total system TESP and duct budget</li>
+            <li><a href="/hvac-cfm-calculator/">CFM Calculator</a> — Calculate room and system airflow requirements</li>
+            <li><a href="/hvac-airflow-per-room-calculator/">Airflow Per Room Calculator</a> — Multi-room CFM allocation for duct design input</li>
+          </ul>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="mint-footer" style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 20px;">
+      <h3 style="color:var(--primary);font-weight:900;font-size:18px;text-transform:uppercase;margin-bottom:20px;letter-spacing:1px;">Related HVAC Calculators</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;">
+        <a href="/hvac-duct-size-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Duct Size Calculator</a>
+        <a href="/hvac-static-pressure-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Static Pressure Calculator</a>
+        <a href="/hvac-cfm-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">CFM Calculator</a>
+        <a href="/hvac-airflow-per-room-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Airflow Per Room Calculator</a>
+      </div>
+      <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);">
+        <a href="/privacy-policy/" style="color:var(--muted);text-decoration:none;">Privacy Policy</a>
+        <a href="/terms-of-service/" style="color:var(--muted);text-decoration:none;">Terms of Service</a>
+        <a href="/disclaimer/" style="color:var(--muted);text-decoration:none;">Disclaimer</a>
+        <a href="/cookie-policy/" style="color:var(--muted);text-decoration:none;">Cookie Policy</a>
+      </div>
+      <p style="margin-top:20px;color:var(--muted);font-size:12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+    </div>
+  </footer>
+  <script>
+  (function(){var btn=document.getElementById('hamburger-btn');var nav=document.getElementById('mobile-nav');var overlay=document.getElementById('mobile-nav-overlay');var close=document.getElementById('mobile-nav-close');if(!btn)return;function openMenu(){document.body.classList.add('menu-open');btn.classList.add('active');btn.setAttribute('aria-expanded','true');nav.setAttribute('aria-hidden','false');}function closeMenu(){document.body.classList.remove('menu-open');btn.classList.remove('active');btn.setAttribute('aria-expanded','false');nav.setAttribute('aria-hidden','true');}btn.addEventListener('click',openMenu);close&&close.addEventListener('click',closeMenu);overlay&&overlay.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});})();
+  </script>
+</body>
+</html>
