@@ -524,13 +524,34 @@
       
       if (isNaN(cfm) || cfm <= 0 || isNaN(f)) { alert('Enter valid airflow and friction.'); return; }
       
-      let d = Math.pow((cfm / (0.785 * 700)), 0.5) * 12; // 700 FPM target
-      const status = 'PASS';
-      const notes = `${shape.charAt(0).toUpperCase() + shape.slice(1)} duct at ${f} friction`;
+      // Professional design formula (Ductulator approximation)
+      // d = 1.3 * Q^0.625 / f^0.25 (where f is per 100ft)
+      const f100 = f * 100;
+      let d_eq = 1.3 * Math.pow(cfm, 0.625) / Math.pow(shape === 'flex' ? f100 * 0.85 : f100, 0.25);
       
-      $('duct_tbody').innerHTML = row('Recommended Dimension', d.toFixed(1), 'in', status, notes);
+      let resVal = '';
+      let resLabel = 'Recommended Dimension';
+      let notes = '';
+      
+      if (shape === 'rect') {
+        const w = parseFloat($('rect_w').value);
+        if (isNaN(w) || w <= 0) { alert('Please enter a width for rectangular duct.'); return; }
+        // Equivalent diameter conversion to Rectangular: h = (pi * d_eq^2) / (4 * w)
+        const h = Math.ceil((Math.PI * Math.pow(d_eq, 2) / 4) / w);
+        resVal = `${w}" x ${h}"`;
+        resLabel = 'Recommended Rect. Size';
+        notes = `Rectangular duct at ${f} friction. Round equivalent: ${d_eq.toFixed(1)}"`;
+      } else {
+        resVal = d_eq.toFixed(1) + '"';
+        resLabel = shape === 'flex' ? 'Recommended Flex Size' : 'Recommended Round Size';
+        notes = `${shape.charAt(0).toUpperCase() + shape.slice(1)} duct at ${f} friction.`;
+      }
+      
+      const status = 'PASS';
+      $('duct_tbody').innerHTML = row(resLabel, resVal, 'in', status, notes);
       show('duct_results');
     }
+
 
     function calcSystem() {
       const tons = parseFloat($('sys_tons').value);
