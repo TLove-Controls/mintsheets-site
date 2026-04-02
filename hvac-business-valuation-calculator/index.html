@@ -50,44 +50,57 @@
 </head>
 <body class="has-sticky-ad">
 
-<header class="site-header">
-  <div class="container nav">
-    <a href="/" class="brand"><img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager"></a>
-    <nav class="nav-links">
-      <a href="/">Calculators</a>
-      <a href="/#troubleshooting-checklist">Free Guide</a>
-      <a href="mailto:support@mintsheets.com">Support</a>
-    </nav>
-    <div class="header-actions">
-      <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
-    </div>
-    <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
+      </a>
 
-<div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
-<nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
-  <div class="mobile-nav-header">
-    <a href="/" class="brand"><img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager"></a>
-    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
-      <span></span><span></span>
-    </button>
-  </div>
-  <ul class="mobile-nav-links">
-    <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
-    <li><a href="/blog/"><span class="nav-icon">&#x1F4DD;</span> Blogs</a></li>
-    <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
-    <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
-  </ul>
-</nav>
+      <nav class="nav-links">
+        <a href="/">Calculators</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#troubleshooting-checklist">Free Guide</a>
+        <a href="mailto:support@mintsheets.com">Support</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+      </div>
+      <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+    <!-- Mobile Navigation -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="brand">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
+      </a>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
+      <li><a href="/blog/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
+      <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
+      <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
+    </ul>
+    <div class="mobile-nav-cta">
+      <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary">Free Resources</a>
+    </div>
+  </nav>
 
 <main>
   <div class="breadcrumb-bar">
     <div class="container">
-      <a href="/">Home</a><span>â€º</span>
-      <a href="/hvac-calculators/">HVAC Calculators</a><span>â€º</span>
+      <a href="/">Home</a><span>›</span>
+      <a href="/hvac-calculators/">HVAC Calculators</a><span>›</span>
       Business Valuation Calculator
     </div>
   </div>
@@ -248,3 +261,7 @@ calc();
   </div>
 </body>
 </html>
+
+
+
+
