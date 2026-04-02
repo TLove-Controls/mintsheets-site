@@ -1,62 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-
-
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7177850851908341"
-     crossorigin="anonymous"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>All Free HVAC Calculators | Complete Tool Directory | MintSheets</title>
-<meta name="description" content="Complete directory of free HVAC calculators for contractors, technicians, and estimators. Tools for load calculation, CFM, duct sizing, static pressure, mini split sizing, pricing, and more.">
-<link rel="canonical" href="https://mintsheets.com/hvac-calculators/" />
-<meta property="og:title" content="All Free HVAC Calculators | MintSheets" />
-<meta property="og:description" content="Complete directory of free HVAC calculators. Technical tools for load calculation, CFM, duct sizing, and static pressure. Business tools for pricing, bidding, and margins." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://mintsheets.com/hvac-calculators/" />
-<meta property="og:image" content="https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="All Free HVAC Calculators | MintSheets" />
-<meta name="twitter:description" content="Complete directory of free HVAC calculators for technicians, contractors, and estimators." />
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "All Free HVAC Calculators",
-  "description": "Complete directory of free HVAC calculators for contractors, technicians, and estimators.",
-  "url": "https://mintsheets.com/hvac-calculators/",
-  "publisher": {"@type": "Organization", "name": "MintSheets"}
-}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"All HVAC Calculators","item":"https://mintsheets.com/hvac-calculators/"}]}
-</script>
-<link rel="stylesheet" href="../styles.min.css?v=1.5">
-<link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
-<style>
-  .calc-index-wrap{max-width:1100px;margin:0 auto;padding:0 20px 60px}
-  .calc-category{margin-bottom:50px}
-  .calc-category h2{font-size:22px;color:var(--primary);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;font-weight:900}
-  .calc-category .cat-desc{color:#7A98B8;font-size:14px;margin-bottom:24px}
-  .calc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-  .calc-card{background:linear-gradient(135deg,#0B1C35,#0F2240);border:1px solid #2A4A72;border-radius:12px;padding:22px;text-decoration:none;display:block;transition:border-color 0.2s,transform 0.2s}
-  .calc-card:hover{border-color:var(--primary);transform:translateY(-2px);text-decoration:none}
-  .calc-badge{font-size:10px;color:var(--primary);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:8px}
-  .calc-card h3{color:#fff;font-size:16px;margin:0 0 8px;font-weight:700}
-  .calc-card p{color:#7A98B8;font-size:13px;line-height:1.55;margin:0 0 14px}
-  .calc-card .open-link{color:var(--primary);font-size:13px;font-weight:700}
-  .page-intro{max-width:760px;margin:0 auto 50px;text-align:center;color:var(--text-light);font-size:16px;line-height:1.7}
-  .breadcrumb{font-size:13px;color:#7A98B8;padding:16px 0;border-bottom:1px solid #1E3452;margin-bottom:30px}
-  .breadcrumb a{color:var(--primary);text-decoration:none}
-  .breadcrumb span{margin:0 6px}
-  .seo-prose{max-width:820px;margin:60px auto 0;padding:0 20px;color:var(--text-light);font-size:15px;line-height:1.8}
-  .seo-prose h2{font-size:24px;color:#fff;margin:40px 0 14px;padding-bottom:6px;border-bottom:2px solid var(--primary)}
-  .seo-prose p{margin-bottom:14px}
-  .seo-prose a{color:var(--primary);text-decoration:none}
-  .seo-prose a:hover{text-decoration:underline}
-</style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-83YSB6HWN4');</script>
+    crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>All Free HVAC Calculators | Complete Tool Directory | MintSheets</title>
+  <meta name="description"
+    content="Complete directory of free HVAC calculators for contractors, technicians, and estimators. Tools for load calculation, CFM, duct sizing, static pressure, mini split sizing, pricing, and more.">
+
+  <link rel="canonical" href="https://mintsheets.com/hvac-calculators/" />
+
+  <meta property="og:title" content="All Free HVAC Calculators | MintSheets" />
+  <meta property="og:description"
+    content="Complete directory of free HVAC calculators. Technical tools for load calculation, CFM, duct sizing, and static pressure. Business tools for pricing, bidding, and margins." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://mintsheets.com/hvac-calculators/" />
+  <meta property="og:image" content="https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="All Free HVAC Calculators | MintSheets" />
+  <meta name="twitter:description"
+    content="Complete directory of free HVAC calculators for technicians, contractors, and estimators." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "All Free HVAC Calculators",
+    "description": "Complete directory of free HVAC calculators for contractors, technicians, and estimators.",
+    "url": "https://mintsheets.com/hvac-calculators/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "MintSheets"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "All HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="/styles.min.css?v=1.5">
+  <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+
+  <style>
+    .calc-index-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    .calc-category {
+      margin-bottom: 50px;
+    }
+
+    .calc-category h2 {
+      font-size: 22px;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+      font-weight: 900;
+    }
+
+    .calc-category .cat-desc {
+      color: #7A98B8;
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .calc-card {
+      background: linear-gradient(135deg, #0B1C35, #0F2240);
+      border: 1px solid #2A4A72;
+      border-radius: 12px;
+      padding: 22px;
+      text-decoration: none;
+      display: block;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .calc-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+
+    .calc-badge {
+      font-size: 10px;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .calc-card h3 {
+      color: #fff;
+      font-size: 16px;
+      margin: 0 0 8px;
+      font-weight: 700;
+    }
+
+    .calc-card p {
+      color: #7A98B8;
+      font-size: 13px;
+      line-height: 1.55;
+      margin: 0 0 14px;
+    }
+
+    .calc-card .open-link {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .page-intro {
+      max-width: 760px;
+      margin: 0 auto 50px;
+      text-align: center;
+      color: var(--text-light);
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .breadcrumb-bar {
+      background: rgba(11, 28, 53, 0.7);
+      border-bottom: 1px solid #1E3452;
+      padding: 8px 0;
+      font-size: 13px;
+      margin-bottom: 30px;
+    }
+
+    .breadcrumb-bar .container {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb-bar a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .breadcrumb-bar a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: #4A6080;
+      margin: 0 4px;
+      font-weight: bold;
+    }
+
+    .breadcrumb-current {
+      color: #7A98B8;
+    }
+
+    .seo-prose {
+      max-width: 820px;
+      margin: 60px auto 0;
+      padding: 0 20px;
+      color: var(--text-light);
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .seo-prose h2 {
+      font-size: 24px;
+      color: #fff;
+      margin: 40px 0 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--primary);
+    }
+
+    .seo-prose p {
+      margin-bottom: 14px;
+    }
+
+    .seo-prose a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .seo-prose a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-83YSB6HWN4');
+  </script>
 </head>
+
 <body class="has-sticky-ad">
   <header class="site-header">
     <div class="container nav">
@@ -73,14 +240,16 @@
       </nav>
 
       <div class="header-actions">
-        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free
+          Resources</a>
       </div>
+
       <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
-      <!-- Mobile Navigation -->
+
   <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
   <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
     <div class="mobile-nav-header">
@@ -92,12 +261,14 @@
         <span></span><span></span>
       </button>
     </div>
+
     <ul class="mobile-nav-links">
       <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
       <li><a href="/blog/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
       <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
       <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
     </ul>
+
     <div class="mobile-nav-cta">
       <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary">Free Resources</a>
     </div>
@@ -106,204 +277,275 @@
   <main>
     <section class="section">
       <div class="container">
-        <div class="calc-index-wrap">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a><span>�</span>All HVAC Calculators
-          </nav>
+        <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+          <div class="container">
+            <a href="/">Home</a>
+            <span class="breadcrumb-separator">›</span>
+            <span class="breadcrumb-current">All HVAC Calculators</span>
+          </div>
+        </nav>
 
+        <div class="calc-index-wrap">
           <div class="page-intro">
             <div class="eyebrow" style="margin-bottom:12px;">Complete Tool Directory</div>
             <h1 style="font-size:36px;color:#fff;margin-bottom:16px;line-height:1.25;">All Free HVAC Calculators</h1>
 
-    <!-- Ad Placeholder: Top Banner -->
-    <div class="ad-placeholder ad-placeholder-top">
-      <span>Advertisement</span>
-    </div>
-            <p>Every calculator on MintSheets is completely free, browser-based, and requires no login or download. Tools are organized by category below. Built for HVAC technicians, contractors, estimators, and system designers.</p>
+            <div class="ad-placeholder ad-placeholder-top">
+              <span>Advertisement</span>
+            </div>
+
+            <p>Every calculator on MintSheets is completely free, browser-based, and requires no login or download.
+              Tools are organized by category below. Built for HVAC technicians, contractors, estimators, and system
+              designers.</p>
           </div>
 
-          <!-- TECHNICAL TOOLS -->
           <div class="calc-category">
             <h2>Technical &amp; Field Tools</h2>
-            <p class="cat-desc">Airflow, load, static pressure, and system performance calculators for technicians and system designers.</p>
+            <p class="cat-desc">Airflow, load, static pressure, and system performance calculators for technicians and
+              system designers.</p>
             <div class="calc-grid">
               <a href="/hvac-load-calculator/" class="calc-card" id="calc-load">
                 <div class="calc-badge">Technical · Sizing</div>
                 <h3>HVAC Load Calculator</h3>
-                <p>Estimate peak heating and cooling loads (BTU/hr) using Manual J simplified methodology. Accounts for envelope, windows, orientation, and climate zone.</p>
+                <p>Estimate peak heating and cooling loads (BTU/hr) using Manual J simplified methodology. Accounts for
+                  envelope, windows, orientation, and climate zone.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
+
               <a href="/hvac-cfm-calculator/" class="calc-card" id="calc-cfm">
                 <div class="calc-badge">Technical · Airflow</div>
                 <h3>CFM Calculator</h3>
-                <p>Calculate system and room airflow in cubic feet per minute using square footage, sensible BTU load, or air changes per hour (ACPH) method.</p>
+                <p>Calculate system and room airflow in cubic feet per minute using square footage, sensible BTU load,
+                  or air changes per hour (ACPH) method.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
+
               <a href="/hvac-airflow-per-room-calculator/" class="calc-card" id="calc-airflow-room">
                 <div class="calc-badge">Technical · Airflow</div>
                 <h3>Airflow Per Room Calculator</h3>
-                <p>Multi-room CFM allocation tool. Calculate required airflow per room, size supply registers, and verify system airflow balance across all zones.</p>
+                <p>Multi-room CFM allocation tool. Calculate required airflow per room, size supply registers, and
+                  verify system airflow balance across all zones.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
+
               <a href="/hvac-static-pressure-calculator/" class="calc-card" id="calc-sp">
                 <div class="calc-badge">Technical · Diagnostics</div>
                 <h3>Static Pressure Calculator</h3>
-                <p>Total External Static Pressure (TESP) budget analysis per ACCA Manual D. Component-by-component breakdown with high-static diagnosis.</p>
+                <p>Total External Static Pressure (TESP) budget analysis per ACCA Manual D. Component-by-component
+                  breakdown with high-static diagnosis.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
+
               <a href="/hvac-flow-rate-calculator/" class="calc-card" id="calc-flowrate">
                 <div class="calc-badge">Technical · Performance</div>
                 <h3>Flow Rate Calculator</h3>
-                <p>Determine system airflow (CFM) using temperature rise or static pressure delta. Verify actual blower output during commissioning or service.</p>
+                <p>Determine system airflow (CFM) using temperature rise or static pressure delta. Verify actual blower
+                  output during commissioning or service.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
             </div>
           </div>
 
-          <!-- DESIGN TOOLS -->
           <div class="calc-category">
             <h2>Design &amp; Sizing Tools</h2>
-            <p class="cat-desc">Ductwork, equipment selection, and system design tools for HVAC designers and estimators.</p>
+            <p class="cat-desc">Ductwork, equipment selection, and system design tools for HVAC designers and
+              estimators.</p>
             <div class="calc-grid">
               <a href="/hvac-duct-size-calculator/" class="calc-card" id="calc-duct">
                 <div class="calc-badge">Design · Ductwork</div>
                 <h3>Duct Size Calculator</h3>
-                <p>Dimension round and rectangular ductwork based on CFM and friction rates. Equal friction method per ACCA Manual D. Includes TESP budget.</p>
+                <p>Dimension round and rectangular ductwork based on CFM and friction rates. Equal friction method per
+                  ACCA Manual D. Includes TESP budget.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
+
               <a href="/hvac-mini-split-sizing-calculator/" class="calc-card" id="calc-minisplit">
                 <div class="calc-badge">Design · Ductless</div>
                 <h3>Mini Split Sizing Calculator</h3>
-                <p>Size ductless mini split systems by zone. Multi-room BTU capacity calculator with climate zone adjustments and efficiency comparisons.</p>
+                <p>Size ductless mini split systems by zone. Multi-room BTU capacity calculator with climate zone
+                  adjustments and efficiency comparisons.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
             </div>
           </div>
 
-          <!-- BUSINESS TOOLS -->
           <div class="calc-category">
             <h2>Business &amp; Financial Tools</h2>
-            <p class="cat-desc">Pricing, bidding, margin, and valuation calculators for HVAC contractors and business owners.</p>
+            <p class="cat-desc">Pricing, bidding, margin, and valuation calculators for HVAC contractors and business
+              owners.</p>
             <div class="calc-grid">
               <a href="/hvac-bid-calculator/" class="calc-card" id="calc-bid">
                 <div class="calc-badge">Business · Bidding</div>
                 <h3>HVAC Bid Calculator</h3>
-                <p>Estimate job costs, labor burden, overhead, and protected margin for accurate installation and service bidding.</p>
+                <p>Estimate job costs, labor burden, overhead, and protected margin for accurate installation and
+                  service bidding.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
+
               <a href="/hvac-service-price-calculator/" class="calc-card" id="calc-service-price">
                 <div class="calc-badge">Business · Pricing</div>
                 <h3>Service Price Calculator</h3>
-                <p>Generate flat-rate pricing for service calls including travel time, burdened labor, diagnostic fee, and parts markup.</p>
+                <p>Generate flat-rate pricing for service calls including travel time, burdened labor, diagnostic fee,
+                  and parts markup.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
+
               <a href="/hvac-labor-cost-calculator/" class="calc-card" id="calc-labor">
                 <div class="calc-badge">Business · Operations</div>
                 <h3>Labor Burden Calculator</h3>
-                <p>Calculate the true burdened cost of each technician including taxes, insurance, benefits, PTO, and overhead allocation.</p>
+                <p>Calculate the true burdened cost of each technician including taxes, insurance, benefits, PTO, and
+                  overhead allocation.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
+
               <a href="/hvac-profit-margin-calculator/" class="calc-card" id="calc-margin">
                 <div class="calc-badge">Business · Financial</div>
                 <h3>Profit Margin Calculator</h3>
-                <p>Analyze net profitability of service jobs or installation projects. Review gross margin, net margin, and overhead recovery after all costs.</p>
+                <p>Analyze net profitability of service jobs or installation projects. Review gross margin, net margin,
+                  and overhead recovery after all costs.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
+
               <a href="/hvac-service-markup-calculator/" class="calc-card" id="calc-markup">
                 <div class="calc-badge">Business · Pricing</div>
                 <h3>Service Markup Calculator</h3>
-                <p>Determine correct parts markup percentages to achieve consistent net profit goals on all service work and installations.</p>
+                <p>Determine correct parts markup percentages to achieve consistent net profit goals on all service work
+                  and installations.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
+
               <a href="/hvac-energy-savings-calculator/" class="calc-card" id="calc-energy">
                 <div class="calc-badge">Business · Efficiency</div>
                 <h3>Energy Savings Calculator</h3>
-                <p>Project annual utility bill savings and ROI for equipment efficiency upgrades. Model SEER and AFUE improvements to show customer value.</p>
+                <p>Project annual utility bill savings and ROI for equipment efficiency upgrades. Model SEER and AFUE
+                  improvements to show customer value.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
+
               <a href="/hvac-business-valuation-calculator/" class="calc-card" id="calc-valuation">
                 <div class="calc-badge">Business · Strategy</div>
                 <h3>Business Valuation Calculator</h3>
-                <p>Estimate the market value of MintSheetsmpany based on revenue, EBITDA, and industry-standard valuation multiples.</p>
+                <p>Estimate the market value of your HVAC company based on revenue, EBITDA, and industry-standard
+                  valuation multiples.</p>
                 <div class="open-link">Open Calculator →</div>
               </a>
             </div>
           </div>
         </div>
 
-        <!-- SEO Prose -->
         <div class="seo-prose">
           <h2>About MintSheets HVAC Calculators</h2>
-          <p>MintSheets provides the most comprehensive suite of free HVAC calculators available online. Unlike generic engineering tools, every calculator on this site is purpose-built for the HVAC trade — designed around the terminology, workflows, and standards that HVAC technicians, estimators, and contractors actually use in the field.</p>
-          <p>Our technical calculators align with ACCA Manual J (load calculation), Manual D (duct design), and Manual S (equipment selection) methodology. Our business tools are built around real HVAC contracting economics — labor burden, overhead recovery, flat-rate pricing, and margin protection.</p>
-          <p>All calculators are completely free to use. No account required, no app download, no paywall. Fully mobile-responsive for use in the field on any smartphone or tablet.</p>
+          <p>MintSheets provides the most comprehensive suite of free HVAC calculators available online. Unlike generic
+            engineering tools, every calculator on this site is purpose-built for the HVAC trade — designed around the
+            terminology, workflows, and standards that HVAC technicians, estimators, and contractors actually use in the
+            field.</p>
+          <p>Our technical calculators align with ACCA Manual J (load calculation), Manual D (duct design), and Manual S
+            (equipment selection) methodology. Our business tools are built around real HVAC contracting economics —
+            labor burden, overhead recovery, flat-rate pricing, and margin protection.</p>
+          <p>All calculators are completely free to use. No account required, no app download, no paywall. Fully
+            mobile-responsive for use in the field on any smartphone or tablet.</p>
 
           <h2>HVAC Calculators for Technicians</h2>
-          <p>Field technicians need fast, accurate tools for commissioning, diagnostics, and service work. The <a href="/hvac-static-pressure-calculator/">static pressure calculator</a> is essential for diagnosing any airflow complaint or coil icing issue. The <a href="/hvac-flow-rate-calculator/">flow rate calculator</a> verifies actual blower airflow using temperature rise or static pressure delta. The <a href="/hvac-cfm-calculator/">CFM calculator</a> quickly determines whether a system is delivering design airflow to each room.</p>
+          <p>Field technicians need fast, accurate tools for commissioning, diagnostics, and service work. The <a
+              href="/hvac-static-pressure-calculator/">static pressure calculator</a> is essential for diagnosing any
+            airflow complaint or coil icing issue. The <a href="/hvac-flow-rate-calculator/">flow rate calculator</a>
+            verifies actual blower airflow using temperature rise or static pressure delta. The <a
+              href="/hvac-cfm-calculator/">CFM calculator</a> quickly determines whether a system is delivering design
+            airflow to each room.</p>
 
           <h2>HVAC Sizing Tools for Estimators</h2>
-          <p>Proper HVAC sizing requires more than a square footage estimate. The <a href="/hvac-load-calculator/">HVAC load calculator</a> uses building envelope data, window area and orientation, and climate zone design temperatures to produce a reliable cooling and heating load estimate. The <a href="/hvac-duct-size-calculator/">duct sizing calculator</a> then sizes the air distribution system to match the equipment at an acceptable static pressure budget. The <a href="/hvac-mini-split-sizing-calculator/">mini split sizing calculator</a> handles ductless zone systems with multi-room BTU allocation.</p>
+          <p>Proper HVAC sizing requires more than a square footage estimate. The <a href="/hvac-load-calculator/">HVAC
+              load calculator</a> uses building envelope data, window area and orientation, and climate zone design
+            temperatures to produce a reliable cooling and heating load estimate. The <a
+              href="/hvac-duct-size-calculator/">duct sizing calculator</a> then sizes the air distribution system to
+            match the equipment at an acceptable static pressure budget. The <a
+              href="/hvac-mini-split-sizing-calculator/">mini split sizing calculator</a> handles ductless zone systems
+            with multi-room BTU allocation.</p>
 
           <h2>HVAC Business Calculators for Contractors</h2>
-          <p>Profitability in HVAC contracting requires accurate pricing at every level. The <a href="/hvac-labor-cost-calculator/">labor burden calculator</a> reveals the true cost of deploying a technician. The <a href="/hvac-bid-calculator/">bid calculator</a> builds complete job cost estimates with overhead recovery and margin targets. The <a href="/hvac-service-price-calculator/">service price calculator</a> generates profitable flat-rate fees for diagnostic calls and routine maintenance.</p>
+          <p>Profitability in HVAC contracting requires accurate pricing at every level. The <a
+              href="/hvac-labor-cost-calculator/">labor burden calculator</a> reveals the true cost of deploying a
+            technician. The <a href="/hvac-bid-calculator/">bid calculator</a> builds complete job cost estimates with
+            overhead recovery and margin targets. The <a href="/hvac-service-price-calculator/">service price
+              calculator</a> generates profitable flat-rate fees for diagnostic calls and routine maintenance.</p>
         </div>
       </div>
     </section>
   </main>
 
-      <!-- Ad Placeholder: Bottom Banner -->
-    <div class="ad-placeholder ad-placeholder-bottom">
-      <span>Advertisement</span>
-    </div>
+  <div class="ad-placeholder ad-placeholder-bottom">
+    <span>Advertisement</span>
+  </div>
 
-<footer id="mint-footer" style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
+  <footer id="mint-footer"
+    style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
     <div style="max-width:1100px;margin:0 auto;padding:0 20px;">
-      <h3 style="color:var(--primary);font-weight:900;font-size:18px;text-transform:uppercase;margin-bottom:20px;letter-spacing:1px;">Quick Links</h3>
+      <h3
+        style="color:var(--primary);font-weight:900;font-size:18px;text-transform:uppercase;margin-bottom:20px;letter-spacing:1px;">
+        Quick Links</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;">
-        <a href="/hvac-load-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Load Calculator</a>
-        <a href="/hvac-cfm-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">CFM Calculator</a>
-        <a href="/hvac-duct-size-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Duct Size Calculator</a>
-        <a href="/hvac-static-pressure-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Static Pressure Calculator</a>
-        <a href="/hvac-bid-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Bid Calculator</a>
+        <a href="/hvac-load-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Load
+          Calculator</a>
+        <a href="/hvac-cfm-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">CFM
+          Calculator</a>
+        <a href="/hvac-duct-size-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Duct Size
+          Calculator</a>
+        <a href="/hvac-static-pressure-calculator/"
+          style="color:var(--muted);text-decoration:none;font-size:14px;">Static Pressure Calculator</a>
+        <a href="/hvac-bid-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Bid
+          Calculator</a>
       </div>
+
       <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);">
         <a href="/privacy-policy/" style="color:var(--muted);text-decoration:none;">Privacy Policy</a>
         <a href="/terms-of-service/" style="color:var(--muted);text-decoration:none;">Terms of Service</a>
         <a href="/disclaimer/" style="color:var(--muted);text-decoration:none;">Disclaimer</a>
         <a href="/cookie-policy/" style="color:var(--muted);text-decoration:none;">Cookie Policy</a>
       </div>
-      <p style="margin-top:20px;color:var(--muted);font-size:12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+
+      <p style="margin-top:20px;color:var(--muted);font-size:12px;">&copy; 2026 MintSheets. Free HVAC technical tools.
+      </p>
     </div>
   </footer>
-      <script>
-  (function () {
-    var btn = document.getElementById('hamburger-btn');
-    var nav = document.getElementById('mobile-nav');
-    var overlay = document.getElementById('mobile-nav-overlay');
-    var close = document.getElementById('mobile-nav-close');
-    if (!btn || !nav) return;
-    function setMenuState(open) {
-      document.body.classList.toggle('menu-open', open);
-      btn.classList.toggle('active', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      nav.setAttribute('aria-hidden', open ? 'false' : 'true');
-    }
-    btn.addEventListener('click', function () { setMenuState(!btn.classList.contains('active')); });
-    close && close.addEventListener('click', function () { setMenuState(false); });
-    overlay && overlay.addEventListener('click', function () { setMenuState(false); });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') setMenuState(false);
-    });
-  })();
+
+  <script>
+    (function () {
+      var btn = document.getElementById('hamburger-btn');
+      var nav = document.getElementById('mobile-nav');
+      var overlay = document.getElementById('mobile-nav-overlay');
+      var close = document.getElementById('mobile-nav-close');
+      if (!btn || !nav) return;
+
+      function setMenuState(open) {
+        document.body.classList.toggle('menu-open', open);
+        btn.classList.toggle('active', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        nav.setAttribute('aria-hidden', open ? 'false' : 'true');
+      }
+
+      btn.addEventListener('click', function () {
+        setMenuState(!btn.classList.contains('active'));
+      });
+
+      close && close.addEventListener('click', function () {
+        setMenuState(false);
+      });
+
+      overlay && overlay.addEventListener('click', function () {
+        setMenuState(false);
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setMenuState(false);
+      });
+    })();
   </script>
-  <!-- Sticky Ad Placeholder -->
+
   <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
     <span>Advertisement</span>
-    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">&times;</button>
+    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'"
+      aria-label="Close Ad">&times;</button>
   </div>
 </body>
+
 </html>
-
-
-
-
