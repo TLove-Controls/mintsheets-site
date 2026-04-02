@@ -264,5 +264,10 @@
   <script>
   (function(){var btn=document.getElementById('hamburger-btn');var nav=document.getElementById('mobile-nav');var overlay=document.getElementById('mobile-nav-overlay');var close=document.getElementById('mobile-nav-close');if(!btn)return;function openMenu(){document.body.classList.add('menu-open');btn.classList.add('active');btn.setAttribute('aria-expanded','true');nav.setAttribute('aria-hidden','false');}function closeMenu(){document.body.classList.remove('menu-open');btn.classList.remove('active');btn.setAttribute('aria-expanded','false');nav.setAttribute('aria-hidden','true');}btn.addEventListener('click',openMenu);close&&close.addEventListener('click',closeMenu);overlay&&overlay.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});})();
   </script>
+  <!-- Sticky Ad Placeholder -->
+  <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
+    <span>Advertisement</span>
+    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">&times;</button>
+  </div>
 </body>
 </html>

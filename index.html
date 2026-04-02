@@ -121,8 +121,10 @@
   </nav>
 
   <main>
-    <!-- Ad Placeholder: Top Banner -->
-    <div class="ad-slot ad-top"></div>
+        <!-- Ad Placeholder: Top Banner -->
+    <div class="ad-placeholder ad-placeholder-top">
+      <span>Advertisement</span>
+    </div>
     <section class="hero">
       <div class="container">
         <div class="hero-card hero-card-centered fade-up">
@@ -312,8 +314,10 @@
       </div>
     </section>
 
-    <!-- Ad Placeholder: Mid Content -->
-    <div class="ad-slot ad-mid"></div>
+        <!-- Ad Placeholder: Mid Content -->
+    <div class="ad-placeholder ad-placeholder-mid">
+      <span>Advertisement</span>
+    </div>
 
     <section class="section" id="about-tools">
       <div class="container"
@@ -402,8 +406,10 @@
       </div>
     </section>
 
-    <!-- Ad Placeholder: Bottom Banner -->
-    <div class="ad-slot ad-bottom"></div>
+        <!-- Ad Placeholder: Bottom Banner -->
+    <div class="ad-placeholder ad-placeholder-bottom">
+      <span>Advertisement</span>
+    </div>
 
     <section class="section" id="troubleshooting-checklist">
       <div class="container">
@@ -498,6 +504,12 @@
   })();
   </script>
 
+
+  <!-- Sticky Ad Placeholder -->
+  <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
+    <span>Advertisement</span>
+    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">×</button>
+  </div>
 </body>
 
 </html>
