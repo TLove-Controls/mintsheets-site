@@ -1,0 +1,9 @@
+﻿    <span>Advertisement</span>
+    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">&times;</button>
+  </div>
+</body>
+</html>
+
+
+
+
