@@ -48,6 +48,80 @@
   .breadcrumb{font-size:13px;color:#7A98B8;margin:16px 0 0;padding:0 0 16px;border-bottom:1px solid #1E3452}
   .breadcrumb a{color:var(--primary);text-decoration:none}
   .breadcrumb span{margin:0 6px}
+  .diagram{
+    margin:28px 0 34px;
+    padding:18px;
+    background:linear-gradient(135deg,#0B1C35,#0F2240);
+    border:1px solid #2A4A72;
+    border-radius:16px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.24);
+    overflow:hidden;
+  }
+  .diagram-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:14px;
+  }
+  .diagram-header h3{
+    margin:0;
+    color:#fff;
+    font-size:18px;
+    line-height:1.25;
+  }
+  .diagram-kicker{
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    color:var(--accent);
+    margin-bottom:6px;
+  }
+  .diagram-badge{
+    flex-shrink:0;
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(46,204,113,.28);
+    background:rgba(46,204,113,.10);
+    color:var(--primary);
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+  }
+  .diagram svg{
+    display:block;
+    width:100%;
+    height:auto;
+  }
+  .diagram-caption{
+    margin:14px 0 0;
+    font-size:14px;
+    color:#B7C9DD;
+    line-height:1.7;
+  }
+  .diagram-caption strong{
+    color:#fff;
+  }
+  @media (max-width: 640px){
+    .diagram{
+      padding:14px;
+      border-radius:14px;
+      margin:24px 0 30px;
+    }
+    .diagram-header{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .diagram-header h3{
+      font-size:17px;
+    }
+    .diagram-badge{
+      font-size:10px;
+      padding:7px 10px;
+    }
+  }
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-83YSB6HWN4');</script>
@@ -116,19 +190,14 @@
             <strong>Quick Answer:</strong> A 1-ton air conditioner removes 12,000 BTU/hr of heat. The right tonnage for your home is whatever size results from a proper Manual J load calculation — typically 0.5–1.2 tons per 1,000 sq ft depending on climate, insulation, and construction.
           </div>
 
+          <div class="diagram diagram-tonnage">
+            <!-- TOP TONNAGE DIAGRAM GOES HERE -->
+          </div>
+
           <h2>What Does "Ton" Mean in HVAC?</h2>
-              <!-- Ad Placeholder: Mid Content -->
-    <div class="ad-placeholder ad-placeholder-mid">
-      <span>Advertisement</span>
-    </div>
 
-<p>In HVAC, a "ton" is not a measure of weight — it's a measure of cooling capacity. One ton of cooling equals <strong>12,000 BTU per hour</strong> (British Thermal Units per hour). The term originates from the amount of heat needed to melt one ton of ice in 24 hours.</p>
+          <p>In HVAC, a "ton" is not a measure of weight — it's a measure of cooling capacity. One ton of cooling equals <strong>12,000 BTU per hour</strong> (British Thermal Units per hour). The term originates from the amount of heat needed to melt one ton of ice in 24 hours.</p>
           <p>Common residential AC systems range from 1.5 tons (18,000 BTU/hr) to 5 tons (60,000 BTU/hr). Light commercial systems often run 7.5–25 tons. The correct tonnage for your building is determined by how much heat your building gains in peak summer conditions — the <strong>peak cooling load</strong>.</p>
-
-              <!-- Ad Placeholder: Mid Content -->
-    <div class="ad-placeholder ad-placeholder-mid">
-      <span>Advertisement</span>
-    </div>
 
 <h2>Why Square Footage Rules Are Wrong</h2>
           <p>The commonly cited rule of "1 ton per 500–600 square feet" is dangerously imprecise. Consider two 2,000 sq ft homes:</p>
@@ -137,6 +206,11 @@
             <li><strong>Home B</strong>: Built 1982, fiberglass batt (R-11 walls, R-19 attic), single-pane windows, in Phoenix (hot climate), west-facing great room → estimated cooling load: ~54,000 BTU/hr = <strong>4.5 tons</strong></li>
           </ul>
           <p>Same square footage. Three-and-a-half times the required capacity. This is why only a load calculation gives you the right answer.</p>
+
+          <!-- Ad Placeholder: Mid Content -->
+          <div class="ad-placeholder ad-placeholder-mid">
+            <span>Advertisement</span>
+          </div>
 
           <h2>What Determines Your Cooling Load?</h2>
 
@@ -163,6 +237,10 @@
             <div class="step-number">Factor 4</div>
             <h3>Infiltration and Air Leakage</h3>
             <p>Air leakage brings hot, humid outdoor air directly into the conditioned space — bypassing all insulation. Older homes with no air sealing can have infiltration rates 5–10× higher than a blower-door-tested modern home. This significantly increases both sensible and latent cooling loads.</p>
+          </div>
+
+          <div class="diagram diagram-climate">
+            <!-- MID CLIMATE / LOAD DIAGRAM GOES HERE -->
           </div>
 
           <h2>Rough Sizing Chart by Climate Zone</h2>
