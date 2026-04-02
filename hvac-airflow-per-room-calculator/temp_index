@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7177850851908341"
+     crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVAC Airflow Per Room Calculator | CFM Per Room & Register Sizing | MintSheets</title>
+<meta name="description" content="Free HVAC airflow per room calculator. Calculate required CFM per room, size supply registers, and verify total system airflow balance. Perfect for HVAC design and troubleshooting.">
+<link rel="canonical" href="https://mintsheets.com/hvac-airflow-per-room-calculator/" />
+<meta property="og:title" content="HVAC Airflow Per Room Calculator | CFM Per Room | MintSheets" />
+<meta property="og:description" content="Calculate required CFM per room for any home or building. Size supply registers and check total system airflow balance against equipment tonnage." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://mintsheets.com/hvac-airflow-per-room-calculator/" />
+<meta property="og:image" content="https://mintsheets.com/shared/images/hvac-airflow.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Airflow Per Room Calculator","url":"https://mintsheets.com/hvac-airflow-per-room-calculator/","applicationCategory":"ProfessionalTool","operatingSystem":"WEB"}
+</script>
+<link rel="stylesheet" href="../styles.min.css?v=1.5">
+<link rel="stylesheet" href="../shared/css/calculators.css">
+<link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-83YSB6HWN4');
+</script>
+  <style>
+  .breadcrumb-bar{background:rgba(11,28,53,0.7);border-bottom:1px solid #1E3452;padding:8px 0;font-size:13px;}
+  .breadcrumb-bar .container{display:flex;align-items:center;gap:6px;color:#7A98B8;flex-wrap:wrap;}
+  .breadcrumb-bar a{color:var(--primary);text-decoration:none;}
+  .breadcrumb-bar a:hover{text-decoration:underline;}
+  .breadcrumb-bar span{color:#4A6080;}
+  </style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"HVAC Calculators","item":"https://mintsheets.com/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"Airflow Per Room Calculator","item":"https://mintsheets.com/hvac-airflow-per-room-calculator/"}]}
+</script>
+</head>
+<body class="has-sticky-ad">
+
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
+      </a>
+
+      <nav class="nav-links">
+        <a href="/">Calculators</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#troubleshooting-checklist">Free Guide</a>
+        <a href="mailto:support@mintsheets.com">Support</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+      </div>
+      <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+      <!-- Mobile Navigation -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="brand">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
+      </a>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
+      <li><a href="/blog/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
+      <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
+      <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
+    </ul>
+    <div class="mobile-nav-cta">
+      <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary">Free Resources</a>
+    </div>
+  </nav>
+
+    <main>
+  <div class="breadcrumb-bar">
+    <div class="container">
+      <a href="/">Home</a><span>�</span>
+      <a href="/hvac-calculators/">HVAC Calculators</a><span>�</span>
+      Airflow Per Room Calculator
+    </div>
+  </div>
+      <div style="background: rgba(46, 204, 113, 0.12); border: 1px solid rgba(46, 204, 113, 0.35); border-radius: 10px; padding: 12px 14px; margin: 14px 0; color: #DCFFEA; font-size: 14px; line-height: 1.45;">
+        <strong>Notice:</strong> This HVAC calculator provides estimates only and is for informational purposes. Results should be verified by a licensed HVAC professional. Use at your own risk.
+      </div>
+      <section class="section">
+        <div class="container section-card">
+          <div style="margin-bottom: 30px; text-align: center;">
+            <div class="eyebrow">Technical Tool</div>
+            <h1 style="margin: 10px auto; max-width: none;">HVAC Airflow Per Room Calculator (CFM & Register Sizing)</h1>
+
+    <!-- Ad Placeholder: Top Banner -->
+    <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
+<!-- SECTION 1 — SYSTEM SETTINGS -->
+
+    <!-- Ad Placeholder: Above Calculator -->
+    <div class="ad-placeholder ad-placeholder-tool">
+      <span>Advertisement</span>
+    </div>
+
+<span class="icon">⚙️</span> SECTION 1 — SYSTEM SETTINGS</div>
+<div class="card">
+  <div class="form-grid" style="margin-top:10px;">
+    <div class="form-group">
+      <label>CFM per Sq Ft Method</label>
+      <select id="cfm_method" onchange="recalcAll()">
+        <option value="0.5">0.5 — Light residential</option>
+        <option value="0.75" selected>0.75 — Standard residential</option>
+        <option value="1.0">1.0 — High-load</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>System Tonnage</label>
+      <input type="number" id="sys_tons" placeholder="e.g. 3.0" min="0.5" max="25" step="0.5" oninput="recalcAll()">
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 — ROOM TABLE -->
+<div class="section-banner" style="margin-top:20px;"><span class="icon">🏠</span> SECTION 2 — ROOM-BY-ROOM AIRFLOW DESIGN</div>
+<div class="card">
+  <div class="sub-header">Enter Each Room — One Row Per Space</div>
+  <div class="table-scroll" style="overflow-x:auto; margin-top:12px;">
+    <table class="line-table">
+      <thead>
+        <tr>
+          <th>Room Name</th>
+          <th>Sq Ft</th>
+          <th>Required CFM</th>
+          <th>Reg. Qty</th>
+          <th>CFM / Register</th>
+          <th>Del</th>
+        </tr>
+      </thead>
+      <tbody id="roomTbody"></tbody>
+      <tfoot>
+        <tr id="roomTotals" style="border-top:2px solid var(--line); font-weight:bold;">
+          <td colspan="2" style="text-align:right; color:var(--muted); padding:8px;">TOTALS →</td>
+          <td id="footTotalCFM" style="color:var(--primary); font-family:monospace;">—</td>
+          <td id="footTotalRegs">—</td>
+          <td colspan="2"></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="btn-row" style="margin-top:14px;">
+    <button class="btn-calc" onclick="addRoom()">+ Add Room</button>
+    <button class="btn-reset" onclick="clearRooms()">🗑 Clear</button>
+  </div>
+</div>
+
+<!-- SECTION 3 — SYSTEM AIRFLOW BALANCE CHECK -->
+<div class="section-banner" style="margin-top:20px;"><span class="icon">📊</span> SECTION 3 — SYSTEM AIRFLOW BALANCE VERIFICATION</div>
+<div class="results-box">
+  <div class="form-grid">
+    <div style="text-align:center; border-right:1px solid var(--line);">
+      <div class="result-label">Total Required CFM</div>
+      <div class="result-value" id="res_total_cfm">—</div>
+    </div>
+    <div style="text-align:center;">
+      <div class="result-label">System Assessment</div>
+      <div class="result-value" id="res_status">—</div>
+    </div>
+  </div>
+</div>
+
+      <!-- Ad Placeholder: Mid Content -->
+    <div class="ad-placeholder ad-placeholder-mid">
+      <span>Advertisement</span>
+    </div>
+
+<!-- SEO CONTENT SECTION -->
+<section id="seo-content" style="margin-top: 40px; border-top: 1px solid var(--line); padding-top: 40px;">
+  <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; color: var(--text-light); margin: 0 auto; padding: 0 20px;">
+    <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">How to Calculate Airflow Per Room</h2>
+    <p style="margin-bottom: 15px;">Calculating the airflow required for each room is a critical step in proper HVAC system design. This ensures that every space receives sufficient heating and cooling to maintain comfortable temperatures year-round.</p>
+    <div style="margin-bottom: 20px;">
+      <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">Why is room-by-room CFM important?</h3>
+      <p>Without accurate room-by-room calculation, a system can deliver too much air to small rooms while starving larger, high-load areas (like Great Rooms with vaulted ceilings). This leads to hot and cold spots throughout the house.</p>
+    </div>
+  </div>
+</section>
+
+    <!-- Ad Placeholder: Bottom Banner -->
+    <div class="ad-placeholder ad-placeholder-bottom">
+      <span>Advertisement</span>
+    </div>
+
+</section>
+</main>
+
+        <!-- Ad Placeholder: Bottom Banner -->
+    <div class="ad-placeholder ad-placeholder-bottom">
+      <span>Advertisement</span>
+    </div>
+
+<footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+      <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+        <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <a href="/hvac-duct-size-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Duct Size Calculator</a>
+          <a href="/hvac-flow-rate-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Flow Rate Calculator</a>
+          <a href="/hvac-cfm-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">CFM Calculator</a>
+          <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Load Calculator</a>
+        </div>
+        <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px;font-size:14px;">
+          <a href="/privacy-policy/" style="color: var(--muted);">Privacy Policy</a> |
+          <a href="/terms-of-service/" style="color: var(--muted);">Terms of Service</a> |
+          <a href="/disclaimer/" style="color: var(--muted);">Disclaimer</a> |
+          <a href="/cookie-policy/" style="color: var(--muted);">Cookie Policy</a>
+        </div>
+        
+        <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <span><span style="color: var(--primary);">✔</span> Used by HVAC technicians & contractors</span>
+            <span><span style="color: var(--primary);">✔</span> Based on ACCA Manual standards</span>
+            <span><span style="color: var(--primary);">✔</span> Free professional tools</span>
+        </div>
+    <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      </div>
+    </footer>
+
+<!-- AIRFLOW LOGIC -->
+<script>
+let rooms = [];
+function addRoom() {
+  rooms.push({ name: 'New Room', sqft: 150, regs: 1 });
+  renderRooms();
+}
+function deleteRoom(idx) { rooms.splice(idx, 1); renderRooms(); }
+function updateRoom(idx, key, val) { 
+  rooms[idx][key] = val; 
+  recalcAll(); 
+}
+function renderRooms() {
+  const tbody = document.getElementById('roomTbody');
+  tbody.innerHTML = '';
+  rooms.forEach((r, i) => {
+    tbody.innerHTML += `<tr>
+      <td><input type="text" value="${r.name}" oninput="updateRoom(${i}, 'name', this.value)" style="width:100%;"></td>
+      <td><input type="number" value="${r.sqft}" oninput="updateRoom(${i}, 'sqft', parseFloat(this.value)||0)" style="width:80px;"></td>
+      <td id="cfm_${i}">—</td>
+      <td><input type="number" value="${r.regs}" oninput="updateRoom(${i}, 'regs', parseInt(this.value)||1)" style="width:50px;"></td>
+      <td id="cfmReg_${i}">—</td>
+      <td><button onclick="deleteRoom(${i})" style="color: var(--fail);">×</button></td>
+    </tr>`;
+  });
+  recalcAll();
+}
+function clearRooms() { rooms = []; renderRooms(); }
+
+function recalcAll() {
+  const factor = parseFloat(document.getElementById('cfm_method').value);
+  let totalCFM = 0;
+  let totalRegs = 0;
+  rooms.forEach((r, i) => {
+    const cfm = r.sqft * factor;
+    totalCFM += cfm;
+    totalRegs += r.regs;
+    const cfmEl = document.getElementById('cfm_' + i);
+    const cfmRegEl = document.getElementById('cfmReg_' + i);
+    if (cfmEl) cfmEl.innerText = Math.ceil(cfm);
+    if (cfmRegEl) cfmRegEl.innerText = Math.ceil(cfm / r.regs);
+  });
+  document.getElementById('footTotalCFM').innerText = Math.ceil(totalCFM);
+  document.getElementById('footTotalRegs').innerText = totalRegs;
+  document.getElementById('res_total_cfm').innerText = Math.ceil(totalCFM) + ' CFM';
+  
+  const tons = parseFloat(document.getElementById('sys_tons').value);
+  if (tons > 0) {
+    const target = tons * 400;
+    const diff = totalCFM - target;
+    const status = Math.abs(diff) < 100 ? '✔ BALANCED' : (diff > 0 ? '⚠ OVERSUPPLIED' : '⚠ UNDERSUPPLIED');
+    document.getElementById('res_status').innerText = status;
+  }
+  
+  if (window.updateMintStickyBar) { window.updateMintStickyBar({ 'Total Flow': Math.ceil(totalCFM) + ' CFM', 'Rooms': rooms.length }, '/hvac-cfm-calculator/'); }
+}
+renderRooms();
+</script>
+
+<!-- NAVIGATION SCRIPT -->
+  <script>
+  (function () {
+    var btn = document.getElementById('hamburger-btn');
+    var nav = document.getElementById('mobile-nav');
+    var overlay = document.getElementById('mobile-nav-overlay');
+    var close = document.getElementById('mobile-nav-close');
+    if (!btn || !nav) return;
+    function setMenuState(open) {
+      document.body.classList.toggle('menu-open', open);
+      btn.classList.toggle('active', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      nav.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    btn.addEventListener('click', function () { setMenuState(!btn.classList.contains('active')); });
+    close && close.addEventListener('click', function () { setMenuState(false); });
+    overlay && overlay.addEventListener('click', function () { setMenuState(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setMenuState(false);
+    });
+  })();
+  </script>
+
+  <!-- Sticky Ad Placeholder -->
+  <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
+    <span>Advertisement</span>
+    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">&times;</button>
+  </div>
+</body>
+</html>
+
+
+
+
