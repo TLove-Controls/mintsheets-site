@@ -127,6 +127,78 @@
     font-size: 14px;
   }
   .callout strong { color: #fff; }
+  .breadcrumb{font-size:13px;color:#7A98B8;margin:16px 0 0;padding:0 0 16px;border-bottom:1px solid #1E3452}
+  .breadcrumb a{color:var(--primary);text-decoration:none}
+  .breadcrumb span{margin:0 6px}
+  .diagram{
+    margin:32px 0 36px;
+    padding:18px;
+    background:linear-gradient(135deg,#0B1C35,#0F2240);
+    border:1px solid #2A4A72;
+    border-radius:16px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.24);
+    overflow:hidden;
+  }
+  .diagram-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:14px;
+  }
+  .diagram-header h3{
+    margin:0;
+    color:#fff;
+    font-size:18px;
+  }
+  .diagram-kicker{
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    color:var(--accent);
+  }
+  .diagram-badge{
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(46,204,113,.28);
+    background:rgba(46,204,113,.10);
+    color:var(--primary);
+    font-size:11px;
+    font-weight:800;
+  }
+  .diagram svg{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .diagram-caption{
+    margin-top:14px;
+    font-size:14px;
+    color:#B7C9DD;
+  }
+  .diagram:hover{
+    border-color:var(--primary);
+    box-shadow:0 12px 28px rgba(0,0,0,0.35),0 0 18px rgba(46,204,113,0.12);
+  }
+  @media (max-width: 640px){
+    .diagram{
+      padding:14px;
+      border-radius:14px;
+      margin:24px 0 30px;
+    }
+    .diagram-header{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .diagram-header h3{
+      font-size:17px;
+    }
+    .diagram-badge{
+      font-size:10px;
+      padding:7px 10px;
+    }
+  }
 </style>
 
 <!-- Google tag (gtag.js) -->
@@ -193,7 +265,9 @@
       <section class="section">
         <div class="container">
           <div class="article-wrap">
-
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="/">Home</a><span>›</span><a href="/blog/">Blog</a><span>›</span>How to Size an HVAC System Properly
+            </nav>
             <div class="eyebrow" style="margin-bottom:12px;">HVAC Sizing Guide</div>
             <h1 style="font-size: 36px; color: #fff; margin-bottom: 10px; line-height: 1.25;">How to Size an HVAC System Properly</h1>
 
@@ -208,6 +282,71 @@
 
             <div class="callout">
               <strong>Important:</strong> This guide covers a simplified systematic approach. For permitted projects, always follow full ACCA Manual J, S, and D protocol. The tools referenced here are excellent for rapid estimates, pre-sales engineering, and field verification.
+            </div>
+
+            <div class="diagram">
+              <div class="diagram-header">
+                <div>
+                  <div class="diagram-kicker">MintSheets Visual Guide</div>
+                  <h3>The 4-Step HVAC Sizing Workflow</h3>
+                </div>
+                <div class="diagram-badge">Manual J → D</div>
+              </div>
+
+              <svg viewBox="0 0 920 430" role="img" aria-label="HVAC sizing workflow diagram showing four steps: load calculation, airflow, duct sizing, and static pressure verification">
+                <defs>
+                  <linearGradient id="sizingPanel1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#0B1C35"/>
+                    <stop offset="100%" stop-color="#0F2240"/>
+                  </linearGradient>
+                  <marker id="sizingArrow1" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                    <path d="M0,0 L10,5 L0,10 Z" fill="#22D3EE"/>
+                  </marker>
+                </defs>
+
+                <rect x="1" y="1" width="918" height="428" rx="20" fill="url(#sizingPanel1)" stroke="#2A4A72"/>
+
+                <rect x="36" y="138" width="180" height="120" rx="16" fill="#102847" stroke="#2A4A72"/>
+                <text x="126" y="172" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">1. Load</text>
+                <text x="126" y="198" text-anchor="middle" fill="#2ECC71" font-size="15" font-weight="800">BTU/hr</text>
+                <text x="126" y="224" text-anchor="middle" fill="#94A3B8" font-size="13">Manual J basis</text>
+
+                <line x1="216" y1="198" x2="276" y2="198" stroke="#22D3EE" stroke-width="4" marker-end="url(#sizingArrow1)"/>
+
+                <rect x="286" y="138" width="180" height="120" rx="16" fill="#102847" stroke="#2A4A72"/>
+                <text x="376" y="172" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">2. Airflow</text>
+                <text x="376" y="198" text-anchor="middle" fill="#22D3EE" font-size="15" font-weight="800">CFM</text>
+                <text x="376" y="224" text-anchor="middle" fill="#94A3B8" font-size="13">system + room</text>
+
+                <line x1="466" y1="198" x2="526" y2="198" stroke="#22D3EE" stroke-width="4" marker-end="url(#sizingArrow1)"/>
+
+                <rect x="536" y="138" width="180" height="120" rx="16" fill="#102847" stroke="#2A4A72"/>
+                <text x="626" y="172" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">3. Ducts</text>
+                <text x="626" y="198" text-anchor="middle" fill="#2ECC71" font-size="15" font-weight="800">Manual D</text>
+                <text x="626" y="224" text-anchor="middle" fill="#94A3B8" font-size="13">friction + velocity</text>
+
+                <line x1="716" y1="198" x2="776" y2="198" stroke="#22D3EE" stroke-width="4" marker-end="url(#sizingArrow1)"/>
+
+                <rect x="786" y="138" width="98" height="120" rx="16" fill="#102847" stroke="#2A4A72"/>
+                <text x="835" y="172" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">4. Static</text>
+                <text x="835" y="198" text-anchor="middle" fill="#22D3EE" font-size="15" font-weight="800">TESP</text>
+                <text x="835" y="224" text-anchor="middle" fill="#94A3B8" font-size="13">verify budget</text>
+
+                <rect x="54" y="304" width="812" height="56" rx="14" fill="#0F223D" stroke="#2A4A72"/>
+                <text x="460" y="327" text-anchor="middle" fill="#E2E8F0" font-size="14">
+                  Proper HVAC sizing is a
+                  <tspan fill="#2ECC71" font-weight="800"> sequence</tspan>,
+                  not just choosing equipment tonnage.
+                </text>
+                <text x="460" y="348" text-anchor="middle" fill="#E2E8F0" font-size="14">
+                  Each step feeds the next: load →
+                  <tspan fill="#22D3EE" font-weight="800"> airflow</tspan> →
+                  <tspan fill="#2ECC71" font-weight="800"> duct sizing</tspan> →
+                  <tspan fill="#22D3EE" font-weight="800"> static pressure check</tspan>.
+                </text>
+              </svg>
+
+              <p class="diagram-caption">A properly sized HVAC system is not just a load calculation. The full workflow includes <strong>load</strong>, <strong>airflow</strong>, <strong>duct design</strong>, and <strong>static pressure verification</strong>.</p>
             </div>
 
             <!-- TOOLS OVERVIEW -->
@@ -293,8 +432,59 @@
     <div class="ad-placeholder ad-placeholder-mid">
       <span>Advertisement</span>
     </div>
+            <div class="diagram">
+              <div class="diagram-header">
+                <div>
+                  <div class="diagram-kicker">MintSheets Visual Guide</div>
+                  <h3>What Goes Wrong When You Skip a Sizing Step</h3>
+                </div>
+                <div class="diagram-badge">Failure Chain</div>
+              </div>
 
-<h2>Free HVAC Sizing Tools</h2>
+              <svg viewBox="0 0 920 430" role="img" aria-label="HVAC sizing failure diagram showing problems caused by skipping load, airflow, duct, or static pressure checks">
+                <defs>
+                  <linearGradient id="sizingPanel2" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#0B1C35"/>
+                    <stop offset="100%" stop-color="#0F2240"/>
+                  </linearGradient>
+                </defs>
+
+                <rect x="1" y="1" width="918" height="428" rx="20" fill="url(#sizingPanel2)" stroke="#2A4A72"/>
+
+                <rect x="42" y="78" width="188" height="118" rx="16" fill="#102847" stroke="#2A4A72"/>
+                <text x="136" y="112" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">Skip Load Calc</text>
+                <text x="136" y="140" text-anchor="middle" fill="#94A3B8" font-size="13">Guess tonnage</text>
+                <text x="136" y="170" text-anchor="middle" fill="#F59E0B" font-size="14" font-weight="800">Oversized / undersized system</text>
+
+                <rect x="258" y="78" width="188" height="118" rx="16" fill="#102847" stroke="#2A4A72"/>
+                <text x="352" y="112" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">Skip Airflow</text>
+                <text x="352" y="140" text-anchor="middle" fill="#94A3B8" font-size="13">No room CFM design</text>
+                <text x="352" y="170" text-anchor="middle" fill="#F59E0B" font-size="14" font-weight="800">Hot / cold room imbalance</text>
+
+                <rect x="474" y="78" width="188" height="118" rx="16" fill="#102847" stroke="#2A4A72"/>
+                <text x="568" y="112" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">Skip Duct Design</text>
+                <text x="568" y="140" text-anchor="middle" fill="#94A3B8" font-size="13">Improper duct sizing</text>
+                <text x="568" y="170" text-anchor="middle" fill="#F59E0B" font-size="14" font-weight="800">Noise + poor delivery</text>
+
+                <rect x="690" y="78" width="188" height="118" rx="16" fill="#102847" stroke="#2A4A72"/>
+                <text x="784" y="112" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">Skip Static Check</text>
+                <text x="784" y="140" text-anchor="middle" fill="#94A3B8" font-size="13">No TESP verification</text>
+                <text x="784" y="170" text-anchor="middle" fill="#F59E0B" font-size="14" font-weight="800">Low airflow + stress</text>
+
+                <rect x="84" y="250" width="752" height="96" rx="18" fill="#0F223D" stroke="#2A4A72"/>
+                <text x="460" y="282" text-anchor="middle" fill="#FFFFFF" font-size="19" font-weight="800">Typical Result</text>
+                <text x="460" y="310" text-anchor="middle" fill="#E2E8F0" font-size="14">
+                  Comfort complaints, humidity problems, short cycling,
+                </text>
+                <text x="460" y="332" text-anchor="middle" fill="#E2E8F0" font-size="14">
+                  excessive static pressure, weak airflow, and shorter equipment life.
+                </text>
+              </svg>
+
+              <p class="diagram-caption">Skipping any part of the HVAC sizing workflow creates downstream failures. Equipment selection, airflow, duct design, and static pressure must all work together.</p>
+            </div>
+
+            <h2>Free HVAC Sizing Tools</h2>
             <p>MintSheets provides browser-based calculators for each step of the HVAC sizing process. No login required, no app download:</p>
 
             <div class="tools-grid">
