@@ -658,9 +658,11 @@ input[type="range"] {
     background: var(--line);
     outline: none;
     -webkit-appearance: none;
+    appearance: none;
 }
 input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
+    appearance: none;
     width: 18px;
     height: 18px;
     border-radius: 50%;
@@ -1143,30 +1145,9 @@ input[type="range"]::-webkit-slider-thumb {
 /* ── PHASE 6: MONETIZATION & WORKFLOW ── */
 
 /* 1. Ad Placement Design */
-.ad-slot {
-    width: 100%;
-    min-height: 90px;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px dashed var(--line);
-    margin: 30px 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    border-radius: var(--radius-md);
-}
-.ad-slot::before {
-    content: "ADVERTISEMENT";
-    font-size: 10px;
-    color: var(--muted-2);
-    position: absolute;
-    top: -18px;
-    left: 0;
-    letter-spacing: 1px;
-}
-.ad-top { margin-bottom: 40px; }
-.ad-mid { margin: 40px 0; }
-.ad-bottom { margin-top: 40px; }
+/* NOTE: Ad slots (.ad-slot, .ad-top, .ad-mid, .ad-bottom) have been unified 
+   in styles.css under the `.ad-unit` system for consistent spacing and AdSense collapse behavior. 
+   See styles.css for the full definitions. */
 
 /* 2. Sticky Result Bar */
 .sticky-result-bar {
