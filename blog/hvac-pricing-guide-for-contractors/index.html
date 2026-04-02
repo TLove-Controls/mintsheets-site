@@ -47,6 +47,75 @@
   .breadcrumb{font-size:13px;color:#7A98B8;margin:16px 0 0;padding:0 0 16px;border-bottom:1px solid #1E3452}
   .breadcrumb a{color:var(--primary);text-decoration:none}
   .breadcrumb span{margin:0 6px}
+  .diagram{
+    margin:32px 0 36px;
+    padding:18px;
+    background:linear-gradient(135deg,#0B1C35,#0F2240);
+    border:1px solid #2A4A72;
+    border-radius:16px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.24);
+    overflow:hidden;
+  }
+  .diagram-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:14px;
+  }
+  .diagram-header h3{
+    margin:0;
+    color:#fff;
+    font-size:18px;
+  }
+  .diagram-kicker{
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    color:var(--accent);
+  }
+  .diagram-badge{
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(46,204,113,.28);
+    background:rgba(46,204,113,.10);
+    color:var(--primary);
+    font-size:11px;
+    font-weight:800;
+  }
+  .diagram svg{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .diagram-caption{
+    margin-top:14px;
+    font-size:14px;
+    color:#B7C9DD;
+  }
+  .diagram:hover{
+    border-color:var(--primary);
+    box-shadow:0 12px 28px rgba(0,0,0,0.35),0 0 18px rgba(46,204,113,0.12);
+  }
+  @media (max-width: 640px){
+    .diagram{
+      padding:14px;
+      border-radius:14px;
+      margin:24px 0 30px;
+    }
+    .diagram-header{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .diagram-header h3{
+      font-size:17px;
+    }
+    .diagram-badge{
+      font-size:10px;
+      padding:7px 10px;
+    }
+  }
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-83YSB6HWN4');</script>
@@ -115,6 +184,60 @@
             <strong>Key Insight:</strong> Most HVAC contractors who struggle with profitability don't have a revenue problem — they have a pricing model that doesn't account for the true cost of doing business. Labor burden, overhead allocation, vehicle costs, and callbacks all eat into margins silently.
           </div>
 
+          <div class="diagram">
+            <div class="diagram-header">
+              <div>
+                <div class="diagram-kicker">MintSheets Visual Guide</div>
+                <h3>The HVAC Pricing Stack</h3>
+              </div>
+              <div class="diagram-badge">Cost → Margin</div>
+            </div>
+
+            <svg viewBox="0 0 920 430" role="img" aria-label="HVAC pricing stack diagram showing labor burden, overhead, vehicle cost, materials, and profit margin building into sell price">
+              <defs>
+                <linearGradient id="pricingPanel1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0B1C35"/>
+                  <stop offset="100%" stop-color="#0F2240"/>
+                </linearGradient>
+              </defs>
+
+              <rect x="1" y="1" width="918" height="428" rx="20" fill="url(#pricingPanel1)" stroke="#2A4A72"/>
+
+              <rect x="120" y="300" width="240" height="52" rx="12" fill="#102847" stroke="#2A4A72"/>
+              <text x="240" y="332" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="800">Base Technician Wage</text>
+
+              <rect x="120" y="242" width="240" height="52" rx="12" fill="#12304F" stroke="#2A4A72"/>
+              <text x="240" y="274" text-anchor="middle" fill="#22D3EE" font-size="16" font-weight="800">Labor Burden</text>
+
+              <rect x="120" y="184" width="240" height="52" rx="12" fill="#14365A" stroke="#2A4A72"/>
+              <text x="240" y="216" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="800">Vehicle + Dispatch Cost</text>
+
+              <rect x="120" y="126" width="240" height="52" rx="12" fill="#17406A" stroke="#2A4A72"/>
+              <text x="240" y="158" text-anchor="middle" fill="#22D3EE" font-size="16" font-weight="800">Overhead Allocation</text>
+
+              <rect x="120" y="68" width="240" height="52" rx="12" fill="#1C4C77" stroke="#2A4A72"/>
+              <text x="240" y="100" text-anchor="middle" fill="#2ECC71" font-size="16" font-weight="900">Profit Margin</text>
+
+              <line x1="406" y1="210" x2="530" y2="210" stroke="#22D3EE" stroke-width="4"/>
+
+              <rect x="560" y="122" width="220" height="176" rx="20" fill="#102847" stroke="#2A4A72"/>
+              <text x="670" y="158" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="800">Final Sell Price</text>
+              <text x="670" y="194" text-anchor="middle" fill="#2ECC71" font-size="18" font-weight="900">Cost Recovery + Profit</text>
+              <text x="670" y="228" text-anchor="middle" fill="#94A3B8" font-size="14">Not just hourly wage × time</text>
+              <text x="670" y="256" text-anchor="middle" fill="#E2E8F0" font-size="14">Every layer must be priced in</text>
+
+              <rect x="86" y="378" width="748" height="30" rx="10" fill="#0F223D" stroke="#2A4A72"/>
+              <text x="460" y="398" text-anchor="middle" fill="#E2E8F0" font-size="14">
+                Profitable pricing starts with
+                <tspan fill="#22D3EE" font-weight="800"> true cost</tspan>,
+                then adds
+                <tspan fill="#2ECC71" font-weight="800"> target margin</tspan>.
+              </text>
+            </svg>
+
+            <p class="diagram-caption">A sustainable HVAC price is built in layers: <strong>labor burden</strong>, <strong>truck/dispatch cost</strong>, <strong>overhead</strong>, and <strong>profit</strong>. Pricing off wage alone guarantees margin leakage.</p>
+          </div>
+
           <h2>The Foundation: Know Your True Hourly Cost</h2>
           <p>Before you can price anything, you need to know what it actually costs to put a technician in a truck and send them to a job. The raw wage is only the starting point. The <strong>burdened labor rate</strong> includes everything it costs to employ that technician:</p>
           <ul>
@@ -173,6 +296,56 @@
             <p>Use the MintSheets bid calculator to build complete job costs with labor burden, overhead, materials, and target margin. Produces a markup percentage and minimum sell price automatically.</p>
             <a href="/hvac-bid-calculator/" class="tool-link">→ HVAC Bid Calculator</a>
             <a href="/hvac-profit-margin-calculator/" class="tool-link" style="margin-left:8px;">→ Profit Margin Calculator</a>
+          </div>
+
+          <div class="diagram">
+            <div class="diagram-header">
+              <div>
+                <div class="diagram-kicker">MintSheets Visual Guide</div>
+                <h3>How HVAC Job Pricing Breaks Down</h3>
+              </div>
+              <div class="diagram-badge">Service + Install Logic</div>
+            </div>
+
+            <svg viewBox="0 0 920 430" role="img" aria-label="HVAC pricing workflow diagram showing diagnostic fee, labor, parts markup, overhead, and target margin">
+              <defs>
+                <linearGradient id="pricingPanel2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0B1C35"/>
+                  <stop offset="100%" stop-color="#0F2240"/>
+                </linearGradient>
+              </defs>
+
+              <rect x="1" y="1" width="918" height="428" rx="20" fill="url(#pricingPanel2)" stroke="#2A4A72"/>
+
+              <rect x="42" y="92" width="172" height="108" rx="16" fill="#102847" stroke="#2A4A72"/>
+              <text x="128" y="124" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">Diagnostic Fee</text>
+              <text x="128" y="152" text-anchor="middle" fill="#22D3EE" font-size="14" font-weight="800">trip + dispatch</text>
+
+              <rect x="258" y="92" width="172" height="108" rx="16" fill="#102847" stroke="#2A4A72"/>
+              <text x="344" y="124" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">Labor</text>
+              <text x="344" y="152" text-anchor="middle" fill="#2ECC71" font-size="14" font-weight="800">burdened hours</text>
+
+              <rect x="474" y="92" width="172" height="108" rx="16" fill="#102847" stroke="#2A4A72"/>
+              <text x="560" y="124" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">Parts / Materials</text>
+              <text x="560" y="152" text-anchor="middle" fill="#22D3EE" font-size="14" font-weight="800">markup strategy</text>
+
+              <rect x="690" y="92" width="188" height="108" rx="16" fill="#102847" stroke="#2A4A72"/>
+              <text x="784" y="124" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">Overhead + Margin</text>
+              <text x="784" y="152" text-anchor="middle" fill="#2ECC71" font-size="14" font-weight="800">true profitability</text>
+
+              <line x1="128" y1="244" x2="784" y2="244" stroke="#22D3EE" stroke-width="6"/>
+
+              <rect x="220" y="286" width="480" height="84" rx="18" fill="#0F223D" stroke="#2A4A72"/>
+              <text x="460" y="318" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="800">Final HVAC Sell Price</text>
+              <text x="460" y="344" text-anchor="middle" fill="#E2E8F0" font-size="14">
+                Price must recover
+                <tspan fill="#22D3EE" font-weight="800"> every cost component</tspan>
+                and still hit
+                <tspan fill="#2ECC71" font-weight="800"> target net margin</tspan>.
+              </text>
+            </svg>
+
+            <p class="diagram-caption">Whether you are pricing a service call or a full installation, the logic is the same: recover every cost bucket, then price to the margin your business actually needs.</p>
           </div>
 
           <h2>Overhead Rate: The Number Most Contractors Miss</h2>
