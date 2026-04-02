@@ -252,8 +252,8 @@ h3 {
 }
 
 h1 {
-    font-size: clamp(2rem, 5vw, 2.75rem);
-    margin-bottom: 24px;
+    font-size: clamp(1.75rem, 4.5vw, 2.4rem);
+    margin-bottom: 18px;
 }
 
 h2 {
@@ -265,9 +265,6 @@ h3 {
     font-size: clamp(1.25rem, 3vw, 1.5rem);
     margin-bottom: 16px;
 }
- h1 {
-     margin: 0 0 18px;
- }
 
 .hero-subheadline {
     margin: 0 0 18px;
@@ -860,7 +857,7 @@ body.menu-open .mobile-nav {
 }
 
 .product-hero h1 {
-    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-size: clamp(1.85rem, 4vw, 2.8rem);
     margin-top: 16px;
     margin-bottom: 16px;
 }
