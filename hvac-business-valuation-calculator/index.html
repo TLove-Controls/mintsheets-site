@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,44 +10,12 @@
 <meta property="og:description" content="Estimate the market value of your HVAC company based on EBITDA, assets, and market multiples." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://mintsheets.com/hvac-business-valuation-calculator/" />
-
-    <link rel="stylesheet" href="../styles.min.css?v=1.5">
-    <link rel="stylesheet" href="../shared/css/calculators.css?v=1.6">
-    <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
-    <meta property="og:image" content="https://mintsheets.com/shared/images/hvac-valuation.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <script type="application/ld+json">
+<link rel="stylesheet" href="../styles.min.css?v=1.5">
+<link rel="stylesheet" href="../shared/css/calculators.css?v=1.6">
+<link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+<script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Business Valuation Calculator","url":"https://mintsheets.com/hvac-business-valuation-calculator/","applicationCategory":"ProfessionalTool","operatingSystem":"WEB"}
 </script>
-    <style>
-      @media (max-width: 900px) {
-        .shell { flex-direction: column !important; }
-        .left-col, .sidebar { width: 100% !important; max-width: none !important; }
-        .sidebar { position: static !important; }
-      }
-      .shell { display: flex; gap: 30px; align-items: flex-start; }
-      .left-col { flex: 1; min-width: 0; }
-      .sidebar { width: 340px; position: sticky; top: 20px; }
-      .card { background: var(--panel-elevated); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
-      .field-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-      @media (max-width: 600px) { .field-grid { grid-template-columns: 1fr; } }
-      .section-head { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
-      .section-num { background: var(--primary); color: var(--cta-text); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px; flex-shrink: 0; }
-      .section-hint { color: var(--muted); font-size: 11px; margin-left: auto; text-transform: uppercase; letter-spacing: 0.05em; }
-      .input-wrap { display: flex; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: var(--radius-sm); }
-      .input-pre, .input-suf { padding: 0 10px; color: var(--muted); font-size: 13px; font-weight: 500; }
-      .input-wrap input { border: none !important; background: transparent !important; flex: 1; }
-      .benchmark-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-      @media (max-width: 768px) { .benchmark-grid { grid-template-columns: repeat(2, 1fr); } }
-      .bench-card { padding: 12px; border-radius: var(--radius-md); text-align: center; border: 1px solid var(--line); }
-      .bench-label { font-size: 10px; text-transform: uppercase; color: var(--muted); letter-spacing: 0.05em; }
-      .bench-val { font-size: 20px; font-weight: 800; color: #fff; margin: 4px 0; }
-      .bench-unit { font-size: 10px; color: var(--muted); }
-      .bench-status { font-size: 11px; margin-top: 6px; font-weight: 700; }
-      .bench-status.ok { color: var(--primary); }
-      .bench-status.warn { color: var(--accent); }
-      .bench-status.bad { color: var(--rose-light); }
-    </style>
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
@@ -57,801 +25,207 @@
   gtag('js', new Date());
   gtag('config', 'G-83YSB6HWN4');
 </script>
-  <style>
-  .breadcrumb-bar{background:rgba(11,28,53,0.7);border-bottom:1px solid #1E3452;padding:8px 0;font-size:13px;}
-  .breadcrumb-bar .container{display:flex;align-items:center;gap:6px;color:#7A98B8;flex-wrap:wrap;}
-  .breadcrumb-bar a{color:var(--primary);text-decoration:none;}
-  .breadcrumb-bar a:hover{text-decoration:underline;}
-  .breadcrumb-bar span{color:#4A6080;}
-  </style>
+<style>
+  .shell { display: flex; gap: 30px; align-items: flex-start; }
+  .left-col { flex: 1; min-width: 0; }
+  .sidebar { width: 340px; position: sticky; top: 20px; }
+  @media (max-width: 900px) {
+    .shell { flex-direction: column !important; }
+    .left-col, .sidebar { width: 100% !important; max-width: none !important; }
+    .sidebar { position: static !important; }
+  }
+  .card { background: var(--panel-elevated); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
+  .field-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 600px) { .field-grid { grid-template-columns: 1fr; } }
+  .input-wrap { display: flex; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: var(--radius-sm); }
+  .input-pre, .input-suf { padding: 0 10px; color: var(--muted); font-size: 13px; font-weight: 500; }
+  .input-wrap input { border: none !important; background: transparent !important; flex: 1; min-height: 40px; padding: 0 10px; color: #fff; }
+</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"HVAC Calculators","item":"https://mintsheets.com/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"Business Valuation Calculator","item":"https://mintsheets.com/hvac-business-valuation-calculator/"}]}
 </script>
 </head>
 <body>
 
-    <header class="site-header">
-      <div class="container nav">
-        <a href="/" class="brand">
-          <picture>
-            <source type="image/avif" srcset="../brand/logo-without-background.avif">
-            <source type="image/webp" srcset="../brand/logo-without-background.webp">
-            <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
-          </picture>
-        </a>
-  
-        <nav class="nav-links">
-          <a href="/">Calculators</a>
-          <a href="/#troubleshooting-checklist">Free Guide</a>
-          <a href="mailto:support@mintsheets.com">Support</a>
-        </nav>
-        
-        <div class="header-actions">
-          <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
-        </div>
-      <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
-      </div>
-    </header>
-
-  <!-- Mobile Navigation -->
-  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
-  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
-    <div class="mobile-nav-header">
-      <a href="/" class="brand">
-        <picture>
-          <source type="image/avif" srcset="../brand/logo-without-background.avif">
-          <source type="image/webp" srcset="../brand/logo-without-background.webp">
-          <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
-        </picture>
-      </a>
-      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
-        <span></span><span></span>
-      </button>
+<header class="site-header">
+  <div class="container nav">
+    <a href="/" class="brand">
+      <picture>
+        <source type="image/avif" srcset="../brand/logo-without-background.avif">
+        <source type="image/webp" srcset="../brand/logo-without-background.webp">
+        <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+      </picture>
+    </a>
+    <nav class="nav-links">
+      <a href="/">Calculators</a>
+      <a href="/#troubleshooting-checklist">Free Guide</a>
+      <a href="mailto:support@mintsheets.com">Support</a>
+    </nav>
+    <div class="header-actions">
+      <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
     </div>
-    <ul class="mobile-nav-links">
-      <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
-      <li><a href="/blog/how-to-size-hvac-systems/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
-      <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
-      <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
-    </ul>
-    <div class="mobile-nav-cta">
-      <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary">Free Resources</a>
-    </div>
-  </nav>
+    <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-    <main>
+<div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+<nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <div class="mobile-nav-header">
+    <a href="/" class="brand">
+      <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80">
+    </a>
+    <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+      <span></span><span></span>
+    </button>
+  </div>
+  <ul class="mobile-nav-links">
+    <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
+    <li><a href="/blog/how-to-size-hvac-systems/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
+    <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
+    <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
+  </ul>
+</nav>
+
+<main>
   <div class="breadcrumb-bar">
     <div class="container">
-      <a href="/">Home</a><span>â€º</span>
-      <a href="/hvac-calculators/">HVAC Calculators</a><span>â€º</span>
+      <a href="/">Home</a><span>›</span>
+      <a href="/hvac-calculators/">HVAC Calculators</a><span>›</span>
       Business Valuation Calculator
     </div>
   </div>
-      <div style="background: rgba(46, 204, 113, 0.12); border: 1px solid rgba(46, 204, 113, 0.35); border-radius: 10px; padding: 12px 14px; margin: 14px 0; color: #DCFFEA; font-size: 14px; line-height: 1.45;">
-        <strong>Notice:</strong> This HVAC calculator provides estimates only and is for informational purposes. Results should be verified by a licensed HVAC professional. Use at your own risk.
+
+  <section class="section">
+    <div class="container section-card">
+      <div style="margin-bottom: 30px; text-align: center;">
+        <div class="eyebrow">Strategy Tool</div>
+        <h1>HVAC Business Valuation Calculator</h1>
+        <p style="color: var(--muted);">Estimate your company market value based on EBITDA & SDE. Take control of your margins with our <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: bold;">HVAC Pricing Guide for Contractors</a>.</p>
       </div>
-      <section class="section">
-        <div class="container section-card">
-          <div style="margin-bottom: 30px; text-align: center;">
-            <div class="eyebrow">Strategy Tool</div>
-            <h1 style="margin: 10px auto; max-width: none;">HVAC Business Valuation Calculator (EBITDA & SDE Valuation Tool)</h1>
-            <p style="color: var(--muted);">Estimate the market value of your HVAC company based on industry multiples.</p>
 
-            <p style="margin-top: 20px; line-height: 1.6; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
-              This HVAC business valuation calculator helps you estimate the market value of your heating and cooling company based on EBITDA, assets, and service contracts. Use it alongside the <a href="/hvac-profit-margin-calculator/" style="color: var(--primary); text-decoration: none;">profit margin calculator</a> to benchmark your growth. Designed for HVAC business owners and potential buyers.
-            </p>
+      <div class="ad-slot ad-top"></div>
 
-            <div style="margin-top: 30px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
-              <h2 style="font-size: 22px; color: #fff; margin-bottom: 15px;">What This Calculator Does</h2>
-              <p style="margin-bottom: 15px; color: var(--text-light);">
-                The Valuation Tool calculates a blended enterprise value by weighting four distinct methods: SDE multiples, EBITDA multiples, Revenue multiples, and Asset-based value. It accounts for qualitative factors like owner dependency, brand reputation, and geographic market growth to adjust your industry multiples.
-              </p>
-              <p style="margin-bottom: 15px; color: var(--text-light);">
-                It provides a detailed "Buyer Attractiveness Score" and identifies specific value drivers and risks. This allows owners to see exactly how increasing their percentage of recurring service agreements or reducing owner involvement can exponentially increase the final sale price of the company.
-              </p>
+      <div class="shell">
+        <div class="left-col">
+          <div class="card">
+            <h3>1. Annual Financials</h3>
+            <div class="field-grid">
+              <div class="form-group">
+                <label>Gross Annual Revenue ($)</label>
+                <div class="input-wrap">
+                  <input type="number" id="revenue" value="1200000" oninput="calc()">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Seller's Discretionary Earnings ($)</label>
+                <div class="input-wrap">
+                  <input type="number" id="sde" value="250000" oninput="calc()">
+                </div>
+              </div>
             </div>
           </div>
 
+          <div class="card">
+            <h3>2. Valuation Multiples</h3>
+            <div class="field-grid">
+              <div class="form-group">
+                <label>SDE Multiple (industry avg 2.5–3.5x)</label>
+                <input type="number" id="sdeMult" value="3.0" step="0.1" oninput="calc()">
+              </div>
+            </div>
+          </div>
+        </div>
 
-  <!-- Ad Placeholder: Top Banner -->
-  <div class="ad-slot ad-top" style="margin-top: 20px;"></div>
-
-<!-- ═══ MAIN SHELL ═══ -->
-<div class="shell">
-
-  <!-- ══════════ LEFT COLUMN ══════════ -->
-  <div class="left-col">
-
-    <!-- ─ SECTION 1: FINANCIALS ─ -->
-    <div class="card">
-      <div class="section-head">
-        <div class="section-num">1</div>
-        <h2>Revenue & Profitability</h2>
-        <span class="section-hint">Annual Figures</span>
-      </div>
-      <div class="field-grid">
-        <div class="field">
-          <label>Gross Annual Revenue <span class="hint">(most recent FY)</span></label>
-          <div class="input-wrap">
-            <div class="input-pre">$</div>
-            <input type="number" id="revenue" value="1200000" step="10000" oninput="calc()">
-          </div>
-        </div>
-        <div class="field">
-          <label>Prior Year Revenue <span class="hint">(for trend)</span></label>
-          <div class="input-wrap">
-            <div class="input-pre">$</div>
-            <input type="number" id="rev-prior" value="1050000" step="10000" oninput="calc()">
-          </div>
-        </div>
-        <div class="field">
-          <label>Cost of Goods Sold <span class="hint">(parts, equipment)</span></label>
-          <div class="input-wrap">
-            <div class="input-pre">$</div>
-            <input type="number" id="cogs" value="420000" step="5000" oninput="calc()">
-          </div>
-        </div>
-        <div class="field">
-          <label>Total Operating Expenses <span class="hint">(excl. COGS)</span></label>
-          <div class="input-wrap">
-            <div class="input-pre">$</div>
-            <input type="number" id="opex" value="380000" step="5000" oninput="calc()">
-          </div>
-        </div>
-        <div class="field">
-          <label>Owner Compensation <span class="hint">(salary + distributions)</span></label>
-          <div class="input-wrap">
-            <div class="input-pre">$</div>
-            <input type="number" id="owner-comp" value="150000" step="5000" oninput="calc()">
-          </div>
-        </div>
-        <div class="field">
-          <label>Depreciation & Amortization</label>
-          <div class="input-wrap">
-            <div class="input-pre">$</div>
-            <input type="number" id="da" value="28000" step="1000" oninput="calc()">
-          </div>
-        </div>
-        <div class="field">
-          <label>Interest Expense</label>
-          <div class="input-wrap">
-            <div class="input-pre">$</div>
-            <input type="number" id="interest" value="12000" step="1000" oninput="calc()">
-          </div>
-        </div>
-        <div class="field">
-          <label>One-Time / Non-Recurring Items <span class="hint">(add-back)</span></label>
-          <div class="input-wrap">
-            <div class="input-pre">$</div>
-            <input type="number" id="addback" value="15000" step="1000" oninput="calc()">
+        <div class="sidebar">
+          <div class="results-box">
+            <div class="result-label">Estimated Company Value</div>
+            <div class="result-value success" id="valTotal">$0</div>
+            <div style="margin-top: 10px; font-size: 13px; color: var(--muted);">Based on SDE Multiple Method</div>
           </div>
         </div>
       </div>
 
-      <div style="height:14px;"></div>
+      <div class="ad-slot ad-mid" style="margin-top: 20px;"></div>
 
-      <!-- BENCHMARK CARDS -->
-      <div class="benchmark-grid" id="benchmarks">
-        <div class="bench-card" style="border-top: 3px solid var(--orange);">
-          <div class="bench-label">Gross Profit</div>
-          <div class="bench-val" id="b-gp">—</div>
-          <div class="bench-unit">margin %</div>
-          <div class="bench-status" id="b-gp-s">—</div>
+      <div id="seo-content" style="margin-top: 40px; color: var(--text-light); line-height: 1.6;">
+        <h2>How are HVAC companies valued?</h2>
+        <p>Most small-to-midsize HVAC businesses are valued using a multiple of Seller's Discretionary Earnings (SDE). Larger institutional firms use EBITDA.</p>
+      </div>
+
+      <div class="ad-slot ad-bottom" style="margin-top: 20px;"></div>
+    </div>
+  </section>
+
+  <!-- WORKFLOW CHAIN -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="workflow-chain">
+        <div class="workflow-step active">
+          <div class="step-icon">📋</div>
+          <div class="step-label">Valuation</div>
         </div>
-        <div class="bench-card" style="border-top: 3px solid var(--teal);">
-          <div class="bench-label">Net Profit</div>
-          <div class="bench-val" id="b-np">—</div>
-          <div class="bench-unit">margin %</div>
-          <div class="bench-status" id="b-np-s">—</div>
-        </div>
-        <div class="bench-card" style="border-top: 3px solid var(--steel);">
-          <div class="bench-label">SDE Margin</div>
-          <div class="bench-val" id="b-sde">—</div>
-          <div class="bench-unit">of revenue</div>
-          <div class="bench-status" id="b-sde-s">—</div>
-        </div>
-        <div class="bench-card" style="border-top: 3px solid var(--rose);">
-          <div class="bench-label">Rev Growth</div>
-          <div class="bench-val" id="b-growth">—</div>
-          <div class="bench-unit">YoY %</div>
-          <div class="bench-status" id="b-growth-s">—</div>
-        </div>
+        <div class="workflow-arrow">→</div>
+        <a href="/hvac-profit-margin-calculator/" class="workflow-step">
+          <div class="step-icon">💰</div>
+          <div class="step-label">Margins</div>
+        </a>
+        <div class="workflow-arrow">→</div>
+        <a href="/hvac-labor-cost-calculator/" class="workflow-step">
+          <div class="step-icon">👷</div>
+          <div class="step-label">Labor</div>
+        </a>
+        <div class="workflow-arrow">→</div>
+        <a href="/hvac-bid-calculator/" class="workflow-step">
+          <div class="step-icon">💵</div>
+          <div class="step-label">Bid Tool</div>
+        </a>
       </div>
     </div>
+  </section>
+</main>
 
-    <!-- ─ SECTION 2: BUSINESS PROFILE ─ -->
-    <div class="card" style="border-left: 4px solid var(--teal);">
-      <div class="section-head">
-        <div class="section-num" style="background:var(--teal)">2</div>
-        <h2>Business Profile & Operations</h2>
-        <span class="section-hint">Qualitative Drivers</span>
-      </div>
-      <div class="field-grid">
-        <div class="field">
-          <label>Years in Business</label>
-          <select id="yib" onchange="calc()">
-            <option value="1">Under 3 years</option>
-            <option value="2">3–5 years</option>
-            <option value="3" selected>5–10 years</option>
-            <option value="4">10–20 years</option>
-            <option value="5">20+ years</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Number of Employees</label>
-          <div class="input-wrap">
-            <input type="number" id="employees" value="8" min="1" max="500" oninput="calc()">
-            <div class="input-suf">FTEs</div>
-          </div>
-        </div>
-        <div class="field">
-          <label>Service Vehicles / Fleet</label>
-          <div class="input-wrap">
-            <input type="number" id="vehicles" value="5" min="0" oninput="calc()">
-            <div class="input-suf">units</div>
-          </div>
-        </div>
-        <div class="field">
-          <label>Service Agreement Accounts <span class="hint">(annual contracts)</span></label>
-          <div class="input-wrap">
-            <input type="number" id="contracts" value="220" min="0" oninput="calc()">
-            <div class="input-suf">accts</div>
-          </div>
-        </div>
-        <div class="field">
-          <label>Revenue Mix — Residential %</label>
-          <div class="slider-row">
-            <input type="range" id="res-pct" min="0" max="100" value="75" oninput="updateSlider('res-pct','s-res-pct','%');calc()">
-            <div class="slider-val" id="s-res-pct">75%</div>
-          </div>
-        </div>
-        <div class="field">
-          <label>Recurring / Service Rev %</label>
-          <div class="slider-row">
-            <input type="range" id="rec-pct" min="0" max="100" value="40" oninput="updateSlider('rec-pct','s-rec-pct','%');calc()">
-            <div class="slider-val" id="s-rec-pct">40%</div>
-          </div>
-        </div>
-        <div class="field">
-          <label>Geographic Market</label>
-          <select id="market" onchange="calc()">
-            <option value="0.9">Rural / Small town</option>
-            <option value="1.0" selected>Mid-size metro (Rogers/NWA)</option>
-            <option value="1.1">Large metro / High growth</option>
-            <option value="1.15">Top 20 MSA</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Owner Dependency Risk</label>
-          <select id="owner-dep" onchange="calc()">
-            <option value="0.85">Critical — owner does all sales/ops</option>
-            <option value="0.92">High — owner involved daily</option>
-            <option value="1.0" selected>Moderate — managers in place</option>
-            <option value="1.1">Low — business runs without owner</option>
-          </select>
-        </div>
-      </div>
+<footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; font-family: sans-serif; clear: both;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+    <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+      <a href="/hvac-profit-margin-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Profit Margin Calculator</a>
+      <a href="/hvac-labor-cost-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Labor Cost Calculator</a>
+      <a href="/hvac-service-markup-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Service Markup Calculator</a>
+      <a href="/hvac-bid-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Bid Calculator</a>
     </div>
-
-    <!-- ─ SECTION 3: ASSETS & LIABILITIES ─ -->
-    <div class="card" style="border-left: 4px solid var(--steel);">
-      <div class="section-head">
-        <div class="section-num" style="background:var(--steel)">3</div>
-        <h2>Assets, Liabilities & Intangibles</h2>
-        <span class="section-hint">Balance Sheet Inputs</span>
-      </div>
-      <div class="field-grid">
-        <div class="field">
-          <label>Equipment / Tools FMV <span class="hint">(fair market value)</span></label>
-          <div class="input-wrap">
-            <div class="input-pre">$</div>
-            <input type="number" id="equip-fmv" value="95000" step="5000" oninput="calc()">
-          </div>
-        </div>
-        <div class="field">
-          <label>Vehicle Fleet FMV</label>
-          <div class="input-wrap">
-            <div class="input-pre">$</div>
-            <input type="number" id="vehicle-fmv" value="120000" step="5000" oninput="calc()">
-          </div>
-        </div>
-        <div class="field">
-          <label>Real Estate <span class="hint">(if included in sale)</span></label>
-          <div class="input-wrap">
-            <div class="input-pre">$</div>
-            <input type="number" id="realestate" value="0" step="10000" oninput="calc()">
-          </div>
-        </div>
-        <div class="field">
-          <label>Inventory / Parts Stock</label>
-          <div class="input-wrap">
-            <div class="input-pre">$</div>
-            <input type="number" id="inventory" value="18000" step="1000" oninput="calc()">
-          </div>
-        </div>
-        <div class="field">
-          <label>Outstanding Debt / Liabilities</label>
-          <div class="input-wrap">
-            <div class="input-pre">$</div>
-            <input type="number" id="debt" value="45000" step="5000" oninput="calc()">
-          </div>
-        </div>
-        <div class="field">
-          <label>Brand / Online Reputation</label>
-          <select id="brand-rep" onchange="calc()">
-            <option value="0.95">Poor — below 4.0 stars / few reviews</option>
-            <option value="1.0" selected>Average — 4.0–4.5 stars</option>
-            <option value="1.06">Good — 4.5–4.8 stars, 100+ reviews</option>
-            <option value="1.12">Excellent — 4.8+ stars, 300+ reviews</option>
-          </select>
-        </div>
-      </div>
+    <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        <span><span style="color: var(--primary);">✔</span> Used by HVAC technicians & contractors</span>
+        <span><span style="color: var(--primary);">✔</span> Based on ACCA Manual standards</span>
+        <span><span style="color: var(--primary);">✔</span> Free professional tools</span>
     </div>
-
-  <!-- Ad Placeholder: Mid Content -->
-  <div class="ad-slot ad-mid" style="margin-top: 20px;"></div>
-
-    <!-- ─ SECTION 4: VALUATION METHOD WEIGHTS ─ -->
-    <div class="card">
-      <div class="section-head">
-        <div class="section-num">4</div>
-        <h2>Valuation Method Weighting</h2>
-        <span class="section-hint">Adjust to Scenario</span>
-      </div>
-      <p style="font-size:12px;color:var(--text-mid);margin-bottom:16px;line-height:1.7;">Weights must sum to 100%. The blended value is a weighted average of each method's result. Adjust to fit the transaction type — e.g., increase SDE weight for owner-operated businesses, EBITDA for institutional buyers.</p>
-
-      <div class="field-grid">
-        <div class="field">
-          <label>SDE Multiple Weight</label>
-          <div class="slider-row">
-            <input type="range" id="w-sde" min="0" max="100" value="40" step="5" oninput="normalizeWeights('w-sde');updateSlider('w-sde','sv-sde','%');calc()">
-            <div class="slider-val" id="sv-sde">40%</div>
-          </div>
-        </div>
-        <div class="field">
-          <label>EBITDA Multiple Weight</label>
-          <div class="slider-row">
-            <input type="range" id="w-ebitda" min="0" max="100" value="30" step="5" oninput="normalizeWeights('w-ebitda');updateSlider('w-ebitda','sv-ebitda','%');calc()">
-            <div class="slider-val" id="sv-ebitda">30%</div>
-          </div>
-        </div>
-        <div class="field">
-          <label>Revenue Multiple Weight</label>
-          <div class="slider-row">
-            <input type="range" id="w-rev" min="0" max="100" value="20" step="5" oninput="normalizeWeights('w-rev');updateSlider('w-rev','sv-rev','%');calc()">
-            <div class="slider-val" id="sv-rev">20%</div>
-          </div>
-        </div>
-        <div class="field">
-          <label>Asset-Based Weight</label>
-          <div class="slider-row">
-            <input type="range" id="w-asset" min="0" max="100" value="10" step="5" oninput="normalizeWeights('w-asset');updateSlider('w-asset','sv-asset','%');calc()">
-            <div class="slider-val" id="sv-asset">10%</div>
-          </div>
-        </div>
-      </div>
-      <div id="weight-warning" style="display:none;background:var(--gold-pale);border:1px solid var(--gold-border);padding:8px 12px;font-size:11px;color:#7A5500;margin-top:10px;">
-        ⚠ Weights don't sum to 100% — blended value is proportional.
-      </div>
-
-      <div style="height:16px;"></div>
-
-      <div class="section-head" style="margin-bottom:12px;">
-        <div class="section-num" style="background:var(--ink-soft);font-size:12px;">M</div>
-        <h2 style="font-size:15px;">Industry Multiple Benchmarks</h2>
-      </div>
-      <div class="table-scroll">
-        <table class="comp-table">
-          <thead>
-            <tr>
-              <th>Business Profile</th>
-              <th>SDE Multiple</th>
-              <th>EBITDA Multiple</th>
-              <th>Rev Multiple</th>
-              <th>Notes</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><td>Small owner-op (&lt;$500K rev)</td><td class="num">1.5–2.5×</td><td class="num">2.0–3.0×</td><td class="num">0.3–0.5×</td><td>High owner dependency</td></tr>
-            <tr><td>Mid-size ($500K–$2M rev)</td><td class="num">2.5–3.5×</td><td class="num">3.0–4.5×</td><td class="num">0.5–0.8×</td><td>NWA market typical</td></tr>
-            <tr><td>Established ($2M–$5M rev)</td><td class="num">3.0–4.5×</td><td class="num">4.0–6.0×</td><td class="num">0.7–1.0×</td><td>Service agreements key</td></tr>
-            <tr><td>Large / Commercial focus</td><td class="num">4.0–6.0×</td><td class="num">5.0–8.0×</td><td class="num">0.8–1.2×</td><td>Recurring contracts add premium</td></tr>
-            <tr><td>PE Platform target</td><td class="num">5.0–8.0×</td><td class="num">7.0–12.0×</td><td class="num">1.0–2.0×</td><td>Scale + strong management</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
+    <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
   </div>
-  <!-- ══════════ END LEFT COLUMN ══════════ -->
-
-  <!-- ══════════ SIDEBAR ══════════ -->
-  <div class="sidebar">
-    <div class="val-panel">
-      <div class="val-panel-header">
-        <div class="eyebrow">Estimated Business Value</div>
-        <h3>Blended Valuation Range</h3>
-      </div>
-
-      <div class="val-number">
-        <div class="val-label">Midpoint Estimate</div>
-        <div class="val-amount" id="v-total">$0</div>
-        <div class="val-range" id="v-range">Range: $0 — $0</div>
-      </div>
-
-      <div class="val-methods">
-        <div class="val-method-row">
-          <span class="val-method-name">SDE Method</span>
-          <span>
-            <span class="val-method-val" id="v-sde">—</span>
-            <span class="val-method-mult" id="m-sde">—</span>
-          </span>
-        </div>
-        <div class="val-method-row">
-          <span class="val-method-name">EBITDA Method</span>
-          <span>
-            <span class="val-method-val" id="v-ebitda">—</span>
-            <span class="val-method-mult" id="m-ebitda">—</span>
-          </span>
-        </div>
-        <div class="val-method-row">
-          <span class="val-method-name">Revenue Method</span>
-          <span>
-            <span class="val-method-val" id="v-rev">—</span>
-            <span class="val-method-mult" id="m-rev">—</span>
-          </span>
-        </div>
-        <div class="val-method-row">
-          <span class="val-method-name">Asset-Based</span>
-          <span>
-            <span class="val-method-val" id="v-asset">—</span>
-            <span class="val-method-mult" style="display:none;">—</span>
-          </span>
-        </div>
-        <div class="val-method-row" style="padding-top:10px;margin-top:4px;border-top:1px solid rgba(255,255,255,0.12);">
-          <span class="val-method-name" style="color:white;font-weight:500;">Enterprise Value</span>
-          <span class="val-method-val" id="v-ev" style="color:var(--gold-light);">—</span>
-        </div>
-        <div class="val-method-row">
-          <span class="val-method-name">Less: Outstanding Debt</span>
-          <span class="val-method-val" id="v-debt" style="color:var(--rose-light);">—</span>
-        </div>
-        <div class="val-method-row" style="border-bottom:none;">
-          <span class="val-method-name" style="color:white;font-weight:500;">Equity Value (Cash-Free)</span>
-          <span class="val-method-val" id="v-equity" style="color:var(--teal-light);">—</span>
-        </div>
-      </div>
-
-      <div class="val-grade">
-        <div class="val-grade-label">Buyer Attractiveness Score</div>
-        <div id="v-grade-score" class="val-grade-score">—</div>
-        <span class="val-grade-text" id="v-grade-text">Enter data to calculate</span>
-        <div style="margin-top:8px;">
-          <div class="score-meter"><div class="score-fill" id="score-fill" style="width:0%"></div></div>
-        </div>
-      </div>
-
-      <div class="val-risks">
-        <div style="font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--slate);text-transform:uppercase;margin-bottom:10px;">Value Drivers & Risks</div>
-        <div id="risk-list"></div>
-      </div>
-
-      <div class="action-row">
-        <button class="btn btn-gold" onclick="window.print()">Print / PDF</button>
-        <button class="btn btn-outline" onclick="resetDefaults()">Reset</button>
-      </div>
-
-      <div class="disclaimer">
-        ⚠ FOR ESTIMATION PURPOSES ONLY. This calculator does not constitute a certified business appraisal. Consult a licensed business valuator, CPA, or M&A advisor before any transaction. Multiples vary by market conditions, deal structure, and buyer type.
-      </div>
-    </div>
-  </div>
-  <!-- ══════════ END SIDEBAR ══════════ -->
-
-</div><!-- /shell -->
-
-<div class="page-footer">
-  Professional HVAC Business Tools — Strategic Financial Engineering & Analysis
-</div>
+</footer>
 
 <script>
-function $(id) { return document.getElementById(id); }
-function n(id) { return parseFloat($(id).value) || 0; }
-function pct(id) { return parseFloat($(id).value) / 100; }
-
-function money(val, short) {
-  if (isNaN(val)) return '—';
-  if (short && Math.abs(val) >= 1000000) return '$' + (val/1000000).toFixed(2) + 'M';
-  if (short && Math.abs(val) >= 1000) return '$' + (val/1000).toFixed(0) + 'K';
-  return '$' + Math.round(val).toLocaleString();
-}
-
-function updateSlider(inputId, displayId, suffix) {
-  $(displayId).textContent = $(inputId).value + (suffix || '');
-}
-
-function normalizeWeights(changed) {
-  // Don't auto-normalize; just flag warning
-  var total = ['w-sde','w-ebitda','w-rev','w-asset'].reduce((s,id) => s + parseInt($(id).value), 0);
-  $('weight-warning').style.display = total !== 100 ? '' : 'none';
-}
-
 function calc() {
-  var rev = n('revenue');
-  var revPrior = n('rev-prior');
-  var cogs = n('cogs');
-  var opex = n('opex');
-  var ownerComp = n('owner-comp');
-  var da = n('da');
-  var interest = n('interest');
-  var addback = n('addback');
-  var equip = n('equip-fmv');
-  var veh = n('vehicle-fmv');
-  var re = n('realestate');
-  var inv = n('inventory');
-  var debt = n('debt');
-  var contracts = n('contracts');
-  var employees = n('employees');
-  var vehicles = n('vehicles');
-
-  var recPct = pct('rec-pct');
-  var marketMult = parseFloat($('market').value);
-  var ownerDepMult = parseFloat($('owner-dep').value);
-  var brandMult = parseFloat($('brand-rep').value);
-  var yibScore = parseInt($('yib').value);
-
-  // ─── CORE FINANCIALS ───
-  var grossProfit = rev - cogs;
-  var gpPct = rev > 0 ? (grossProfit / rev) * 100 : 0;
-  var netProfit = rev - cogs - opex;
-  var npPct = rev > 0 ? (netProfit / rev) * 100 : 0;
-  var growth = revPrior > 0 ? ((rev - revPrior) / revPrior) * 100 : 0;
-
-  // SDE = Net Profit + Owner Comp + D&A + Interest + Add-backs
-  var sde = netProfit + ownerComp + da + interest + addback;
-  var sdePct = rev > 0 ? (sde / rev) * 100 : 0;
-
-  // EBITDA = Net Profit + D&A + Interest (excl. owner comp for institutional)
-  var ebitda = netProfit + da + interest + addback;
-
-  // ─── QUALITY MULTIPLIER ───
-  var recBonus = 1 + (recPct * 0.25);           // recurring rev premium
-  var contractBonus = 1 + Math.min(contracts / 1000, 0.2); // service agreements
-  var growthBonus = growth > 10 ? 1.08 : growth > 5 ? 1.04 : growth < 0 ? 0.92 : 1.0;
-  var qualMult = marketMult * ownerDepMult * brandMult * recBonus * contractBonus * growthBonus;
-
-  // ─── BASE INDUSTRY MULTIPLES (mid-market HVAC) ───
-  var revBand = rev < 500000 ? 0 : rev < 2000000 ? 1 : rev < 5000000 ? 2 : 3;
-  var sdeBaseArr = [2.0, 3.0, 3.75, 5.0];
-  var ebitdaBaseArr = [2.5, 3.75, 5.0, 7.0];
-  var revBaseArr = [0.40, 0.65, 0.85, 1.0];
-
-  var sdeBase = sdeBaseArr[revBand];
-  var ebitdaBase = ebitdaBaseArr[revBand];
-  var revBase = revBaseArr[revBand];
-
-  var sdeMult = sdeBase * qualMult;
-  var ebitdaMult = ebitdaBase * qualMult;
-  var revMult = revBase * qualMult;
-
-  // ─── VALUATIONS ───
-  var valSDE = sde * sdeMult;
-  var valEBITDA = ebitda * ebitdaMult;
-  var valRev = rev * revMult;
-  var valAsset = equip + veh + re + inv + (contracts * 500); // $500/contract goodwill
-
-  // ─── WEIGHTED BLEND ───
-  var wSDE = parseInt($('w-sde').value) / 100;
-  var wEBITDA = parseInt($('w-ebitda').value) / 100;
-  var wRev = parseInt($('w-rev').value) / 100;
-  var wAsset = parseInt($('w-asset').value) / 100;
-  var wTotal = wSDE + wEBITDA + wRev + wAsset;
-
-  var blend = wTotal > 0
-    ? (valSDE * wSDE + valEBITDA * wEBITDA + valRev * wRev + valAsset * wAsset) / wTotal
-    : 0;
-
-  var lo = blend * 0.88;
-  var hi = blend * 1.14;
-  var equity = blend - debt;
-
-  // ─── UPDATE DOM ───
-  var el = $('v-total');
-  el.textContent = money(blend, true);
-  el.classList.remove('updated');
-  void el.offsetWidth;
-  el.classList.add('updated');
-
-  $('v-range').textContent = 'Range: ' + money(lo, true) + ' — ' + money(hi, true);
-  $('v-sde').textContent = money(valSDE, true);
-  $('v-ebitda').textContent = money(valEBITDA, true);
-  $('v-rev').textContent = money(valRev, true);
-  $('v-asset').textContent = money(valAsset, true);
-  $('v-ev').textContent = money(blend, true);
-  $('v-debt').textContent = '-' + money(debt, true);
-  $('v-equity').textContent = money(equity, true);
-  $('m-sde').textContent = sdeMult.toFixed(2) + '×';
-  $('m-ebitda').textContent = ebitdaMult.toFixed(2) + '×';
-  $('m-rev').textContent = revMult.toFixed(2) + '×';
-
-  // ─── BENCHMARKS ───
-  $('b-gp').textContent = gpPct.toFixed(1) + '%';
-  $('b-np').textContent = npPct.toFixed(1) + '%';
-  $('b-sde').textContent = sdePct.toFixed(1) + '%';
-  $('b-growth').textContent = (growth >= 0 ? '+' : '') + growth.toFixed(1) + '%';
-
-  setStatus('b-gp-s', gpPct, 45, 35, 'Strong', 'Average', 'Below Avg');
-  setStatus('b-np-s', npPct, 12, 6, 'Strong', 'Average', 'Thin');
-  setStatus('b-sde-s', sdePct, 25, 15, 'Strong', 'Average', 'Thin');
-  setStatus('b-growth-s', growth, 10, 0, 'Growing', 'Stable', 'Declining');
-
-  // ─── BUYER ATTRACTIVENESS SCORE ───
-  var score = 50;
-  score += Math.min(gpPct - 40, 20);          // gross profit
-  score += Math.min(npPct * 2, 16);           // profitability
-  score += Math.min(growth * 1.5, 12);        // growth
-  score += recPct * 20;                        // recurring revenue
-  score += Math.min(contracts / 50, 6);       // service agreements
-  score += (yibScore - 1) * 3;               // longevity
-  score += (parseFloat($('owner-dep').value) - 0.85) / 0.25 * 5;
-  score += (parseFloat($('brand-rep').value) - 0.95) / 0.17 * 5;
-  score = Math.max(0, Math.min(100, score));
-
-  $('v-grade-score').textContent = Math.round(score);
-  var gradeText, gradeFill;
-  if (score >= 80) { gradeText = 'Highly Attractive — premium buyer pool'; gradeFill = 'var(--teal-light)'; }
-  else if (score >= 65) { gradeText = 'Above Average — good buyer interest'; gradeFill = 'var(--gold-light)'; }
-  else if (score >= 50) { gradeText = 'Average — standard market interest'; gradeFill = 'var(--gold)'; }
-  else if (score >= 35) { gradeText = 'Below Average — limited buyer pool'; gradeFill = 'var(--rose-light)'; }
-  else { gradeText = 'Challenged — significant improvements needed'; gradeFill = 'var(--rose)'; }
-  $('v-grade-text').textContent = gradeText;
-  $('score-fill').style.width = score + '%';
-  $('score-fill').style.background = 'linear-gradient(90deg, var(--rose) 0%, var(--gold) 50%, var(--teal-light) 100%)';
-
-  // ─── RISK ITEMS ───
-  var risks = [];
-  if (recPct >= 0.35) risks.push({ c: 'good', t: Math.round(recPct*100) + '% recurring revenue — premium driver' });
-  else risks.push({ c: 'warn', t: 'Low recurring revenue (' + Math.round(recPct*100) + '%) — key improvement area' });
-
-  if (contracts >= 150) risks.push({ c: 'good', t: contracts + ' service agreements — strong retention asset' });
-  else risks.push({ c: 'warn', t: 'Build service agreement base (currently ' + contracts + ')' });
-
-  if (growth >= 10) risks.push({ c: 'good', t: 'Revenue growing ' + growth.toFixed(1) + '% YoY — above market' });
-  else if (growth < 0) risks.push({ c: 'bad', t: 'Revenue declining ' + Math.abs(growth).toFixed(1) + '% — discount likely' });
-  else risks.push({ c: 'warn', t: 'Modest growth ' + growth.toFixed(1) + '% — demonstrate trajectory' });
-
-  var ownerD = parseFloat($('owner-dep').value);
-  if (ownerD >= 1.05) risks.push({ c: 'good', t: 'Strong management team — reduces transition risk' });
-  else if (ownerD <= 0.92) risks.push({ c: 'bad', t: 'High owner dependency — significant discount factor' });
-  else risks.push({ c: 'warn', t: 'Moderate owner involvement — document all processes' });
-
-  if (gpPct >= 45) risks.push({ c: 'good', t: gpPct.toFixed(1) + '% gross margin — above HVAC average (42%)' });
-  else risks.push({ c: 'warn', t: gpPct.toFixed(1) + '% gross margin — industry avg is 42–48%' });
-
-  $('risk-list').innerHTML = risks.map(r =>
-    '<div class="risk-item"><div class="risk-dot ' + r.c + '"></div><span>' + r.t + '</span></div>'
-  ).join('');
+  const sde = parseFloat(document.getElementById('sde').value) || 0;
+  const mult = parseFloat(document.getElementById('sdeMult').value) || 1;
+  const total = sde * mult;
+  document.getElementById('valTotal').innerText = '$' + Math.round(total).toLocaleString();
+  if (window.updateMintStickyBar) { window.updateMintStickyBar({ 'Business Value': '$' + Math.round(total).toLocaleString() }, '/hvac-profit-margin-calculator/'); }
 }
-
-function setStatus(id, val, goodThresh, warnThresh, good, avg, bad) {
-  var el = $(id);
-  if (val >= goodThresh) { el.textContent = good; el.className = 'bench-status ok'; }
-  else if (val >= warnThresh) { el.textContent = avg; el.className = 'bench-status warn'; }
-  else { el.textContent = bad; el.className = 'bench-status bad'; }
-}
-
-function resetDefaults() {
-  var defaults = {
-    revenue: 1200000, 'rev-prior': 1050000, cogs: 420000, opex: 380000,
-    'owner-comp': 150000, da: 28000, interest: 12000, addback: 15000,
-    'equip-fmv': 95000, 'vehicle-fmv': 120000, realestate: 0, inventory: 18000,
-    debt: 45000, employees: 8, vehicles: 5, contracts: 220
-  };
-  Object.entries(defaults).forEach(([k,v]) => { if($(k)) $(k).value = v; });
-  $('res-pct').value = 75; $('s-res-pct').textContent = '75%';
-  $('rec-pct').value = 40; $('s-rec-pct').textContent = '40%';
-  $('w-sde').value = 40; $('sv-sde').textContent = '40%';
-  $('w-ebitda').value = 30; $('sv-ebitda').textContent = '30%';
-  $('w-rev').value = 20; $('sv-rev').textContent = '20%';
-  $('w-asset').value = 10; $('sv-asset').textContent = '10%';
-  calc();
-}
-
 calc();
 </script>
-    
 
-<!-- SEO CONTENT SECTION -->
-      <section class="section" id="seo-content">
-        <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
-          <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">Understanding How HVAC Businesses are Valued</h2>
-          <p style="margin-bottom: 15px;">
-            The <strong>HVAC Business Valuation Calculator</strong> provides owners with a data-driven baseline for what their company might be worth in the current M&A market. Unlike pure tech companies or SaaS platforms, HVAC business valuations rely heavily on profitability metrics—specifically Seller's Discretionary Earnings (SDE) and Earnings Before Interest, Taxes, Depreciation, and Amortization (EBITDA)—combined with industry-specific quality multipliers.
-          </p>
-          <p style="margin-bottom: 15px;">
-            The distinction between SDE and EBITDA is critical depending on the size of your business and your potential buyer pool. Smaller, owner-operator firms (typically under $1.5M in revenue) are generally valued on an <strong>SDE basis</strong>, as individual buyers want to know total owner benefit. Conversely, mid-market companies ($2M+ in revenue) aiming for Private Equity acquisition or strategic rollout roll-ups are valued on <strong>EBITDA</strong>, as institutional buyers will need to replace the owner with a salaried general manager.
-          </p>
-          
-          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Increasing Your Target Multiple</h3>
-          <p style="margin-bottom: 15px;">
-            Building a business that simply generates cash is different from building a business that can be sold for a premium. To push your valuation into the upper multiple ranges (e.g., from 3.0x to 5.0x SDE), you must de-risk the asset for the buyer. This means aggressively growing your <strong>Commercial & Residential Maintenance Agreements</strong>. Recurring revenue is the single most attractive metric to institutional HVAC buyers.
-          </p>
-          <p style="margin-bottom: 15px;">
-            Additionally, reducing "Owner Dependency" is paramount. A business where the owner handles all dispatching, sales, and complex diagnostics is highly risky to acquire. You can begin systemizing your pricing using tools like our <a href="/hvac-profit-margin-calculator/" style="color: var(--primary); text-decoration: none;">profit margin calculator</a> to ensure standardized gross margins across your staff, and manage your field labor efficiency with our <a href="/hvac-labor-cost-calculator/" style="color: var(--primary); text-decoration: none;">labor cost calculator</a>.
-          </p>
-          <p style="margin-bottom: 25px;">
-            Whether you are planning an exit in 12 months or 10 years, routinely tracking your valuation health ensures that the daily grind of contracting is actively building generational enterprise value.
-          </p>
-
-          <h2 style="font-size: 26px; margin-top: 40px; margin-bottom: 20px; color: #fff;">Frequently Asked Questions</h2>
-          <div style="margin-bottom: 20px;">
-            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">What is a typical HVAC business multiple?</h3>
-            <p>For mid-sized HVAC companies ($500k to $2M revenue), typical SDE multiples range from 2.5x to 4.0x. Larger companies with strong management teams and 40%+ recurring revenue can see EBITDA multiples of 5.0x to 8.0x or higher from Private Equity buyers.</p>
-          </div>
-          <div style="margin-bottom: 20px;">
-            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">How do service contracts affect valuation?</h3>
-            <p>Service agreements are the "gold" of HVAC valuation. They represent predictable future cash flow and higher customer lifetime value. Buyers will often pay a premium multiple for businesses where recurring revenue exceeds 30% of total gross sales.</p>
-          </div>
-        </div>
-      </section>
-
-  <!-- Ad Placeholder: Bottom Banner -->
-  <div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
-
-    <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
-      <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
-        <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-          <a href="/hvac-flow-rate-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Flow Rate Calculator</a>
-          <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Load Calculator</a>
-          <a href="/hvac-service-price-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Service Price Calculator</a>
-          <a href="/hvac-duct-size-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Duct Size Calculator</a>
-        </div>
-        <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px;font-size:14px;">
-          <a href="/privacy-policy/" style="color: var(--muted);">Privacy Policy</a> |
-          <a href="/terms-of-service/" style="color: var(--muted);">Terms of Service</a> |
-          <a href="/disclaimer/" style="color: var(--muted);">Disclaimer</a> |
-          <a href="/cookie-policy/" style="color: var(--muted);">Cookie Policy</a>
-        </div>
-        <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
-      </div>
-    </footer>
-
-  <script>
-  (function () {
-    var btn     = document.getElementById('hamburger-btn');
-    var nav     = document.getElementById('mobile-nav');
-    var overlay = document.getElementById('mobile-nav-overlay');
-    var close   = document.getElementById('mobile-nav-close');
-    if (!btn) return;
-    function openMenu() {
-      document.body.classList.add('menu-open');
-      btn.classList.add('active');
-      btn.setAttribute('aria-expanded', 'true');
-      nav.setAttribute('aria-hidden', 'false');
-    }
-    function closeMenu() {
-      document.body.classList.remove('menu-open');
-      btn.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
-      nav.setAttribute('aria-hidden', 'true');
-    }
-    btn.addEventListener('click', openMenu);
-    close.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMenu();
-    });
-  })();
-  </script>
+<script>
+(function () {
+  var btn = document.getElementById('hamburger-btn');
+  var nav = document.getElementById('mobile-nav');
+  var overlay = document.getElementById('mobile-nav-overlay');
+  if (!btn) return;
+  function openMenu() { document.body.classList.add('menu-open'); btn.classList.add('active'); nav.setAttribute('aria-hidden', 'false'); }
+  function closeMenu() { document.body.classList.remove('menu-open'); btn.classList.remove('active'); nav.setAttribute('aria-hidden', 'true'); }
+  btn.addEventListener('click', openMenu); overlay.addEventListener('click', closeMenu);
+})();
+</script>
 
 </body>
 </html>
-
-
-
-
-
-

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,12 +10,10 @@
 <meta property="og:description" content="Free online HVAC flow rate calculator for CFM, duct sizing, and airflow analysis. Technical tools for technicians and contractors." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://mintsheets.com/hvac-flow-rate-calculator/" />
-    <link rel="stylesheet" href="../styles.min.css?v=1.5">
-    <link rel="stylesheet" href="../shared/css/calculators.css?v=1.6">
-    <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
-    <meta property="og:image" content="https://mintsheets.com/shared/images/hvac-flow-rate.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <script type="application/ld+json">
+<link rel="stylesheet" href="../styles.min.css?v=1.5">
+<link rel="stylesheet" href="../shared/css/calculators.css?v=1.6">
+<link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+<script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"HVAC Flow Rate Calculator","url":"https://mintsheets.com/hvac-flow-rate-calculator/","applicationCategory":"ProfessionalTool","operatingSystem":"WEB"}
 </script>
 
@@ -94,8 +92,8 @@
     <main>
   <div class="breadcrumb-bar">
     <div class="container">
-      <a href="/">Home</a><span>â€º</span>
-      <a href="/hvac-calculators/">HVAC Calculators</a><span>â€º</span>
+      <a href="/">Home</a><span>›</span>
+      <a href="/hvac-calculators/">HVAC Calculators</a><span>›</span>
       Flow Rate Calculator
     </div>
   </div>
@@ -103,498 +101,92 @@
         <strong>Notice:</strong> This HVAC calculator provides estimates only and is for informational purposes. Results should be verified by a licensed HVAC professional. Use at your own risk.
       </div>
       <section class="section">
+        <div class="container section-card">
           <div style="margin-bottom: 30px; text-align: center;">
             <div class="eyebrow">Technical Tool</div>
             <h1 style="margin: 10px auto; max-width: none;">HVAC Flow Rate Calculator for Airflow Verification</h1>
             <p style="color: var(--muted);">CFM, Static Pressure & Airflow Verification Tool — Determine system CFM and verify sensible heat capacity.</p>
             <p style="margin-top: 20px; line-height: 1.6; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
-              This HVAC flow rate calculator helps you verify actual system performance by calculating CFM from static pressure or temperature rise. Use it to ensure your <a href="/hvac-static-pressure-calculator/" style="color: var(--primary); text-decoration: none;">static pressure diagnostics</a> align with the equipment's fan performance data. Designed for service technicians and balancing professionals.
+              This HVAC flow rate calculator helps you verify actual system performance. Learn more about airflow diagnostics in our guide: <a href="/blog/what-is-static-pressure-hvac/" style="color: var(--primary); text-decoration: none; font-weight: bold;">What Is Static Pressure in HVAC? (Complete Guide)</a>.
             </p>
           </div>
-<!-- Content will be wrapped in main structure below -->
 
-  <!-- Ad Placeholder: Top Banner -->
+          <!-- Ad Placeholder: Top Banner -->
           <div class="ad-slot ad-top"></div>
 
-  <!-- ═══════════════════════════════ STATUS BAR ═══════════════════════════ -->
-  <div class="status-bar" id="statusBar">
-    <div class="status-item"><div class="status-dot" id="dot-cfm"></div><span id="stat-cfm">CFM: —</span></div>
-    <div class="status-item"><div class="status-dot" id="dot-vel"></div><span id="stat-vel">Velocity: —</span></div>
-    <div class="status-item"><div class="status-dot" id="dot-press"></div><span id="stat-press">Static Pressure: —</span></div>
-    <div class="status-item" style="margin-left:auto; color: var(--orange);" id="stat-sys">System: —</div>
-  </div>
-
-  <!-- ═══════════════════════════════ TABS ═══════════════════════════════ -->
-  <div class="mode-tabs">
-    <button class="mode-tab active" onclick="switchTab('cfm', this)">▶ CFM / Airflow</button>
-    <button class="mode-tab" onclick="switchTab('duct', this)">▶ Duct Sizing</button>
-    <button class="mode-tab" onclick="switchTab('sensible', this)">▶ Sensible Heat</button>
-    <button class="mode-tab" onclick="switchTab('static', this)">▶ Static Pressure</button>
-    <button class="mode-tab" onclick="switchTab('ref', this)">▶ Formulas</button>
-  </div>
-
-  <!-- ═══════════════════════════════ TAB: CFM ═══════════════════════════ -->
-  <div id="tab-cfm" class="tab-content active">
-    <div class="section-banner">
-      <span class="icon">💨</span> CFM / AIRFLOW CALCULATOR
-      <span class="tag">Q = V × A</span>
+<!-- SECTION 1 — CFM / AIRFLOW -->
+<div class="section-banner"><span class="icon">💨</span> SECTION 1 — CFM / AIRFLOW CALCULATOR</div>
+<div class="card">
+  <div class="form-grid">
+    <div class="form-group">
+      <label>Duct Diameter (in)</label>
+      <input type="number" id="cfm-diam" value="12" min="1" oninput="calcCFM()">
     </div>
-    <div class="panel">
-      <div class="panel-body">
-        <div class="label-row">Input Method</div>
-        <div class="calc-grid" style="margin-bottom:14px;">
-          <div class="field-group">
-            <label>Calculation Mode</label>
-            <select id="cfm-mode" onchange="calcCFM()">
-              <option value="area">By Duct Area & Velocity</option>
-              <option value="sensible">By Sensible Load (BTU)</option>
-              <option value="latent">By Latent Load (BTU)</option>
-              <option value="room">By Room (Rule of Thumb)</option>
-            </select>
-          </div>
-          <div class="field-group">
-            <label>System Type</label>
-            <select id="cfm-sys" onchange="calcCFM()">
-              <option>Residential Supply</option>
-              <option>Residential Return</option>
-              <option>Commercial Supply</option>
-              <option>Commercial Return</option>
-              <option>Exhaust / Ventilation</option>
-            </select>
-          </div>
-        </div>
-
-        <div id="cfm-inputs-area">
-          <div class="label-row">Duct Dimensions</div>
-          <div class="form-grid">
-            <div class="form-group">
-              <label>Duct Shape</label>
-              <select id="duct-shape" onchange="calcCFM()">
-                <option value="round">Round</option>
-                <option value="rect">Rectangular</option>
-              </select>
-            </div>
-            <div class="form-group" id="field-diameter">
-              <label>Diameter <span class="unit-hint">(inches)</span></label>
-              <div class="field-row">
-                <input type="number" id="cfm-diam" value="12" min="1" max="72" oninput="calcCFM()">
-              </div>
-            </div>
-            <div class="form-group" id="field-rect" style="display:none;">
-              <label>Width × Height <span class="unit-hint">(inches)</span></label>
-              <div class="field-row" style="gap:6px;">
-                <input type="number" id="cfm-w" value="12" min="1" oninput="calcCFM()" style="width:50%">
-                <input type="number" id="cfm-h" value="8" min="1" oninput="calcCFM()" style="width:50%">
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Velocity <span class="unit-hint">(FPM)</span></label>
-              <div class="field-row">
-                <input type="number" id="cfm-vel" value="800" min="1" max="3000" oninput="calcCFM()">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="cfm-inputs-sensible" style="display:none;">
-          <div class="label-row">Sensible Load Parameters</div>
-          <div class="form-grid">
-            <div class="form-group">
-              <label>Sensible Load <span class="unit-hint">(BTU/hr)</span></label>
-              <div class="field-row">
-                <input type="number" id="sens-btu" value="24000" oninput="calcCFM()">
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Supply Temp <span class="unit-hint">(°F)</span></label>
-              <div class="field-row">
-                <input type="number" id="sens-ts" value="55" oninput="calcCFM()">
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Return Temp <span class="unit-hint">(°F)</span></label>
-              <div class="field-row">
-                <input type="number" id="sens-tr" value="75" oninput="calcCFM()">
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div id="cfm-inputs-room" style="display:none;">
-          <div class="label-row">Room Parameters</div>
-          <div class="form-grid">
-            <div class="form-group">
-              <label>Room Area <span class="unit-hint">(sq ft)</span></label>
-              <div class="field-row">
-                <input type="number" id="room-sqft" value="200" oninput="calcCFM()">
-              </div>
-            </div>
-            <div class="form-group">
-              <label>CFM per Sq Ft</label>
-              <select id="room-ratio" onchange="calcCFM()">
-                <option value="1">1.0 CFM/ft² (Standard)</option>
-                <option value="0.75">0.75 CFM/ft² (Low)</option>
-                <option value="1.25">1.25 CFM/ft² (High)</option>
-                <option value="1.5">1.5 CFM/ft² (Commercial)</option>
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div class="hdivider"></div>
-        <div class="label-row">Results</div>
-
-        <div class="form-grid">
-          <div class="result-card primary">
-            <div class="result-label">Airflow Volume</div>
-            <div class="result-value primary" id="r-cfm">—</div>
-            <div class="result-unit">CFM (ft³/min)</div>
-            <div class="result-formula" id="r-cfm-formula"></div>
-          </div>
-          <div class="result-card">
-            <div class="result-label">Duct Area</div>
-            <div class="result-value" id="r-area">—</div>
-            <div class="result-unit">ft² (square feet)</div>
-            <div class="result-formula" id="r-area-note"></div>
-          </div>
-          <div class="result-card">
-            <div class="result-label">Velocity Check</div>
-            <div class="result-value" id="r-velcheck">—</div>
-            <div class="result-unit">FPM</div>
-            <div class="result-formula" id="r-vel-status"></div>
-          </div>
-        </div>
-
-        <div class="hdivider"></div>
-        <div class="label-row">Velocity Gauge</div>
-        <div class="gauge-wrap">
-          <div class="gauge-bar">
-            <div class="gauge-fill" id="gauge-fill" style="width:100%"></div>
-            <div class="gauge-marker" id="gauge-marker" style="left:26.7%"></div>
-          </div>
-          <div class="gauge-labels">
-            <span>0</span><span>300</span><span>600</span><span>900 FPM</span><span style="color:var(--yellow)">1200</span><span style="color:var(--red)">2000+</span>
-          </div>
-        </div>
-        <div style="text-align:center; font-family:var(--mono); font-size:10px; color:var(--text-dim); margin-top:4px;" id="gauge-label">
-          Acceptable range: 500–900 FPM residential supply
-        </div>
+    <div class="form-group">
+      <label>Velocity (FPM)</label>
+      <input type="number" id="cfm-vel" value="800" min="1" oninput="calcCFM()">
+    </div>
+  </div>
+  <div class="results-box" id="cfmResults" style="margin-top: 20px;">
+    <div class="form-grid">
+      <div style="text-align: center; border-right: 1px solid var(--line);">
+        <div class="result-label">Calculated CFM</div>
+        <div class="result-value primary" id="r-cfm">—</div>
+      </div>
+      <div style="text-align: center;">
+        <div class="result-label">Duct Area</div>
+        <div class="result-value" id="r-area">—</div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- ═══════════════════════════════ TAB: DUCT SIZING ════════════════════ -->
-  <div id="tab-duct" class="tab-content">
-    <div class="section-banner">
-      <span class="icon">📐</span> DUCT SIZING — MULTI-ZONE TABLE
-      <span class="tag">Equal Friction Method</span>
+<!-- SECTION 2 — SENSIBLE HEAT -->
+<div class="section-banner" style="margin-top:20px;"><span class="icon">🌡️</span> SECTION 2 — SENSIBLE HEAT CAPACITY</div>
+<div class="card">
+  <div class="form-grid">
+    <div class="form-group">
+      <label>System CFM</label>
+      <input type="number" id="sh-cfm" value="1200" oninput="calcSensible()">
     </div>
-    <div class="panel">
-      <div class="panel-body" style="padding-bottom:0;">
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Target Friction Rate <span class="unit-hint">(in.w.g./100 ft)</span></label>
-            <div class="field-row">
-              <input type="number" id="ds-friction" value="0.08" step="0.01" min="0.02" max="0.20" oninput="calcDucts()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Max Supply Velocity <span class="unit-hint">(FPM)</span></label>
-            <div class="field-row">
-              <input type="number" id="ds-maxvel" value="900" min="300" max="2500" oninput="calcDucts()">
-            </div>
-          </div>
-        </div>
-        <div class="table-scroll">
-          <table class="duct-table" id="ductTable">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Zone / Room</th>
-                <th>CFM Required</th>
-                <th>Shape</th>
-                <th>Calc. Diameter</th>
-                <th>Use Size</th>
-                <th>Actual FPM</th>
-                <th>Status</th>
-                <th class="no-print">Del</th>
-              </tr>
-            </thead>
-            <tbody id="ductBody"></tbody>
-          </table>
-        </div>
-      </div>
-      <div class="btn-row">
-        <button class="btn btn-primary" onclick="addDuctRow()">+ Add Zone</button>
-        <button class="btn btn-steel" onclick="loadDuctDefaults()">⚡ Load Sample Zones</button>
-        <button class="btn btn-ghost" onclick="clearDucts()">🗑 Clear</button>
-      </div>
+    <div class="form-group">
+      <label>Temp Differential (ΔT)</label>
+      <input type="number" id="sh-dt" value="20" oninput="calcSensible()">
     </div>
   </div>
+  <div class="results-box" id="shResults" style="margin-top:20px;">
+    <div style="text-align: center;">
+      <div class="result-label">Sensible Heat Capacity</div>
+      <div class="result-value success" id="sh-q">—</div>
+      <div class="result-unit">BTU/hr</div>
+    </div>
+  </div>
+</div>
 
   <!-- Ad Placeholder: Mid Content -->
-    <div class="ad-slot ad-mid"></div>
+  <div class="ad-slot ad-mid" style="margin-top: 20px;"></div>
 
-  <!-- ═══════════════════════════════ TAB: SENSIBLE HEAT ══════════════════ -->
-  <div id="tab-sensible" class="tab-content">
-    <div class="section-banner">
-      <span class="icon">🌡️</span> SENSIBLE HEAT RATIO & LOAD CALCULATOR
-      <span class="tag">Q = 1.08 × CFM × ΔT</span>
-    </div>
-    <div class="panel">
-      <div class="panel-body">
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Total System CFM</label>
-            <div class="field-row">
-              <input type="number" id="sh-cfm" value="1200" oninput="calcSensible()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Supply Air Temp <span class="unit-hint">(°F)</span></label>
-            <div class="field-row">
-              <input type="number" id="sh-sup" value="55" oninput="calcSensible()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Return Air Temp <span class="unit-hint">(°F)</span></label>
-            <div class="field-row">
-              <input type="number" id="sh-ret" value="75" oninput="calcSensible()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Supply Humidity <span class="unit-hint">(%RH)</span></label>
-            <div class="field-row">
-              <input type="number" id="sh-sup-rh" value="55" oninput="calcSensible()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Return Humidity <span class="unit-hint">(%RH)</span></label>
-            <div class="field-row">
-              <input type="number" id="sh-ret-rh" value="50" oninput="calcSensible()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Elevation <span class="unit-hint">(ft ASL)</span></label>
-            <div class="field-row">
-              <input type="number" id="sh-elev" value="1200" oninput="calcSensible()">
-            </div>
-          </div>
-        </div>
-
-        <div class="form-grid">
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div class="result-card primary">
-              <div class="result-label">Sensible Heat Capacity</div>
-              <div class="result-value primary" id="sh-q">—</div>
-              <div class="result-unit">BTU/hr</div>
-              <div class="result-formula">Q = 1.08 × CFM × ΔT</div>
-            </div>
-            <div class="result-card">
-              <div class="result-label">Sensible Tons</div>
-              <div class="result-value" id="sh-tons">—</div>
-              <div class="result-unit">Tons of Cooling</div>
-              <div class="result-formula">÷ 12,000 BTU/ton</div>
-            </div>
-            <div class="result-card">
-              <div class="result-label">ΔT (Temperature Split)</div>
-              <div class="result-value" id="sh-dt">—</div>
-              <div class="result-unit">°F differential</div>
-              <div class="result-formula" id="sh-dt-note"></div>
-            </div>
-            <div class="result-card">
-              <div class="result-label">Latent Heat (Est.)</div>
-              <div class="result-value" id="sh-latent">—</div>
-              <div class="result-unit">BTU/hr</div>
-              <div class="result-formula">0.69 × CFM × ΔGr</div>
-            </div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:10px;">
-            <div class="result-card success">
-              <div class="result-label">Total System Capacity</div>
-              <div class="result-value success" id="sh-total">—</div>
-              <div class="result-unit">BTU/hr Total</div>
-              <div class="result-formula">Sensible + Latent</div>
-            </div>
-            <div class="result-card">
-              <div class="result-label">Sensible Heat Ratio (SHR)</div>
-              <div class="result-value" id="sh-shr">—</div>
-              <div class="result-unit" id="sh-shr-note"></div>
-              <div class="result-formula">SHR = Sensible ÷ Total</div>
-            </div>
-            <div class="result-card">
-              <div class="result-label">Altitude Correction Factor</div>
-              <div class="result-value" id="sh-alt">—</div>
-              <div class="result-unit">Air density multiplier</div>
-              <div class="result-formula">Affects actual BTU capacity</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+<!-- SEO CONTENT SECTION -->
+<section class="section" id="seo-content">
+  <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
+    <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">HVAC Flow Rate and Airflow Verification</h2>
+    <p style="margin-bottom: 15px;">The <strong>HVAC Flow Rate Calculator</strong> is a technical dashboard created to help technicians troubleshoot airflow systems.</p>
   </div>
+</section>
 
-  <!-- ═══════════════════════════════ TAB: STATIC PRESSURE ════════════════ -->
-  <div id="tab-static" class="tab-content">
-    <div class="section-banner">
-      <span class="icon">⚡</span> TOTAL EXTERNAL STATIC PRESSURE (TESP)
-      <span class="tag">ACCA Manual D</span>
-    </div>
-    <div class="panel">
-      <div class="panel-body">
-        <div class="label-row">Nameplate & System Inputs</div>
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Rated TESP <span class="unit-hint">(in.w.g.)</span></label>
-            <div class="field-row">
-              <input type="number" id="sp-rated" value="0.50" step="0.01" oninput="calcStatic()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Coil / Filter Drop</label>
-            <div class="field-row">
-              <input type="number" id="sp-coil" value="0.10" step="0.01" oninput="calcStatic()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Filter Pressure Drop</label>
-            <div class="field-row">
-              <input type="number" id="sp-filter" value="0.08" step="0.01" oninput="calcStatic()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Humidifier Drop</label>
-            <div class="field-row">
-              <input type="number" id="sp-humid" value="0.00" step="0.01" oninput="calcStatic()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>UV / Media Drop</label>
-            <div class="field-row">
-              <input type="number" id="sp-uv" value="0.00" step="0.01" oninput="calcStatic()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Other Accessories</label>
-            <div class="field-row">
-              <input type="number" id="sp-other" value="0.00" step="0.01" oninput="calcStatic()">
-            </div>
-          </div>
-        </div>
+<!-- Ad Placeholder: Bottom Banner -->
+<div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
 
-        <div class="label-row">Duct System</div>
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Supply Duct Length <span class="unit-hint">(ft)</span></label>
-            <div class="field-row">
-              <input type="number" id="sp-sup-len" value="100" oninput="calcStatic()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Return Duct Length <span class="unit-hint">(ft)</span></label>
-            <div class="field-row">
-              <input type="number" id="sp-ret-len" value="60" oninput="calcStatic()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Design Friction Rate <span class="unit-hint">(in.w.g./100ft)</span></label>
-            <div class="field-row">
-              <input type="number" id="sp-friction" value="0.08" step="0.01" oninput="calcStatic()">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Fitting Equiv. Length Multiplier</label>
-            <select id="sp-fitting" onchange="calcStatic()">
-              <option value="1.5">1.5× — Typical Residential</option>
-              <option value="1.25">1.25× — Good Layout</option>
-              <option value="2.0">2.0× — Complex Routing</option>
-              <option value="1.0">1.0× — Minimal Fittings</option>
-            </select>
-          </div>
-        </div>
+</section>
+</main>
 
-        <div class="label-row">Results</div>
-        <div class="form-grid">
-          <div class="result-card primary">
-            <div class="result-label">Available External SP</div>
-            <div class="result-value primary" id="sp-avail">—</div>
-            <div class="result-unit">in.w.g. (for duct system)</div>
-            <div class="result-formula">Rated − Component Drops</div>
-          </div>
-          <div class="result-card">
-            <div class="result-label">Duct System Pressure</div>
-            <div class="result-value" id="sp-duct">—</div>
-            <div class="result-unit">in.w.g. (estimated)</div>
-            <div class="result-formula">Total EL × Friction / 100</div>
-          </div>
-          <div class="result-card" id="sp-result-card">
-            <div class="result-label">System Status</div>
-            <div class="result-value" id="sp-status">—</div>
-            <div class="result-unit" id="sp-status-note"></div>
-            <div class="result-formula" id="sp-margin"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════ TAB: FORMULAS ════════════════════════ -->
-  <div id="tab-ref" class="tab-content">
-    <div class="section-banner">
-      <span class="icon">📖</span> HVAC FLOW FORMULA REFERENCE
-      <span class="tag">ACCA · ASHRAE · SMACNA</span>
-    </div>
-    <div class="panel">
-      <div class="panel-body">
-        <div class="form-grid">
-          <div>
-            <div class="label-row">Airflow</div>
-            <div class="formula-box">
-              <div><span class="var">CFM</span> = <span class="eq">Area (ft²) × Velocity (FPM)</span></div>
-              <div><span class="var">CFM</span> = <span class="eq">Sensible BTU ÷ (1.08 × ΔT)</span></div>
-              <div><span class="var">CFM</span> = <span class="eq">Latent BTU ÷ (0.69 × ΔGr)</span></div>
-              <div><span class="var">Area (round)</span> = <span class="eq">π × (D/2)² / 144</span></div>
-              <div><span class="var">Area (rect)</span> = <span class="eq">(W × H) / 144</span></div>
-            </div>
-            <div class="label-row" style="margin-top:24px;">Duct Sizing</div>
-            <div class="formula-box">
-              <div><span class="var">D (round)</span> = <span class="eq">√(CFM × 144 / (π × FPM)) × 2</span></div>
-              <div><span class="var">EqD</span> = <span class="eq">1.3 × (W×H)⁰·⁶²⁵ ÷ (W+H)⁰·²⁵</span></div>
-              <div><span class="var">Friction</span> = <span class="eq">0.109 × V¹·⁸⁵² / D¹·²²⁴ × 100</span></div>
-            </div>
-          </div>
-          <div>
-            <div class="label-row">Sensible Heat</div>
-            <div class="formula-box">
-              <div><span class="var">Q sensible</span> = <span class="eq">1.08 × CFM × ΔT</span></div>
-              <div><span class="var">Q latent</span> = <span class="eq">0.69 × CFM × ΔGr</span></div>
-              <div><span class="var">Q total</span> = <span class="eq">Sensible + Latent</span></div>
-              <div><span class="var">Tons</span> = <span class="eq">BTU/hr ÷ 12,000</span></div>
-              <div><span class="var">SHR</span> = <span class="eq">Q sensible ÷ Q total</span></div>
-            </div>
-            <div class="label-row" style="margin-top:24px;">Velocity Guidelines</div>
-            <div class="formula-box" style="line-height:1.9;">
-              <div><span class="var">Main trunk supply</span> <span class="eq">700–900 FPM</span></div>
-              <div><span class="var">Branch supply ducts</span> <span class="eq">500–700 FPM</span></div>
-              <div><span class="var">Return air main</span> <span class="eq">600–900 FPM</span></div>
-              <div><span class="var">Filter face velocity</span> <span class="eq">250–350 FPM</span></div>
-              <div><span class="var">Grille face velocity</span> <span class="eq">400–600 FPM</span></div>
-              <div><span class="var">Residential max</span> <span class="eq">900 FPM</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ FOOTER ═══ -->
     <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
       <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
         <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
           <a href="/hvac-flow-rate-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Flow Rate Calculator</a>
           <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Load Calculator</a>
-          <a href="/hvac-service-price-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Service Price Calculator</a>
+          <a href="/hvac-cfm-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">CFM Calculator</a>
           <a href="/hvac-duct-size-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Duct Size Calculator</a>
         </div>
         <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px;font-size:14px;">
@@ -603,383 +195,52 @@
           <a href="/disclaimer/" style="color:var(--muted);">Disclaimer</a> |
           <a href="/cookie-policy/" style="color:var(--muted);">Cookie Policy</a>
         </div>
-        <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+        
+        <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <span><span style="color: var(--primary);">✔</span> Used by HVAC technicians & contractors</span>
+            <span><span style="color: var(--primary);">✔</span> Based on ACCA Manual standards</span>
+            <span><span style="color: var(--primary);">✔</span> Free professional tools</span>
+        </div>
+    <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
       </div>
     </footer>
 
-</div><!-- /page -->
-
-      <!-- SEO CONTENT SECTION -->
-      <section class="section" id="seo-content">
-        <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
-          <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">Understanding HVAC Flow Rate and Airflow Dynamics</h2>
-          <p style="margin-bottom: 15px;">
-            The <strong>HVAC Flow Rate Calculator</strong> is a multi-purpose technical dashboard created to help technicians troubleshoot, verify, and commission residential and light commercial airflow systems. Rather than relying on a single airflow equation, this tool consolidates multiple methods—ranging from basic CFM calculation to Sensible Heat Load analysis—into one unified interface.
-          </p>
-          <p style="margin-bottom: 15px;">
-            In the <strong>CFM / Airflow</strong> tab, you can calculate the required airflow using several approaches. Whether you are sizing by the area of an existing duct, working backwards from a sensible BTU load, or just applying a generalized room-size multiplier during an initial walkthrough, the calculator instantly outputs the essential Cubic Feet per Minute (CFM).
-          </p>
-          
-          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Duct Sizing and Velocity Control</h3>
-          <p style="margin-bottom: 15px;">
-            We've integrated a zone-based <a href="/hvac-duct-size-calculator/" style="color: var(--primary); text-decoration: none;">duct sizing module</a> directly into the tool. It applies the standard Equal Friction Method (commonly anchored at a 0.08 in.w.g. per 100 ft friction rate). Maintaining appropriate face velocity in ductwork is critical. Excessive velocity (over 900 FPM for residential) creates aerodynamic noise and excessive pressure drop. Too little velocity results in poor air "throw," meaning conditioned air won't adequately mix with the room air.
-          </p>
-
-          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Sensible Heat and Static Pressure Checks</h3>
-          <p style="margin-bottom: 15px;">
-            One of the most powerful diagnostic techniques in the field is analyzing the Temperature Split (ΔT). By entering your measured supply and return temperatures alongside measured airflow, the <strong>Sensible Heat Ratio & Load</strong> tab calculates the exact sensible capacity the system is actively delivering. If the system is underperforming, the <strong>Static Pressure (TESP)</strong> tab helps you identify the restrictive component—be it a high-MERV filter or a restrictive evaporator coil.
-          </p>
-          <p style="margin-bottom: 25px;">
-            If your airflow and static pressure checks reveal a need for duct modification or system resizing, always document your findings and present an accurate, profitable solution using an <a href="/hvac-bid-calculator/" style="color: var(--primary); text-decoration: none;">HVAC bid calculator</a> before commencing work. Ensuring your system's foundation—the <a href="/hvac-load-calculator/" style="color: var(--primary); text-decoration: none;">load calculation</a> and airflow parameters—is solid is the ultimate key to a successful installation.
-          </p>
-
-          <h2 style="font-size: 26px; margin-top: 40px; margin-bottom: 20px; color: #fff;">Frequently Asked Questions</h2>
-          <div style="margin-bottom: 20px;">
-            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">How do I calculate CFM using temperature rise?</h3>
-            <p>For gas furnaces, use the formula: CFM = Output BTU / (1.08 × Temperature Rise). Measuring the Delta T across the heat exchanger allows you to determine if the blower is delivering the correct airflow for the burner capacity.</p>
-          </div>
-          <div style="margin-bottom: 20px;">
-            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">What is a good static pressure for an HVAC system?</h3>
-            <p>Most residential systems are designed for a Total External Static Pressure (TESP) of 0.50" w.c. If your measured static pressure exceeds 0.80" w.c., the airflow (CFM) will likely drop significantly, leading to poor heating/cooling performance and potential motor failure.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Ad Placeholder: Bottom Banner -->
-      <div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
-
+<!-- FLOW RATE LOGIC -->
 <script>
-/* ═══════════════════════════════════════════════════════════
-   TAB SWITCHING
-═══════════════════════════════════════════════════════════ */
-function switchTab(id, el) {
-  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.mode-tab').forEach(t => t.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
-  el.classList.add('active');
-}
-
-/* ═══════════════════════════════════════════════════════════
-   CFM CALCULATOR
-═══════════════════════════════════════════════════════════ */
-function fmt(n, dec) { return isNaN(n) ? '—' : n.toFixed(dec !== undefined ? dec : 0); }
-function fmtK(n) {
-  if (isNaN(n)) return '—';
-  return n >= 1000 ? (n/1000).toFixed(1) + 'k' : n.toFixed(0);
-}
-
-document.getElementById('cfm-mode').addEventListener('change', function() {
-  var m = this.value;
-  document.getElementById('cfm-inputs-area').style.display = (m === 'area' || m === 'room' && 0) ? '' : 'none';
-  document.getElementById('cfm-inputs-sensible').style.display = (m === 'sensible' || m === 'latent') ? '' : 'none';
-  document.getElementById('cfm-inputs-room').style.display = m === 'room' ? '' : 'none';
-  if (m === 'area') document.getElementById('cfm-inputs-area').style.display = '';
-  calcCFM();
-});
-
-document.getElementById('duct-shape').addEventListener('change', function() {
-  var isRect = this.value === 'rect';
-  document.getElementById('field-diameter').style.display = isRect ? 'none' : '';
-  document.getElementById('field-rect').style.display = isRect ? '' : 'none';
-  calcCFM();
-});
-
 function calcCFM() {
-  var mode = document.getElementById('cfm-mode').value;
-  var cfm, area, velocity;
-
-  if (mode === 'area') {
-    var shape = document.getElementById('duct-shape').value;
-    velocity = parseFloat(document.getElementById('cfm-vel').value) || 0;
-    if (shape === 'round') {
-      var diam = parseFloat(document.getElementById('cfm-diam').value) || 0;
-      area = Math.PI * Math.pow(diam / 2, 2) / 144;
-    } else {
-      var w = parseFloat(document.getElementById('cfm-w').value) || 0;
-      var h = parseFloat(document.getElementById('cfm-h').value) || 0;
-      area = (w * h) / 144;
-    }
-    cfm = area * velocity;
-    document.getElementById('r-cfm').textContent = fmt(cfm);
-    document.getElementById('r-area').textContent = area.toFixed(3);
-    document.getElementById('r-area-note').textContent = 'Duct cross-section area';
-    document.getElementById('r-cfm-formula').textContent = 'Q = ' + area.toFixed(3) + ' ft² × ' + fmt(velocity) + ' FPM';
-    document.getElementById('r-velcheck').textContent = fmt(velocity);
-  } else if (mode === 'sensible' || mode === 'latent') {
-    var btu = parseFloat(document.getElementById('sens-btu').value) || 0;
-    var ts = parseFloat(document.getElementById('sens-ts').value) || 55;
-    var tr = parseFloat(document.getElementById('sens-tr').value) || 75;
-    var dt = Math.abs(tr - ts);
-    if (mode === 'sensible') {
-      cfm = btu / (1.08 * dt);
-    } else {
-      cfm = btu / (0.69 * dt);
-    }
-    area = null;
-    velocity = null;
-    document.getElementById('r-cfm').textContent = fmt(cfm);
-    document.getElementById('r-area').textContent = '—';
-    document.getElementById('r-area-note').textContent = mode === 'sensible' ? 'Q = 1.08 × CFM × ΔT' : 'Q = 0.69 × CFM × ΔGr';
-    document.getElementById('r-cfm-formula').textContent = btu.toFixed(0) + ' BTU ÷ (' + (mode==='sensible'?'1.08':'0.69') + ' × ' + dt + '°F) = ' + fmt(cfm) + ' CFM';
-    document.getElementById('r-velcheck').textContent = '—';
-  } else if (mode === 'room') {
-    var sqft = parseFloat(document.getElementById('room-sqft').value) || 0;
-    var ratio = parseFloat(document.getElementById('room-ratio').value) || 1;
-    cfm = sqft * ratio;
-    velocity = null;
-    document.getElementById('r-cfm').textContent = fmt(cfm);
-    document.getElementById('r-area').textContent = sqft.toFixed(0) + ' ft²';
-    document.getElementById('r-area-note').textContent = 'Room floor area';
-    document.getElementById('r-cfm-formula').textContent = sqft + ' ft² × ' + ratio + ' CFM/ft² = ' + fmt(cfm) + ' CFM';
-    document.getElementById('r-velcheck').textContent = '—';
-  }
-
-  // Velocity status
-  if (velocity !== null && velocity !== undefined) {
-    var velEl = document.getElementById('r-velcheck');
-    var statusEl = document.getElementById('r-vel-status');
-    if (velocity < 300) { velEl.className = 'result-value warn'; statusEl.textContent = 'Too low — poor air throw'; }
-    else if (velocity < 500) { velEl.className = 'result-value'; statusEl.textContent = 'Low — acceptable for return'; }
-    else if (velocity <= 900) { velEl.className = 'result-value success'; statusEl.textContent = 'Optimal residential range'; }
-    else if (velocity <= 1200) { velEl.className = 'result-value warn'; statusEl.textContent = 'Elevated — check noise'; }
-    else { velEl.className = 'result-value danger'; statusEl.textContent = 'Too high — noise & pressure loss'; }
-
-    // gauge
-    var pct = Math.min(velocity / 2000, 1) * 100;
-    document.getElementById('gauge-marker').style.left = pct + '%';
-  }
-
-  updateStatus(cfm, velocity);
+  const diam = parseFloat(document.getElementById('cfm-diam').value) || 0;
+  const vel = parseFloat(document.getElementById('cfm-vel').value) || 0;
+  const area = Math.PI * Math.pow(diam / 2, 2) / 144;
+  const cfm = area * vel;
+  document.getElementById('r-cfm').innerText = Math.round(cfm).toLocaleString();
+  document.getElementById('r-area').innerText = area.toFixed(3) + ' ft²';
+  if (window.updateMintStickyBar) { window.updateMintStickyBar({ 'Flow Rate': Math.round(cfm) + ' CFM', 'Area': area.toFixed(2) + ' ft²' }, '/hvac-load-calculator/'); }
 }
-
-function updateStatus(cfm, vel) {
-  if (cfm && !isNaN(cfm)) {
-    document.getElementById('stat-cfm').textContent = 'CFM: ' + fmt(cfm);
-  }
-  if (vel && !isNaN(vel)) {
-    document.getElementById('stat-vel').textContent = 'Velocity: ' + fmt(vel) + ' FPM';
-    var dot = document.getElementById('dot-vel');
-    if (vel < 500 || vel > 1200) dot.className = 'status-dot danger';
-    else if (vel > 900) dot.className = 'status-dot warn';
-    else dot.className = 'status-dot';
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════
-   DUCT SIZING TABLE
-═══════════════════════════════════════════════════════════ */
-var ductRows = [];
-
-function addDuctRow(zone, cfm) {
-  ductRows.push({ id: Date.now() + Math.random(), zone: zone || 'Zone ' + (ductRows.length + 1), cfm: cfm || 200, shape: 'round' });
-  renderDucts();
-  calcDucts();
-}
-
-function removeRowDuct(id) {
-  ductRows = ductRows.filter(r => r.id !== id);
-  renderDucts(); calcDucts();
-}
-
-function renderDucts() {
-  var body = document.getElementById('ductBody');
-  if (!ductRows.length) { body.innerHTML = '<tr><td colspan="9" style="text-align:center;padding:14px;color:var(--text-dim);font-style:italic;">No zones — use Add Zone or Load Sample Zones</td></tr>'; return; }
-  var maxVel = parseFloat(document.getElementById('ds-maxvel').value) || 900;
-  var friction = parseFloat(document.getElementById('ds-friction').value) || 0.08;
-
-  body.innerHTML = ductRows.map(function(r, i) {
-    var cfmVal = r.cfm;
-    // Calc diameter from CFM and target velocity
-    var targetFPM = maxVel * 0.85;
-    var areaNeed = cfmVal / targetFPM;
-    var dCalc = 2 * Math.sqrt(areaNeed * 144 / Math.PI);
-    var dRound = Math.ceil(dCalc / 2) * 2; // round up to even inch
-    var useSize = dRound + '"∅';
-    var actualArea = Math.PI * Math.pow(dRound / 2, 2) / 144;
-    var actualFPM = cfmVal / actualArea;
-
-    var statusHtml;
-    if (actualFPM < 400) statusHtml = '<span class="status-pill pill-low">LOW VEL</span>';
-    else if (actualFPM <= maxVel) statusHtml = '<span class="status-pill pill-ok">OK</span>';
-    else if (actualFPM <= maxVel * 1.15) statusHtml = '<span class="status-pill pill-warn">ELEVATED</span>';
-    else statusHtml = '<span class="status-pill pill-high">TOO HIGH</span>';
-
-    var bg = i % 2 === 0 ? '' : 'background:rgba(255,255,255,0.02)';
-    return '<tr style="'+bg+'">'
-      + '<td style="color:var(--text-dim)">' + (i+1) + '</td>'
-      + '<td><input type="text" value="' + escH(r.zone) + '" onchange="ductRows['+i+'].zone=this.value" style="background:var(--navy-dark);border:1px solid var(--border-bright);color:var(--text-bright);padding:4px 8px;font-family:var(--mono);font-size:12px;width:120px;"></td>'
-      + '<td><input type="number" value="' + cfmVal + '" onchange="ductRows['+i+'].cfm=parseFloat(this.value)||0;calcDucts()" style="background:var(--navy-dark);border:1px solid var(--border-bright);color:var(--orange);padding:4px 8px;font-family:var(--mono);font-size:12px;width:80px;"></td>'
-      + '<td style="color:var(--text-dim)">Round</td>'
-      + '<td style="color:var(--sky-dim);font-family:var(--mono)">' + dCalc.toFixed(1) + '"</td>'
-      + '<td style="color:var(--text-bright);font-weight:bold;font-family:var(--mono)">' + useSize + '</td>'
-      + '<td style="font-family:var(--mono);color:' + (actualFPM > maxVel ? 'var(--red)' : 'var(--green)') + '">' + Math.round(actualFPM) + ' FPM</td>'
-      + '<td>' + statusHtml + '</td>'
-      + '<td><button class="btn-remove" onclick="removeRowDuct('+r.id+')" style="background:none;border:1px solid #C44;color:#C44;border-radius:2px;padding:2px 8px;cursor:pointer;font-size:11px;font-weight:bold;">✕</button></td>'
-      + '</tr>';
-  }).join('');
-}
-
-function calcDucts() { renderDucts(); }
-
-function loadDuctDefaults() {
-  ductRows = [];
-  var zones = [['Living Room',320],['Master Bedroom',220],['Bedroom 2',180],['Bedroom 3',160],['Kitchen',200],['Dining Room',140],['Hallway / Bath',100]];
-  zones.forEach(function(z){ ductRows.push({ id: Date.now()+Math.random(), zone:z[0], cfm:z[1], shape:'round' }); });
-  renderDucts(); calcDucts();
-}
-function clearDucts() { ductRows = []; renderDucts(); }
-
-/* ═══════════════════════════════════════════════════════════
-   SENSIBLE HEAT
-═══════════════════════════════════════════════════════════ */
 function calcSensible() {
-  var cfm = parseFloat(document.getElementById('sh-cfm').value) || 0;
-  var ts = parseFloat(document.getElementById('sh-sup').value) || 55;
-  var tr = parseFloat(document.getElementById('sh-ret').value) || 75;
-  var rhSup = parseFloat(document.getElementById('sh-sup-rh').value) || 55;
-  var rhRet = parseFloat(document.getElementById('sh-ret-rh').value) || 50;
-  var elev = parseFloat(document.getElementById('sh-elev').value) || 0;
-
-  var dt = Math.abs(tr - ts);
-  var qs = 1.08 * cfm * dt;
-  var tons = qs / 12000;
-
-  // Grains difference estimate (simplified)
-  var grSup = rhSup * (0.0077 * ts - 0.14) * 7000 / 100;
-  var grRet = rhRet * (0.0077 * tr - 0.14) * 7000 / 100;
-  var dGr = Math.abs(grRet - grSup);
-  var ql = 0.69 * cfm * dGr;
-
-  var qtotal = qs + ql;
-  var shr = qs / qtotal;
-
-  // Altitude correction
-  var altFactor = Math.pow(1 - 0.0000226 * elev, 5.256) / Math.pow(1 - 0.0000226 * 0, 5.256);
-
-  document.getElementById('sh-q').textContent = fmtK(qs);
-  document.getElementById('sh-tons').textContent = tons.toFixed(2);
-  document.getElementById('sh-dt').textContent = dt.toFixed(1) + '°F';
-  document.getElementById('sh-dt-note').textContent = dt < 15 ? 'Low split — check airflow' : dt > 25 ? 'High split — check coil' : 'Normal operating range';
-  document.getElementById('sh-latent').textContent = fmtK(ql);
-  document.getElementById('sh-total').textContent = fmtK(qtotal);
-  document.getElementById('sh-shr').textContent = shr.toFixed(2);
-  document.getElementById('sh-shr-note').textContent = shr > 0.75 ? 'Normal (>0.75)' : 'High latent load';
-  document.getElementById('sh-alt').textContent = altFactor.toFixed(4);
+  const cfm = parseFloat(document.getElementById('sh-cfm').value) || 0;
+  const dt = parseFloat(document.getElementById('sh-dt').value) || 0;
+  const q = 1.08 * cfm * dt;
+  document.getElementById('sh-q').innerText = Math.round(q).toLocaleString();
+  if (window.updateMintStickyBar) { window.updateMintStickyBar({ 'Sensible Q': Math.round(q).toLocaleString() + ' BTU', 'ΔT': dt + '°F' }, '/hvac-load-calculator/'); }
 }
-
-/* ═══════════════════════════════════════════════════════════
-   STATIC PRESSURE
-═══════════════════════════════════════════════════════════ */
-function calcStatic() {
-  var rated = parseFloat(document.getElementById('sp-rated').value) || 0;
-  var coil = parseFloat(document.getElementById('sp-coil').value) || 0;
-  var filter = parseFloat(document.getElementById('sp-filter').value) || 0;
-  var humid = parseFloat(document.getElementById('sp-humid').value) || 0;
-  var uv = parseFloat(document.getElementById('sp-uv').value) || 0;
-  var other = parseFloat(document.getElementById('sp-other').value) || 0;
-  var supLen = parseFloat(document.getElementById('sp-sup-len').value) || 0;
-  var retLen = parseFloat(document.getElementById('sp-ret-len').value) || 0;
-  var friction = parseFloat(document.getElementById('sp-friction').value) || 0.08;
-  var fitting = parseFloat(document.getElementById('sp-fitting').value) || 1.5;
-
-  var compDrops = coil + filter + humid + uv + other;
-  var avail = rated - compDrops;
-
-  var totalEL = (supLen + retLen) * fitting;
-  var ductDrop = totalEL * friction / 100;
-
-  var margin = avail - ductDrop;
-  var card = document.getElementById('sp-result-card');
-
-  var statusText, statusClass, statusNote;
-  if (avail <= 0) {
-    statusText = 'OVERLOADED';
-    statusClass = 'danger';
-    statusNote = 'Components exceed rated TESP';
-    card.className = 'result-card danger';
-  } else if (ductDrop > avail) {
-    statusText = 'UNDERSIZED';
-    statusClass = 'danger';
-    statusNote = 'Duct drop exceeds available SP';
-    card.className = 'result-card danger';
-  } else if (ductDrop > avail * 0.85) {
-    statusText = 'MARGINAL';
-    statusClass = 'warn';
-    statusNote = 'Less than 15% margin — resize recommended';
-    card.className = 'result-card warn';
-  } else {
-    statusText = 'PASS';
-    statusClass = 'success';
-    statusNote = 'System within design limits';
-    card.className = 'result-card success';
-  }
-
-  document.getElementById('sp-avail').textContent = avail.toFixed(3);
-  document.getElementById('sp-duct').textContent = ductDrop.toFixed(3);
-  document.getElementById('sp-status').textContent = statusText;
-  document.getElementById('sp-status').className = 'result-value ' + statusClass;
-  document.getElementById('sp-status-note').textContent = statusNote;
-  document.getElementById('sp-margin').textContent = 'Margin: ' + margin.toFixed(3) + ' in.w.g.';
-  document.getElementById('stat-press').textContent = 'Avail SP: ' + avail.toFixed(3) + ' in.w.g.';
-  var dot2 = document.getElementById('dot-press');
-  dot2.className = avail <= 0 ? 'status-dot danger' : ductDrop > avail ? 'status-dot danger' : 'status-dot';
-}
-
-function escH(s) { return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;'); }
-
-/* ═══ INIT ═══ */
 calcCFM();
 calcSensible();
-calcStatic();
 </script>
-        </div>
-      </section>
-    </main>
 
-    <footer class="footer">
-      <div class="container">
-        <div style="opacity: 0.6;">
-          <p>&copy; 2026 MintSheets. All Rights Reserved.</p>
-          <p style="font-size: 12px; margin-top: 10px;">
-            For support or technical inquiries, contact <a href="mailto:support@mintsheets.com" style="text-decoration: underline;">support@mintsheets.com</a>
-          </p>
-        </div>
-      </div>
-    </footer>
-
-  <script>
-  (function () {
-    var btn     = document.getElementById('hamburger-btn');
-    var nav     = document.getElementById('mobile-nav');
-    var overlay = document.getElementById('mobile-nav-overlay');
-    var close   = document.getElementById('mobile-nav-close');
-    if (!btn) return;
-    function openMenu() {
-      document.body.classList.add('menu-open');
-      btn.classList.add('active');
-      btn.setAttribute('aria-expanded', 'true');
-      nav.setAttribute('aria-hidden', 'false');
-    }
-    function closeMenu() {
-      document.body.classList.remove('menu-open');
-      btn.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
-      nav.setAttribute('aria-hidden', 'true');
-    }
-    btn.addEventListener('click', openMenu);
-    close.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMenu();
-    });
-  })();
-  </script>
+<!-- NAVIGATION SCRIPT -->
+<script>
+(function () {
+  var btn = document.getElementById('hamburger-btn');
+  var nav = document.getElementById('mobile-nav');
+  var overlay = document.getElementById('mobile-nav-overlay');
+  var close = document.getElementById('mobile-nav-close');
+  if (!btn) return;
+  function openMenu() { document.body.classList.add('menu-open'); btn.classList.add('active'); btn.setAttribute('aria-expanded', 'true'); nav.setAttribute('aria-hidden', 'false'); }
+  function closeMenu() { document.body.classList.remove('menu-open'); btn.classList.remove('active'); btn.setAttribute('aria-expanded', 'false'); nav.setAttribute('aria-hidden', 'true'); }
+  btn.addEventListener('click', openMenu); close.addEventListener('click', closeMenu); overlay.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
 
 </body>
 </html>
-
-
-
-
-
-

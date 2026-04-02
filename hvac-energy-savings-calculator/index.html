@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -10,15 +10,9 @@
 <meta property="og:description" content="Compare SEER and AFUE ratings to calculate potential utility bill savings. Estimate ROI on new HVAC equipment." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://mintsheets.com/hvac-energy-savings-calculator/" />
-
-    <link rel="stylesheet" href="../styles.min.css?v=1.5">
-    <link rel="stylesheet" href="../shared/css/calculators.css?v=1.6">
-    <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
-    <meta property="og:image" content="https://mintsheets.com/shared/images/hvac-energy.png" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Energy Savings Calculator","url":"https://mintsheets.com/hvac-energy-savings-calculator/","applicationCategory":"ProfessionalTool","operatingSystem":"WEB"}
-</script>
+<link rel="stylesheet" href="../styles.min.css?v=1.5">
+<link rel="stylesheet" href="../shared/css/calculators.css?v=1.6">
+<link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
@@ -44,7 +38,11 @@
     <header class="site-header">
       <div class="container nav">
         <a href="/" class="brand">
-          <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80">
+          <picture>
+            <source type="image/avif" srcset="../brand/logo-without-background.avif">
+            <source type="image/webp" srcset="../brand/logo-without-background.webp">
+            <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+          </picture>
         </a>
   
         <nav class="nav-links">
@@ -67,7 +65,11 @@
   <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
     <div class="mobile-nav-header">
       <a href="/" class="brand">
-        <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80">
+        <picture>
+          <source type="image/avif" srcset="../brand/logo-without-background.avif">
+          <source type="image/webp" srcset="../brand/logo-without-background.webp">
+          <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        </picture>
       </a>
       <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
         <span></span><span></span>
@@ -87,8 +89,8 @@
     <main>
   <div class="breadcrumb-bar">
     <div class="container">
-      <a href="/">Home</a><span>â€º</span>
-      <a href="/hvac-calculators/">HVAC Calculators</a><span>â€º</span>
+      <a href="/">Home</a><span>›</span>
+      <a href="/hvac-calculators/">HVAC Calculators</a><span>›</span>
       Energy Savings Calculator
     </div>
   </div>
@@ -100,856 +102,130 @@
           <div style="margin-bottom: 30px; text-align: center;">
             <div class="eyebrow">Technical Tool</div>
             <h1 style="margin: 10px auto; max-width: none;">HVAC Energy Savings Calculator (SEER & AFUE ROI)</h1>
-            <p style="color: var(--muted);">Compare efficiency ratings and calculate annual utility savings for new HVAC equipment.</p>
-            
-  </div>
-  <!-- Ad Placeholder: Top Banner -->
-  <div class="ad-slot ad-top"></div>
+            <p style="color: var(--muted);">Compare efficiency ratings and calculate annual utility savings for new HVAC equipment. Learn more in our guide: <a href="/blog/how-to-size-hvac-systems/" style="color: var(--primary); text-decoration: none; font-weight: bold;">How to Size an HVAC System Properly</a>.</p>
+          </div>
 
-<!-- ════════════════════════════════════════════════════════
-     SECTION 1 — COOLING SAVINGS (SEER / SEER2)
-═════════════════════════════════════════════════════════ -->
-<div class="section-banner">
-  <span class="icon">❄️</span> SECTION 1 — COOLING ENERGY SAVINGS (SEER / SEER2)
-  <span class="tag">A/C &amp; HEAT PUMP</span>
-</div>
+          <!-- Ad Placeholder: Top Banner -->
+          <div class="ad-slot ad-top"></div>
+
+<!-- SECTION 1 — COOLING SAVINGS (SEER / SEER2) -->
+<div class="section-banner"><span class="icon">❄️</span> SECTION 1 — COOLING ENERGY SAVINGS (SEER / SEER2)</div>
 <div class="card">
-  <div class="sub-header">🏠 Current System — Existing Equipment</div>
   <div class="form-grid">
     <table class="input-table">
       <tr>
-        <td class="label">Current System SEER<span class="help">Found on nameplate or service records</span></td>
-        <td class="field"><input type="number" id="c_seer_old" placeholder="e.g. 10" min="6" max="26"></td>
+        <td class="label">Current SEER</td>
+        <td class="field"><input type="number" id="c_seer_old" placeholder="e.g. 10" min="6" max="26" value="10" oninput="calcCooling()"></td>
       </tr>
       <tr>
-        <td class="label">System Cooling Capacity<span class="help">Nominal tonnage</span></td>
-        <td class="field">
-          <select id="c_tons">
-            <option value="1">1 Ton (12,000 BTUH)</option>
-            <option value="1.5">1.5 Ton (18,000 BTUH)</option>
-            <option value="2">2 Ton (24,000 BTUH)</option>
-            <option value="2.5">2.5 Ton (30,000 BTUH)</option>
-            <option value="3" selected>3 Ton (36,000 BTUH)</option>
-            <option value="3.5">3.5 Ton (42,000 BTUH)</option>
-            <option value="4">4 Ton (48,000 BTUH)</option>
-            <option value="5">5 Ton (60,000 BTUH)</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td class="label">Annual Cooling Hours<span class="help">NW Arkansas avg ≈ 1,400 hrs/yr</span></td>
-        <td class="field">
-          <div class="slider-wrap">
-            <input type="range" id="c_hrs_range" min="600" max="3000" value="1400" step="50" oninput="syncSlider('c_hrs')">
-            <span class="slider-val" id="c_hrs_display">1,400</span>
-          </div>
-          <input type="number" id="c_hrs" value="1400" min="600" max="3000" style="width:90px;margin-top:6px;" oninput="syncInput('c_hrs')">
-          <span style="font-size:11px;color:var(--muted)">hrs/yr</span>
-        </td>
+        <td class="label">New SEER2</td>
+        <td class="field"><input type="number" id="c_seer_new" value="16" min="13" max="30" oninput="calcCooling()"></td>
       </tr>
     </table>
     <table class="input-table">
       <tr>
-        <td class="label">New System SEER2<span class="help">Proposed replacement efficiency</span></td>
-        <td class="field">
-          <select id="c_seer_new">
-            <option value="14.3">14.3 SEER2 — Minimum 2023 Standard</option>
-            <option value="15">15 SEER2</option>
-            <option value="16" selected>16 SEER2 — Good efficiency</option>
-            <option value="17">17 SEER2</option>
-            <option value="18">18 SEER2</option>
-            <option value="19">19 SEER2</option>
-            <option value="20">20 SEER2</option>
-            <option value="21">21 SEER2</option>
-            <option value="22">22 SEER2</option>
-            <option value="24">24 SEER2 — Premium</option>
-            <option value="26">26 SEER2 — Ultra-premium</option>
-          </select>
-        </td>
+        <td class="label">Annual Cooling Hours</td>
+        <td class="field"><input type="number" id="c_hrs" value="1400" min="500" oninput="calcCooling()"></td>
       </tr>
       <tr>
-        <td class="label">Electricity Rate<span class="help">AR avg ≈ $0.10/kWh</span></td>
-        <td class="field">
-          <div class="slider-wrap">
-            <input type="range" id="c_rate_range" min="6" max="30" value="10" step="1" oninput="syncSlider('c_rate')">
-            <span class="slider-val" id="c_rate_display">$0.10</span>
-          </div>
-          <input type="number" id="c_rate" value="0.10" min="0.06" max="0.30" step="0.01" style="width:90px;margin-top:6px;" oninput="syncInput('c_rate')">
-          <span style="font-size:11px;color:var(--muted)">$/kWh</span>
-        </td>
-      </tr>
-      <tr>
-        <td class="label">Equipment + Install Cost<span class="help">Total project cost</span></td>
-        <td class="field">
-          <input type="number" id="c_cost" placeholder="e.g. 4500" min="0">
-          <span style="font-size:11px;color:var(--muted)">$</span>
-        </td>
+        <td class="label">Electric Rate ($/kWh)</td>
+        <td class="field"><input type="number" id="c_rate" value="0.12" step="0.01" oninput="calcCooling()"></td>
       </tr>
     </table>
   </div>
-  <div class="form-grid" style="border-top:1px solid var(--line); padding-top: 20px;">
-    <table class="input-table">
-      <tr>
-        <td class="label">Utility Rate Escalation<span class="help">Annual rate increase estimate</span></td>
-        <td class="field">
-          <div class="slider-wrap">
-            <input type="range" id="c_esc_range" min="0" max="8" value="3" step="1" oninput="syncSlider('c_esc')">
-            <span class="slider-val" id="c_esc_display">3%</span>
-          </div>
-          <input type="number" id="c_esc" value="3" min="0" max="8" step="0.5" style="width:90px;margin-top:6px;" oninput="syncInput('c_esc')">
-          <span style="font-size:11px;color:var(--muted)">%/yr</span>
-        </td>
-      </tr>
-    </table>
-    <table class="input-table">
-      <tr>
-        <td class="label">System Lifespan<span class="help">Expected years of service</span></td>
-        <td class="field">
-          <select id="c_life">
-            <option value="10">10 years</option>
-            <option value="12">12 years</option>
-            <option value="15" selected>15 years (industry average)</option>
-            <option value="20">20 years</option>
-          </select>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <div class="btn-row">
-    <button class="btn-calc" onclick="calcCooling()">⚡ CALCULATE COOLING SAVINGS</button>
-    <button class="btn-reset" onclick="resetCooling()">↺ Reset</button>
-    <span class="btn-note">Includes lifetime ROI &amp; payback analysis</span>
-  </div>
-
-  <div id="c_results" class="hidden">
-    <div class="sub-header green">📊 Cooling Savings Results</div>
-    <div class="savings-hero" id="c_sh"></div>
-    <div class="payback-bar-wrap">
-      <div class="payback-bar-label">Payback Progress — Years to break even</div>
-      <div class="payback-bar-track"><div class="payback-bar-fill" id="c_pb_fill">0 yrs</div></div>
-      <div class="payback-bar-ticks"><span>0</span><span>3 yrs</span><span>6 yrs</span><span>9 yrs</span><span>12 yrs</span><span id="c_life_tick">15 yrs</span></div>
-    </div>
-    <div class="table-scroll">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th class="param" style="background:var(--panel-elevated);">Parameter</th>
-            <th class="old">❌ Old System</th>
-            <th class="new">✅ New System</th>
-            <th class="save">💰 Annual Savings</th>
-          </tr>
-        </thead>
-        <tbody id="c_compare"></tbody>
-      </table>
-    </div>
-    <div id="c_co2" class="co2-meter hidden">
-      <div class="co2-icon">🌿</div>
-      <div class="co2-text">
-        <div class="label">Annual CO₂ Reduction</div>
-        <div class="val" id="c_co2_val">—</div>
-        <div class="sub" id="c_co2_sub">—</div>
+  <div class="results-box" id="c_results" style="margin-top: 20px; display: none;">
+    <div class="form-grid">
+      <div style="text-align: center; border-right: 1px solid var(--line);">
+        <div class="result-label">Annual Savings</div>
+        <div class="result-value" id="c_sav_val">—</div>
+      </div>
+      <div style="text-align: center;">
+        <div class="result-label">Reduction</div>
+        <div class="result-value" id="c_pct_val">—</div>
       </div>
     </div>
-    <div class="chart-wrap">
-      <div class="sub-header" style="margin-bottom:10px">📈 Cumulative Savings Over Equipment Lifespan</div>
-      <canvas id="c_chart" height="200"></canvas>
-    </div>
-    <div class="table-scroll">
-      <table class="results-table">
-        <thead><tr><th>Detail Parameter</th><th>Value</th><th>Unit</th><th>Benchmark</th><th>Status</th><th>Notes</th></tr></thead>
-        <tbody id="c_tbody"></tbody>
-        <tfoot><tr id="c_tfoot"><td colspan="6">—</td></tr></tfoot>
-      </table>
-    </div>
-  </div>
-
-  <div class="tips-box">
-    <div class="tips-title">⚡ Cooling Efficiency — Sales Tips</div>
-    <ul>
-      <li>A 10 SEER → 16 SEER2 upgrade cuts cooling energy use by ~37%. Lead with the dollar amount, not the SEER number.</li>
-      <li>SEER2 ratings are 5–7% lower than old SEER — a 16 SEER2 ≈ 17 SEER under old testing. Never mix old and new ratings in comparisons.</li>
-      <li>Dual-stage and variable-speed units run longer at lower capacity — comfort AND efficiency win.</li>
-      <li>IRA tax credits: up to $600 for qualifying A/C, $2,000 for heat pumps (through 2032).</li>
-    </ul>
   </div>
 </div>
 
-<!-- ════════════════════════════════════════════════════════
-     SECTION 2 — HEATING SAVINGS (AFUE / HSPF2)
-═════════════════════════════════════════════════════════ -->
-<div class="section-banner">
-  <span class="icon">🔥</span> SECTION 2 — HEATING ENERGY SAVINGS (AFUE / HSPF2)
-  <span class="tag">FURNACE &amp; HEAT PUMP</span>
-</div>
-<div class="card">
-  <div class="sub-header">🔥 Heating System Comparison</div>
-  <div class="form-grid">
-    <table class="input-table">
-      <tr>
-        <td class="label">Heating System Type</td>
-        <td class="field">
-          <select id="h_type" onchange="updateHeatInputs()">
-            <option value="gas">Natural Gas Furnace (AFUE)</option>
-            <option value="elec">Electric Furnace / Strip Heat</option>
-            <option value="hp">Heat Pump (HSPF2)</option>
-            <option value="oil">Oil Furnace (AFUE)</option>
-            <option value="propane">Propane Furnace (AFUE)</option>
-          </select>
-        </td>
-      </tr>
-      <tr id="h_eff_old_row">
-        <td class="label">Current System Efficiency<span class="help">AFUE % or HSPF2 rating</span></td>
-        <td class="field"><input type="number" id="h_eff_old" placeholder="e.g. 80" min="40" max="100"></td>
-      </tr>
-      <tr id="h_eff_new_row">
-        <td class="label">New System Efficiency<span class="help">Proposed upgrade efficiency</span></td>
-        <td class="field">
-          <select id="h_eff_new_gas" class="wide">
-            <option value="80">80% AFUE — Standard</option>
-            <option value="90">90% AFUE</option>
-            <option value="92">92% AFUE</option>
-            <option value="96" selected>96% AFUE — High efficiency</option>
-            <option value="97">97% AFUE</option>
-            <option value="98">98% AFUE — Ultra-high efficiency</option>
-          </select>
-          <select id="h_eff_new_hp" class="wide hidden">
-            <option value="7.5">7.5 HSPF2 — Standard</option>
-            <option value="8.0">8.0 HSPF2</option>
-            <option value="8.5" selected>8.5 HSPF2 — Good</option>
-            <option value="9.0">9.0 HSPF2</option>
-            <option value="10.0">10.0 HSPF2 — High efficiency</option>
-            <option value="11.0">11.0 HSPF2 — Premium</option>
-            <option value="12.0">12.0 HSPF2 — Ultra-premium</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td class="label">Annual Heat Load<span class="help">Estimated annual BTUH consumption</span></td>
-        <td class="field">
-          <select id="h_load" class="wide">
-            <option value="20000000">Small home — 1,200 ft² (20M BTUH/yr)</option>
-            <option value="40000000">Medium home — 1,800 ft² (40M BTUH/yr)</option>
-            <option value="60000000" selected>Average home — 2,200 ft² (60M BTUH/yr)</option>
-            <option value="80000000">Large home — 2,800 ft² (80M BTUH/yr)</option>
-            <option value="100000000">Large home — 3,400 ft² (100M BTUH/yr)</option>
-            <option value="custom">Enter custom…</option>
-          </select>
-          <input type="number" id="h_load_custom" class="hidden" placeholder="BTU/yr" min="1000000" style="margin-top:6px;" oninput="">
-        </td>
-      </tr>
-    </table>
-    <table class="input-table">
-      <tr>
-        <td class="label">Fuel Rate<span class="help">Current utility cost</span></td>
-        <td class="field">
-          <input type="number" id="h_rate" placeholder="e.g. 0.90" min="0.01" max="10" step="0.01">
-          <span id="h_rate_unit" style="font-size:11px;color:var(--muted)">$/therm (gas)</span>
-        </td>
-      </tr>
-      <tr>
-        <td class="label">Equipment + Install Cost</td>
-        <td class="field">
-          <input type="number" id="h_cost" placeholder="e.g. 3800" min="0">
-          <span style="font-size:11px;color:var(--muted)">$</span>
-        </td>
-      </tr>
-      <tr>
-        <td class="label">Utility Rate Escalation</td>
-        <td class="field">
-          <div class="slider-wrap">
-            <input type="range" id="h_esc_range" min="0" max="10" value="3" step="1" oninput="syncSlider('h_esc')">
-            <span class="slider-val" id="h_esc_display">3%</span>
-          </div>
-          <input type="number" id="h_esc" value="3" min="0" max="10" step="0.5" style="width:90px;margin-top:6px;" oninput="syncInput('h_esc')">
-          <span style="font-size:11px;color:var(--muted)">%/yr</span>
-        </td>
-      </tr>
-      <tr>
-        <td class="label">System Lifespan</td>
-        <td class="field">
-          <select id="h_life">
-            <option value="10">10 years</option>
-            <option value="15">15 years</option>
-            <option value="20" selected>20 years (furnace average)</option>
-            <option value="25">25 years</option>
-          </select>
-        </td>
-      </tr>
-    </table>
-  </div>
-  <div class="btn-row">
-    <button class="btn-calc" onclick="calcHeating()">⚡ CALCULATE HEATING SAVINGS</button>
-    <button class="btn-reset" onclick="resetHeating()">↺ Reset</button>
-  </div>
-
-  <div id="h_results" class="hidden">
-    <div class="sub-header green">📊 Heating Savings Results</div>
-    <div class="savings-hero" id="h_sh"></div>
-    <div class="payback-bar-wrap">
-      <div class="payback-bar-label">Payback Progress — Years to break even</div>
-      <div class="payback-bar-track"><div class="payback-bar-fill" id="h_pb_fill">0 yrs</div></div>
-      <div class="payback-bar-ticks"><span>0</span><span>4 yrs</span><span>8 yrs</span><span>12 yrs</span><span>16 yrs</span><span id="h_life_tick">20 yrs</span></div>
-    </div>
-    <div class="table-scroll">
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th class="param" style="background:var(--panel-elevated);">Parameter</th>
-            <th class="old">❌ Old System</th>
-            <th class="new">✅ New System</th>
-            <th class="save">💰 Annual Savings</th>
-          </tr>
-        </thead>
-        <tbody id="h_compare"></tbody>
-      </table>
-    </div>
-    <div id="h_co2" class="co2-meter hidden">
-      <div class="co2-icon">🌿</div>
-      <div class="co2-text">
-        <div class="label">Annual CO₂ Reduction</div>
-        <div class="val" id="h_co2_val">—</div>
-        <div class="sub" id="h_co2_sub">—</div>
-      </div>
-    </div>
-    <div class="chart-wrap">
-      <div class="sub-header" style="margin-bottom:10px">📈 Cumulative Savings Over Equipment Lifespan</div>
-      <canvas id="h_chart" height="200"></canvas>
-    </div>
-    <div class="table-scroll">
-      <table class="results-table">
-        <thead><tr><th>Detail</th><th>Value</th><th>Unit</th><th>Benchmark</th><th>Status</th><th>Notes</th></tr></thead>
-        <tbody id="h_tbody"></tbody>
-        <tfoot><tr id="h_tfoot"><td colspan="6">—</td></tr></tfoot>
-      </table>
-    </div>
-  </div>
-
-  <div class="tips-box">
-    <div class="tips-title">⚡ Heating Efficiency — Key Facts</div>
-    <ul>
-      <li>80% AFUE → 96% AFUE: saves ~17% of all heating energy. In cold climates that's real money.</li>
-      <li>Heat pumps in mild climates (like AR) can deliver 2–3× more heat per dollar than gas at current rates.</li>
-      <li>IRA rebates: up to $1,750 for heat pump water heater, $8,000 for qualifying heat pump — income-based.</li>
-      <li>Two-stage / modulating furnaces run quieter and more efficiently at low fire 80–90% of the time.</li>
-    </ul>
-  </div>
-</div>
-
-<!-- ════════════════════════════════════════════════════════
-     SECTION 3 — COMBINED SYSTEM ROI SUMMARY
-═════════════════════════════════════════════════════════ -->
-<div class="section-banner">
-  <span class="icon">📋</span> SECTION 3 — COMBINED SYSTEM ROI SUMMARY
-  <span class="tag">PROPOSAL READY</span>
-</div>
-<div class="card">
-  <div class="sub-header">📋 Total System Upgrade Analysis</div>
-  <div class="info-row">
-    <div class="info-cell">
-      <strong>💰 Total Investment</strong>
-      <span id="sum_cost" style="font-size:20px;font-weight:700;color:var(--text)">—</span><br>
-      Total cooling + heating installation cost
-    </div>
-    <div class="info-cell">
-      <strong>💵 Annual Savings</strong>
-      <span id="sum_savings" style="font-size:20px;font-weight:700;color:var(--primary)">—</span><br>
-      Estimated utility savings in year one
-    </div>
-    <div class="info-cell">
-      <strong>📅 Blended Payback</strong>
-      <span id="sum_payback" style="font-size:20px;font-weight:700;color:var(--accent)">—</span><br>
-      Years to reach break-even point
-    </div>
-  </div>
-  <div class="info-row">
-    <div class="info-cell">
-      <strong>📈 Net Profit (Lifespan)</strong>
-      <span id="sum_lifetime" style="font-size:20px;font-weight:700;color:var(--text)">—</span><br>
-      Total savings minus system cost
-    </div>
-    <div class="info-cell">
-      <strong>🌿 Carbon Reduction</strong>
-      <span id="sum_co2" style="font-size:20px;font-weight:700;color:var(--primary)">—</span><br>
-      Metric tons CO₂ saved over equipment life
-    </div>
-    <div class="info-cell">
-      <strong>🖨️ Export Report</strong><br>
-      <button class="btn btn-primary btn-sm" style="margin-top:10px" onclick="window.print()">Print This ROI Analysis</button>
-    </div>
-  </div>
-</div>
-
-
-      </section>
-    
+  <!-- Ad Placeholder: Mid Content -->
+  <div class="ad-slot ad-mid" style="margin-top: 20px;"></div>
 
 <!-- SEO CONTENT SECTION -->
-      <section class="section" id="seo-content">
-        <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
-          <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">Proving ROI with HVAC Energy Savings</h2>
-          <p style="margin-bottom: 15px;">
-            The <strong>HVAC Energy Savings Calculator</strong> is the ultimate tool for overcoming customer price objections. Upgrading an HVAC system is a significant capital investment. When an estimator merely presents the upfront price tag, the customer often suffers sticker shock. By pivoting the conversation from "price" to "Return on Investment (ROI)," you can demonstrate how a high-efficiency system actively pays for itself over its lifespan.
-          </p>
-          <p style="margin-bottom: 15px;">
-            This calculator is divided into two vital components: <strong>Cooling Savings (SEER2)</strong> and <strong>Heating Savings (AFUE/HSPF2)</strong>. For example, upgrading an aging 10 SEER air conditioner to a modern 16 SEER2 unit reduces cooling energy consumption by nearly 40%. When you factor in the local utility escalation rate—because electricity costs rarely go down—the lifetime savings frequently eclipse the initial equipment cost.
-          </p>
-          
-          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Selling High-Efficiency Heating</h3>
-          <p style="margin-bottom: 15px;">
-            Heating efficiency is equally critical, especially in colder climates. Upgrading an 80% standard gas furnace to a 96% high-efficiency condensing furnace immediately captures 16% of the heat previously wasted through the exhaust flue. For customers in moderate climates considering a transition away from natural gas, the calculator proves the immense efficiency of shifting to a Heat Pump (HSPF2) operation.
-          </p>
-          <p style="margin-bottom: 25px;">
-            Combine this energy savings report with a rigorous <a href="/hvac-load-calculator/" style="color: var(--primary); text-decoration: none;">HVAC load calculator</a> to ensure you are recommending the correctly sized tonnage. An oversized unit will short-cycle, drastically reducing the theoretical SEER2 savings calculated here. Finally, present this ROI analysis alongside your Good/Better/Best tiers generated by the <a href="/hvac-bid-calculator/" style="color: var(--primary); text-decoration: none;">HVAC bid calculator</a> to confidently close high-margin sales.
-          </p>
+<section class="section" id="seo-content">
+  <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
+    <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">HVAC Energy Savings & ROI</h2>
+    <p style="margin-bottom: 15px;">Upgrading to high-efficiency HVAC equipment is one of the best ways to reduce home energy bills. By comparing SEER (for cooling) and AFUE (for heating) ratings, you can precisely calculate how much money you'll save each year.</p>
+  </div>
+</section>
 
-          <h2 style="font-size: 26px; margin-top: 40px; margin-bottom: 20px; color: #fff;">Frequently Asked Questions</h2>
-          <div style="margin-bottom: 20px;">
-            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">What is SEER2 vs SEER?</h3>
-            <p>SEER2 (Seasonal Energy Efficiency Ratio 2) is the current testing standard as of 2023. It accounts for higher external static pressure, making it a more accurate representation of real-world equipment performance. Generally, a SEER2 rating is about 4.5% lower than the equivalent SEER rating.</p>
-          </div>
-          <div style="margin-bottom: 20px;">
-            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">How much can I save by upgrading from 10 SEER to 16 SEER2?</h3>
-            <p>Moving from a 10 SEER system to a 16 SEER2 system typically reduces cooling-related energy consumption by approximately 35-40%. For a standard 3-ton system in a moderate climate, this can result in $300-$500 in annual savings depending on local utility rates.</p>
-          </div>
-        </div>
-      </section>
+<!-- Ad Placeholder: Bottom Banner -->
+<div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
 
-  <!-- Ad Placeholder: Bottom Banner -->
-  <div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
-
+</section>
 </main>
 
-    <footer id="mint-footer">
-      <div class="container">
-        <h3 class="footer-title">Related HVAC Calculators</h3>
-        <div class="footer-grid">
-          <a href="/hvac-flow-rate-calculator/">Flow Rate Calculator</a>
-          <a href="/hvac-load-calculator/">Load Calculator</a>
-          <a href="/hvac-service-price-calculator/">Service Price Calculator</a>
-          <a href="/hvac-labor-cost-calculator/">Labor Cost Calculator</a>
+    <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+      <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
+        <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+          <a href="/hvac-duct-size-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Duct Size Calculator</a>
+          <a href="/hvac-flow-rate-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Flow Rate Calculator</a>
+          <a href="/hvac-cfm-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">CFM Calculator</a>
+          <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Load Calculator</a>
         </div>
         <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px;font-size:14px;">
-          <a href="/privacy-policy/" style="color:var(--muted);">Privacy Policy</a> |
-          <a href="/terms-of-service/" style="color:var(--muted);">Terms of Service</a> |
-          <a href="/disclaimer/" style="color:var(--muted);">Disclaimer</a> |
-          <a href="/cookie-policy/" style="color:var(--muted);">Cookie Policy</a>
+          <a href="/privacy-policy/" style="color: var(--muted);">Privacy Policy</a> |
+          <a href="/terms-of-service/" style="color: var(--muted);">Terms of Service</a> |
+          <a href="/disclaimer/" style="color: var(--muted);">Disclaimer</a> |
+          <a href="/cookie-policy/" style="color: var(--muted);">Cookie Policy</a>
         </div>
-        <p class="footer-copy">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+        
+        <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <span><span style="color: var(--primary);">✔</span> Used by HVAC technicians & contractors</span>
+            <span><span style="color: var(--primary);">✔</span> Based on ACCA Manual standards</span>
+            <span><span style="color: var(--primary);">✔</span> Free professional tools</span>
+        </div>
+    <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
       </div>
     </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<!-- SAVINGS LOGIC -->
 <script>
-/* ═══════════════════════════ HELPERS ═══════════════════════════ */
-const $  = id => document.getElementById(id);
-const show = id => $(id).classList.remove('hidden');
-const hide = id => $(id).classList.add('hidden');
-const fmt  = (n,d=0) => n.toLocaleString(undefined,{minimumFractionDigits:d,maximumFractionDigits:d});
-const fmtD = (n,d=2) => '$' + fmt(n,d);
-
-function badge(t,l){ return `<span class="badge-${t}">${l}</span>`; }
-function sbadge(s){ return s==='PASS'?badge('pass','✔ PASS'):s==='WARN'?badge('warn','⚠ WARN'):s==='FAIL'?badge('fail','✘ FAIL'):badge('info',s); }
-function tr(param,val,unit,spec,status,notes){
-  return `<tr><td class="param">${param}</td><td class="val">${val}</td><td>${unit}</td><td>${spec}</td><td>${sbadge(status)}</td><td style="font-size:11.5px;color:var(--gray)">${notes}</td></tr>`;
-}
-
-// Slider sync — handles: c_hrs, c_rate, c_esc, h_esc
-function syncSlider(id) {
-  const rangeEl = $(id+'_range'), numEl = $(id), dispEl = $(id+'_display');
-  if (!rangeEl || !numEl || !dispEl) return;
-  let raw = parseFloat(rangeEl.value);
-  let val, disp;
-  if (id==='c_hrs')  { val = raw;       disp = fmt(raw); }
-  else if (id==='c_rate') { val = raw/100; disp = '$'+val.toFixed(2); }
-  else if (id==='c_esc' || id==='h_esc') { val = raw; disp = raw+'%'; }
-  else { val = raw; disp = raw; }
-  numEl.value = val;
-  dispEl.textContent = disp;
-}
-function syncInput(id) {
-  const rangeEl = $(id+'_range'), numEl = $(id), dispEl = $(id+'_display');
-  if (!rangeEl || !numEl || !dispEl) return;
-  let raw = parseFloat(numEl.value); if (isNaN(raw)) return;
-  let rVal, disp;
-  if (id==='c_hrs')  { rVal = raw;       disp = fmt(raw); }
-  else if (id==='c_rate') { rVal = Math.round(raw*100); disp = '$'+raw.toFixed(2); }
-  else if (id==='c_esc' || id==='h_esc') { rVal = raw; disp = raw+'%'; }
-  else { rVal = raw; disp = raw; }
-  rangeEl.value = rVal;
-  dispEl.textContent = disp;
-}
-
-// Cumulative savings with rate escalation
-function cumulSavings(annualSav1, esc, years) {
-  let total = 0, arr = [];
-  let sav = annualSav1;
-  for (let y=1; y<=years; y++) {
-    total += sav;
-    arr.push(+total.toFixed(2));
-    sav *= (1 + esc/100);
-  }
-  return arr;
-}
-
-// Build mini Chart.js line chart
-let chartInstances = {};
-function buildChart(canvasId, costLine, savArr, payback, years) {
-  if (chartInstances[canvasId]) { chartInstances[canvasId].destroy(); }
-  const labels = Array.from({length:years}, (_,i)=>'Yr '+(i+1));
-  const costArr = Array.from({length:years}, () => costLine);
-  chartInstances[canvasId] = new Chart($(canvasId), {
-    type: 'line',
-    data: {
-      labels,
-      datasets: [
-        {
-          label: 'Cumulative Savings ($)',
-          data: savArr,
-          borderColor: 'var(--success)',
-          backgroundColor: 'rgba(46, 204, 113, 0.1)',
-          borderWidth: 2.5,
-          fill: true,
-          tension: 0.3,
-          pointRadius: 3,
-          pointBackgroundColor: 'var(--success)',
-        },
-        {
-          label: 'Equipment Investment ($)',
-          data: costArr,
-          borderColor: 'var(--orange)',
-          borderWidth: 2,
-          borderDash: [6,4],
-          fill: false,
-          pointRadius: 0,
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: { position: 'top', labels: { font: { family: 'Arial', size: 11 }, boxWidth: 14 } },
-        tooltip: {
-          callbacks: {
-            label: ctx => ' ' + ctx.dataset.label + ': $' + fmt(ctx.raw, 0)
-          }
-        }
-      },
-      scales: {
-        x: { ticks: { font: { size: 10 } }, grid: { color: 'var(--line)' } },
-        y: {
-          ticks: { font: { size: 10 }, callback: v => '$'+fmt(v) },
-          grid: { color: 'var(--line)' }
-        }
-      }
-    }
-  });
-}
-
-/* ═══════════════════ GLOBAL TOTALS TRACKING ════════════════════ */
-let globalResults = { cooling: null, heating: null };
-function updateSummary() {
-  const c = globalResults.cooling, h = globalResults.heating;
-  if (!c && !h) return;
-  const totalCost    = (c ? c.cost    : 0) + (h ? h.cost    : 0);
-  const totalSav1    = (c ? c.annualSav : 0) + (h ? h.annualSav : 0);
-  const totalLifetime= (c ? c.lifetimeSav : 0) + (h ? h.lifetimeSav : 0);
-  const totalCO2     = (c ? c.co2 : 0) + (h ? h.co2 : 0);
-  const blendedPB    = totalSav1 > 0 ? totalCost / totalSav1 : null;
-  $('sum_cost').textContent    = totalCost > 0 ? fmtD(totalCost) : '—';
-  $('sum_savings').textContent = totalSav1 > 0 ? fmtD(totalSav1)+'/yr' : '—';
-  $('sum_payback').textContent = blendedPB !== null ? blendedPB.toFixed(1)+' yrs' : '—';
-  $('sum_lifetime').textContent= totalLifetime > 0 ? fmtD(totalLifetime - totalCost) : '—';
-  $('sum_co2').textContent     = totalCO2 > 0 ? fmt(totalCO2,1)+' MT' : '—';
-}
-
-/* ════════════════════ COOLING CALC ════════════════════════════ */
 function calcCooling() {
-  const seerOld = parseFloat($('c_seer_old').value);
-  const seerNew = parseFloat($('c_seer_new').value);
-  const tons    = parseFloat($('c_tons').value);
-  const hrs     = parseFloat($('c_hrs').value);
-  const rate    = parseFloat($('c_rate').value);
-  const cost    = parseFloat($('c_cost').value) || 0;
-  const esc     = parseFloat($('c_esc').value)  || 0;
-  const life    = parseInt($('c_life').value);
-
-  if (!seerOld || !seerNew) { alert('Enter current SEER and select new SEER2.'); return; }
-
-  const btuh    = tons * 12000;
-  // kWh/yr = BTUH × hrs / SEER / 1000
-  const kwhOld  = (btuh * hrs) / seerOld / 1000;
-  const kwhNew  = (btuh * hrs) / seerNew / 1000;
-  const kwhSav  = kwhOld - kwhNew;
-  const costOld = kwhOld * rate;
-  const costNew = kwhNew * rate;
-  const annualSav = costOld - costNew;
-  const payback = cost > 0 ? cost / annualSav : null;
-  const savArr  = cumulSavings(annualSav, esc, life);
-  const lifetimeSav = savArr[life-1];
-  const pctReduction = ((kwhSav / kwhOld) * 100);
-  // CO2: US grid avg ~0.386 lbs CO2/kWh → kg = /2.205
-  const co2Lbs = kwhSav * 0.386;
-  const co2MT  = co2Lbs * 0.000453592;
-
-  // Hero
-  $('c_sh').innerHTML = `
-    <div class="sh-cell primary">
-      <div class="sh-label">Annual Savings</div>
-      <div class="sh-val">${fmtD(annualSav)}</div>
-      <div class="sh-unit">per year (year 1)</div>
-    </div>
-    <div class="sh-cell${pctReduction>=20?' highlight':''}">
-      <div class="sh-label">Energy Reduction</div>
-      <div class="sh-val">${pctReduction.toFixed(0)}%</div>
-      <div class="sh-unit">less cooling energy</div>
-    </div>
-    <div class="sh-cell">
-      <div class="sh-label">Payback Period</div>
-      <div class="sh-val">${payback !== null ? payback.toFixed(1) : '—'}</div>
-      <div class="sh-unit">${payback !== null ? 'years' : 'enter cost'}</div>
-    </div>
-    <div class="sh-cell">
-      <div class="sh-label">Lifetime Savings</div>
-      <div class="sh-val">${fmtD(lifetimeSav)}</div>
-      <div class="sh-unit">over ${life} yrs w/ ${esc}% esc.</div>
-    </div>`;
-
-  // Payback bar
-  if (payback !== null) {
-    const pct = Math.min((payback / life) * 100, 100);
-    $('c_pb_fill').style.width = pct + '%';
-    $('c_pb_fill').textContent = payback.toFixed(1) + ' yrs';
-    $('c_life_tick').textContent = life + ' yrs';
-  }
-
-  // Compare table
-  $('c_compare').innerHTML = `
-    <tr><td class="param">SEER Rating</td><td class="old-v">${seerOld} SEER</td><td class="new-v">${seerNew} SEER2</td><td class="save-v">—</td></tr>
-    <tr><td class="param">Annual kWh Used</td><td class="old-v">${fmt(kwhOld,0)} kWh</td><td class="new-v">${fmt(kwhNew,0)} kWh</td><td class="save-v">${fmt(kwhSav,0)} kWh</td></tr>
-    <tr><td class="param">Annual Energy Cost</td><td class="old-v">${fmtD(costOld)}</td><td class="new-v">${fmtD(costNew)}</td><td class="save-v">${fmtD(annualSav)}</td></tr>
-    <tr><td class="param">Monthly Cost</td><td class="old-v">${fmtD(costOld/12,2)}/mo</td><td class="new-v">${fmtD(costNew/12,2)}/mo</td><td class="save-v">${fmtD(annualSav/12,2)}/mo</td></tr>`;
-
-  // CO2
-  $('c_co2_val').textContent = fmt(co2Lbs,0) + ' lbs CO₂ / year';
-  $('c_co2_sub').textContent = `≈ ${co2MT.toFixed(2)} metric tons annually — equivalent to planting ${Math.round(co2MT*45)} trees`;
-  show('c_co2');
-
-  // Detail rows
-  let rows = '';
-  rows += tr('System Tonnage', tons, 'tons', '—', 'INFO', `${fmt(btuh)} BTUH capacity`);
-  rows += tr('Current SEER', seerOld, 'SEER', '≥10 min. old std.', seerOld>=14?'PASS':'WARN', seerOld<14?'Below current 2023 minimum':'Meets old standard');
-  rows += tr('New SEER2', seerNew, 'SEER2', '≥14.3 min. 2023', seerNew>=14.3?'PASS':'FAIL', 'Must meet 2023 South region minimum');
-  rows += tr('Efficiency Improvement', '+'+((seerNew-seerOld)/seerOld*100).toFixed(0)+'%', '%', '>20% = excellent ROI', (seerNew-seerOld)/seerOld>=0.2?'PASS':'INFO', 'Relative SEER improvement');
-  rows += tr('Annual Hours Used', fmt(hrs), 'hrs/yr', '1,000–2,000 AR', hrs>=800&&hrs<=2500?'PASS':'WARN', 'NW Arkansas avg ~1,400');
-  rows += tr('Electricity Rate', fmtD(rate,2)+'/kWh', '$/kWh', '$0.08–0.14 AR', rate>=0.08&&rate<=0.14?'PASS':'WARN', 'AR avg ≈$0.10/kWh');
-  rows += tr('Net Lifetime ROI', fmtD(lifetimeSav-cost), '$', '>$0 positive', lifetimeSav>cost?'PASS':'WARN', `After $${fmt(cost)} investment`);
-  rows += tr('CO₂ Reduction', fmt(co2Lbs,0)+' lbs/yr', 'lbs CO₂', '—', 'PASS', 'Based on US avg grid emissions');
-
-  $('c_tbody').innerHTML = rows;
-  $('c_tfoot').innerHTML = `<td colspan="6">⚡ Cooling Upgrade Summary: <strong>${fmtD(annualSav)}/yr savings</strong> — ${pctReduction.toFixed(0)}% energy reduction — ${payback!==null?'Payback: '+payback.toFixed(1)+' yrs':''} — ${fmtD(lifetimeSav)} lifetime savings</td>`;
-
-  buildChart('c_chart', cost, savArr, payback, life);
-
-  globalResults.cooling = { cost, annualSav, lifetimeSav, co2: co2MT*life };
-  updateSummary();
-  show('c_results');
-  setTimeout(() => $('c_results').scrollIntoView({behavior:'smooth',block:'start'}), 100);
+  const seerO = parseFloat(document.getElementById('c_seer_old').value);
+  const seerN = parseFloat(document.getElementById('c_seer_new').value);
+  const hrs = parseFloat(document.getElementById('c_hrs').value);
+  const rate = parseFloat(document.getElementById('c_rate').value);
+  if (!seerO || !seerN || !hrs || !rate) return;
+  
+  const vOld = (36000 * hrs) / seerO / 1000; // 3 ton example
+  const vNew = (36000 * hrs) / seerN / 1000;
+  const sav = (vOld - vNew) * rate;
+  const pct = ((seerN - seerO) / seerN) * 100;
+  
+  document.getElementById('c_sav_val').innerText = '$' + Math.round(sav).toLocaleString();
+  document.getElementById('c_pct_val').innerText = Math.round(pct) + '%';
+  document.getElementById('c_results').style.display = 'block';
+  
+  if (window.updateMintStickyBar) { window.updateMintStickyBar({ 'Cooling Save': '$' + Math.round(sav) + '/yr', 'Reduction': Math.round(pct) + '%' }, '/hvac-load-calculator/'); }
 }
-
-function resetCooling() {
-  ['c_seer_old','c_hrs','c_rate','c_cost','c_esc'].forEach(id => { const el = $(id); if(el) el.value=''; });
-  $('c_hrs').value=1400; $('c_rate').value=0.10; $('c_esc').value=3;
-  $('c_hrs_range').value=1400; $('c_rate_range').value=10; $('c_esc_range').value=3;
-  $('c_hrs_display').textContent='1,400'; $('c_rate_display').textContent='$0.10'; $('c_esc_display').textContent='3%';
-  hide('c_results'); globalResults.cooling=null; updateSummary();
-}
-
-/* ════════════════════ HEATING CALC ════════════════════════════ */
-// Fuel constants per unit
-const FUEL = {
-  gas:     { unit: 'therm',   btuperunit: 100000, co2_per_unit: 11.7  }, // lbs CO2/therm
-  oil:     { unit: 'gallon',  btuperunit: 138500, co2_per_unit: 22.4  },
-  propane: { unit: 'gallon',  btuperunit: 91333,  co2_per_unit: 12.7  },
-  elec:    { unit: 'kWh',     btuperunit: 3412,   co2_per_unit: 0.386 },
-  hp:      { unit: 'kWh',     btuperunit: 3412,   co2_per_unit: 0.386 },
-};
-
-function updateHeatInputs() {
-  const t = $('h_type').value;
-  const rateUnit = { gas:'$/therm (gas)', oil:'$/gallon (oil)', propane:'$/gallon (propane)', elec:'$/kWh (electric)', hp:'$/kWh (electric)' };
-  $('h_rate_unit').textContent = rateUnit[t];
-  $('h_eff_new_gas').classList.toggle('hidden', t === 'hp');
-  $('h_eff_new_hp').classList.toggle('hidden',  t !== 'hp');
-  // Suggest typical rates
-  const rates = { gas:'0.90', oil:'3.80', propane:'2.50', elec:'0.10', hp:'0.10' };
-  $('h_rate').placeholder = rates[t];
-}
-
-$('h_load').addEventListener('change', () => {
-  $('h_load_custom').classList.toggle('hidden', $('h_load').value !== 'custom');
-});
-
-function calcHeating() {
-  const t = $('h_type').value;
-  const effOldRaw = parseFloat($('h_eff_old').value);
-  const effNewRaw = t === 'hp'
-    ? parseFloat($('h_eff_new_hp').value)
-    : parseFloat($('h_eff_new_gas').value);
-  const loadVal = $('h_load').value === 'custom'
-    ? parseFloat($('h_load_custom').value)
-    : parseFloat($('h_load').value);
-  const rate   = parseFloat($('h_rate').value);
-  const cost   = parseFloat($('h_cost').value) || 0;
-  const esc    = parseFloat($('h_esc').value)  || 0;
-  const life   = parseInt($('h_life').value);
-
-  if (!effOldRaw || !effNewRaw || !loadVal || !rate) { alert('Please fill in all heating fields.'); return; }
-
-  const fuel = FUEL[t];
-  let unitsOld, unitsNew, annualCostOld, annualCostNew;
-
-  if (t === 'hp') {
-    // Heat pump: COP = HSPF2 / 3.412; energy = load / (HSPF2 × 1000 BTU/kWh)
-    const hspfOld = effOldRaw; // treat entered value as HSPF2 directly
-    const hspfNew = effNewRaw;
-    unitsOld = loadVal / (hspfOld * 1000); // kWh
-    unitsNew = loadVal / (hspfNew * 1000);
-  } else if (t === 'elec') {
-    // Electric furnace: efficiency ≈ 100% always; use entered value
-    const effO = effOldRaw / 100;
-    const effN = effNewRaw / 100;
-    unitsOld = loadVal / (fuel.btuperunit * effO);
-    unitsNew = loadVal / (fuel.btuperunit * effN);
-  } else {
-    const effO = effOldRaw / 100;
-    const effN = effNewRaw / 100;
-    unitsOld = loadVal / (fuel.btuperunit * effO);
-    unitsNew = loadVal / (fuel.btuperunit * effN);
-  }
-
-  annualCostOld = unitsOld * rate;
-  annualCostNew = unitsNew * rate;
-  const annualSav  = annualCostOld - annualCostNew;
-  const payback    = cost > 0 ? cost / annualSav : null;
-  const savArr     = cumulSavings(annualSav, esc, life);
-  const lifetimeSav= savArr[life-1];
-  const pctRed     = ((unitsOld - unitsNew) / unitsOld * 100);
-
-  // CO2
-  const co2Old = unitsOld * fuel.co2_per_unit;
-  const co2New = unitsNew * fuel.co2_per_unit;
-  const co2Sav = co2Old - co2New;
-  const co2MT  = co2Sav * (t==='elec'||t==='hp' ? 0.000453592 : 0.000453592);
-
-  // Efficiency labels
-  const effLabel = t==='hp' ? 'HSPF2' : 'AFUE';
-  const effUnitLabel = t==='hp' ? '' : '%';
-
-  $('h_sh').innerHTML = `
-    <div class="sh-cell primary">
-      <div class="sh-label">Annual Savings</div>
-      <div class="sh-val">${fmtD(annualSav)}</div>
-      <div class="sh-unit">per year (year 1)</div>
-    </div>
-    <div class="sh-cell${pctRed>=15?' highlight':''}">
-      <div class="sh-label">Energy Reduction</div>
-      <div class="sh-val">${pctRed.toFixed(0)}%</div>
-      <div class="sh-unit">less heating energy</div>
-    </div>
-    <div class="sh-cell">
-      <div class="sh-label">Payback Period</div>
-      <div class="sh-val">${payback !== null ? payback.toFixed(1) : '—'}</div>
-      <div class="sh-unit">${payback !== null ? 'years' : 'enter cost'}</div>
-    </div>
-    <div class="sh-cell">
-      <div class="sh-label">Lifetime Savings</div>
-      <div class="sh-val">${fmtD(lifetimeSav)}</div>
-      <div class="sh-unit">over ${life} yrs w/ ${esc}% esc.</div>
-    </div>`;
-
-  if (payback !== null) {
-    const pct = Math.min((payback / life) * 100, 100);
-    $('h_pb_fill').style.width = pct + '%';
-    $('h_pb_fill').textContent = payback.toFixed(1) + ' yrs';
-    $('h_life_tick').textContent = life + ' yrs';
-  }
-
-  $('h_compare').innerHTML = `
-    <tr><td class="param">${effLabel} Rating</td><td class="old-v">${effOldRaw}${effUnitLabel}</td><td class="new-v">${effNewRaw}${effUnitLabel}</td><td class="save-v">—</td></tr>
-    <tr><td class="param">Annual ${fuel.unit}s Used</td><td class="old-v">${fmt(unitsOld,0)} ${fuel.unit}s</td><td class="new-v">${fmt(unitsNew,0)} ${fuel.unit}s</td><td class="save-v">${fmt(unitsOld-unitsNew,0)} ${fuel.unit}s</td></tr>
-    <tr><td class="param">Annual Fuel Cost</td><td class="old-v">${fmtD(annualCostOld)}</td><td class="new-v">${fmtD(annualCostNew)}</td><td class="save-v">${fmtD(annualSav)}</td></tr>
-    <tr><td class="param">Monthly Fuel Cost</td><td class="old-v">${fmtD(annualCostOld/12,2)}/mo</td><td class="new-v">${fmtD(annualCostNew/12,2)}/mo</td><td class="save-v">${fmtD(annualSav/12,2)}/mo</td></tr>`;
-
-  $('h_co2_val').textContent = fmt(co2Sav,0) + ' lbs CO₂ / year';
-  $('h_co2_sub').textContent = `≈ ${co2MT.toFixed(2)} metric tons annually — equivalent to planting ${Math.round(co2MT*45)} trees`;
-  show('h_co2');
-
-  let rows = '';
-  rows += tr('Heating System Type', t.charAt(0).toUpperCase()+t.slice(1).replace('hp','Heat Pump'), '—', '—', 'INFO', 'User selection');
-  rows += tr(`Old ${effLabel}`, effOldRaw+effUnitLabel, effLabel, t==='hp'?'≥7.5 min':'≥80% std', 'INFO', 'Existing equipment');
-  rows += tr(`New ${effLabel}`, effNewRaw+effUnitLabel, effLabel, t==='hp'?'≥8.5 good':'≥96% high-eff', 'PASS', 'Proposed replacement');
-  rows += tr('Annual Heat Load', fmt(loadVal/1000000,1)+'M', 'BTU/yr', '—', 'INFO', 'User selected estimate');
-  rows += tr('Fuel Rate', fmtD(rate,2)+'/'+fuel.unit, '$/'+fuel.unit, '—', 'INFO', 'User entered');
-  rows += tr('Annual Savings', fmtD(annualSav), '$/yr', '>$200 recommended', annualSav>=200?'PASS':'WARN', 'Year 1 savings at current rates');
-  rows += tr('Net Lifetime ROI', fmtD(lifetimeSav-cost), '$', '>$0 positive', lifetimeSav>cost?'PASS':'WARN', `After $${fmt(cost)} investment`);
-  rows += tr('CO₂ Reduction', fmt(co2Sav,0)+' lbs/yr', 'lbs/yr', '—', 'PASS', co2MT.toFixed(2)+' MT/yr');
-
-  $('h_tbody').innerHTML = rows;
-  $('h_tfoot').innerHTML = `<td colspan="6">⚡ Heating Upgrade: <strong>${fmtD(annualSav)}/yr savings</strong> — ${pctRed.toFixed(0)}% reduction — ${payback!==null?'Payback: '+payback.toFixed(1)+' yrs':''} — ${fmtD(lifetimeSav)} lifetime savings</td>`;
-
-  buildChart('h_chart', cost, savArr, payback, life);
-
-  globalResults.heating = { cost, annualSav, lifetimeSav, co2: co2MT*life };
-  updateSummary();
-  show('h_results');
-  setTimeout(() => $('h_results').scrollIntoView({behavior:'smooth',block:'start'}), 100);
-}
-
-function resetHeating() {
-  ['h_eff_old','h_rate','h_cost','h_esc'].forEach(id => { const el=$(id); if(el) el.value=''; });
-  $('h_esc').value=3; $('h_esc_range').value=3; $('h_esc_display').textContent='3%';
-  hide('h_results'); globalResults.heating=null; updateSummary();
-}
-
-/* ════════════════════ INIT ══════════════════════════════════ */
-updateHeatInputs();
+calcCooling();
 </script>
 
-
-  <script>
-  (function () {
-    var btn     = document.getElementById('hamburger-btn');
-    var nav     = document.getElementById('mobile-nav');
-    var overlay = document.getElementById('mobile-nav-overlay');
-    var close   = document.getElementById('mobile-nav-close');
-    if (!btn) return;
-    function openMenu() {
-      document.body.classList.add('menu-open');
-      btn.classList.add('active');
-      btn.setAttribute('aria-expanded', 'true');
-      nav.setAttribute('aria-hidden', 'false');
-    }
-    function closeMenu() {
-      document.body.classList.remove('menu-open');
-      btn.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
-      nav.setAttribute('aria-hidden', 'true');
-    }
-    btn.addEventListener('click', openMenu);
-    close.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMenu();
-    });
-  })();
-  </script>
+<!-- NAVIGATION SCRIPT -->
+<script>
+(function () {
+  var btn = document.getElementById('hamburger-btn');
+  var nav = document.getElementById('mobile-nav');
+  var overlay = document.getElementById('mobile-nav-overlay');
+  var close = document.getElementById('mobile-nav-close');
+  if (!btn) return;
+  function openMenu() { document.body.classList.add('menu-open'); btn.classList.add('active'); btn.setAttribute('aria-expanded', 'true'); nav.setAttribute('aria-hidden', 'false'); }
+  function closeMenu() { document.body.classList.remove('menu-open'); btn.classList.remove('active'); btn.setAttribute('aria-expanded', 'false'); nav.setAttribute('aria-hidden', 'true'); }
+  btn.addEventListener('click', openMenu); close.addEventListener('click', closeMenu); overlay.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
 
 </body>
 </html>
-
-
-
-
-
-

@@ -1,25 +1,21 @@
-﻿
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HVAC Service Markup Calculator | Pricing and Profitability Tool | MintSheets</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVAC Service Markup Calculator | Pricing and Profitability Tool | MintSheets</title>
 <meta name="description" content="Free online HVAC service markup calculator. Determine the correct markup for parts and labor to achieve your target profit margins. Essential for HVAC service businesses.">
 <link rel="canonical" href="https://mintsheets.com/hvac-service-markup-calculator/" />
 <meta property="og:title" content="HVAC Service Markup Calculator | Pricing and Profitability Tool | MintSheets" />
 <meta property="og:description" content="Determine the correct markup for parts and labor to achieve your target profit margins." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://mintsheets.com/hvac-service-markup-calculator/" />
-<meta property="og:image" content="https://mintsheets.com/shared/images/hvac-markup.png" />
-<meta name="twitter:card" content="summary_large_image" />
+<link rel="stylesheet" href="../styles.min.css?v=1.5">
+<link rel="stylesheet" href="../shared/css/calculators.css?v=1.6">
+<link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Service Markup Calculator","url":"https://mintsheets.com/hvac-service-markup-calculator/","applicationCategory":"ProfessionalTool","operatingSystem":"WEB"}
 </script>
-
-        <link rel="stylesheet" href="../styles.min.css?v=1.5">
-    <link rel="stylesheet" href="../shared/css/calculators.css">
-    <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
@@ -44,9 +40,13 @@
 
     <header class="site-header">
       <div class="container nav">
-                <a href="/" class="brand">
-                    <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80">
-                </a>
+        <a href="/" class="brand">
+          <picture>
+            <source type="image/avif" srcset="../brand/logo-without-background.avif">
+            <source type="image/webp" srcset="../brand/logo-without-background.webp">
+            <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+          </picture>
+        </a>
   
         <nav class="nav-links">
           <a href="/">Calculators</a>
@@ -67,9 +67,13 @@
   <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
   <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
     <div class="mobile-nav-header">
-            <a href="/" class="brand">
-                <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80">
-            </a>
+      <a href="/" class="brand">
+        <picture>
+          <source type="image/avif" srcset="../brand/logo-without-background.avif">
+          <source type="image/webp" srcset="../brand/logo-without-background.webp">
+          <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        </picture>
+      </a>
       <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
         <span></span><span></span>
       </button>
@@ -88,8 +92,8 @@
     <main>
   <div class="breadcrumb-bar">
     <div class="container">
-      <a href="/">Home</a><span>â€º</span>
-      <a href="/hvac-calculators/">HVAC Calculators</a><span>â€º</span>
+      <a href="/">Home</a><span>›</span>
+      <a href="/hvac-calculators/">HVAC Calculators</a><span>›</span>
       Service Markup Calculator
     </div>
   </div>
@@ -101,1141 +105,77 @@
           <div style="margin-bottom: 30px; text-align: center;">
             <div class="eyebrow">Technical Tool</div>
             <h1 style="margin: 10px auto; max-width: none;">HVAC Service Markup Calculator (Parts & Labor)</h1>
-            <p style="color: var(--muted);">Determine the correct markup for parts and labor to achieve your target profit margins.</p>
-            
-            <p style="margin-top: 20px; line-height: 1.6; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
-              The HVAC service markup calculator helps service managers and technicians set profitable flat-rate pricing. By applying consistent <a href="/hvac-profit-margin-calculator/" style="color: var(--primary); text-decoration: none;">profit margin</a> targets and accounting for <a href="/hvac-labor-cost-calculator/" style="color: var(--primary); text-decoration: none;">burdened labor rates</a>, you can ensure every service call contributes to your company's growth.
-            </p>
+            <p style="color: var(--muted);">Determine the correct markup for parts and labor to achieve your target profit margins. Learn more in our <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: bold;">HVAC Pricing Guide for Contractors</a>.</p>
           </div>
 
+          <!-- Ad Placeholder: Top Banner -->
+          <div class="ad-slot ad-top"></div>
 
-        <!-- Ad Placeholder: Top Banner -->
-        <div class="ad-slot ad-top" style="margin-top: 20px;"></div>
-
-        <!-- SECTION 1 -->
-        <div class="section-banner">
-            <span>📋</span> SECTION 1 — SERVICE CALL INFORMATION
-        </div>
-
-        <div class="form-grid" style="margin-top: 15px;">
-            <div class="form-group">
-                <label>Customer Name</label>
-                <input type="text" id="customerName" placeholder="Enter Customer Name">
-            </div>
-            <div class="form-group">
-                <label>Service Address</label>
-                <input type="text" id="serviceAddress" placeholder="Street Address">
-            </div>
-            <div class="form-group">
-                <label>Phone Number</label>
-                <input type="text" id="phoneNumber" placeholder="(555) 000-0000">
-            </div>
-            <div class="form-group">
-                <label>Service Date</label>
-                <input type="text" id="serviceDate" value="10/24/2023">
-            </div>
-        </div>
-
-        <div class="form-grid" style="margin-top: 10px;">
-            <div class="form-group">
-                <label>Service Type</label>
-                <select id="serviceType" onchange="updateServiceDefaults()">
-                    <option value="diagnostic">Diagnostic / Troubleshooting</option>
-                    <option value="repair" selected>Repair Service</option>
-                    <option value="maintenance">Preventive Maintenance</option>
-                    <option value="emergency">Emergency Service</option>
-                    <option value="installation">New Installation</option>
-                    <option value="commercial">Commercial Service</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>Technician</label>
-                <input type="text" id="technician" value="John Doe">
-            </div>
-            <div class="form-group">
-                <label>Service Ticket #</label>
-                <input type="text" id="ticketNumber" value="SVC-2023-001">
-            </div>
-            <div class="form-group">
-                <label>Equipment Type</label>
-                <select id="equipmentType">
-                    <option>A/C System</option>
-                    <option>Furnace</option>
-                    <option>Heat Pump</option>
-                    <option>Packaged Unit</option>
-                    <option>Mini-Split</option>
-                    <option>Boiler</option>
-                    <option>Commercial RTU</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="sub-header">Service Call Details</div>
-        <div class="form-grid">
-            <div class="form-group">
-                <label>Travel Distance (miles)</label>
-                <input type="number" id="travelDistance" value="15" onchange="calculateMarkup()">
-            </div>
-            <div class="form-group">
-                <label>Travel Rate ($/mile)</label>
-                <input type="number" id="travelRate" value="1.50" onchange="calculateMarkup()">
-            </div>
-            <div class="form-group">
-                <label>Service Call Fee ($)</label>
-                <input type="number" id="serviceCallFee" value="99" onchange="calculateMarkup()">
-            </div>
-            <div class="form-group">
-                <label>After Hours Surcharge (%)</label>
-                <select id="afterHours" onchange="calculateMarkup()">
-                    <option value="0">Regular Hours</option>
-                    <option value="25">After Hours (+25%)</option>
-                    <option value="50">Weekend (+50%)</option>
-                    <option value="100">Holiday (+100%)</option>
-                </select>
-            </div>
-        </div>
-
-        <!-- SECTION 2 -->
-        <div class="section-banner">
-            <span>💰</span> SECTION 2 — COST INPUTS & BASE PRICING
-        </div>
-
-        <div class="sub-header">Labor Costs</div>
-        <div class="form-grid">
-            <div class="form-group">
-                <label>Technician Hourly Rate ($)</label>
-                <input type="number" id="techRate" value="45" onchange="calculateMarkup()">
-            </div>
-            <div class="form-group">
-                <label>Hours on Job</label>
-                <input type="number" id="laborHours" value="2" step="0.5" onchange="calculateMarkup()">
-            </div>
-            <div class="form-group">
-                <label>Helper/Assistant Rate ($)</label>
-                <input type="number" id="helperRate" value="30" onchange="calculateMarkup()">
-            </div>
-            <div class="form-group">
-                <label>Helper Hours</label>
-                <input type="number" id="helperHours" value="0" step="0.5" onchange="calculateMarkup()">
-            </div>
-        </div>
-
-        <div class="sub-header">Parts & Materials</div>
-        <div class="table-scroll">
-            <table id="partsTable">
-                <thead>
-                    <tr>
-                        <th style="width: 35%;">Description</th>
-                        <th style="width: 15%;">Qty</th>
-                        <th style="width: 20%;">Unit Cost ($)</th>
-                        <th style="width: 20%;">Extended ($)</th>
-                        <th style="width: 10%;">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="text" class="part-desc" value="Capacitor" placeholder="Part description"></td>
-                        <td><input type="number" class="part-qty" value="1" onchange="calculateMarkup()"></td>
-                        <td><input type="number" class="part-cost" value="25" onchange="calculateMarkup()"></td>
-                        <td class="text-right part-extended">$25.00</td>
-                        <td class="text-center"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" class="part-desc" value="Contactor" placeholder="Part description"></td>
-                        <td><input type="number" class="part-qty" value="1" onchange="calculateMarkup()"></td>
-                        <td><input type="number" class="part-cost" value="45" onchange="calculateMarkup()"></td>
-                        <td class="text-right part-extended">$45.00</td>
-                        <td class="text-center"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" class="part-desc" value="Refrigerant (lbs)" placeholder="Part description"></td>
-                        <td><input type="number" class="part-qty" value="2" onchange="calculateMarkup()"></td>
-                        <td><input type="number" class="part-cost" value="35" onchange="calculateMarkup()"></td>
-                        <td class="text-right part-extended">$70.00</td>
-                        <td class="text-center"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr style="background-color: var(--line); font-weight: bold;">
-                        <td colspan="3" class="text-right">Parts Subtotal:</td>
-                        <td class="text-right" id="partsSubtotal">$140.00</td>
-                        <td></td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-
-        <button class="btn btn-primary btn-sm" onclick="addPartRow()" style="margin: 10px 20px;">+ Add Part Line</button>
-
-        <div class="sub-header">Additional Costs</div>
-        <div class="form-grid">
-            <div class="form-group">
-                <label>Disposal/Haul-Away ($)</label>
-                <input type="number" id="disposalCost" value="50" onchange="calculateMarkup()">
-            </div>
-            <div class="form-group">
-                <label>Permit Fees ($)</label>
-                <input type="number" id="permitCost" value="0" onchange="calculateMarkup()">
-            </div>
-            <div class="form-group">
-                <label>Shop Supplies ($)</label>
-                <input type="number" id="shopSupplies" value="25" onchange="calculateMarkup()">
-            </div>
-            <div class="form-group">
-                <label>Other Costs ($)</label>
-                <input type="number" id="otherCosts" value="0" onchange="calculateMarkup()">
-            </div>
-        </div>
-
-        <!-- SECTION 3 -->
-        <div class="section-banner">
-            <span>📊</span> SECTION 3 — MARKUP & MARGIN SETTINGS
-        </div>
-
-        <div class="info-box">
-            <div class="info-box-title">💡 Industry Standard Markup Guidelines</div>
-            <div>
-                <strong>Parts:</strong> 30-50% markup (1.3x - 1.5x multiplier) |
-                <strong>Labor:</strong> 2.5x - 3.5x multiplier (covers overhead + profit) |
-                <strong>Service Call:</strong> Should cover truck roll + minimum profit |
-                <strong>Emergency:</strong> 1.5x - 2x standard rates
-            </div>
-        </div>
-
-        <div class="form-grid">
-            <div class="calc-panel">
-                <div class="calc-panel-header">Parts Markup</div>
-                <div class="slider-container">
-                    <div class="slider-label">
-                        <span>Markup Percentage</span>
-                        <span class="highlight" id="partsMarkupDisplay">40%</span>
-                    </div>
-                    <input type="range" min="0" max="200" value="40" id="partsMarkup" onchange="calculateMarkup()">
-                </div>
-                <div class="form-group">
-                    <label>Markup Multiplier</label>
-                    <input type="number" id="partsMultiplier" value="1.4" step="0.1" onchange="updatePartsMultiplier()">
-                </div>
-                <div class="result-label">Parts Sell Price: <span class="highlight" id="partsSellPrice">$0.00</span></div>
-            </div>
-            <div class="calc-panel">
-                <div class="calc-panel-header">Labor Markup</div>
-                <div class="slider-container">
-                    <div class="slider-label">
-                        <span>Markup Multiplier</span>
-                        <span class="highlight" id="laborMarkupDisplay">3.0x</span>
-                    </div>
-                    <input type="range" min="1" max="5" value="3" step="0.1" id="laborMarkup" onchange="calculateMarkup()">
-                </div>
-                <div class="form-group">
-                    <label>Billed Rate ($/hr)</label>
-                    <input type="number" id="billedRate" value="135" onchange="updateLaborRate()">
-                </div>
-                <div class="result-label">Labor Sell Price: <span class="highlight" id="laborSellPrice">$0.00</span></div>
-            </div>
-            <div class="calc-panel">
-                <div class="calc-panel-header">Service Call Markup</div>
-                <div class="slider-container">
-                    <div class="slider-label">
-                        <span>Markup Percentage</span>
-                        <span class="highlight" id="serviceMarkupDisplay">50%</span>
-                    </div>
-                    <input type="range" min="0" max="200" value="50" id="serviceMarkup" onchange="calculateMarkup()">
-                </div>
-                <div class="form-group">
-                    <label>Minimum Service Call ($)</label>
-                    <input type="number" id="minServiceCall" value="99" onchange="calculateMarkup()">
-                </div>
-                <div class="result-label">Service Call Price: <span class="highlight" id="serviceCallPrice">$0.00</span></div>
-            </div>
-        </div>
-
-        <div class="sub-header">Overhead & Profit Allocation</div>
-        <div class="form-grid">
-            <div class="form-group">
-                <label>Overhead % (Monthly Expenses)</label>
-                <input type="number" id="overheadPct" value="25" onchange="calculateMarkup()">
-            </div>
-            <div class="form-group">
-                <label>Target Profit Margin %</label>
-                <input type="number" id="targetProfit" value="20" onchange="calculateMarkup()">
-            </div>
-            <div class="form-group">
-                <label>Tax Rate %</label>
-                <input type="number" id="taxRate" value="8.5" onchange="calculateMarkup()">
-            </div>
-            <div class="form-group">
-                <label>Discount % (if any)</label>
-                <input type="number" id="discountPct" value="0" onchange="calculateMarkup()">
-            </div>
-        </div>
-
-        <!-- Ad Placeholder: Mid Content -->
-        <div class="ad-slot ad-mid" style="margin-top: 20px;"></div>
-
-        <!-- SECTION 4 -->
-        <div class="section-banner">
-            <span>💵</span> SECTION 4 — PRICING CALCULATION RESULTS
-        </div>
-
-        <div class="results-box">
-            <div class="form-grid">
-                <div class="result-card">
-                    <div class="result-label">Total Cost</div>
-                    <div class="result-value" id="totalCost">$0.00</div>
-                    <div class="result-label">Labor + Parts + Overhead</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-label">Markup Amount</div>
-                    <div class="result-value profit" id="markupAmount">$0.00</div>
-                    <div class="result-label" id="markupPctDisplay">0% Markup</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-label">Subtotal (Pre-Tax)</div>
-                    <div class="result-value" id="subtotal">$0.00</div>
-                    <div class="result-label">After Discount</div>
-                </div>
-                <div class="result-card">
-                    <div class="result-label">Total With Tax</div>
-                    <div class="result-value" id="totalWithTax">$0.00</div>
-                    <div class="result-label">Final Customer Price</div>
-                </div>
-            </div>
-
-            <div class="sub-header" style="margin-top: 20px;">Profit Margin Analysis</div>
-            <div style="display: flex; align-items: center; gap: 15px; margin: 15px 0;">
-                <span class="markup-indicator markup-high" id="marginStatus">CALCULATING...</span>
-                <div style="flex: 1;">
-                    <div class="progress-container">
-                        <div class="progress-bar" id="marginProgress" style="width: 0%;"></div>
-                    </div>
-                </div>
-                <span style="font-weight: bold; color: var(--text);" id="netMarginValue">0%</span>
-            </div>
-
-            <div class="sub-header">Price Breakdown Visualization</div>
-            <div class="breakdown-chart" style="display: flex; height: 30px; border-radius: 5px; overflow: hidden; margin: 10px 0;">
-                <div class="breakdown-segment" id="segLabor" style="width: 0%; background-color: var(--orange); display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: bold;">0%</div>
-                <div class="breakdown-segment" id="segParts" style="width: 0%; background-color: var(--accent); display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: bold;">0%</div>
-                <div class="breakdown-segment" id="segOverhead" style="width: 0%; background-color: var(--steel); display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: bold;">0%</div>
-                <div class="breakdown-segment" id="segProfit" style="width: 0%; background-color: var(--success); display: flex; align-items: center; justify-content: center; color: white; font-size: 11px; font-weight: bold;">0%</div>
-            </div>
-            <div class="legend" style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 10px;">
-                <div class="legend-item" style="display: flex; align-items: center; gap: 5px; font-size: 12px;">
-                    <div class="legend-color" style="width: 15px; height: 15px; border-radius: 3px; background-color: var(--orange);"></div>
-                    <span>Labor</span>
-                </div>
-                <div class="legend-item" style="display: flex; align-items: center; gap: 5px; font-size: 12px;">
-                    <div class="legend-color" style="width: 15px; height: 15px; border-radius: 3px; background-color: var(--accent);"></div>
-                    <span>Parts</span>
-                </div>
-                <div class="legend-item" style="display: flex; align-items: center; gap: 5px; font-size: 12px;">
-                    <div class="legend-color" style="width: 15px; height: 15px; border-radius: 3px; background-color: var(--steel);"></div>
-                    <span>Overhead</span>
-                </div>
-                <div class="legend-item" style="display: flex; align-items: center; gap: 5px; font-size: 12px;">
-                    <div class="legend-color" style="width: 15px; height: 15px; border-radius: 3px; background-color: var(--success);"></div>
-                    <span>Profit</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- SECTION 5 -->
-        <div class="section-banner">
-            <span>🏆</span> SECTION 5 — SERVICE TIER PRICING (GOOD / BETTER / BEST)
-        </div>
-
-        <div class="form-grid" style="margin-top: 15px;">
-            <div class="tier-card tier-good">
-                <div class="tier-header">⬛ GOOD</div>
-                <div class="result-label">Standard Repair</div>
-                <div class="tier-price" id="tierGoodPrice">$0.00</div>
-                <ul class="tier-features">
-                    <li>Basic parts replacement</li>
-                    <li>Standard labor rate</li>
-                    <li>30-day parts warranty</li>
-                    <li>Regular business hours</li>
-                    <li>No service membership discount</li>
-                </ul>
-            </div>
-            <div class="tier-card tier-better">
-                <div class="tier-header">🥈 BETTER</div>
-                <div class="result-label">Premium Repair (+15%)</div>
-                <div class="tier-price" id="tierBetterPrice">$0.00</div>
-                <ul class="tier-features">
-                    <li>OEM premium parts</li>
-                    <li>Priority scheduling</li>
-                    <li>1-year parts & labor</li>
-                    <li>System performance check</li>
-                    <li>5% membership discount</li>
-                </ul>
-            </div>
-            <div class="tier-card tier-best">
-                <div class="tier-header">🥇 BEST</div>
-                <div class="result-label">Complete Solution (+30%)</div>
-                <div class="tier-price" id="tierBestPrice">$0.00</div>
-                <ul class="tier-features">
-                    <li>Top-tier components</li>
-                    <li>Same-day service</li>
-                    <li>2-year comprehensive warranty</li>
-                    <li>Full system tune-up included</li>
-                    <li>10% membership discount</li>
-                </ul>
-            </div>
-        </div>
-
-        <!-- SECTION 6 -->
-        <div class="section-banner">
-            <span>📋</span> SECTION 6 — DETAILED COST BREAKDOWN
-        </div>
-
-        <div class="table-scroll">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Parameter</th>
-                        <th class="text-right">Cost ($)</th>
-                        <th class="text-right">Markup</th>
-                        <th class="text-right">Sell Price ($)</th>
-                        <th class="text-right">% of Total</th>
-                        <th>Status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Service Call / Diagnostic</td>
-                        <td class="text-right" id="costServiceCall">$0.00</td>
-                        <td class="text-right" id="markupServiceCall">0%</td>
-                        <td class="text-right bold" id="sellServiceCall">$0.00</td>
-                        <td class="text-right" id="pctServiceCall">0%</td>
-                        <td class="text-center"><span class="status-badge status-healthy">OK</span></td>
-                    </tr>
-                    <tr>
-                        <td>Labor (Technician)</td>
-                        <td class="text-right" id="costLabor">$0.00</td>
-                        <td class="text-right" id="markupLabor">0x</td>
-                        <td class="text-right bold" id="sellLabor">$0.00</td>
-                        <td class="text-right" id="pctLabor">0%</td>
-                        <td class="text-center"><span class="status-badge status-healthy">OK</span></td>
-                    </tr>
-                    <tr>
-                        <td>Parts & Materials</td>
-                        <td class="text-right" id="costParts">$0.00</td>
-                        <td class="text-right" id="markupParts">0%</td>
-                        <td class="text-right bold" id="sellParts">$0.00</td>
-                        <td class="text-right" id="pctParts">0%</td>
-                        <td class="text-center"><span class="status-badge status-healthy">OK</span></td>
-                    </tr>
-                    <tr>
-                        <td>Travel / Mileage</td>
-                        <td class="text-right" id="costTravel">$0.00</td>
-                        <td class="text-right" id="markupTravel">0%</td>
-                        <td class="text-right bold" id="sellTravel">$0.00</td>
-                        <td class="text-right" id="pctTravel">0%</td>
-                        <td class="text-center"><span class="status-badge status-caution">VARIES</span></td>
-                    </tr>
-                    <tr>
-                        <td>Disposal / Permits</td>
-                        <td class="text-right" id="costDisposal">$0.00</td>
-                        <td class="text-right" id="markupDisposal">0%</td>
-                        <td class="text-right bold" id="sellDisposal">$0.00</td>
-                        <td class="text-right" id="pctDisposal">0%</td>
-                        <td class="text-center"><span class="status-badge status-caution">PASS-THROUGH</span></td>
-                    </tr>
-                    <tr style="background-color: var(--line);">
-                        <td><strong>SUBTOTAL (Pre-Tax)</strong></td>
-                        <td class="text-right bold" id="costSubtotal">$0.00</td>
-                        <td class="text-right">—</td>
-                        <td class="text-right bold" id="sellSubtotal">$0.00</td>
-                        <td class="text-right bold">100%</td>
-                        <td class="text-center">—</td>
-                    </tr>
-                    <tr>
-                        <td>Discount</td>
-                        <td class="text-right" id="costDiscount">$0.00</td>
-                        <td class="text-right">—</td>
-                        <td class="text-right text-danger" id="sellDiscount">-$0.00</td>
-                        <td class="text-right" id="pctDiscount">0%</td>
-                        <td class="text-center"><span class="status-badge status-caution">OPTIONAL</span></td>
-                    </tr>
-                    <tr>
-                        <td>Sales Tax</td>
-                        <td class="text-right" id="costTax">$0.00</td>
-                        <td class="text-right">—</td>
-                        <td class="text-right bold" id="sellTax">$0.00</td>
-                        <td class="text-right" id="pctTax">0%</td>
-                        <td class="text-center"><span class="status-badge status-caution">REQUIRED</span></td>
-                    </tr>
-                    <tr style="background-color: var(--card-bg); color: var(--text);">
-                        <td><strong>TOTAL CUSTOMER PRICE</strong></td>
-                        <td class="text-right">—</td>
-                        <td class="text-right">—</td>
-                        <td class="text-right bold" id="totalCustomerPrice">$0.00</td>
-                        <td class="text-right bold">—</td>
-                        <td class="text-center">—</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- SECTION 7 -->
-        <div class="section-banner">
-            <span>📊</span> SECTION 7 — MARKUP REFERENCE GUIDE
-        </div>
-
-        <div class="form-grid">
-            <div>
-                <div class="sub-header">Recommended Markup by Service Type</div>
-                <div class="table-scroll">
-                    <table class="quick-ref-table">
-                        <thead>
-                            <tr>
-                                <th>Service Type</th>
-                                <th>Parts Markup</th>
-                                <th>Labor Multiplier</th>
-                                <th>Min. Service Call</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Diagnostic Only</td>
-                                <td>N/A</td>
-                                <td>2.5x - 3.0x</td>
-                                <td>$99 - $149</td>
-                            </tr>
-                            <tr>
-                                <td>Standard Repair</td>
-                                <td>35% - 50%</td>
-                                <td>3.0x - 3.5x</td>
-                                <td>$99 - $149</td>
-                            </tr>
-                            <tr>
-                                <td>Emergency Service</td>
-                                <td>50% - 75%</td>
-                                <td>3.5x - 4.5x</td>
-                                <td>$199 - $299</td>
-                            </tr>
-                            <tr>
-                                <td>Preventive Maintenance</td>
-                                <td>25% - 35%</td>
-                                <td>2.5x - 3.0x</td>
-                                <td>$79 - $99</td>
-                            </tr>
-                            <tr>
-                                <td>Commercial Service</td>
-                                <td>40% - 60%</td>
-                                <td>3.0x - 4.0x</td>
-                                <td>$150 - $250</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div>
-                <div class="sub-header">Membership Program Pricing</div>
-                <div class="form-grid" style="grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));">
-                    <div class="membership-card silver">
-                        <div class="membership-name" style="color: #C0C0C0;">🥈 SILVER</div>
-                        <div class="membership-price">$199</div>
-                        <div class="membership-period">per year</div>
-                        <ul class="tier-features" style="margin-top: 15px; font-size: 11px;">
-                            <li>2 tune-ups/year</li>
-                            <li>10% parts discount</li>
-                            <li>No after-hours fee</li>
-                            <li>Priority scheduling</li>
-                        </ul>
-                    </div>
-                    <div class="membership-card gold">
-                        <div class="membership-name" style="color: #FFD700;">🥇 GOLD</div>
-                        <div class="membership-price">$349</div>
-                        <div class="membership-period">per year</div>
-                        <ul class="tier-features" style="margin-top: 15px; font-size: 11px;">
-                            <li>3 tune-ups/year</li>
-                            <li>15% parts discount</li>
-                            <li>No diagnostic fee</li>
-                            <li>Extended warranty</li>
-                        </ul>
-                    </div>
-                    <div class="membership-card platinum">
-                        <div class="membership-name" style="color: var(--accent);">💎 PLATINUM</div>
-                        <div class="membership-price">$549</div>
-                        <div class="membership-period">per year</div>
-                        <ul class="tier-features" style="margin-top: 15px; font-size: 11px;">
-                            <li>4 tune-ups/year</li>
-                            <li>20% parts discount</li>
-                            <li>All fees waived</li>
-                            <li>24/7 priority service</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="info-box" style="background-color: rgba(245, 158, 11, 0.1); border-left-color: var(--orange);">
-            <div class="info-box-title">⚡ Pro Tips for Service Markup Success</div>
-            <div>
-                • <strong>Never compete on price</strong> — compete on value, warranty, and service quality.<br>
-                • <strong>Present all three tiers</strong> — 60% of customers choose Better or Best when offered.<br>
-                • <strong>Membership pays for itself</strong> — show customers the ROI of annual maintenance plans.<br>
-                • <strong>Track actual vs. estimated</strong> — compare quoted hours to actual time spent on job.<br>
-                • <strong>Review markup quarterly</strong> — adjust for inflation, fuel costs, and market conditions.
-            </div>
-        </div>
-
-        <!-- SECTION 8 -->
-        <div class="section-banner">
-            <span>📝</span> SECTION 8 — SERVICE LOG & TRACKING
-        </div>
-
-        <div class="table-scroll">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Customer</th>
-                        <th>Ticket #</th>
-                        <th>Date</th>
-                        <th>Service Type</th>
-                        <th class="text-right">Total Price</th>
-                        <th class="text-right">Profit</th>
-                        <th>Margin %</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="serviceLog">
-                    <tr>
-                        <td colspan="8" class="text-center" style="color: var(--muted); padding: 30px;">
-                            No service logs yet — click "Save to Log" to add this calculation.
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- ACTION BUTTONS -->
-        <div class="btn-group">
-            <button class="btn btn-success" onclick="saveToLog()">💾 Save to Log</button>
-            <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
-            <button class="btn btn-accent" onclick="calculateMarkup()">⚡ Recalculate</button>
-            <button class="btn btn-primary" onclick="exportCSV()">📥 Export CSV</button>
-            <button class="btn btn-primary" style="background-color: #666;" onclick="clearAll()">🗑️ Clear All</button>
-        </div>
-
-        <div style="padding: 0 20px; margin-top: 15px;">
-            <div class="info-text">
-                <strong>Current Settings:</strong> Parts Markup: <span class="highlight" id="footerPartsMarkup">40%</span> |
-                Labor Multiplier: <span class="highlight" id="footerLaborMarkup">3.0x</span> |
-                Net Margin: <span class="highlight" id="footerMargin">0%</span> |
-                Total Price: <span class="highlight" id="footerTotal">$0.00</span>
-            </div>
-        </div>
-
+<!-- SECTION 1 — COSTS -->
+<div class="section-banner"><span class="icon">💰</span> SECTION 1 — PARTS & LABOR COSTS</div>
+<div class="card">
+  <div class="form-grid">
+    <div class="form-group">
+      <label>Parts Total Cost ($)</label>
+      <input type="number" id="partsCost" value="145" oninput="recalc()">
     </div>
+    <div class="form-group">
+      <label>Labor Hours</label>
+      <input type="number" id="laborHours" value="2.5" step="0.5" oninput="recalc()">
+    </div>
+    <div class="form-group">
+      <label>Tech Hourly Rate ($)</label>
+      <input type="number" id="techWage" value="45" oninput="recalc()">
+    </div>
+    <div class="form-group">
+      <label>Service Call Fee ($)</label>
+      <input type="number" id="callFee" value="99" oninput="recalc()">
+    </div>
+  </div>
+</div>
 
-    <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
-      <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
-        <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-          <a href="/hvac-profit-margin-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Profit Margin Calculator</a>
-          <a href="/hvac-labor-cost-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Labor Cost Calculator</a>
-          <a href="/hvac-service-price-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Service Price Calculator</a>
-          <a href="/hvac-bid-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Bid Calculator</a>
-        </div>
-        <p style="margin-top: 40px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+<!-- SECTION 2 — MARKUP SETTINGS -->
+<div class="section-banner" style="margin-top:20px;"><span class="icon">📊</span> SECTION 2 — MARKUP SETTINGS</div>
+<div class="card">
+  <div class="form-grid">
+    <div class="form-group">
+      <label>Parts Markup (%)</label>
+      <input type="number" id="partsMarkup" value="40" oninput="recalc()">
+    </div>
+    <div class="form-group">
+      <label>Labor Multiplier (x)</label>
+      <input type="number" id="laborMultiplier" value="3.0" step="0.1" oninput="recalc()">
+    </div>
+  </div>
+  <div class="results-box" style="margin-top:20px;">
+    <div class="form-grid">
+      <div style="text-align:center; border-right:1px solid var(--line);">
+        <div class="result-label">Total Billable Amount</div>
+        <div class="result-value success" id="totalBill">$0.00</div>
       </div>
-    </footer>
-
-    <script>
-        // Service Log Storage
-        let serviceLog = [];
-
-        // Format currency
-        function formatCurrency(num) {
-            return '$' + num.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        }
-
-        // Format percentage
-        function formatPercent(num) {
-            return num.toFixed(1) + '%';
-        }
-
-        // Delete table row
-        function deleteRow(btn) {
-            const row = btn.parentNode.parentNode;
-            row.parentNode.removeChild(row);
-            calculateMarkup();
-        }
-
-        // Add part row
-        function addPartRow() {
-            const tbody = document.querySelector('#partsTable tbody');
-            const newRow = document.createElement('tr');
-            newRow.innerHTML = `
-                <td><input type="text" class="part-desc" placeholder="Part description"></td>
-                <td><input type="number" class="part-qty" value="1" onchange="calculateMarkup()"></td>
-                <td><input type="number" class="part-cost" value="0" onchange="calculateMarkup()"></td>
-                <td class="text-right part-extended">$0.00</td>
-                <td class="text-center"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
-            `;
-            tbody.appendChild(newRow);
-        }
-
-        // Update parts multiplier from percentage
-        function updatePartsMultiplier() {
-            const multiplier = parseFloat(document.getElementById('partsMultiplier').value) || 1;
-            const markupPct = ((multiplier - 1) * 100);
-            document.getElementById('partsMarkup').value = markupPct;
-            document.getElementById('partsMarkupDisplay').innerText = formatPercent(markupPct);
-            calculateMarkup();
-        }
-
-        // Update labor rate from multiplier
-        function updateLaborRate() {
-            const techRate = parseFloat(document.getElementById('techRate').value) || 45;
-            const billedRate = parseFloat(document.getElementById('billedRate').value) || 135;
-            const multiplier = billedRate / techRate;
-            document.getElementById('laborMarkup').value = multiplier;
-            document.getElementById('laborMarkupDisplay').innerText = multiplier.toFixed(1) + 'x';
-            calculateMarkup();
-        }
-
-        // Update service defaults based on service type
-        function updateServiceDefaults() {
-            const serviceType = document.getElementById('serviceType').value;
-
-            const defaults = {
-                diagnostic: { serviceCall: 99, techRate: 45, laborHours: 1, partsMarkup: 40, laborMarkup: 3.0 },
-                repair: { serviceCall: 99, techRate: 45, laborHours: 2, partsMarkup: 40, laborMarkup: 3.0 },
-                maintenance: { serviceCall: 79, techRate: 40, laborHours: 1.5, partsMarkup: 30, laborMarkup: 2.5 },
-                emergency: { serviceCall: 199, techRate: 55, laborHours: 2, partsMarkup: 60, laborMarkup: 4.0 },
-                installation: { serviceCall: 0, techRate: 50, laborHours: 8, partsMarkup: 35, laborMarkup: 3.0 },
-                commercial: { serviceCall: 150, techRate: 60, laborHours: 4, partsMarkup: 50, laborMarkup: 3.5 }
-            };
-
-            const settings = defaults[serviceType] || defaults.repair;
-
-            document.getElementById('serviceCallFee').value = settings.serviceCall;
-            document.getElementById('techRate').value = settings.techRate;
-            document.getElementById('laborHours').value = settings.laborHours;
-            document.getElementById('partsMarkup').value = settings.partsMarkup;
-            document.getElementById('laborMarkup').value = settings.laborMarkup;
-
-            document.getElementById('partsMarkupDisplay').innerText = formatPercent(settings.partsMarkup);
-            document.getElementById('laborMarkupDisplay').innerText = settings.laborMarkup.toFixed(1) + 'x';
-            document.getElementById('partsMultiplier').value = 1 + (settings.partsMarkup / 100);
-            document.getElementById('billedRate').value = settings.techRate * settings.laborMarkup;
-
-            calculateMarkup();
-        }
-
-        // Main calculation function
-        function calculateMarkup() {
-            // Service Call Inputs
-            const serviceCallFee = parseFloat(document.getElementById('serviceCallFee').value) || 0;
-            const travelDistance = parseFloat(document.getElementById('travelDistance').value) || 0;
-            const travelRate = parseFloat(document.getElementById('travelRate').value) || 0;
-            const afterHours = parseFloat(document.getElementById('afterHours').value) || 0;
-
-            // Labor Inputs
-            const techRate = parseFloat(document.getElementById('techRate').value) || 0;
-            const laborHours = parseFloat(document.getElementById('laborHours').value) || 0;
-            const helperRate = parseFloat(document.getElementById('helperRate').value) || 0;
-            const helperHours = parseFloat(document.getElementById('helperHours').value) || 0;
-
-            // Parts Calculation
-            let partsCost = 0;
-            const partRows = document.querySelectorAll('#partsTable tbody tr');
-            partRows.forEach(row => {
-                const qty = parseFloat(row.querySelector('.part-qty').value) || 0;
-                const cost = parseFloat(row.querySelector('.part-cost').value) || 0;
-                const extended = qty * cost;
-                row.querySelector('.part-extended').innerText = formatCurrency(extended);
-                partsCost += extended;
-            });
-            document.getElementById('partsSubtotal').innerText = formatCurrency(partsCost);
-
-            // Additional Costs
-            const disposalCost = parseFloat(document.getElementById('disposalCost').value) || 0;
-            const permitCost = parseFloat(document.getElementById('permitCost').value) || 0;
-            const shopSupplies = parseFloat(document.getElementById('shopSupplies').value) || 0;
-            const otherCosts = parseFloat(document.getElementById('otherCosts').value) || 0;
-
-            // Markup Settings
-            const partsMarkupPct = parseFloat(document.getElementById('partsMarkup').value) || 0;
-            const partsMultiplier = 1 + (partsMarkupPct / 100);
-            const laborMultiplier = parseFloat(document.getElementById('laborMarkup').value) || 3;
-            const serviceMarkupPct = parseFloat(document.getElementById('serviceMarkup').value) || 0;
-            const overheadPct = parseFloat(document.getElementById('overheadPct').value) || 0;
-            const targetProfit = parseFloat(document.getElementById('targetProfit').value) || 0;
-            const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
-            const discountPct = parseFloat(document.getElementById('discountPct').value) || 0;
-
-            // Calculate Costs
-            const travelCost = travelDistance * travelRate;
-            const laborCost = (techRate * laborHours) + (helperRate * helperHours);
-            const additionalCosts = disposalCost + permitCost + shopSupplies + otherCosts;
-
-            // Apply After Hours Surcharge
-            const afterHoursMultiplier = 1 + (afterHours / 100);
-            const serviceCallWithSurcharge = serviceCallFee * afterHoursMultiplier;
-            const laborCostWithSurcharge = laborCost * afterHoursMultiplier;
-
-            // Calculate Sell Prices
-            const serviceCallSell = serviceCallWithSurcharge * (1 + (serviceMarkupPct / 100));
-            const laborSell = laborCostWithSurcharge * laborMultiplier;
-            const partsSell = partsCost * partsMultiplier;
-            const travelSell = travelCost * 1.5; // Standard 50% markup on travel
-            const disposalSell = additionalCosts; // Pass-through, no markup
-
-            // Subtotals
-            const totalCost = serviceCallFee + laborCost + partsCost + travelCost + additionalCosts;
-            const totalSellPreDiscount = serviceCallSell + laborSell + partsSell + travelSell + disposalSell;
-
-            // Apply Overhead
-            const overheadAmount = totalSellPreDiscount * (overheadPct / 100);
-
-            // Calculate Subtotal
-            const subtotal = totalSellPreDiscount + overheadAmount;
-
-            // Apply Discount
-            const discountAmount = subtotal * (discountPct / 100);
-            const subtotalAfterDiscount = subtotal - discountAmount;
-
-            // Calculate Tax
-            const taxAmount = subtotalAfterDiscount * (taxRate / 100);
-
-            // Total
-            const totalWithTax = subtotalAfterDiscount + taxAmount;
-
-            // Profit Calculation
-            const markupAmount = totalSellPreDiscount - totalCost;
-            const profitAmount = subtotalAfterDiscount - totalCost - overheadAmount;
-            const netMarginPct = subtotalAfterDiscount > 0 ? (profitAmount / subtotalAfterDiscount) * 100 : 0;
-
-            // Update Results Display
-            document.getElementById('totalCost').innerText = formatCurrency(totalCost);
-            document.getElementById('markupAmount').innerText = formatCurrency(markupAmount);
-            document.getElementById('markupPctDisplay').innerText = formatPercent((markupAmount / totalCost) * 100) + ' Markup';
-            document.getElementById('subtotal').innerText = formatCurrency(subtotalAfterDiscount);
-            document.getElementById('totalWithTax').innerText = formatCurrency(totalWithTax);
-
-            // Update Margin Status
-            updateMarginStatus(netMarginPct);
-
-            // Update Breakdown Chart
-            const totalRevenue = subtotalAfterDiscount || 1;
-            const laborPct = (laborSell / totalRevenue) * 100;
-            const partsPct = (partsSell / totalRevenue) * 100;
-            const overheadPctDisplay = (overheadAmount / totalRevenue) * 100;
-            const profitPct = (profitAmount / totalRevenue) * 100;
-
-            document.getElementById('segLabor').style.width = laborPct + '%';
-            document.getElementById('segLabor').innerText = laborPct.toFixed(1) + '%';
-            document.getElementById('segParts').style.width = partsPct + '%';
-            document.getElementById('segParts').innerText = partsPct.toFixed(1) + '%';
-            document.getElementById('segOverhead').style.width = overheadPctDisplay + '%';
-            document.getElementById('segOverhead').innerText = overheadPctDisplay.toFixed(1) + '%';
-            document.getElementById('segProfit').style.width = Math.max(profitPct, 0) + '%';
-            document.getElementById('segProfit').innerText = Math.max(profitPct, 0).toFixed(1) + '%';
-
-            // Update Detailed Table
-            updateDetailedTable(serviceCallFee, serviceCallSell, serviceMarkupPct,
-                laborCost, laborSell, laborMultiplier,
-                partsCost, partsSell, partsMarkupPct,
-                travelCost, travelSell, 50,
-                additionalCosts, disposalSell, 0,
-                subtotal, subtotalAfterDiscount, discountAmount, taxAmount, totalWithTax,
-                totalRevenue);
-
-            // Update Tier Pricing
-            updateTierPricing(subtotalAfterDiscount);
-
-            // Update Footer
-            document.getElementById('footerPartsMarkup').innerText = formatPercent(partsMarkupPct);
-            document.getElementById('footerLaborMarkup').innerText = laborMultiplier.toFixed(1) + 'x';
-            document.getElementById('footerMargin').innerText = formatPercent(netMarginPct);
-            document.getElementById('footerTotal').innerText = formatCurrency(totalWithTax);
-
-            // Update Slider Displays
-            document.getElementById('partsMarkupDisplay').innerText = formatPercent(partsMarkupPct);
-            document.getElementById('laborMarkupDisplay').innerText = laborMultiplier.toFixed(1) + 'x';
-            document.getElementById('serviceMarkupDisplay').innerText = formatPercent(serviceMarkupPct);
-
-            // Update Sell Price Labels
-            document.getElementById('partsSellPrice').innerText = formatCurrency(partsSell);
-            document.getElementById('laborSellPrice').innerText = formatCurrency(laborSell);
-            document.getElementById('serviceCallPrice').innerText = formatCurrency(serviceCallSell);
-        }
-
-        function updateMarginStatus(marginPct) {
-            const statusEl = document.getElementById('marginStatus');
-            const progressEl = document.getElementById('marginProgress');
-            const valueEl = document.getElementById('netMarginValue');
-
-            valueEl.innerText = formatPercent(marginPct);
-
-            if (marginPct >= 20) {
-                statusEl.className = 'markup-indicator markup-high';
-                statusEl.innerText = '✅ HEALTHY MARGIN';
-                progressEl.className = 'progress-bar progress-good';
-                progressEl.style.width = Math.min(marginPct, 50) * 2 + '%';
-            } else if (marginPct >= 10) {
-                statusEl.className = 'markup-indicator markup-medium';
-                statusEl.innerText = '⚠️ ACCEPTABLE MARGIN';
-                progressEl.className = 'progress-bar progress-warning';
-                progressEl.style.width = Math.min(marginPct, 50) * 2 + '%';
-            } else {
-                statusEl.className = 'markup-indicator markup-low';
-                statusEl.innerText = '❌ LOW MARGIN';
-                progressEl.className = 'progress-bar progress-danger';
-                progressEl.style.width = Math.min(Math.max(marginPct, 0), 50) * 2 + '%';
-            }
-        }
-
-        function updateDetailedTable(costSC, sellSC, markupSC,
-            costL, sellL, markupL,
-            costP, sellP, markupP,
-            costT, sellT, markupT,
-            costD, sellD, markupD,
-            subtotal, subtotalDisc, discount, tax, total, revenue) {
-
-            document.getElementById('costServiceCall').innerText = formatCurrency(costSC);
-            document.getElementById('markupServiceCall').innerText = formatPercent(markupSC);
-            document.getElementById('sellServiceCall').innerText = formatCurrency(sellSC);
-            document.getElementById('pctServiceCall').innerText = formatPercent((sellSC / revenue) * 100);
-
-            document.getElementById('costLabor').innerText = formatCurrency(costL);
-            document.getElementById('markupLabor').innerText = markupL.toFixed(1) + 'x';
-            document.getElementById('sellLabor').innerText = formatCurrency(sellL);
-            document.getElementById('pctLabor').innerText = formatPercent((sellL / revenue) * 100);
-
-            document.getElementById('costParts').innerText = formatCurrency(costP);
-            document.getElementById('markupParts').innerText = formatPercent(markupP);
-            document.getElementById('sellParts').innerText = formatCurrency(sellP);
-            document.getElementById('pctParts').innerText = formatPercent((sellP / revenue) * 100);
-
-            document.getElementById('costTravel').innerText = formatCurrency(costT);
-            document.getElementById('markupTravel').innerText = formatPercent(markupT);
-            document.getElementById('sellTravel').innerText = formatCurrency(sellT);
-            document.getElementById('pctTravel').innerText = formatPercent((sellT / revenue) * 100);
-
-            document.getElementById('costDisposal').innerText = formatCurrency(costD);
-            document.getElementById('markupDisposal').innerText = formatPercent(markupD);
-            document.getElementById('sellDisposal').innerText = formatCurrency(sellD);
-            document.getElementById('pctDisposal').innerText = formatPercent((sellD / revenue) * 100);
-
-            document.getElementById('costSubtotal').innerText = formatCurrency(subtotal);
-            document.getElementById('sellSubtotal').innerText = formatCurrency(subtotalDisc);
-
-            document.getElementById('costDiscount').innerText = formatCurrency(discount);
-            document.getElementById('sellDiscount').innerText = '-' + formatCurrency(discount);
-            document.getElementById('pctDiscount').innerText = formatPercent((discount / revenue) * 100);
-
-            document.getElementById('costTax').innerText = formatCurrency(tax);
-            document.getElementById('sellTax').innerText = formatCurrency(tax);
-            document.getElementById('pctTax').innerText = formatPercent((tax / revenue) * 100);
-
-            document.getElementById('totalCustomerPrice').innerText = formatCurrency(total);
-        }
-
-        function updateTierPricing(basePrice) {
-            const goodPrice = basePrice;
-            const betterPrice = basePrice * 1.15;
-            const bestPrice = basePrice * 1.30;
-
-            document.getElementById('tierGoodPrice').innerText = formatCurrency(goodPrice);
-            document.getElementById('tierBetterPrice').innerText = formatCurrency(betterPrice);
-            document.getElementById('tierBestPrice').innerText = formatCurrency(bestPrice);
-        }
-
-        function saveToLog() {
-            const customerName = document.getElementById('customerName').value || 'Unknown';
-            const ticketNumber = document.getElementById('ticketNumber').value || 'N/A';
-            const serviceDate = document.getElementById('serviceDate').value;
-            const serviceType = document.getElementById('serviceType').value;
-            const totalWithTax = parseFloat(document.getElementById('totalWithTax').innerText.replace('$', '').replace(/,/g, '')) || 0;
-            const totalCost = parseFloat(document.getElementById('totalCost').innerText.replace('$', '').replace(/,/g, '')) || 0;
-            const netMarginPct = parseFloat(document.getElementById('netMarginValue').innerText) || 0;
-
-            const profit = totalWithTax - totalCost;
-
-            const logEntry = {
-                customer: customerName,
-                ticket: ticketNumber,
-                date: serviceDate,
-                serviceType: serviceType,
-                total: totalWithTax,
-                profit: profit,
-                margin: netMarginPct
-            };
-
-            serviceLog.push(logEntry);
-            renderServiceLog();
-
-            alert('✓ Service calculation saved to log!');
-        }
-
-        function renderServiceLog() {
-            const tbody = document.getElementById('serviceLog');
-
-            if (serviceLog.length === 0) {
-                tbody.innerHTML = '<tr><td colspan="8" class="text-center" style="color: #666; padding: 30px;">No service logs yet — click "Save to Log" to add this calculation.</td></tr>';
-                return;
-            }
-
-            tbody.innerHTML = serviceLog.map(entry => {
-                let statusClass = 'status-healthy';
-                let statusText = 'PROFIT';
-                if (entry.profit < 0) {
-                    statusClass = 'status-critical';
-                    statusText = 'LOSS';
-                } else if (entry.margin < 15) {
-                    statusClass = 'status-caution';
-                    statusText = 'LOW';
-                }
-
-                const serviceTypeDisplay = entry.serviceType.charAt(0).toUpperCase() + entry.serviceType.slice(1);
-
-                return `
-                    <tr>
-                        <td>${entry.customer}</td>
-                        <td>${entry.ticket}</td>
-                        <td>${entry.date}</td>
-                        <td>${serviceTypeDisplay}</td>
-                        <td class="text-right">${formatCurrency(entry.total)}</td>
-                        <td class="text-right ${entry.profit >= 0 ? 'text-success' : 'text-danger'}">${formatCurrency(entry.profit)}</td>
-                        <td>${formatPercent(entry.margin)}</td>
-                        <td class="text-center"><button class="btn btn-sm btn-primary" onclick="alert('View details for ${entry.ticket}')">View</button></td>
-                    </tr>
-                `;
-            }).join('');
-        }
-
-        function exportCSV() {
-            if (serviceLog.length === 0) {
-                alert('No data to export. Save some calculations first!');
-                return;
-            }
-
-            let csv = 'Customer,Ticket #,Date,Service Type,Total Price,Profit,Margin %\n';
-            serviceLog.forEach(entry => {
-                const serviceTypeDisplay = entry.serviceType.charAt(0).toUpperCase() + entry.serviceType.slice(1);
-                csv += `"${entry.customer}","${entry.ticket}","${entry.date}","${serviceTypeDisplay}",${entry.total},${entry.profit},${entry.margin}\n`;
-            });
-
-            const blob = new Blob([csv], { type: 'text/csv' });
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'hvac_service_log_' + new Date().toISOString().split('T')[0] + '.csv';
-            a.click();
-        }
-
-        function clearAll() {
-            if (confirm('Are you sure you want to clear all inputs and logs?')) {
-                // Reset inputs to defaults
-                document.getElementById('customerName').value = '';
-                document.getElementById('serviceAddress').value = '';
-                document.getElementById('phoneNumber').value = '';
-                document.getElementById('travelDistance').value = 15;
-                document.getElementById('travelRate').value = 1.50;
-                document.getElementById('serviceCallFee').value = 99;
-                document.getElementById('afterHours').value = 0;
-                document.getElementById('techRate').value = 45;
-                document.getElementById('laborHours').value = 2;
-                document.getElementById('helperRate').value = 30;
-                document.getElementById('helperHours').value = 0;
-                document.getElementById('disposalCost').value = 50;
-                document.getElementById('permitCost').value = 0;
-                document.getElementById('shopSupplies').value = 25;
-                document.getElementById('otherCosts').value = 0;
-                document.getElementById('partsMarkup').value = 40;
-                document.getElementById('laborMarkup').value = 3;
-                document.getElementById('serviceMarkup').value = 50;
-                document.getElementById('overheadPct').value = 25;
-                document.getElementById('targetProfit').value = 20;
-                document.getElementById('taxRate').value = 8.5;
-                document.getElementById('discountPct').value = 0;
-                document.getElementById('partsMultiplier').value = 1.4;
-                document.getElementById('billedRate').value = 135;
-                document.getElementById('minServiceCall').value = 99;
-
-                // Reset parts table
-                const tbody = document.querySelector('#partsTable tbody');
-                tbody.innerHTML = `
-                    <tr>
-                        <td><input type="text" class="part-desc" value="Capacitor" placeholder="Part description"></td>
-                        <td><input type="number" class="part-qty" value="1" onchange="calculateMarkup()"></td>
-                        <td><input type="number" class="part-cost" value="25" onchange="calculateMarkup()"></td>
-                        <td class="text-right part-extended">$25.00</td>
-                        <td class="text-center"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" class="part-desc" value="Contactor" placeholder="Part description"></td>
-                        <td><input type="number" class="part-qty" value="1" onchange="calculateMarkup()"></td>
-                        <td><input type="number" class="part-cost" value="45" onchange="calculateMarkup()"></td>
-                        <td class="text-right part-extended">$45.00</td>
-                        <td class="text-center"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" class="part-desc" value="Refrigerant (lbs)" placeholder="Part description"></td>
-                        <td><input type="number" class="part-qty" value="2" onchange="calculateMarkup()"></td>
-                        <td><input type="number" class="part-cost" value="35" onchange="calculateMarkup()"></td>
-                        <td class="text-right part-extended">$70.00</td>
-                        <td class="text-center"><button class="btn-delete" onclick="deleteRow(this)">✕</button></td>
-                    </tr>
-                `;
-
-                serviceLog = [];
-                renderServiceLog();
-                calculateMarkup();
-            }
-        }
-
-        // Initialize on load
-        window.onload = function() {
-            const today = new Date();
-            document.getElementById('serviceDate').value = today.toLocaleDateString();
-            calculateMarkup();
-        };
-    </script>
-        </div>
-      </section>
-    
+      <div style="text-align:center;">
+        <div class="result-label">Gross Profit</div>
+        <div class="result-value primary" id="grossProfit">$0.00</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Ad Placeholder: Mid Content -->
+  <div class="ad-slot ad-mid" style="margin-top: 20px;"></div>
 
 <!-- SEO CONTENT SECTION -->
-      <section class="section" id="seo-content">
-        <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
-          <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">Mastering HVAC Service Markup</h2>
-          <p style="margin-bottom: 15px;">
-            The <strong>HVAC Service Markup Calculator</strong> provides business owners and service managers a distinct advantage when setting flat-rate pricing. One of the most common reasons HVAC businesses fail to achieve their target profitability is a misunderstanding of how to properly calculate markup versus profit margin across both labor and parts.
-          </p>
-          <p style="margin-bottom: 15px;">
-            A critical rule to remember: a 50% markup does not equal a 50% profit margin. If a part costs you $100 and you mark it up 50%, you sell it for $150. Your profit is $50, making your margin 33% ($50 / $150). To achieve a 50% margin, you must use a 100% markup (sell for $200). <strong>Section 3</strong> of our calculator helps technicians and dispatchers avoid this mathematical trap by allowing you to dial in specific Markup Percentages and visualize the exact Net Margin produced after your overhead is calculated.
-          </p>
-          
-          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Strategic Parts and Labor Multipliers</h3>
-          <p style="margin-bottom: 15px;">
-            Labor multipliers must carry the heaviest burden of your business overhead. While parts markups are generally constrained by market tolerance (often ranging from 1.3x to 1.5x), labor must be priced at a 2.5x to 3.5x multiplier to absorb unbillable hours, vehicle depreciation, insurance, and office wages. You can verify your base hourly labor costs using our <a href="/hvac-labor-cost-calculator/" style="color: var(--primary); text-decoration: none;">labor cost calculator</a> before plugging those numbers into this markup dashboard.
-          </p>
-          <p style="margin-bottom: 25px;">
-            Once your core markups are locked in, leverage <strong>Section 5 (Good / Better / Best)</strong> to present tiered pricing to the homeowner. By anchoring the customer with a premium "Complete Solution" option, you drastically increase your average ticket size compared to presenting a single, take-it-or-leave-it repair quote. When you successfully elevate your service margins, you can plug those increased net profits into our <a href="/hvac-business-valuation-calculator/" style="color: var(--primary); text-decoration: none;">business valuation calculator</a> to see your enterprise value soar.
-          </p>
+<section class="section" id="seo-content">
+  <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
+    <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">HVAC Service Pricing Consistency</h2>
+    <p style="margin-bottom: 15px;">The <strong>HVAC Service Markup Calculator</strong> helps service managers and technicians set profitable flat-rate pricing.</p>
+  </div>
+</section>
 
-          <h2 style="font-size: 26px; margin-top: 40px; margin-bottom: 20px; color: #fff;">Frequently Asked Questions</h2>
-          <div style="margin-bottom: 20px;">
-            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">What is the difference between markup and margin?</h3>
-            <p>Markup is the percentage added to a cost to arrive at a selling price (e.g., $100 + 50% = $150). Margin is the percentage of the selling price that is profit (e.g., $50 / $150 = 33.3%). To ensure profitability, you should always target a specific net margin.</p>
-          </div>
-          <div style="margin-bottom: 20px;">
-            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">How much should I mark up HVAC parts?</h3>
-            <p>Industry standards for HVAC parts typically range from 1.5x up to 4.0x for smaller service items like sensors or capacitors. High-ticket items like compressors or blower motors generally carry lower multipliers (1.3x - 1.5x) but higher dollar profit.</p>
-          </div>
-        </div>
-      </section>
+<!-- Ad Placeholder: Bottom Banner -->
+<div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
 
-  <!-- Ad Placeholder: Bottom Banner -->
-  <div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
-
+</section>
 </main>
 
     <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
@@ -1253,44 +193,56 @@
           <a href="/disclaimer/" style="color:var(--muted);">Disclaimer</a> |
           <a href="/cookie-policy/" style="color:var(--muted);">Cookie Policy</a>
         </div>
-        <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+        
+        <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <span><span style="color: var(--primary);">✔</span> Used by HVAC technicians & contractors</span>
+            <span><span style="color: var(--primary);">✔</span> Based on ACCA Manual standards</span>
+            <span><span style="color: var(--primary);">✔</span> Free professional tools</span>
+        </div>
+    <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
       </div>
     </footer>
 
-  <script>
-  (function () {
-    var btn     = document.getElementById('hamburger-btn');
-    var nav     = document.getElementById('mobile-nav');
-    var overlay = document.getElementById('mobile-nav-overlay');
-    var close   = document.getElementById('mobile-nav-close');
-    if (!btn) return;
-    function openMenu() {
-      document.body.classList.add('menu-open');
-      btn.classList.add('active');
-      btn.setAttribute('aria-expanded', 'true');
-      nav.setAttribute('aria-hidden', 'false');
-    }
-    function closeMenu() {
-      document.body.classList.remove('menu-open');
-      btn.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
-      nav.setAttribute('aria-hidden', 'true');
-    }
-    btn.addEventListener('click', openMenu);
-    close.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMenu();
-    });
-  })();
-  </script>
+<!-- MARKUP LOGIC -->
+<script>
+function recalc() {
+  const pCost = parseFloat(document.getElementById('partsCost').value) || 0;
+  const lHrs = parseFloat(document.getElementById('laborHours').value) || 0;
+  const tWage = parseFloat(document.getElementById('techWage').value) || 0;
+  const cFee = parseFloat(document.getElementById('callFee').value) || 0;
+  
+  const pMarkup = (parseFloat(document.getElementById('partsMarkup').value) || 0) / 100;
+  const lMult = parseFloat(document.getElementById('laborMultiplier').value) || 1;
+  
+  const pBill = pCost * (1 + pMarkup);
+  const lBill = lHrs * (tWage * lMult);
+  const totalBill = pBill + lBill + cFee;
+  
+  const totalCost = pCost + (lHrs * tWage);
+  const profit = totalBill - totalCost;
+  
+  document.getElementById('totalBill').innerText = '$' + totalBill.toFixed(2);
+  document.getElementById('grossProfit').innerText = '$' + profit.toFixed(2);
+  
+  if (window.updateMintStickyBar) { window.updateMintStickyBar({ 'Service Total': '$' + totalBill.toFixed(2), 'Profit': '$' + profit.toFixed(2) }, '/hvac-service-price-calculator/'); }
+}
+recalc();
+</script>
+
+<!-- NAVIGATION SCRIPT -->
+<script>
+(function () {
+  var btn = document.getElementById('hamburger-btn');
+  var nav = document.getElementById('mobile-nav');
+  var overlay = document.getElementById('mobile-nav-overlay');
+  var close = document.getElementById('mobile-nav-close');
+  if (!btn) return;
+  function openMenu() { document.body.classList.add('menu-open'); btn.classList.add('active'); btn.setAttribute('aria-expanded', 'true'); nav.setAttribute('aria-hidden', 'false'); }
+  function closeMenu() { document.body.classList.remove('menu-open'); btn.classList.remove('active'); btn.setAttribute('aria-expanded', 'false'); nav.setAttribute('aria-hidden', 'true'); }
+  btn.addEventListener('click', openMenu); close.addEventListener('click', closeMenu); overlay.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
-

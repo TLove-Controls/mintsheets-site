@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HVAC Blog | Technical Guides & Industry Sizing Tips | MintSheets</title>
+<meta name="description" content="Professional HVAC technical guides, sizing tips, and business strategies for contractors and technicians. Mastering load calculations, static pressure, and profit margins.">
+<link rel="canonical" href="https://mintsheets.com/blog/" />
+<meta property="og:title" content="HVAC Blog | Technical Guides & Pricing Tips | MintSheets" />
+<meta property="og:description" content="Master the technical and business sides of HVAC. Load calculations, duct sizing, static pressure diagnostics, and pricing strategies." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://mintsheets.com/blog/" />
+<meta property="og:image" content="https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "MintSheets HVAC Blog",
+  "description": "Technical HVAC guides and professional business resources.",
+  "url": "https://mintsheets.com/blog/",
+  "publisher": {"@type": "Organization", "name": "MintSheets"}
+}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://mintsheets.com/blog/"}]}
+</script>
+<link rel="stylesheet" href="../styles.min.css?v=1.5">
+<link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+<style>
+  .blog-index-wrap{max-width:1000px;margin:0 auto;padding:0 20px 60px}
+  .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+  .blog-card{background:linear-gradient(135deg,#0B1C35,#0F2240);border:1px solid #2A4A72;border-radius:12px;padding:0;text-decoration:none;display:flex;flex-direction:column;transition:border-color 0.2s,transform 0.2s;overflow:hidden}
+  .blog-card:hover{border-color:var(--primary);transform:translateY(-2px);text-decoration:none}
+  .blog-card-content{padding:24px}
+  .blog-badge{font-size:10px;color:var(--primary);text-transform:uppercase;letter-spacing:1px;font-weight:700;margin-bottom:12px;display:inline-block;padding:2px 8px;background:rgba(46,204,113,0.1);border-radius:4px}
+  .blog-card h3{color:#fff;font-size:18px;margin:0 0 10px;font-weight:700;line-height:1.4}
+  .blog-card p{color:#7A98B8;font-size:14px;line-height:1.6;margin:0 0 18px}
+  .blog-card .read-more{color:var(--primary);font-size:14px;font-weight:700}
+  .page-intro{max-width:760px;margin:0 auto 50px;text-align:center;color:var(--text-light);font-size:16px;line-height:1.7}
+  .breadcrumb{font-size:13px;color:#7A98B8;padding:16px 0;border-bottom:1px solid #1E3452;margin-bottom:30px}
+  .breadcrumb a{color:var(--primary);text-decoration:none}
+  .breadcrumb span{margin:0 6px}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-83YSB6HWN4');</script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <picture>
+          <source type="image/avif" srcset="../brand/logo-without-background.avif">
+          <source type="image/webp" srcset="../brand/logo-without-background.webp">
+          <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        </picture>
+      </a>
+              <nav class="nav-links">
+          <a href="/">Calculators</a>
+          <a href="/blog/">Blog</a>
+          <a href="/#troubleshooting-checklist">Free Guide</a>
+          <a href="mailto:support@mintsheets.com">Support</a>
+        </nav>
+      <div class="header-actions">
+        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height:40px;">Free Resources</a>
+      </div>
+      <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="brand">
+        <picture>
+          <source type="image/avif" srcset="../brand/logo-without-background.avif">
+          <source type="image/webp" srcset="../brand/logo-without-background.webp">
+          <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        </picture>
+      </a>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><span></span><span></span></button>
+    </div>
+        <ul class="mobile-nav-links">
+      <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
+      <li><a href="/blog/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
+      <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
+      <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
+    </ul>
+    <div class="mobile-nav-cta"><a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary">Free Resources</a></div>
+  </nav>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="blog-index-wrap">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a><span>›</span>Blog
+          </nav>
+
+          <div class="page-intro">
+            <div class="eyebrow" style="margin-bottom:12px;">Technical Knowledge Base</div>
+            <h1 style="font-size:36px;color:#fff;margin-bottom:16px;line-height:1.25;">HVAC Technical & Business Blog</h1>
+            <p>Master the technical fundamentals and business operational strategies used by high-performance HVAC companies. Professional guides on system sizing, diagnostic theory, and margin protection.</p>
+          </div>
+
+          <div class="blog-grid">
+            <!-- Article 1 -->
+            <a href="/blog/how-to-size-hvac-systems/" class="blog-card">
+              <div class="blog-card-content">
+                <div class="blog-badge">Sizing · Design</div>
+                <h3>How to Size an HVAC System Properly</h3>
+                <p>A step-by-step technical guide covering Manual J load calculations, CFM design, duct sizing, and static pressure verification.</p>
+                <span class="read-more">Read Guide →</span>
+              </div>
+            </a>
+
+            <!-- Article 2 -->
+            <a href="/blog/what-is-static-pressure-hvac/" class="blog-card">
+              <div class="blog-card-content">
+                <div class="blog-badge">Diagnostics · Field</div>
+                <h3>What Is Static Pressure in HVAC? (Complete Guide)</h3>
+                <p>Learn what TESP is, how to measure it, what causes high static, and how to fix it with real field examples.</p>
+                <span class="read-more">Read Guide →</span>
+              </div>
+            </a>
+
+            <!-- Article 3 -->
+            <a href="/blog/how-to-calculate-cfm-per-room/" class="blog-card">
+              <div class="blog-card-content">
+                <div class="blog-badge">Airflow · Design</div>
+                <h3>How to Calculate CFM for Each Room</h3>
+                <p>Master room-by-room airflow allocation using square footage, sensible heat load, and ACH methods.</p>
+                <span class="read-more">Read Guide →</span>
+              </div>
+            </a>
+
+            <!-- Article 4 -->
+            <a href="/blog/hvac-pricing-guide-for-contractors/" class="blog-card">
+              <div class="blog-card-content">
+                <div class="blog-badge">Business · Pricing</div>
+                <h3>HVAC Pricing Guide for Contractors</h3>
+                <p>Learn how to price service calls, installations, and maintenance profitably by understanding labor burden and overhead.</p>
+                <span class="read-more">Read Guide →</span>
+              </div>
+            </a>
+
+            <!-- Article 5 -->
+            <a href="/blog/duct-sizing-explained/" class="blog-card">
+              <div class="blog-card-content">
+                <div class="blog-badge">Ductwork · Design</div>
+                <h3>Duct Sizing Explained (With Chart)</h3>
+                <p>A guide to the equal friction method, duct sizing charts, and selecting the right diameter for rigid or flex duct.</p>
+                <span class="read-more">Read Guide →</span>
+              </div>
+            </a>
+
+            <!-- Article 6 -->
+            <a href="/blog/how-many-tons-of-ac-do-i-need/" class="blog-card">
+              <div class="blog-card-content">
+                <div class="blog-badge">Sizing · Load Calc</div>
+                <h3>How Many Tons of AC Do I Need?</h3>
+                <p>Understand how HVAC tonnage is calculated and why "rule of thumb" square footage estimates are dangerous.</p>
+                <span class="read-more">Read Guide →</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="mint-footer" style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 20px;">
+      <h3 style="color:var(--primary);font-weight:900;font-size:18px;text-transform:uppercase;margin-bottom:20px;letter-spacing:1px;">Related HVAC Calculators</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;">
+        <a href="/hvac-load-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Load Calculator</a>
+        <a href="/hvac-cfm-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">CFM Calculator</a>
+        <a href="/hvac-duct-size-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Duct Size Calculator</a>
+        <a href="/hvac-static-pressure-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Static Pressure Calculator</a>
+      </div>
+      <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);">
+        <a href="/privacy-policy/" style="color:var(--muted);text-decoration:none;">Privacy Policy</a>
+        <a href="/terms-of-service/" style="color:var(--muted);text-decoration:none;">Terms of Service</a>
+        <a href="/disclaimer/" style="color:var(--muted);text-decoration:none;">Disclaimer</a>
+        <a href="/cookie-policy/" style="color:var(--muted);text-decoration:none;">Cookie Policy</a>
+      </div>
+      <p style="margin-top:20px;color:var(--muted);font-size:12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+    </div>
+  </footer>
+  <script>
+  (function(){var btn=document.getElementById('hamburger-btn');var nav=document.getElementById('mobile-nav');var overlay=document.getElementById('mobile-nav-overlay');var close=document.getElementById('mobile-nav-close');if(!btn)return;function openMenu(){document.body.classList.add('menu-open');btn.classList.add('active');btn.setAttribute('aria-expanded','true');nav.setAttribute('aria-hidden','false');}function closeMenu(){document.body.classList.remove('menu-open');btn.classList.remove('active');btn.setAttribute('aria-expanded','false');nav.setAttribute('aria-hidden','true');}btn.addEventListener('click',openMenu);close&&close.addEventListener('click',closeMenu);overlay&&overlay.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});})();
+  </script>
+</body>
+</html>

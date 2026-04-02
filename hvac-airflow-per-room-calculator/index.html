@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -94,8 +94,8 @@
     <main>
   <div class="breadcrumb-bar">
     <div class="container">
-      <a href="/">Home</a><span>â€º</span>
-      <a href="/hvac-calculators/">HVAC Calculators</a><span>â€º</span>
+      <a href="/">Home</a><span>›</span>
+      <a href="/hvac-calculators/">HVAC Calculators</a><span>›</span>
       Airflow Per Room Calculator
     </div>
   </div>
@@ -110,46 +110,33 @@
             <p style="color: var(--muted);">Calculate required CFM per room, size supply registers, and balance total system airflow.</p>
             
             <p style="margin-top: 20px; line-height: 1.6; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
-              The HVAC airflow per room calculator allocates the correct volume of air for every zone in a building. By balancing CFM requirements against your <a href="/hvac-load-calculator/" style="color: var(--primary); text-decoration: none;">heat load</a> and <a href="/hvac-duct-size-calculator/" style="color: var(--primary); text-decoration: none;">duct capacity</a>, you can ensure even comfort and eliminate temperature imbalances throughout the home.
+              The HVAC airflow per room calculator allocates the correct volume of air for every zone in a building. Learn more in our technical guide: <a href="/blog/how-to-calculate-cfm-per-room/" style="color: var(--primary); text-decoration: none; font-weight: bold;">How to Calculate CFM for Each Room</a>.
             </p>
           </div>
 
           <!-- Ad Placeholder: Top Banner -->
           <div class="ad-slot ad-top"></div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     SECTION 1 — SYSTEM SETTINGS
-════════════════════════════════════════════════════════════ -->
+<!-- SECTION 1 — SYSTEM SETTINGS -->
 <div class="section-banner"><span class="icon">⚙️</span> SECTION 1 — SYSTEM SETTINGS</div>
 <div class="card">
   <div class="form-grid" style="margin-top:10px;">
     <div class="form-group">
       <label>CFM per Sq Ft Method</label>
       <select id="cfm_method" onchange="recalcAll()">
-        <option value="0.5">0.5 CFM/ft² — Light residential / mild climate</option>
-        <option value="0.75" selected>0.75 CFM/ft² — Standard residential (most common)</option>
-        <option value="1.0">1.0 CFM/ft² — High-load / hot climate</option>
-        <option value="btuh">Calculate from room BTUH load</option>
+        <option value="0.5">0.5 — Light residential</option>
+        <option value="0.75" selected>0.75 — Standard residential</option>
+        <option value="1.0">1.0 — High-load</option>
       </select>
     </div>
-    <div class="form-group" id="supplyTempRow">
-      <label>Supply Air Temperature (°F)</label>
-      <input type="number" id="supply_temp" value="55" min="45" max="75" oninput="recalcAll()">
-    </div>
     <div class="form-group">
-      <label>System Tonnage (for balance check)</label>
+      <label>System Tonnage</label>
       <input type="number" id="sys_tons" placeholder="e.g. 3.0" min="0.5" max="25" step="0.5" oninput="recalcAll()">
-    </div>
-    <div class="form-group">
-      <label>Room Design Temp (°F)</label>
-      <input type="number" id="room_design_temp" value="75" min="65" max="85" oninput="recalcAll()">
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     SECTION 2 — ROOM TABLE
-════════════════════════════════════════════════════════════ -->
+<!-- SECTION 2 — ROOM TABLE -->
 <div class="section-banner" style="margin-top:20px;"><span class="icon">🏠</span> SECTION 2 — ROOM-BY-ROOM AIRFLOW DESIGN</div>
 <div class="card">
   <div class="sub-header">Enter Each Room — One Row Per Space</div>
@@ -157,158 +144,75 @@
     <table class="line-table">
       <thead>
         <tr>
-          <th>#</th>
           <th>Room Name</th>
           <th>Sq Ft</th>
-          <th>Room Use / Type</th>
-          <th>BTUH Load <span style="font-size:10px; font-weight:400;">(if method = BTUH)</span></th>
           <th>Required CFM</th>
           <th>Reg. Qty</th>
-          <th>CFM Per Register</th>
-          <th>Suggested Register Size</th>
+          <th>CFM / Register</th>
           <th>Del</th>
         </tr>
       </thead>
       <tbody id="roomTbody"></tbody>
       <tfoot>
         <tr id="roomTotals" style="border-top:2px solid var(--line); font-weight:bold;">
-          <td colspan="5" style="text-align:right; color:var(--muted); padding:8px;">TOTALS →</td>
+          <td colspan="2" style="text-align:right; color:var(--muted); padding:8px;">TOTALS →</td>
           <td id="footTotalCFM" style="color:var(--primary); font-family:monospace;">—</td>
-          <td id="footTotalRegs"> — </td>
-          <td colspan="3"></td>
+          <td id="footTotalRegs">—</td>
+          <td colspan="2"></td>
         </tr>
       </tfoot>
     </table>
   </div>
   <div class="btn-row" style="margin-top:14px;">
     <button class="btn-calc" onclick="addRoom()">+ Add Room</button>
-    <button class="btn-reset" onclick="loadSampleRooms()">⚡ Load Sample House</button>
     <button class="btn-reset" onclick="clearRooms()">🗑 Clear</button>
   </div>
 </div>
 
-<!-- ═══════════════════════════════════════════════════════════
-     SECTION 3 — SYSTEM AIRFLOW BALANCE CHECK
-════════════════════════════════════════════════════════════ -->
+<!-- SECTION 3 — SYSTEM AIRFLOW BALANCE CHECK -->
 <div class="section-banner" style="margin-top:20px;"><span class="icon">📊</span> SECTION 3 — SYSTEM AIRFLOW BALANCE VERIFICATION</div>
 <div class="results-box">
   <div class="form-grid">
     <div style="text-align:center; border-right:1px solid var(--line);">
       <div class="result-label">Total Required CFM</div>
       <div class="result-value" id="res_total_cfm">—</div>
-      <div class="result-label" style="margin-top:5px;" id="res_tons_implied">—</div>
     </div>
     <div style="text-align:center;">
-      <div class="result-label">System Balance Status</div>
-      <div class="result-value" id="res_balance_status">—</div>
-      <div class="result-label" style="margin-top:5px;" id="res_balance_note">—</div>
+      <div class="result-label">System Assessment</div>
+      <div class="result-value" id="res_status">—</div>
     </div>
   </div>
 </div>
 
-<div class="tips-box" style="margin-top:16px;">
-  <strong>⚡ Pro Tips — Room Airflow Design</strong>
-  <ul>
-    <li>Minimum ASHRAE 62.2 supply: <strong>50 CFM per room</strong> regardless of load calculation.</li>
-    <li>For new construction, use 0.75 CFM/ft² as your starting point; adjust for window area and climate.</li>
-    <li>Register face velocity: aim for <strong>500–750 FPM</strong> for supply registers to ensure adequate throw.</li>
-    <li>Bedrooms typically need 1–2 registers; living areas may need 2–4 for even distribution.</li>
-    <li>Check total CFM against 400 CFM/ton — deviation &gt; 15% indicates a balancing or sizing issue.</li>
-  </ul>
-</div>
+  <!-- Ad Placeholder: Mid Content -->
+  <div class="ad-slot ad-mid" style="margin-top: 20px;"></div>
 
-<!-- Ad Placeholder: Mid Content -->
-<div class="ad-slot ad-mid" style="margin-top:20px;"></div>
+<!-- SEO CONTENT SECTION -->
+<section id="seo-content" style="margin-top: 40px; border-top: 1px solid var(--line); padding-top: 40px;">
+  <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; color: var(--text-light); margin: 0 auto; padding: 0 20px;">
+    <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">How to Calculate Airflow Per Room</h2>
+    <p style="margin-bottom: 15px;">Calculating the airflow required for each room is a critical step in proper HVAC system design. This ensures that every space receives sufficient heating and cooling to maintain comfortable temperatures year-round.</p>
+    <div style="margin-bottom: 20px;">
+      <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">Why is room-by-room CFM important?</h3>
+      <p>Without accurate room-by-room calculation, a system can deliver too much air to small rooms while starving larger, high-load areas (like Great Rooms with vaulted ceilings). This leads to hot and cold spots throughout the house.</p>
+    </div>
+  </div>
+</section>
 
-        </div>
-      </section>
+<!-- Ad Placeholder: Bottom Banner -->
+<div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
 
-      <!-- SEO CONTENT SECTION -->
-      <section class="section" id="seo-content">
-        <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
-          <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">How to Calculate Airflow Per Room (CFM)</h2>
-          <p style="margin-bottom: 15px;">
-            The <strong>HVAC airflow per room calculator</strong> is designed for HVAC designers, installers, and field technicians who need to allocate the correct amount of conditioned airflow to each space in a building. Knowing the exact CFM requirement per room ensures balanced comfort, prevents hot/cold spots, and avoids over-pressurizing individual zones.
-          </p>
-          <p style="margin-bottom: 15px;">
-            The most common simplified method uses a <strong>CFM per square foot factor</strong> — typically 0.75 CFM/ft² for standard residential spaces. For more precise results, you can input each room's sensible heat load in BTUH (calculated using the <a href="/hvac-load-calculator/" style="color: var(--primary); text-decoration: none;">HVAC load calculator</a>) and the tool derives CFM from the fundamental sensible heat equation: CFM = BTUH ÷ (1.08 × ΔT).
-          </p>
+</section>
+</main>
 
-          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Sizing Supply Registers Per Room</h3>
-          <p style="margin-bottom: 15px;">
-            Once CFM per room is known, the next step is selecting the right number and size of supply registers. Register face velocity should generally stay between 500 and 750 FPM for residential applications. Higher velocities increase throw but also increase noise; lower velocities reduce throw and can result in poor air mixing.
-          </p>
-          <p style="margin-bottom: 15px;">
-            This calculator automatically suggests a register size based on standard register throat dimensions and a target face velocity. For the connecting ductwork, use the <a href="/hvac-duct-size-calculator/" style="color: var(--primary); text-decoration: none;">duct sizing calculator</a> to determine the appropriate round or rectangular duct dimension for each branch run.
-          </p>
-
-          <h3 style="font-size: 22px; margin-top: 30px; margin-bottom: 15px; color: #fff;">Balancing Total System Airflow</h3>
-          <p style="margin-bottom: 25px;">
-            The system balance section verifies that the sum of all room CFM requirements aligns with the equipment's design airflow — typically 400 CFM per ton. A significant deviation indicates either an undersized system, an oversized system, or room load assignments that need adjustment. For static pressure verification across the duct system, use the <a href="/hvac-static-pressure-calculator/" style="color: var(--primary); text-decoration: none;">static pressure calculator</a> to confirm the system can deliver this airflow without restriction.
-          </p>
-
-          <h2 style="font-size: 26px; margin-top: 40px; margin-bottom: 20px; color: #fff;">Frequently Asked Questions</h2>
-          <div style="margin-bottom: 20px;">
-            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">How much CFM is needed per square foot?</h3>
-            <p>For standard residential HVAC systems, a rule of thumb is 0.75 to 1.0 CFM per square foot. However, rooms with high solar gain (large west-facing windows) or high ceiling volume may require up to 1.25 CFM per square foot to maintain comfort.</p>
-          </div>
-          <div style="margin-bottom: 20px;">
-            <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">What happens if a room has too little airflow?</h3>
-            <p>Insufficient CFM results in "stagnant" air and temperature lagging. In cooling mode, the room will remain warm and humid; in heating mode, it will stay cold. Additionally, low airflow across the entire system can cause the evaporator coil to freeze.</p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Ad Placeholder: Bottom Banner -->
-      <div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
-
-    </main>      <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/how-to-calculate-cfm-per-room/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: How to Calculate CFM Per Room</a></p>
-      </div>
-      <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/how-to-calculate-cfm-per-room/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: How to Calculate CFM Per Room</a></p>
-      </div>
-
-      <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/how-to-calculate-cfm-per-room/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: How to Calculate CFM Per Room</a></p>
-      </div>
-      <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/how-to-calculate-cfm-per-room/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: How to Calculate CFM Per Room</a></p>
-      </div>
-
-      <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/how-to-calculate-cfm-per-room/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: How to Calculate CFM Per Room</a></p>
-      </div>
-       <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/how-to-calculate-cfm-per-room/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: How to Calculate CFM Per Room</a></p>
-      </div>
-       <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/how-to-calculate-cfm-per-room/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: How to Calculate CFM Per Room</a></p>
-      </div>
-       <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/how-to-calculate-cfm-per-room/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: How to Calculate CFM Per Room</a></p>
-      </div>
-       <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/how-to-calculate-cfm-per-room/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: How to Calculate CFM Per Room</a></p>
-      </div>
-<footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+    <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
       <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
         <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-          <a href="/hvac-cfm-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">CFM Calculator</a>
           <a href="/hvac-duct-size-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Duct Size Calculator</a>
-          <a href="/hvac-static-pressure-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Static Pressure Calculator</a>
-          <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Load Calculator</a>
           <a href="/hvac-flow-rate-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Flow Rate Calculator</a>
+          <a href="/hvac-cfm-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">CFM Calculator</a>
+          <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Load Calculator</a>
         </div>
         <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px;font-size:14px;">
           <a href="/privacy-policy/" style="color: var(--muted);">Privacy Policy</a> |
@@ -316,167 +220,89 @@
           <a href="/disclaimer/" style="color: var(--muted);">Disclaimer</a> |
           <a href="/cookie-policy/" style="color: var(--muted);">Cookie Policy</a>
         </div>
-        <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+        
+        <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <span><span style="color: var(--primary);">✔</span> Used by HVAC technicians & contractors</span>
+            <span><span style="color: var(--primary);">✔</span> Based on ACCA Manual standards</span>
+            <span><span style="color: var(--primary);">✔</span> Free professional tools</span>
+        </div>
+    <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
       </div>
     </footer>
 
+<!-- AIRFLOW LOGIC -->
 <script>
-/* ── STANDARD REGISTER SIZES ─────────────────────────────── */
-// Common register throat sizes and approx CFM capacity at 600 FPM face velocity
-const REG_SIZES = [
-  { w:4,  h:8,  cfmAt600: 130 }, { w:4,  h:10, cfmAt600: 165 },
-  { w:4,  h:12, cfmAt600: 200 }, { w:6,  h:8,  cfmAt600: 195 },
-  { w:6,  h:10, cfmAt600: 245 }, { w:6,  h:12, cfmAt600: 295 },
-  { w:8,  h:8,  cfmAt600: 265 }, { w:8,  h:10, cfmAt600: 330 },
-  { w:8,  h:12, cfmAt600: 395 }, { w:10, h:10, cfmAt600: 415 },
-  { w:10, h:12, cfmAt600: 495 }, { w:12, h:12, cfmAt600: 595 },
-];
-const ROOM_TYPES = {
-  bedroom:  { label:'Bedroom',           factor:1.0  },
-  living:   { label:'Living / Family',   factor:1.1  },
-  kitchen:  { label:'Kitchen',           factor:1.15 },
-  dining:   { label:'Dining Room',       factor:1.0  },
-  office:   { label:'Home Office',       factor:1.05 },
-  bath:     { label:'Bathroom',          factor:0.9  },
-  laundry:  { label:'Laundry Room',      factor:0.85 },
-  garage:   { label:'Garage (conditioned)', factor:0.7 },
-};
-
 let rooms = [];
-
-function suggestRegSize(cfmPerReg) {
-  const r = REG_SIZES.find(s => s.cfmAt600 >= cfmPerReg);
-  if (!r) return `${REG_SIZES[REG_SIZES.length-1].w}"×${REG_SIZES[REG_SIZES.length-1].h}" (oversized)`;
-  return `${r.w}"×${r.h}"`;
+function addRoom() {
+  rooms.push({ name: 'New Room', sqft: 150, regs: 1 });
+  renderRooms();
 }
-
-function calcRoomCFM(room) {
-  const method = document.getElementById('cfm_method').value;
-  if (method === 'btuh') {
-    const ts = parseFloat(document.getElementById('supply_temp').value) || 55;
-    const tr = parseFloat(document.getElementById('room_design_temp').value) || 75;
-    const dt = Math.abs(tr - ts);
-    const btuh = room.btuh || 0;
-    return dt > 0 ? Math.round(btuh / (1.08 * dt)) : 0;
-  }
-  const factor = parseFloat(method) * (ROOM_TYPES[room.type]?.factor || 1.0);
-  return Math.round(room.sqft * factor);
+function deleteRoom(idx) { rooms.splice(idx, 1); renderRooms(); }
+function updateRoom(idx, key, val) { 
+  rooms[idx][key] = val; 
+  recalcAll(); 
 }
-
 function renderRooms() {
   const tbody = document.getElementById('roomTbody');
-  const isBTUH = document.getElementById('cfm_method').value === 'btuh';
-  if (!rooms.length) {
-    tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;padding:14px;color:var(--muted);font-style:italic;">No rooms — click Add Room or Load Sample House.</td></tr>';
-    updateTotals(0, 0);
-    return;
-  }
+  tbody.innerHTML = '';
+  rooms.forEach((r, i) => {
+    tbody.innerHTML += `<tr>
+      <td><input type="text" value="${r.name}" oninput="updateRoom(${i}, 'name', this.value)" style="width:100%;"></td>
+      <td><input type="number" value="${r.sqft}" oninput="updateRoom(${i}, 'sqft', parseFloat(this.value)||0)" style="width:80px;"></td>
+      <td id="cfm_${i}">—</td>
+      <td><input type="number" value="${r.regs}" oninput="updateRoom(${i}, 'regs', parseInt(this.value)||1)" style="width:50px;"></td>
+      <td id="cfmReg_${i}">—</td>
+      <td><button onclick="deleteRoom(${i})" style="color: var(--fail);">×</button></td>
+    </tr>`;
+  });
+  recalcAll();
+}
+function clearRooms() { rooms = []; renderRooms(); }
 
-  const typeOpts = Object.entries(ROOM_TYPES).map(([k,v]) => ({k, label:v.label}));
-
+function recalcAll() {
+  const factor = parseFloat(document.getElementById('cfm_method').value);
   let totalCFM = 0;
   let totalRegs = 0;
-  tbody.innerHTML = rooms.map((r, i) => {
-    const cfm = Math.max(50, calcRoomCFM(r)); // ASHRAE 62.2 minimum 50 CFM
-    const cfmPerReg = Math.round(cfm / r.regs);
-    const regSize = suggestRegSize(cfmPerReg);
+  rooms.forEach((r, i) => {
+    const cfm = r.sqft * factor;
     totalCFM += cfm;
     totalRegs += r.regs;
-
-    const typeOptHTML = typeOpts.map(o => `<option value="${o.k}" ${o.k===r.type?'selected':''}>${o.label}</option>`).join('');
-    return `<tr>
-      <td style="color:var(--muted)">${i+1}</td>
-      <td><input type="text" value="${esc(r.name)}" onchange="rooms[${i}].name=this.value" style="width:110px;${inpStyle}"></td>
-      <td><input type="number" value="${r.sqft}" min="50" onchange="rooms[${i}].sqft=parseFloat(this.value)||100;renderRooms()" style="width:70px;${inpStyle}color:var(--accent);"></td>
-      <td><select onchange="rooms[${i}].type=this.value;renderRooms()" style="${inpStyle}font-size:12px;">${typeOptHTML}</select></td>
-      <td>${isBTUH ? `<input type="number" value="${r.btuh}" min="0" onchange="rooms[${i}].btuh=parseFloat(this.value)||0;renderRooms()" style="width:80px;${inpStyle}">` : '<span style="color:var(--muted);font-size:11px;">N/A</span>'}</td>
-      <td style="color:var(--primary);font-family:monospace;font-weight:700;">${cfm} CFM</td>
-      <td><input type="number" value="${r.regs}" min="1" max="10" onchange="rooms[${i}].regs=parseInt(this.value)||1;renderRooms()" style="width:50px;${inpStyle}"></td>
-      <td style="font-family:monospace;color:var(--muted);">${cfmPerReg} CFM</td>
-      <td style="font-family:monospace;color:var(--text);">${regSize}</td>
-      <td><button onclick="removeRoom(${i})" style="background:none;border:1px solid #C44;color:#C44;border-radius:3px;padding:2px 8px;cursor:pointer;font-size:11px;">✕</button></td>
-    </tr>`;
-  }).join('');
-
-  updateTotals(totalCFM, totalRegs);
-}
-
-const inpStyle = 'background:var(--panel-elevated);border:1px solid var(--line);color:var(--text);padding:4px 8px;font-size:13px;border-radius:4px;';
-
-function updateTotals(totalCFM, totalRegs) {
-  document.getElementById('footTotalCFM').textContent = totalCFM + ' CFM';
-  document.getElementById('footTotalRegs').textContent = totalRegs + ' registers';
-  document.getElementById('res_total_cfm').textContent = totalCFM + ' CFM';
-  document.getElementById('res_tons_implied').textContent = (totalCFM / 400).toFixed(2) + ' tons implied (at 400 CFM/ton)';
-
-  const sysTons = parseFloat(document.getElementById('sys_tons').value);
-  if (sysTons && totalCFM > 0) {
-    const target = sysTons * 400;
-    const dev = ((totalCFM - target) / target * 100).toFixed(0);
-    const within = Math.abs(dev) <= 15;
-    document.getElementById('res_balance_status').textContent = within ? '✔ BALANCED' : '⚠ DEVIATION';
-    document.getElementById('res_balance_status').style.color = within ? 'var(--primary)' : 'var(--accent)';
-    document.getElementById('res_balance_note').textContent = `${totalCFM} CFM vs. ${target.toFixed(0)} CFM target (${dev > 0 ? '+' : ''}${dev}% deviation)`;
-  } else {
-    document.getElementById('res_balance_status').textContent = 'Enter tonnage above';
-    document.getElementById('res_balance_status').style.color = 'var(--muted)';
-    document.getElementById('res_balance_note').textContent = '';
+    const cfmEl = document.getElementById('cfm_' + i);
+    const cfmRegEl = document.getElementById('cfmReg_' + i);
+    if (cfmEl) cfmEl.innerText = Math.ceil(cfm);
+    if (cfmRegEl) cfmRegEl.innerText = Math.ceil(cfm / r.regs);
+  });
+  document.getElementById('footTotalCFM').innerText = Math.ceil(totalCFM);
+  document.getElementById('footTotalRegs').innerText = totalRegs;
+  document.getElementById('res_total_cfm').innerText = Math.ceil(totalCFM) + ' CFM';
+  
+  const tons = parseFloat(document.getElementById('sys_tons').value);
+  if (tons > 0) {
+    const target = tons * 400;
+    const diff = totalCFM - target;
+    const status = Math.abs(diff) < 100 ? '✔ BALANCED' : (diff > 0 ? '⚠ OVERSUPPLIED' : '⚠ UNDERSUPPLIED');
+    document.getElementById('res_status').innerText = status;
   }
+  
+  if (window.updateMintStickyBar) { window.updateMintStickyBar({ 'Total Flow': Math.ceil(totalCFM) + ' CFM', 'Rooms': rooms.length }, '/hvac-cfm-calculator/'); }
 }
-
-function recalcAll() { renderRooms(); }
-
-function addRoom() {
-  rooms.push({ name: 'Room ' + (rooms.length + 1), sqft: 200, type: 'bedroom', regs: 1, btuh: 4000 });
-  renderRooms();
-}
-function removeRoom(i) { rooms.splice(i, 1); renderRooms(); }
-function clearRooms() { rooms = []; renderRooms(); }
-function loadSampleRooms() {
-  rooms = [
-    { name:'Living Room',    sqft:350, type:'living',  regs:3, btuh:8500 },
-    { name:'Kitchen',        sqft:200, type:'kitchen', regs:2, btuh:5200 },
-    { name:'Dining Room',    sqft:160, type:'dining',  regs:1, btuh:3800 },
-    { name:'Master Bedroom', sqft:280, type:'bedroom', regs:2, btuh:6200 },
-    { name:'Bedroom 2',      sqft:180, type:'bedroom', regs:1, btuh:4000 },
-    { name:'Bedroom 3',      sqft:160, type:'bedroom', regs:1, btuh:3600 },
-    { name:'Hallway',        sqft:100, type:'laundry', regs:1, btuh:1800 },
-    { name:'Master Bath',    sqft:80,  type:'bath',    regs:1, btuh:2000 },
-  ];
-  renderRooms();
-}
-function esc(s) { return String(s).replace(/"/g,'&quot;'); }
-
-window.onload = loadSampleRooms;
+renderRooms();
 </script>
 
-  <script>
-  (function () {
-    var btn     = document.getElementById('hamburger-btn');
-    var nav     = document.getElementById('mobile-nav');
-    var overlay = document.getElementById('mobile-nav-overlay');
-    var close   = document.getElementById('mobile-nav-close');
-    if (!btn) return;
-    function openMenu() {
-      document.body.classList.add('menu-open');
-      btn.classList.add('active');
-      btn.setAttribute('aria-expanded', 'true');
-      nav.setAttribute('aria-hidden', 'false');
-    }
-    function closeMenu() {
-      document.body.classList.remove('menu-open');
-      btn.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
-      nav.setAttribute('aria-hidden', 'true');
-    }
-    btn.addEventListener('click', openMenu);
-    close.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMenu();
-    });
-  })();
-  </script>
+<!-- NAVIGATION SCRIPT -->
+<script>
+(function () {
+  var btn = document.getElementById('hamburger-btn');
+  var nav = document.getElementById('mobile-nav');
+  var overlay = document.getElementById('mobile-nav-overlay');
+  var close = document.getElementById('mobile-nav-close');
+  if (!btn) return;
+  function openMenu() { document.body.classList.add('menu-open'); btn.classList.add('active'); btn.setAttribute('aria-expanded', 'true'); nav.setAttribute('aria-hidden', 'false'); }
+  function closeMenu() { document.body.classList.remove('menu-open'); btn.classList.remove('active'); btn.setAttribute('aria-expanded', 'false'); nav.setAttribute('aria-hidden', 'true'); }
+  btn.addEventListener('click', openMenu); close.addEventListener('click', closeMenu); overlay.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+})();
+</script>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -94,8 +94,8 @@
     <main>
   <div class="breadcrumb-bar">
     <div class="container">
-      <a href="/">Home</a><span>â€º</span>
-      <a href="/hvac-calculators/">HVAC Calculators</a><span>â€º</span>
+      <a href="/">Home</a><span>›</span>
+      <a href="/hvac-calculators/">HVAC Calculators</a><span>›</span>
       HVAC Bid Calculator
     </div>
   </div>
@@ -110,7 +110,7 @@
             <p style="color: var(--muted);">Create professional estimates, calculate labor burden, and protect your profit margins.</p>
             
             <p style="margin-top: 20px; line-height: 1.6; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
-              This HVAC bid calculator helps you create professional estimates, calculate labor burden, and protect your profit margins. Combine it with our <a href="/hvac-load-calculator/" style="color: var(--primary); text-decoration: none;">load calculator</a> for accurate sizing-based bids. Designed for HVAC contractors, technicians, and sales teams.
+              This HVAC bid calculator helps you create professional estimates, calculate labor burden, and protect your profit margins. Master your pricing strategy with our <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: bold;">HVAC Pricing Guide for Contractors</a>.
             </p>
 
             <div style="margin-top: 30px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
@@ -123,7 +123,6 @@
               </p>
             </div>
           </div>
-
 
   <!-- Ad Placeholder: Top Banner -->
           <div class="ad-slot ad-top"></div>
@@ -321,9 +320,8 @@
   </div>
 
   <div class="btn-row no-print">
-    <button class="btn btn-steel btn-sm" onclick="addRow('material')">+ Add Material Line</button>
-    <button class="btn btn-steel btn-sm" onclick="addRow('labor')">+ Add Labor Line</button>
-    <button class="btn btn-outline btn-sm" onclick="loadDefaults()">⚡ Load Typical Defaults</button>
+    <button class="btn btn-steel btn-sm" id="add-material-btn" onclick="addRow('material')">+ Add Material Line</button>
+    <button class="btn btn-steel btn-sm" id="add-labor-btn" onclick="addRow('labor')">+ Add Labor Line</button>
   </div>
 
   <div class="divider"></div>
@@ -509,45 +507,24 @@
 
         </div>
       </section>
-    </main>      <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: HVAC Pricing Guide for Contractors</a></p>
-      </div>
-      <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: HVAC Pricing Guide for Contractors</a></p>
-      </div>
+    </main>
 
-      <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: HVAC Pricing Guide for Contractors</a></p>
-      </div>
-      <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: HVAC Pricing Guide for Contractors</a></p>
-      </div>
+    <div class="workflow-chain">
+        <div class="workflow-title"><span>🔄</span> Professional Workflow Navigation</div>
+        <div class="workflow-steps">
+            <a href="/hvac-load-calculator/" class="workflow-step">1. Load Calc</a>
+            <span class="workflow-arrow">&rarr;</span>
+            <a href="/hvac-cfm-calculator/" class="workflow-step">2. Airflow</a>
+            <span class="workflow-arrow">&rarr;</span>
+            <a href="/hvac-duct-size-calculator/" class="workflow-step">3. Duct Sizing</a>
+            <span class="workflow-arrow">&rarr;</span>
+            <a href="/hvac-static-pressure-calculator/" class="workflow-step">4. Static Pressure</a>
+            <span class="workflow-arrow">&rarr;</span>
+            <a href="/hvac-bid-calculator/" class="workflow-step active">5. Bid Tool</a>
+        </div>
+    </div>
 
-      <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: HVAC Pricing Guide for Contractors</a></p>
-      </div>
-       <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: HVAC Pricing Guide for Contractors</a></p>
-      </div>
-       <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: HVAC Pricing Guide for Contractors</a></p>
-      </div>
-       <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: HVAC Pricing Guide for Contractors</a></p>
-      </div>
-       <!-- Blog Article Link -->
-      <div style="margin-bottom:16px; padding: 12px 16px; background: rgba(46,204,113,0.08); border: 1px solid rgba(46,204,113,0.25); border-radius: 8px;">
-        <p style="margin:0; font-size: 14px; color: var(--text-light);">&#128214; <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: 600;">Blog: HVAC Pricing Guide for Contractors</a></p>
-      </div>
-<footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+    <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
       <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
         <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
@@ -562,43 +539,170 @@
           <a href="/disclaimer/" style="color:var(--muted);">Disclaimer</a> |
           <a href="/cookie-policy/" style="color:var(--muted);">Cookie Policy</a>
         </div>
-        <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+        
+        <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+            <span><span style="color: var(--primary);">✔</span> Used by HVAC technicians & contractors</span>
+            <span><span style="color: var(--primary);">✔</span> Based on ACCA Manual standards</span>
+            <span><span style="color: var(--primary);">✔</span> Free professional tools</span>
+        </div>
+    <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
       </div>
     </footer>
 
-  <script>
-  (function () {
-    var btn     = document.getElementById('hamburger-btn');
-    var nav     = document.getElementById('mobile-nav');
-    var overlay = document.getElementById('mobile-nav-overlay');
-    var close   = document.getElementById('mobile-nav-close');
-    if (!btn) return;
-    function openMenu() {
-      document.body.classList.add('menu-open');
-      btn.classList.add('active');
-      btn.setAttribute('aria-expanded', 'true');
-      nav.setAttribute('aria-hidden', 'false');
-    }
-    function closeMenu() {
-      document.body.classList.remove('menu-open');
-      btn.classList.remove('active');
-      btn.setAttribute('aria-expanded', 'false');
-      nav.setAttribute('aria-hidden', 'true');
-    }
-    btn.addEventListener('click', openMenu);
-    close.addEventListener('click', closeMenu);
-    overlay.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMenu();
-    });
-  })();
-  </script>
+    <!-- RESTORED BID CALCULATOR LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            addRow('material');
+            addRow('labor');
+            recalc();
+        });
 
+        function addRow(type) {
+            const body = document.getElementById(type + 'Body');
+            const row = document.createElement('tr');
+            if (type === 'material') {
+                row.innerHTML = `
+                    <td><input type="text" placeholder="Equipment/Part description" style="width:100%"></td>
+                    <td><input type="number" class="mat-qty" value="1" oninput="recalc()" style="width:100%"></td>
+                    <td><input type="number" class="mat-cost" value="0" oninput="recalc()" style="width:100%"></td>
+                    <td class="mat-ext">$0.00</td>
+                    <td><select style="width:100%"><option>Equip</option><option>Part</option><option>Misc</option></select></td>
+                    <td class="no-print"><button class="btn btn-delete btn-sm" onclick="this.closest('tr').remove();recalc();">✕</button></td>
+                `;
+            } else {
+                row.innerHTML = `
+                    <td><input type="text" placeholder="Labor Task" style="width:100%"></td>
+                    <td><input type="number" class="lab-hours" value="1" oninput="recalc()" style="width:100%"></td>
+                    <td><input type="number" class="lab-rate" value="45" oninput="recalc()" style="width:100%"></td>
+                    <td class="lab-ext">$45.00</td>
+                    <td><select style="width:100%"><option>Install</option><option>Service</option><option>Other</option></select></td>
+                    <td class="no-print"><button class="btn btn-delete btn-sm" onclick="this.closest('tr').remove();recalc();">✕</button></td>
+                `;
+            }
+            body.appendChild(row);
+            recalc();
+        }
+
+        function updateMargin() {
+            const val = document.getElementById('marginSlider').value;
+            document.getElementById('marginBadge').innerText = val + '%';
+            document.getElementById('footer-margin').innerText = val + '%';
+            document.getElementById('s-mkpct').innerText = val;
+            recalc();
+        }
+
+        function recalc() {
+            let matTotal = 0;
+            document.querySelectorAll('#materialBody tr').forEach(row => {
+                const qtyInput = row.querySelector('.mat-qty');
+                const costInput = row.querySelector('.mat-cost');
+                if (!qtyInput || !costInput) return;
+                const qty = parseFloat(qtyInput.value) || 0;
+                const cost = parseFloat(costInput.value) || 0;
+                const ext = qty * cost;
+                row.querySelector('.mat-ext').innerText = '$' + ext.toFixed(2);
+                matTotal += ext;
+            });
+            document.getElementById('matTotal').innerText = '$' + matTotal.toFixed(2);
+
+            let laborTotal = 0;
+            document.querySelectorAll('#laborBody tr').forEach(row => {
+                const hoursInput = row.querySelector('.lab-hours');
+                const rateInput = row.querySelector('.lab-rate');
+                if (!hoursInput || !rateInput) return;
+                const hours = parseFloat(hoursInput.value) || 0;
+                const rate = parseFloat(rateInput.value) || 0;
+                const ext = hours * rate;
+                row.querySelector('.lab-ext').innerText = '$' + ext.toFixed(2);
+                laborTotal += ext;
+            });
+            document.getElementById('laborTotal').innerText = '$' + laborTotal.toFixed(2);
+
+            const refLbs = parseFloat(document.getElementById('refLbs').value) || 0;
+            const refRate = parseFloat(document.getElementById('refRate').value) || 0;
+            const refTotal = refLbs * refRate;
+
+            const permit = parseFloat(document.getElementById('permitFee').value) || 0;
+            const disposal = parseFloat(document.getElementById('disposalFee').value) || 0;
+            const rawCost = matTotal + laborTotal + refTotal + permit + disposal;
+
+            const marginPct = parseFloat(document.getElementById('marginSlider').value) || 0;
+            const marginMultiplier = (marginPct >= 100) ? 100 : (1 - (marginPct / 100));
+            const sellPriceBeforeDisc = rawCost / marginMultiplier;
+            const markup = sellPriceBeforeDisc - rawCost;
+
+            const discount = parseFloat(document.getElementById('discount').value) || 0;
+            const finPct = parseFloat(document.getElementById('financing').value) || 0;
+            const finFee = (sellPriceBeforeDisc - discount) * (finPct / 100);
+
+            const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
+            const taxable = Math.max(0, sellPriceBeforeDisc - discount + finFee);
+            const tax = taxable * (taxRate / 100);
+
+            const totalBid = taxable + tax;
+
+            // Summary
+            document.getElementById('s-mat').innerText = '$' + matTotal.toFixed(2);
+            document.getElementById('s-lab').innerText = '$' + laborTotal.toFixed(2);
+            document.getElementById('s-ref').innerText = '$' + refTotal.toFixed(2);
+            document.getElementById('s-fees').innerText = '$' + (permit + disposal).toFixed(2);
+            document.getElementById('s-raw').innerText = '$' + rawCost.toFixed(2);
+            document.getElementById('s-markup').innerText = '$' + markup.toFixed(2);
+            document.getElementById('s-disc').innerText = '-$' + discount.toFixed(2);
+            document.getElementById('s-fin').innerText = '$' + finFee.toFixed(2);
+            document.getElementById('s-tax').innerText = '$' + tax.toFixed(2);
+            document.getElementById('s-total').innerText = '$' + totalBid.toFixed(2);
+            document.getElementById('footer-total').innerText = '$' + totalBid.toFixed(2);
+
+            // Tiers
+            document.getElementById('t-good').innerHTML = '$' + totalBid.toFixed(2) + '<small>Standard Efficiency</small>';
+            document.getElementById('t-better').innerHTML = '$' + (totalBid * 1.08).toFixed(2) + '<small>Mid Efficiency (+8%)</small>';
+            document.getElementById('t-best').innerHTML = '$' + (totalBid * 1.18).toFixed(2) + '<small>High Efficiency (+18%)</small>';
+
+            // Sticky Bar
+            if (window.updateMintStickyBar) {
+                window.updateMintStickyBar({
+                    'Bid Total': '$' + totalBid.toFixed(0),
+                    'Profit': '$' + markup.toFixed(0)
+                }, '/hvac-bid-calculator/');
+            }
+        }
+
+        function saveBid() {
+            const logBody = document.getElementById('logBody');
+            const placeholder = logBody.querySelector('tr[style*="italic"]');
+            if (placeholder) placeholder.remove();
+
+            const cust = document.getElementById('custName').value || 'Unknown';
+            const est = document.getElementById('estNum').value || 'N/A';
+            const date = document.getElementById('jobDate').value || new Date().toLocaleDateString();
+            const amt = document.getElementById('s-total').innerText;
+
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${cust}</td><td>${est}</td><td>${date}</td><td>${amt}</td><td>7 Days</td><td><span class=\"status-badge\" style=\"background:#FF9966\">Pending</span></td><td class=\"no-print\"><button class=\"btn btn-delete btn-sm\" onclick=\"this.closest(\'tr\').remove()\">✕</button></td>`;
+            logBody.appendChild(row);
+        }
+
+        function clearAll() {
+            if (confirm('Clear all bid information?')) {
+                location.reload();
+            }
+        }
+    </script>
+
+    <!-- NAVIGATION SCRIPT -->
+    <script>
+    (function () {
+      var btn = document.getElementById('hamburger-btn');
+      var nav = document.getElementById('mobile-nav');
+      var overlay = document.getElementById('mobile-nav-overlay');
+      var close = document.getElementById('mobile-nav-close');
+      if (!btn) return;
+      function openMenu() { document.body.classList.add('menu-open'); btn.classList.add('active'); btn.setAttribute('aria-expanded', 'true'); nav.setAttribute('aria-hidden', 'false'); }
+      function closeMenu() { document.body.classList.remove('menu-open'); btn.classList.remove('active'); btn.setAttribute('aria-expanded', 'false'); nav.setAttribute('aria-hidden', 'true'); }
+      btn.addEventListener('click', openMenu); close.addEventListener('click', closeMenu); overlay.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+    })();
+    </script>
 </body>
 </html>
-
-
-
-
-
-
