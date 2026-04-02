@@ -1,137 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duct Sizing Explained (With Chart) | HVAC Duct Design Guide | MintSheets</title>
+  <meta name="description"
+    content="Complete duct sizing guide for HVAC professionals. Learn the equal friction method, duct sizing charts, round vs rectangular sizing, and how to design a duct system per ACCA Manual D.">
+  <meta name="author" content="MintSheets">
+  <meta name="robots" content="index,follow">
+  <link rel="canonical" href="https://mintsheets.com/blog/duct-sizing-explained/">
+  <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="Duct Sizing Explained (With Chart) | MintSheets">
+  <meta property="og:description"
+    content="How to size HVAC ductwork using the equal friction method. Includes duct sizing charts, velocity limits, flex vs sheet metal rules, and free calculator.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://mintsheets.com/blog/duct-sizing-explained/">
+  <meta property="og:image" content="https://mintsheets.com/shared/images/hvac-sizing-guide.png">
+  <meta property="og:site_name" content="MintSheets">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Duct Sizing Explained (With Chart) | MintSheets">
+  <meta name="twitter:description"
+    content="How to size HVAC ductwork using the equal friction method. Includes duct sizing charts, velocity limits, flex vs sheet metal rules, and free calculator.">
+  <meta name="twitter:image" content="https://mintsheets.com/shared/images/hvac-sizing-guide.png">
 
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7177850851908341"
-     crossorigin="anonymous"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Duct Sizing Explained (With Chart) | HVAC Duct Design Guide | MintSheets</title>
-<meta name="description" content="Complete duct sizing guide for HVAC professionals. Learn the equal friction method, duct sizing charts, round vs rectangular sizing, and how to design a duct system per ACCA Manual D.">
-<link rel="canonical" href="https://mintsheets.com/blog/duct-sizing-explained/" />
-<meta property="og:title" content="Duct Sizing Explained (With Chart) | MintSheets" />
-<meta property="og:description" content="How to size HVAC ductwork using the equal friction method. Includes duct sizing charts, velocity limits, flex vs sheet metal rules, and free calculator." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://mintsheets.com/blog/duct-sizing-explained/" />
-<meta name="author" content="MintSheets" />
-<meta name="article:published_time" content="2026-04-01T00:00:00Z" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"Duct Sizing Explained (With Chart)","url":"https://mintsheets.com/blog/duct-sizing-explained/","author":{"@type":"Organization","name":"MintSheets"},"publisher":{"@type":"Organization","name":"MintSheets"},"datePublished":"2026-04-01"}
-</script>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://mintsheets.com/blog/"},{"@type":"ListItem","position":3,"name":"Duct Sizing Explained","item":"https://mintsheets.com/blog/duct-sizing-explained/"}]}
-</script>
-<link rel="stylesheet" href="../../styles.min.css?v=1.5">
-<link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
-<style>
-  .article-wrap{max-width:820px;margin:0 auto;padding:0 20px 60px;color:var(--text-light);font-size:16px;line-height:1.75}
-  .article-wrap h2{font-size:26px;color:#fff;margin:40px 0 16px;padding-bottom:8px;border-bottom:2px solid var(--primary)}
-  .article-wrap h3{font-size:20px;color:var(--primary);margin:30px 0 12px}
-  .article-wrap p{margin-bottom:16px}
-  .article-wrap ul,.article-wrap ol{padding-left:24px;margin-bottom:16px}
-  .article-wrap li{margin-bottom:8px}
-  .article-wrap a{color:var(--primary);text-decoration:none}
-  .article-wrap a:hover{text-decoration:underline}
-  .step-card{background:linear-gradient(135deg,#0B1C35,#0F2240);border:1px solid #2A4A72;border-left:4px solid var(--primary);border-radius:10px;padding:24px;margin:24px 0}
-  .step-number{display:inline-block;background:var(--primary);color:#000;font-weight:900;font-size:12px;border-radius:4px;padding:2px 10px;margin-bottom:10px;text-transform:uppercase;letter-spacing:1px}
-  .step-card h3{color:#fff;margin:0 0 10px;font-size:18px}
-  .step-card p{color:var(--text-light);margin-bottom:10px}
-  .tool-link{display:inline-block;background:rgba(74,175,255,0.12);border:1px solid var(--primary);color:var(--primary);padding:8px 18px;border-radius:6px;font-size:14px;font-weight:700;text-decoration:none;margin-top:8px;transition:background 0.2s}
-  .tool-link:hover{background:rgba(74,175,255,0.25);text-decoration:none}
-  .article-meta{color:#7A98B8;font-size:14px;margin-bottom:30px}
-  .callout{background:rgba(224,123,0,0.08);border:1px solid rgba(224,123,0,0.3);border-radius:8px;padding:16px 20px;margin:20px 0;color:#E07B00;font-size:14px}
-  .callout strong{color:#fff}
-  .data-table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
-  .data-table th{background:#0B1C35;color:var(--primary);padding:10px 14px;text-align:left;border-bottom:2px solid var(--primary)}
-  .data-table td{padding:10px 14px;border-bottom:1px solid #1E3452;color:var(--text-light)}
-  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-  .breadcrumb{font-size:13px;color:#7A98B8;margin:16px 0 0;padding:0 0 16px;border-bottom:1px solid #1E3452}
-  .breadcrumb a{color:var(--primary);text-decoration:none}
-  .breadcrumb span{margin:0 6px}
+    crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-83YSB6HWN4');
+  </script>
 
-.diagram{
-  margin:32px 0 34px;
-  padding:18px;
-  background:linear-gradient(135deg,#0B1C35,#0F2240);
-  border:1px solid #2A4A72;
-  border-radius:16px;
-  box-shadow:0 10px 24px rgba(0,0,0,0.24);
-  overflow:hidden;
-  transition:all 0.3s ease;
-}
-.diagram:hover {
-  border-color: var(--primary);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.35), 0 0 18px rgba(46,204,113,0.12);
-}
-.diagram-header{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:14px;
-  margin-bottom:14px;
-}
-.diagram-header h3{
-  margin:0;
-  color:#fff;
-  font-size:18px;
-  line-height:1.25;
-}
-.diagram-kicker{
-  font-size:11px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  color:var(--accent);
-  margin-bottom:6px;
-}
-.diagram-badge{
-  flex-shrink:0;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid rgba(46,204,113,.28);
-  background:rgba(46,204,113,.10);
-  color:var(--primary);
-  font-size:11px;
-  font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-}
-.diagram svg{
-  display:block;
-  width:100%;
-  height:auto;
-}
-.diagram-caption{
-  margin:14px 0 0;
-  font-size:14px;
-  color:#B7C9DD;
-  line-height:1.7;
-}
-.diagram-caption strong{
-  color:#fff;
-}
-@media (max-width: 640px){
-  .diagram{
-    padding:14px;
-    border-radius:14px;
-    margin:24px 0 30px;
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://mintsheets.com/blog/duct-sizing-explained/"
+    },
+    "headline":"Duct Sizing Explained (With Chart)",
+    "description":"Complete duct sizing guide for HVAC professionals. Learn the equal friction method, duct sizing charts, round vs rectangular sizing, and how to design a duct system per ACCA Manual D.",
+    "url":"https://mintsheets.com/blog/duct-sizing-explained/",
+    "image":"https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+    "author":{"@type":"Organization","name":"MintSheets"},
+    "publisher":{
+      "@type":"Organization",
+      "name":"MintSheets",
+      "logo":{
+        "@type":"ImageObject",
+        "url":"https://mintsheets.com/brand/logo-without-background.png"
+      }
+    },
+    "datePublished":"2026-04-01",
+    "dateModified":"2026-04-02"
   }
-  .diagram-header{
-    flex-direction:column;
-    align-items:flex-start;
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},
+      {"@type":"ListItem","position":2,"name":"Blog","item":"https://mintsheets.com/blog/"},
+      {"@type":"ListItem","position":3,"name":"Duct Sizing Explained (With Chart)","item":"https://mintsheets.com/blog/duct-sizing-explained/"}
+    ]
   }
-  .diagram-header h3{
-    font-size:17px;
-  }
-  .diagram-badge{
-    font-size:10px;
-    padding:7px 10px;
-  }
-}
-</style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-83YSB6HWN4');</script>
+  </script>
+
+  <link rel="stylesheet" href="/styles.min.css?v=1.5">
+
+  <style>
+    .article-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      color: var(--text-light);
+      font-size: 16px;
+      line-height: 1.75
+    }
+
+    .article-wrap h2 {
+      font-size: 26px;
+      color: #fff;
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--primary)
+    }
+
+    .article-wrap h3 {
+      font-size: 20px;
+      color: var(--primary);
+      margin: 30px 0 12px
+    }
+
+    .article-wrap p {
+      margin-bottom: 16px
+    }
+
+    .article-wrap ul,
+    .article-wrap ol {
+      padding-left: 24px;
+      margin-bottom: 16px
+    }
+
+    .article-wrap li {
+      margin-bottom: 8px
+    }
+
+    .article-wrap a {
+      color: var(--primary);
+      text-decoration: none
+    }
+
+    .article-wrap a:hover,
+    .article-wrap a:focus {
+      text-decoration: underline
+    }
+
+    .step-card {
+      background: linear-gradient(135deg, #0B1C35, #0F2240);
+      border: 1px solid #2A4A72;
+      border-left: 4px solid var(--primary);
+      border-radius: 10px;
+      padding: 24px;
+      margin: 24px 0
+    }
+
+    .step-number {
+      display: inline-block;
+      background: var(--primary);
+      color: #000;
+      font-weight: 900;
+      font-size: 12px;
+      border-radius: 4px;
+      padding: 2px 10px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px
+    }
+
+    .step-card h3 {
+      color: #fff;
+      margin: 0 0 10px;
+      font-size: 18px
+    }
+
+    .step-card p {
+      color: var(--text-light);
+      margin-bottom: 10px
+    }
+
+    .tool-link {
+      display: inline-block;
+      background: rgba(74, 175, 255, 0.12);
+      border: 1px solid var(--primary);
+      color: var(--primary);
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      margin-top: 8px;
+      transition: background 0.2s
+    }
+
+    .tool-link:hover,
+    .tool-link:focus {
+      background: rgba(74, 175, 255, 0.25);
+      text-decoration: none
+    }
+
+    .article-meta {
+      color: #7A98B8;
+      font-size: 14px;
+      margin-bottom: 30px
+    }
+
+    .callout {
+      background: rgba(224, 123, 0, 0.08);
+      border: 1px solid rgba(224, 123, 0, 0.3);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 20px 0;
+      color: #E07B00;
+      font-size: 14px
+    }
+
+    .callout strong {
+      color: #fff
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 14px
+    }
+
+    .data-table th {
+      background: #0B1C35;
+      color: var(--primary);
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 2px solid var(--primary)
+    }
+
+    .data-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #1E3452;
+      color: var(--text-light)
+    }
+
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch
+    }
+
+    .diagram {
+      margin: 32px 0 34px;
+      padding: 18px;
+      background: linear-gradient(135deg, #0B1C35, #0F2240);
+      border: 1px solid #2A4A72;
+      border-radius: 16px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .diagram:hover {
+      border-color: var(--primary);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 18px rgba(46, 204, 113, 0.12);
+    }
+
+    .diagram-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .diagram-header h3 {
+      margin: 0;
+      color: #fff;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .diagram-kicker {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .diagram-badge {
+      flex-shrink: 0;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(46, 204, 113, .28);
+      background: rgba(46, 204, 113, .10);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .diagram svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .diagram-caption {
+      margin: 14px 0 0;
+      font-size: 14px;
+      color: #B7C9DD;
+      line-height: 1.7;
+    }
+
+    .diagram-caption strong {
+      color: #fff;
+    }
+
+    @media (max-width:640px) {
+      .diagram {
+        padding: 14px;
+        border-radius: 14px;
+        margin: 24px 0 30px;
+      }
+
+      .diagram-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .diagram-header h3 {
+        font-size: 17px;
+      }
+
+      .diagram-badge {
+        font-size: 10px;
+        padding: 7px 10px;
+      }
+    }
+  </style>
 </head>
+
 <body class="has-sticky-ad">
   <header class="site-header">
     <div class="container nav">
@@ -140,7 +325,7 @@
           loading="eager">
       </a>
 
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Primary navigation">
         <a href="/">Calculators</a>
         <a href="/blog/">Blog</a>
         <a href="/#troubleshooting-checklist">Free Guide</a>
@@ -148,16 +333,17 @@
       </nav>
 
       <div class="header-actions">
-        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free
+          Resources</a>
       </div>
       <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </header>
-      <!-- Mobile Navigation -->
+
   <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
-  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true" aria-label="Mobile navigation">
     <div class="mobile-nav-header">
       <a href="/" class="brand">
         <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
@@ -178,314 +364,451 @@
     </div>
   </nav>
 
+  <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+    <div class="container">
+      <a href="/">Home</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="/blog/">Blog</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">Duct Sizing Explained (With Chart)</span>
+    </div>
+  </nav>
+
   <main>
     <section class="section">
       <div class="container">
-        <div class="article-wrap">
-          <nav class="breadcrumb" aria-label="Breadcrumb">
-            <a href="/">Home</a><span>�</span><a href="/blog/">Blog</a><span>�</span>Duct Sizing Explained
-          </nav>
-          <div class="eyebrow" style="margin-bottom:12px;">HVAC Design Guide</div>
-          <h1 style="font-size:36px;color:#fff;margin-bottom:10px;line-height:1.25;">Duct Sizing Explained (With Chart)</h1>
+        <div class="section-card">
+          <div class="article-wrap">
+            <div class="eyebrow" style="margin-bottom:12px;">HVAC Design Guide</div>
+            <h1 style="font-size:36px;color:#fff;margin-bottom:10px;line-height:1.25;">Duct Sizing Explained (With
+              Chart)</h1>
+            <div class="article-meta">MintSheets Technical Guide</div>
 
-    <!-- Ad Placeholder: Top Banner -->
-    <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
-<p>Duct sizing is one of the most critical — and most often skipped — aspects of HVAC system design. Improperly sized ductwork creates high static pressure, reduces airflow, creates noise, and undermines the performance of even a correctly sized piece of equipment. This guide explains how duct sizing works, how to use the equal friction method, and what the duct sizing charts tell you.</p>
+            <p>Duct sizing is one of the most critical — and most often skipped — aspects of HVAC system design.
+              Improperly sized ductwork creates high static pressure, reduces airflow, creates noise, and undermines the
+              performance of even a correctly sized piece of equipment. This guide explains how duct sizing works, how
+              to use the equal friction method, and what the duct sizing charts tell you.</p>
 
-          <div class="callout">
-            <strong>Industry Standard:</strong> ACCA Manual D is the HVAC industry standard for residential duct system design. The equal friction method in Manual D sizes all duct segments to a consistent friction rate — typically 0.08 in. w.g. per 100 feet — so the system stays within budget.
+            <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
+
+            <div class="callout">
+              <strong>Industry Standard:</strong> ACCA Manual D is the HVAC industry standard for residential duct
+              system design. The equal friction method in Manual D sizes all duct segments to a consistent friction rate
+              — typically 0.08 in. w.g. per 100 feet — so the system stays within budget.
+            </div>
+
+            <div class="diagram diagram-airflow">
+              <div class="diagram-header">
+                <div>
+                  <div class="diagram-kicker">MintSheets Visual Guide</div>
+                  <h3>Duct Sizing Starts With Airflow and Static Pressure</h3>
+                </div>
+                <div class="diagram-badge">Equal Friction Concept</div>
+              </div>
+
+              <svg viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" role="img"
+                aria-label="HVAC duct airflow diagram showing trunk and branch duct sizing with CFM and static pressure">
+                <defs>
+                  <linearGradient id="msPanelA" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#0B1C35" />
+                    <stop offset="100%" stop-color="#0F2240" />
+                  </linearGradient>
+                  <linearGradient id="msDuctA" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#22D3EE" />
+                    <stop offset="100%" stop-color="#2ECC71" />
+                  </linearGradient>
+                  <filter id="shadowA" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.22" />
+                  </filter>
+                  <marker id="arrowGreenA" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                    <path d="M0,0 L10,5 L0,10 Z" fill="#2ECC71" />
+                  </marker>
+                  <marker id="arrowCyanA" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                    <path d="M0,0 L10,5 L0,10 Z" fill="#22D3EE" />
+                  </marker>
+                </defs>
+
+                <rect x="1" y="1" width="918" height="418" rx="20" fill="url(#msPanelA)" stroke="#2A4A72" />
+
+                <rect x="44" y="130" width="150" height="124" rx="16" fill="#102847" stroke="#2A4A72" stroke-width="2"
+                  filter="url(#shadowA)" />
+                <text x="119" y="167" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="800">Air
+                  Handler</text>
+                <text x="119" y="193" text-anchor="middle" fill="#94A3B8" font-size="14">Blower + Coil</text>
+                <text x="119" y="220" text-anchor="middle" fill="#22D3EE" font-size="14" font-weight="700">TESP: 0.50
+                  in. w.g.</text>
+
+                <line x1="194" y1="192" x2="232" y2="192" stroke="#22D3EE" stroke-width="4"
+                  marker-end="url(#arrowCyanA)" />
+
+                <rect x="236" y="168" width="314" height="48" rx="24" fill="url(#msDuctA)" opacity="0.18"
+                  stroke="#22D3EE" stroke-width="2" />
+                <text x="393" y="159" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">Main Supply
+                  Trunk</text>
+                <text x="393" y="198" text-anchor="middle" fill="#E2E8F0" font-size="16" font-weight="700">1,200
+                  CFM</text>
+
+                <line x1="550" y1="192" x2="676" y2="110" stroke="#22D3EE" stroke-width="16" stroke-linecap="round" />
+                <line x1="550" y1="192" x2="700" y2="192" stroke="#22D3EE" stroke-width="16" stroke-linecap="round" />
+                <line x1="550" y1="192" x2="676" y2="274" stroke="#22D3EE" stroke-width="16" stroke-linecap="round" />
+
+                <line x1="592" y1="166" x2="650" y2="128" stroke="#2ECC71" stroke-width="3"
+                  marker-end="url(#arrowGreenA)" />
+                <line x1="596" y1="192" x2="674" y2="192" stroke="#2ECC71" stroke-width="3"
+                  marker-end="url(#arrowGreenA)" />
+                <line x1="592" y1="218" x2="650" y2="256" stroke="#2ECC71" stroke-width="3"
+                  marker-end="url(#arrowGreenA)" />
+
+                <rect x="704" y="78" width="166" height="62" rx="12" fill="#0F223D" stroke="#2A4A72" />
+                <text x="720" y="102" fill="#FFFFFF" font-size="15" font-weight="800">Branch A</text>
+                <text x="720" y="121" fill="#94A3B8" font-size="13">200 CFM</text>
+                <text x="720" y="137" fill="#22D3EE" font-size="13">Controlled velocity</text>
+
+                <rect x="722" y="161" width="148" height="62" rx="12" fill="#0F223D" stroke="#2A4A72" />
+                <text x="738" y="185" fill="#FFFFFF" font-size="15" font-weight="800">Branch B</text>
+                <text x="738" y="204" fill="#94A3B8" font-size="13">350 CFM</text>
+                <text x="738" y="220" fill="#22D3EE" font-size="13">Sized by friction rate</text>
+
+                <rect x="704" y="244" width="166" height="62" rx="12" fill="#0F223D" stroke="#2A4A72" />
+                <text x="720" y="268" fill="#FFFFFF" font-size="15" font-weight="800">Branch C</text>
+                <text x="720" y="287" fill="#94A3B8" font-size="13">250 CFM</text>
+                <text x="720" y="303" fill="#22D3EE" font-size="13">Lower noise risk</text>
+
+                <rect x="50" y="294" width="318" height="86" rx="14" fill="#0F223D" stroke="#2A4A72" />
+                <text x="72" y="323" fill="#2ECC71" font-size="14" font-weight="800">Key idea:</text>
+                <text x="145" y="323" fill="#E2E8F0" font-size="14">smaller duct = higher friction = higher pressure
+                  drop</text>
+                <text x="72" y="351" fill="#22D3EE" font-size="14" font-weight="800">Goal:</text>
+                <text x="116" y="351" fill="#E2E8F0" font-size="14">deliver required CFM without exceeding static
+                  budget</text>
+
+                <rect x="404" y="294" width="250" height="86" rx="14" fill="#0F223D" stroke="#2A4A72" />
+                <text x="426" y="322" fill="#2ECC71" font-size="14" font-weight="800">Common failure mode</text>
+                <text x="426" y="348" fill="#E2E8F0" font-size="14">Undersized trunks and returns</text>
+                <text x="426" y="367" fill="#E2E8F0" font-size="14">raise static and reduce airflow</text>
+              </svg>
+
+              <p class="diagram-caption">Proper duct design balances <strong>CFM</strong>, <strong>velocity</strong>,
+                and <strong>available static pressure</strong> so the blower can move design airflow without excess
+                restriction or noise.</p>
+            </div>
+
+            <h2>Why Duct Sizing Matters</h2>
+            <p>Every duct segment creates friction as air flows through it. Small ducts create more friction per foot
+              than large ducts at the same airflow. If a duct is too small for its required CFM, the resulting high
+              velocity creates:</p>
+            <ul>
+              <li><strong>Excessive static pressure</strong> — reducing total system airflow and blower efficiency</li>
+              <li><strong>Duct noise</strong> — register noise, rumble, and whistling from high velocity</li>
+              <li><strong>Uneven room temperatures</strong> — some rooms get adequate airflow, others are starved</li>
+              <li><strong>System short cycling</strong> — high static triggers safety limits on some equipment</li>
+            </ul>
+
+            <p>Conversely, oversized ducts waste materials, cost more to install, and can create low-velocity problems
+              including stratification and poor mixing in large rooms.</p>
+
+            <div class="ad-placeholder ad-placeholder-mid">
+              <span>Advertisement</span>
+            </div>
+
+            <h2>The Equal Friction Method — Step by Step</h2>
+
+            <div class="step-card">
+              <div class="step-number">Step 1</div>
+              <h3>Determine Available Duct Static Budget</h3>
+              <p>Start with your equipment's rated TESP (typically 0.50 in. w.g.). Subtract all non-duct component
+                pressure drops: evaporator coil (~0.25), supply filter (~0.10), grilles and diffusers (~0.05). The
+                remainder is your <strong>available duct static budget</strong>.</p>
+              <p>Example: 0.50 − 0.25 − 0.10 − 0.05 = <strong>0.10 in. w.g. available for ducts</strong></p>
+              <a href="/hvac-static-pressure-calculator/" class="tool-link">→ Static Pressure Calculator</a>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">Step 2</div>
+              <h3>Calculate Friction Rate</h3>
+              <p>Divide the available duct static budget by the longest duct run, in hundreds of feet of equivalent
+                length. This gives you the target friction rate in in. w.g. per 100 equivalent feet.</p>
+              <p>Example: 0.10 in. w.g. ÷ 1.25 (longest run = 125 equiv. ft.) = <strong>0.08 in. w.g./100 ft.</strong>
+              </p>
+            </div>
+
+            <div class="step-card">
+              <div class="step-number">Step 3</div>
+              <h3>Look Up Duct Size from Chart</h3>
+              <p>Using the calculated friction rate and the CFM each duct segment must carry, use the duct sizing chart
+                or calculator to find the appropriate round duct diameter or rectangular duct dimensions.</p>
+              <a href="/hvac-duct-size-calculator/" class="tool-link">→ Duct Size Calculator</a>
+            </div>
+
+            <div class="diagram diagram-friction">
+              <div class="diagram-header">
+                <div>
+                  <div class="diagram-kicker">MintSheets Visual Guide</div>
+                  <h3>Equal Friction Workflow</h3>
+                </div>
+                <div class="diagram-badge">Manual D Style Logic</div>
+              </div>
+
+              <svg viewBox="0 0 920 430" xmlns="http://www.w3.org/2000/svg" role="img"
+                aria-label="HVAC equal friction duct sizing workflow diagram showing step by step calculation of available static and friction rate">
+                <defs>
+                  <linearGradient id="msPanelB" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#0B1C35" />
+                    <stop offset="100%" stop-color="#0F2240" />
+                  </linearGradient>
+                  <filter id="shadowB" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.22" />
+                  </filter>
+                  <marker id="arrowCyanB" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+                    <path d="M0,0 L10,5 L0,10 Z" fill="#22D3EE" />
+                  </marker>
+                </defs>
+
+                <rect x="1" y="1" width="918" height="428" rx="20" fill="url(#msPanelB)" stroke="#2A4A72" />
+
+                <rect x="34" y="86" width="246" height="250" rx="18" fill="#102847" stroke="#2A4A72" stroke-width="2"
+                  filter="url(#shadowB)" />
+                <text x="58" y="118" fill="#2ECC71" font-size="16" font-weight="800">Step 1 — Available Duct Static
+                  Budget</text>
+
+                <text x="58" y="158" fill="#E2E8F0" font-size="15">Rated TESP</text>
+                <text x="214" y="158" text-anchor="end" fill="#FFFFFF" font-size="15" font-weight="800">0.50</text>
+
+                <text x="58" y="191" fill="#94A3B8" font-size="14">Coil drop</text>
+                <text x="214" y="191" text-anchor="end" fill="#94A3B8" font-size="14">-0.25</text>
+
+                <text x="58" y="219" fill="#94A3B8" font-size="14">Filter drop</text>
+                <text x="214" y="219" text-anchor="end" fill="#94A3B8" font-size="14">-0.10</text>
+
+                <text x="58" y="247" fill="#94A3B8" font-size="14">Grilles / diffusers</text>
+                <text x="214" y="247" text-anchor="end" fill="#94A3B8" font-size="14">-0.05</text>
+
+                <line x1="56" y1="268" x2="220" y2="268" stroke="#2A4A72" stroke-width="2" />
+                <text x="58" y="299" fill="#22D3EE" font-size="15" font-weight="800">Available for ducts</text>
+                <text x="214" y="299" text-anchor="end" fill="#22D3EE" font-size="15" font-weight="800">0.10 in.
+                  w.g.</text>
+
+                <line x1="300" y1="210" x2="386" y2="210" stroke="#22D3EE" stroke-width="4"
+                  marker-end="url(#arrowCyanB)" />
+
+                <rect x="400" y="86" width="252" height="250" rx="18" fill="#102847" stroke="#2A4A72" stroke-width="2"
+                  filter="url(#shadowB)" />
+                <text x="424" y="118" fill="#2ECC71" font-size="16" font-weight="800">Step 2 — Friction Rate</text>
+
+                <text x="424" y="160" fill="#E2E8F0" font-size="15">Available pressure</text>
+                <text x="424" y="184" fill="#E2E8F0" font-size="15">÷ (Longest equivalent length / 100)</text>
+
+                <rect x="424" y="208" width="206" height="64" rx="12" fill="#0B1C35" stroke="#2A4A72" />
+                <text x="527" y="232" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="700">0.10 ÷
+                  1.25</text>
+                <text x="527" y="257" text-anchor="middle" fill="#22D3EE" font-size="18" font-weight="800">= 0.08 in.
+                  w.g. / 100 ft</text>
+
+                <text x="424" y="300" fill="#94A3B8" font-size="13">Equivalent length includes fittings, elbows, tees,
+                  and transitions.</text>
+
+                <line x1="672" y1="210" x2="758" y2="210" stroke="#22D3EE" stroke-width="4"
+                  marker-end="url(#arrowCyanB)" />
+
+                <rect x="772" y="86" width="114" height="250" rx="18" fill="#102847" stroke="#2A4A72" stroke-width="2"
+                  filter="url(#shadowB)" />
+                <text x="829" y="118" text-anchor="middle" fill="#2ECC71" font-size="16" font-weight="800">Step 3</text>
+                <text x="829" y="146" text-anchor="middle" fill="#E2E8F0" font-size="14">Match</text>
+                <text x="829" y="168" text-anchor="middle" fill="#E2E8F0" font-size="14">required CFM</text>
+                <text x="829" y="190" text-anchor="middle" fill="#E2E8F0" font-size="14">+ friction rate</text>
+
+                <circle cx="829" cy="244" r="38" fill="none" stroke="#22D3EE" stroke-width="10" />
+                <text x="829" y="250" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="800">8"</text>
+                <text x="829" y="296" text-anchor="middle" fill="#94A3B8" font-size="13">example round</text>
+
+                <rect x="36" y="360" width="848" height="42" rx="12" fill="#0F223D" stroke="#2A4A72" />
+                <text x="460" y="386" text-anchor="middle" fill="#E2E8F0" font-size="14">
+                  Example sequence:
+                  <tspan fill="#2ECC71" font-weight="800"> 0.50 TESP </tspan>
+                  →
+                  <tspan fill="#22D3EE" font-weight="800"> 0.10 available </tspan>
+                  →
+                  <tspan fill="#22D3EE" font-weight="800"> 0.08 FR </tspan>
+                  →
+                  choose duct size by
+                  <tspan fill="#2ECC71" font-weight="800"> CFM</tspan>
+                </text>
+              </svg>
+
+              <p class="diagram-caption">This diagram shows the core process behind the equal friction method: determine
+                the <strong>available duct static budget</strong>, convert it into a target <strong>friction
+                  rate</strong>, then choose duct size based on required <strong>CFM</strong>.</p>
+            </div>
+
+            <h2>Duct Sizing Chart: Round Duct (Rigid Sheet Metal)</h2>
+            <p>The following table shows approximate round duct sizes at a friction rate of 0.08 in. w.g./100 ft. for
+              rigid sheet metal ductwork:</p>
+
+            <div class="table-scroll">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Round Duct Diameter</th>
+                    <th>Approx. Max CFM (0.08 FR)</th>
+                    <th>Face Velocity (FPM)</th>
+                    <th>Typical Use</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>4"</td>
+                    <td>30–45 CFM</td>
+                    <td>340–510</td>
+                    <td>Small branch, bathroom</td>
+                  </tr>
+                  <tr>
+                    <td>5"</td>
+                    <td>55–75 CFM</td>
+                    <td>400–550</td>
+                    <td>Small bedroom branch</td>
+                  </tr>
+                  <tr>
+                    <td>6"</td>
+                    <td>85–110 CFM</td>
+                    <td>430–560</td>
+                    <td>Standard bedroom branch</td>
+                  </tr>
+                  <tr>
+                    <td>7"</td>
+                    <td>125–160 CFM</td>
+                    <td>460–590</td>
+                    <td>Larger bedroom or great room</td>
+                  </tr>
+                  <tr>
+                    <td>8"</td>
+                    <td>175–220 CFM</td>
+                    <td>500–630</td>
+                    <td>Large room or sub-trunk</td>
+                  </tr>
+                  <tr>
+                    <td>10"</td>
+                    <td>280–360 CFM</td>
+                    <td>510–650</td>
+                    <td>Main trunk section</td>
+                  </tr>
+                  <tr>
+                    <td>12"</td>
+                    <td>420–540 CFM</td>
+                    <td>530–680</td>
+                    <td>Trunk near air handler</td>
+                  </tr>
+                  <tr>
+                    <td>14"</td>
+                    <td>590–760 CFM</td>
+                    <td>550–700</td>
+                    <td>Main supply trunk</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Flex Duct vs. Rigid Sheet Metal</h2>
+            <p>Flex duct is commonly used in residential construction due to its lower labor cost and ease of
+              installation. However, flex duct has significantly higher friction than equivalent rigid metal:</p>
+            <ul>
+              <li>Flex duct creates approximately <strong>30–50% more friction</strong> than rigid metal at the same
+                diameter and CFM</li>
+              <li>This means a 6" flex duct carries only about 65–75 CFM vs. 85–100 CFM for 6" rigid at 0.08 FR</li>
+              <li>To achieve the same capacity, flex duct typically needs to be <strong>1–2 sizes larger</strong> than
+                rigid metal</li>
+              <li>Compressed or bent flex duct dramatically increases friction — keep runs straight and fully extended
+              </li>
+            </ul>
+
+            <h2>Velocity Limits for HVAC Ductwork</h2>
+            <p>Even if a duct is correctly sized by friction rate, it must also respect face velocity limits for noise
+              control:</p>
+
+            <div class="table-scroll">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Duct Location</th>
+                    <th>Max Recommended Velocity (FPM)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Supply trunk mains</td>
+                    <td>700–900 FPM</td>
+                  </tr>
+                  <tr>
+                    <td>Supply branch ducts</td>
+                    <td>500–750 FPM</td>
+                  </tr>
+                  <tr>
+                    <td>Return mains</td>
+                    <td>500–700 FPM</td>
+                  </tr>
+                  <tr>
+                    <td>Return branches</td>
+                    <td>400–600 FPM</td>
+                  </tr>
+                  <tr>
+                    <td>Supply registers/diffusers</td>
+                    <td>300–500 FPM throw velocity</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h2>Common Duct Sizing Mistakes</h2>
+            <ul>
+              <li><strong>Using rules of thumb instead of real airflow values</strong> — tonnage-only shortcuts often
+                produce undersized trunks and returns</li>
+              <li><strong>Not accounting for equivalent length</strong> — elbows, tees, and transitions add friction
+                equivalent to many feet of straight duct</li>
+              <li><strong>Installing kinked flex duct</strong> — a single 90° kink in a 6" flex can increase its
+                effective resistance by 50–100%</li>
+              <li><strong>Forgetting the return air system</strong> — return ducts are as important as supply ducts;
+                undersized returns are the #1 cause of high static pressure</li>
+            </ul>
+
+            <h2>Related HVAC Tools</h2>
+            <ul>
+              <li><a href="/hvac-cfm-calculator/">CFM Calculator</a> — Determine airflow before starting duct design
+              </li>
+              <li><a href="/hvac-airflow-per-room-calculator/">Airflow Per Room Calculator</a> — Allocate room-level
+                airflow for branch sizing</li>
+              <li><a href="/hvac-duct-size-calculator/">Duct Size Calculator</a> — Size round and rectangular ducts by
+                CFM and friction rate</li>
+              <li><a href="/hvac-static-pressure-calculator/">Static Pressure Calculator</a> — Verify total system TESP
+                and duct budget</li>
+              <li><a href="/hvac-load-calculator/">HVAC Load Calculator</a> — Build load-driven designs instead of
+                guessing duct requirements</li>
+            </ul>
           </div>
-
-          <div class="diagram diagram-airflow">
-<div class="diagram-header">
-  <div>
-    <div class="diagram-kicker">MintSheets Visual Guide</div>
-    <h3>Duct Sizing Starts With Airflow and Static Pressure</h3>
-  </div>
-  <div class="diagram-badge">Equal Friction Concept</div>
-</div>
-
-<svg viewBox="0 0 920 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HVAC duct airflow diagram showing trunk and branch duct sizing with CFM and static pressure" loading="lazy">
-  <defs>
-    <linearGradient id="msPanelA" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0B1C35"/>
-      <stop offset="100%" stop-color="#0F2240"/>
-    </linearGradient>
-    <linearGradient id="msDuctA" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#22D3EE"/>
-      <stop offset="100%" stop-color="#2ECC71"/>
-    </linearGradient>
-    <filter id="shadowA" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.22"/>
-    </filter>
-    <marker id="arrowGreenA" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#2ECC71"/>
-    </marker>
-    <marker id="arrowCyanA" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#22D3EE"/>
-    </marker>
-  </defs>
-
-  <rect x="1" y="1" width="918" height="418" rx="20" fill="url(#msPanelA)" stroke="#2A4A72"/>
-
-  <rect x="44" y="130" width="150" height="124" rx="16" fill="#102847" stroke="#2A4A72" stroke-width="2" filter="url(#shadowA)"/>
-  <text x="119" y="167" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="800">Air Handler</text>
-  <text x="119" y="193" text-anchor="middle" fill="#94A3B8" font-size="14">Blower + Coil</text>
-  <text x="119" y="220" text-anchor="middle" fill="#22D3EE" font-size="14" font-weight="700">TESP: 0.50 in. w.g.</text>
-
-  <line x1="194" y1="192" x2="232" y2="192" stroke="#22D3EE" stroke-width="4" marker-end="url(#arrowCyanA)"/>
-
-  <rect x="236" y="168" width="314" height="48" rx="24" fill="url(#msDuctA)" opacity="0.18" stroke="#22D3EE" stroke-width="2"/>
-  <text x="393" y="159" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">Main Supply Trunk</text>
-  <text x="393" y="198" text-anchor="middle" fill="#E2E8F0" font-size="16" font-weight="700">1,200 CFM</text>
-
-  <line x1="550" y1="192" x2="676" y2="110" stroke="#22D3EE" stroke-width="16" stroke-linecap="round"/>
-  <line x1="550" y1="192" x2="700" y2="192" stroke="#22D3EE" stroke-width="16" stroke-linecap="round"/>
-  <line x1="550" y1="192" x2="676" y2="274" stroke="#22D3EE" stroke-width="16" stroke-linecap="round"/>
-
-  <line x1="592" y1="166" x2="650" y2="128" stroke="#2ECC71" stroke-width="3" marker-end="url(#arrowGreenA)"/>
-  <line x1="596" y1="192" x2="674" y2="192" stroke="#2ECC71" stroke-width="3" marker-end="url(#arrowGreenA)"/>
-  <line x1="592" y1="218" x2="650" y2="256" stroke="#2ECC71" stroke-width="3" marker-end="url(#arrowGreenA)"/>
-
-  <rect x="704" y="78" width="166" height="62" rx="12" fill="#0F223D" stroke="#2A4A72"/>
-  <text x="720" y="102" fill="#FFFFFF" font-size="15" font-weight="800">Branch A</text>
-  <text x="720" y="121" fill="#94A3B8" font-size="13">200 CFM</text>
-  <text x="720" y="137" fill="#22D3EE" font-size="13">Controlled velocity</text>
-
-  <rect x="722" y="161" width="148" height="62" rx="12" fill="#0F223D" stroke="#2A4A72"/>
-  <text x="738" y="185" fill="#FFFFFF" font-size="15" font-weight="800">Branch B</text>
-  <text x="738" y="204" fill="#94A3B8" font-size="13">350 CFM</text>
-  <text x="738" y="220" fill="#22D3EE" font-size="13">Sized by friction rate</text>
-
-  <rect x="704" y="244" width="166" height="62" rx="12" fill="#0F223D" stroke="#2A4A72"/>
-  <text x="720" y="268" fill="#FFFFFF" font-size="15" font-weight="800">Branch C</text>
-  <text x="720" y="287" fill="#94A3B8" font-size="13">250 CFM</text>
-  <text x="720" y="303" fill="#22D3EE" font-size="13">Lower noise risk</text>
-
-  <rect x="50" y="294" width="318" height="86" rx="14" fill="#0F223D" stroke="#2A4A72"/>
-  <text x="72" y="323" fill="#2ECC71" font-size="14" font-weight="800">Key idea:</text>
-  <text x="145" y="323" fill="#E2E8F0" font-size="14">smaller duct = higher friction = higher pressure drop</text>
-  <text x="72" y="351" fill="#22D3EE" font-size="14" font-weight="800">Goal:</text>
-  <text x="116" y="351" fill="#E2E8F0" font-size="14">deliver required CFM without exceeding static budget</text>
-
-  <rect x="404" y="294" width="250" height="86" rx="14" fill="#0F223D" stroke="#2A4A72"/>
-  <text x="426" y="322" fill="#2ECC71" font-size="14" font-weight="800">Common failure mode</text>
-  <text x="426" y="348" fill="#E2E8F0" font-size="14">Undersized trunks and returns</text>
-  <text x="426" y="367" fill="#E2E8F0" font-size="14">raise static and reduce airflow</text>
-</svg>
-
-<p class="diagram-caption">Proper duct design balances <strong>CFM</strong>, <strong>velocity</strong>, and <strong>available static pressure</strong> so the blower can move design airflow without excess restriction or noise.</p>
-          </div>
-
-          <h2>Why Duct Sizing Matters</h2>
-          <p>Every duct segment creates friction as air flows through it. Small ducts create more friction per foot than large ducts at the same airflow. If a duct is too small for its required CFM, the resulting high velocity creates:</p>
-          <ul>
-            <li><strong>Excessive static pressure</strong> — reducing total system airflow and blower efficiency</li>
-            <li><strong>Duct noise</strong> — register noise, rumble, and whistling from high velocity</li>
-            <li><strong>Uneven room temperatures</strong> — some rooms get adequate airflow, others are starved</li>
-            <li><strong>System short cycling</strong> — high static triggers safety limits on some equipment</li>
-          </ul>
-
-<p>Conversely, oversized ducts waste materials, cost more to install, and can create low-velocity problems including stratification and poor mixing in large rooms.</p>
-
-              <!-- Ad Placeholder: Mid Content -->
-    <div class="ad-placeholder ad-placeholder-mid">
-      <span>Advertisement</span>
-    </div>
-
-<h2>The Equal Friction Method — Step by Step</h2>
-
-          <div class="step-card">
-            <div class="step-number">Step 1</div>
-            <h3>Determine Available Duct Static Budget</h3>
-            <p>Start with your equipment's rated TESP (typically 0.50 in. w.g.). Subtract all non-duct component pressure drops: evaporator coil (~0.25), supply filter (~0.10), grilles and diffusers (~0.05). The remainder is your <strong>available duct static budget</strong>.</p>
-            <p>Example: 0.50 − 0.25 − 0.10 − 0.05 = <strong>0.10 in. w.g. available for ducts</strong></p>
-            <a href="/hvac-static-pressure-calculator/" class="tool-link">→ Static Pressure Calculator</a>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">Step 2</div>
-            <h3>Calculate Friction Rate</h3>
-            <p>Divide the available duct static budget by the longest duct run (in hundreds of feet of equivalent length). This gives you the target friction rate in in. w.g. per 100 equivalent feet.</p>
-            <p>Example: 0.10 in. w.g. ÷ 1.25 (longest run = 125 equiv. ft.) = <strong>0.08 in. w.g./100 ft.</strong></p>
-          </div>
-
-          <div class="step-card">
-            <div class="step-number">Step 3</div>
-            <h3>Look Up Duct Size from Chart</h3>
-            <p>Using the calculated friction rate and the CFM each duct segment must carry, use the duct sizing chart (or calculator) to find the appropriate round duct diameter or rectangular duct dimensions.</p>
-            <a href="/hvac-duct-size-calculator/" class="tool-link">→ Duct Size Calculator</a>
-          </div>
-
-          <div class="diagram diagram-friction">
-<div class="diagram-header">
-  <div>
-    <div class="diagram-kicker">MintSheets Visual Guide</div>
-    <h3>Equal Friction Workflow</h3>
-  </div>
-  <div class="diagram-badge">Manual D Style Logic</div>
-</div>
-
-<svg viewBox="0 0 920 430" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="HVAC equal friction duct sizing workflow diagram showing step by step calculation of available static and friction rate" loading="lazy">
-  <defs>
-    <linearGradient id="msPanelB" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0B1C35"/>
-      <stop offset="100%" stop-color="#0F2240"/>
-    </linearGradient>
-    <filter id="shadowB" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000000" flood-opacity="0.22"/>
-    </filter>
-    <marker id="arrowCyanB" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#22D3EE"/>
-    </marker>
-  </defs>
-
-  <rect x="1" y="1" width="918" height="428" rx="20" fill="url(#msPanelB)" stroke="#2A4A72"/>
-
-  <rect x="34" y="86" width="246" height="250" rx="18" fill="#102847" stroke="#2A4A72" stroke-width="2" filter="url(#shadowB)"/>
-  <text x="58" y="118" fill="#2ECC71" font-size="16" font-weight="800">Step 1 — Available Duct Static Budget</text>
-
-  <text x="58" y="158" fill="#E2E8F0" font-size="15">Rated TESP</text>
-  <text x="214" y="158" text-anchor="end" fill="#FFFFFF" font-size="15" font-weight="800">0.50</text>
-
-  <text x="58" y="191" fill="#94A3B8" font-size="14">Coil drop</text>
-  <text x="214" y="191" text-anchor="end" fill="#94A3B8" font-size="14">-0.25</text>
-
-  <text x="58" y="219" fill="#94A3B8" font-size="14">Filter drop</text>
-  <text x="214" y="219" text-anchor="end" fill="#94A3B8" font-size="14">-0.10</text>
-
-  <text x="58" y="247" fill="#94A3B8" font-size="14">Grilles / diffusers</text>
-  <text x="214" y="247" text-anchor="end" fill="#94A3B8" font-size="14">-0.05</text>
-
-  <line x1="56" y1="268" x2="220" y2="268" stroke="#2A4A72" stroke-width="2"/>
-  <text x="58" y="299" fill="#22D3EE" font-size="15" font-weight="800">Available for ducts</text>
-  <text x="214" y="299" text-anchor="end" fill="#22D3EE" font-size="15" font-weight="800">0.10 in. w.g.</text>
-
-  <line x1="300" y1="210" x2="386" y2="210" stroke="#22D3EE" stroke-width="4" marker-end="url(#arrowCyanB)"/>
-
-  <rect x="400" y="86" width="252" height="250" rx="18" fill="#102847" stroke="#2A4A72" stroke-width="2" filter="url(#shadowB)"/>
-  <text x="424" y="118" fill="#2ECC71" font-size="16" font-weight="800">Step 2 — Friction Rate</text>
-
-  <text x="424" y="160" fill="#E2E8F0" font-size="15">Available pressure</text>
-  <text x="424" y="184" fill="#E2E8F0" font-size="15">÷ (Longest equivalent length / 100)</text>
-
-  <rect x="424" y="208" width="206" height="64" rx="12" fill="#0B1C35" stroke="#2A4A72"/>
-  <text x="527" y="232" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="700">0.10 ÷ 1.25</text>
-  <text x="527" y="257" text-anchor="middle" fill="#22D3EE" font-size="18" font-weight="800">= 0.08 in. w.g. / 100 ft</text>
-
-  <text x="424" y="300" fill="#94A3B8" font-size="13">Equivalent length includes fittings, elbows, tees, and transitions.</text>
-
-  <line x1="672" y1="210" x2="758" y2="210" stroke="#22D3EE" stroke-width="4" marker-end="url(#arrowCyanB)"/>
-
-  <rect x="772" y="86" width="114" height="250" rx="18" fill="#102847" stroke="#2A4A72" stroke-width="2" filter="url(#shadowB)"/>
-  <text x="829" y="118" text-anchor="middle" fill="#2ECC71" font-size="16" font-weight="800">Step 3</text>
-  <text x="829" y="146" text-anchor="middle" fill="#E2E8F0" font-size="14">Match</text>
-  <text x="829" y="168" text-anchor="middle" fill="#E2E8F0" font-size="14">required CFM</text>
-  <text x="829" y="190" text-anchor="middle" fill="#E2E8F0" font-size="14">+ friction rate</text>
-
-  <circle cx="829" cy="244" r="38" fill="none" stroke="#22D3EE" stroke-width="10"/>
-  <text x="829" y="250" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="800">8"</text>
-  <text x="829" y="296" text-anchor="middle" fill="#94A3B8" font-size="13">example round</text>
-
-  <rect x="36" y="360" width="848" height="42" rx="12" fill="#0F223D" stroke="#2A4A72"/>
-  <text x="460" y="386" text-anchor="middle" fill="#E2E8F0" font-size="14">
-    Example sequence:
-    <tspan fill="#2ECC71" font-weight="800"> 0.50 TESP </tspan>
-    →
-    <tspan fill="#22D3EE" font-weight="800"> 0.10 available </tspan>
-    →
-    <tspan fill="#22D3EE" font-weight="800"> 0.08 FR </tspan>
-    →
-    choose duct size by
-    <tspan fill="#2ECC71" font-weight="800"> CFM</tspan>
-  </text>
-</svg>
-
-<p class="diagram-caption">This diagram shows the core process behind the equal friction method: determine the <strong>available duct static budget</strong>, convert it into a target <strong>friction rate</strong>, then choose duct size based on required <strong>CFM</strong>.</p>
-          </div>
-
-          <h2>Duct Sizing Chart: Round Duct (Rigid Sheet Metal)</h2>
-          <p>The following table shows approximate round duct sizes at a friction rate of 0.08 in. w.g./100 ft. for rigid sheet metal ductwork:</p>
-
-          <div class="table-scroll">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Round Duct Diameter</th>
-                  <th>Approx. Max CFM (0.08 FR)</th>
-                  <th>Face Velocity (FPM)</th>
-                  <th>Typical Use</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td>4"</td><td>30–45 CFM</td><td>340–510</td><td>Small branch, bathroom</td></tr>
-                <tr><td>5"</td><td>55–75 CFM</td><td>400–550</td><td>Small bedroom branch</td></tr>
-                <tr><td>6"</td><td>85–110 CFM</td><td>430–560</td><td>Standard bedroom branch</td></tr>
-                <tr><td>7"</td><td>125–160 CFM</td><td>460–590</td><td>Larger bedroom or great room</td></tr>
-                <tr><td>8"</td><td>175–220 CFM</td><td>500–630</td><td>Large room or sub-trunk</td></tr>
-                <tr><td>10"</td><td>280–360 CFM</td><td>510–650</td><td>Main trunk section</td></tr>
-                <tr><td>12"</td><td>420–540 CFM</td><td>530–680</td><td>Trunk near air handler</td></tr>
-                <tr><td>14"</td><td>590–760 CFM</td><td>550–700</td><td>Main supply trunk</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <h2>Flex Duct vs. Rigid Sheet Metal</h2>
-          <p>Flex duct is commonly used in residential construction due to its lower labor cost and ease of installation. However, flex duct has significantly higher friction than equivalent rigid metal:</p>
-          <ul>
-            <li>Flex duct creates approximately <strong>30–50% more friction</strong> than rigid metal at the same diameter and CFM</li>
-            <li>This means a 6" flex duct carries only about 65–75 CFM vs. 85–100 CFM for 6" rigid at 0.08 FR</li>
-            <li>To achieve the same capacity, flex duct typically needs to be <strong>1–2 sizes larger</strong> than rigid metal</li>
-            <li>Compressed or bent flex duct dramatically increases friction — keep runs straight and fully extended</li>
-          </ul>
-
-          <h2>Velocity Limits for HVAC Ductwork</h2>
-          <p>Even if a duct is "correctly sized" by friction rate, it must also respect face velocity limits for noise control:</p>
-          <table class="data-table">
-            <thead><tr><th>Duct Location</th><th>Max Recommended Velocity (FPM)</th></tr></thead>
-            <tbody>
-              <tr><td>Supply trunk mains</td><td>700–900 FPM</td></tr>
-              <tr><td>Supply branch ducts</td><td>500–750 FPM</td></tr>
-              <tr><td>Return mains</td><td>500–700 FPM</td></tr>
-              <tr><td>Return branches</td><td>400–600 FPM</td></tr>
-              <tr><td>Supply registers/diffusers</td><td>300–500 FPM throw velocity</td></tr>
-            </tbody>
-          </table>
-
-          <h2>Common Duct Sizing Mistakes</h2>
-          <ul>
-            <li><strong>Using 1/4" per ton rules of thumb</strong> — these rules are unreliable and often produce undersized return systems</li>
-            <li><strong>Not accounting for equivalent length</strong> — elbows, tees, and transitions add friction equivalent to many feet of straight duct</li>
-            <li><strong>Installing kinked flex duct</strong> — a single 90° kink in a 6" flex can increase its effective resistance by 50–100%</li>
-            <li><strong>Forgetting the return air system</strong> — return ducts are as important as supply ducts; undersized returns are the #1 cause of high static pressure</li>
-          </ul>
-
-          <h2>Related HVAC Tools</h2>
-          <ul>
-            <li><a href="/hvac-duct-size-calculator/">Duct Size Calculator</a> — Size round and rectangular ducts by CFM and friction rate</li>
-            <li><a href="/hvac-static-pressure-calculator/">Static Pressure Calculator</a> — Verify total system TESP and duct budget</li>
-            <li><a href="/hvac-cfm-calculator/">CFM Calculator</a> — Calculate room and system airflow requirements</li>
-            <li><a href="/hvac-airflow-per-room-calculator/">Airflow Per Room Calculator</a> — Multi-room CFM allocation for duct design input</li>
-          </ul>
-
         </div>
       </div>
     </section>
   </main>
 
-      <!-- Ad Placeholder: Bottom Banner -->
-    <div class="ad-placeholder ad-placeholder-bottom">
-      <span>Advertisement</span>
-    </div>
+  <div class="ad-placeholder ad-placeholder-bottom">
+    <span>Advertisement</span>
+  </div>
 
-<footer id="mint-footer" style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
+  <footer id="mint-footer"
+    style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
     <div style="max-width:1100px;margin:0 auto;padding:0 20px;">
-      <h3 style="color:var(--primary);font-weight:900;font-size:18px;text-transform:uppercase;margin-bottom:20px;letter-spacing:1px;">Related HVAC Calculators</h3>
+      <h3
+        style="color:var(--primary);font-weight:900;font-size:18px;text-transform:uppercase;margin-bottom:20px;letter-spacing:1px;">
+        Related HVAC Calculators</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;">
-        <a href="/hvac-duct-size-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Duct Size Calculator</a>
-        <a href="/hvac-static-pressure-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Static Pressure Calculator</a>
-        <a href="/hvac-cfm-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">CFM Calculator</a>
-        <a href="/hvac-airflow-per-room-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Airflow Per Room Calculator</a>
+        <a href="/hvac-duct-size-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Duct Size
+          Calculator</a>
+        <a href="/hvac-static-pressure-calculator/"
+          style="color:var(--muted);text-decoration:none;font-size:14px;">Static Pressure Calculator</a>
+        <a href="/hvac-cfm-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">CFM
+          Calculator</a>
+        <a href="/hvac-airflow-per-room-calculator/"
+          style="color:var(--muted);text-decoration:none;font-size:14px;">Airflow Per Room Calculator</a>
+        <a href="/hvac-load-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">HVAC Load
+          Calculator</a>
       </div>
       <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);">
         <a href="/privacy-policy/" style="color:var(--muted);text-decoration:none;">Privacy Policy</a>
@@ -493,38 +816,38 @@
         <a href="/disclaimer/" style="color:var(--muted);text-decoration:none;">Disclaimer</a>
         <a href="/cookie-policy/" style="color:var(--muted);text-decoration:none;">Cookie Policy</a>
       </div>
-      <p style="margin-top:20px;color:var(--muted);font-size:12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      <p style="margin-top:20px;color:var(--muted);font-size:12px;">&copy; 2026 MintSheets. Free HVAC technical tools.
+      </p>
     </div>
   </footer>
-      <script>
-  (function () {
-    var btn = document.getElementById('hamburger-btn');
-    var nav = document.getElementById('mobile-nav');
-    var overlay = document.getElementById('mobile-nav-overlay');
-    var close = document.getElementById('mobile-nav-close');
-    if (!btn || !nav) return;
-    function setMenuState(open) {
-      document.body.classList.toggle('menu-open', open);
-      btn.classList.toggle('active', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      nav.setAttribute('aria-hidden', open ? 'false' : 'true');
-    }
-    btn.addEventListener('click', function () { setMenuState(!btn.classList.contains('active')); });
-    close && close.addEventListener('click', function () { setMenuState(false); });
-    overlay && overlay.addEventListener('click', function () { setMenuState(false); });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') setMenuState(false);
-    });
-  })();
+
+  <script>
+    (function () {
+      var btn = document.getElementById('hamburger-btn');
+      var nav = document.getElementById('mobile-nav');
+      var overlay = document.getElementById('mobile-nav-overlay');
+      var close = document.getElementById('mobile-nav-close');
+      if (!btn || !nav) return;
+      function setMenuState(open) {
+        document.body.classList.toggle('menu-open', open);
+        btn.classList.toggle('active', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        nav.setAttribute('aria-hidden', open ? 'false' : 'true');
+      }
+      btn.addEventListener('click', function () { setMenuState(!btn.classList.contains('active')); });
+      close && close.addEventListener('click', function () { setMenuState(false); });
+      overlay && overlay.addEventListener('click', function () { setMenuState(false); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setMenuState(false);
+      });
+    })();
   </script>
-  <!-- Sticky Ad Placeholder -->
+
   <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
     <span>Advertisement</span>
-    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">&times;</button>
+    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'"
+      aria-label="Close Ad">&times;</button>
   </div>
 </body>
+
 </html>
-
-
-
-
