@@ -50,7 +50,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-83YSB6HWN4');</script>
 </head>
-<body>
+<body class="has-sticky-ad">
   <header class="site-header">
     <div class="container nav">
       <a href="/" class="brand">
@@ -104,9 +104,10 @@
           </nav>
           <div class="eyebrow" style="margin-bottom:12px;">HVAC Design Guide</div>
           <h1 style="font-size:36px;color:#fff;margin-bottom:10px;line-height:1.25;">How to Calculate CFM for Each Room</h1>
-          <p class="article-meta">System design reference for HVAC contractors and estimators · Updated 2026</p>
 
-          <p>Calculating the correct CFM (cubic feet per minute) for each room is a fundamental step in HVAC system design. Without accurate room-level airflow numbers, you risk rooms that are too hot in summer, too cold in winter, or that suffer from persistent humidity problems — even if the equipment itself is properly sized.</p>
+    <!-- Ad Placeholder: Top Banner -->
+    <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
+<p>Calculating the correct CFM (cubic feet per minute) for each room is a fundamental step in HVAC system design. Without accurate room-level airflow numbers, you risk rooms that are too hot in summer, too cold in winter, or that suffer from persistent humidity problems — even if the equipment itself is properly sized.</p>
           <p>This guide covers three methods for calculating room CFM: the square footage method, the sensible heat load method, and the air changes per hour (ACPH) method. Each has appropriate use cases.</p>
 
           <div class="callout">
@@ -114,7 +115,12 @@
           </div>
 
           <h2>Method 1: Square Footage Method</h2>
-          <p>The square footage method is the fastest approach and appropriate for preliminary estimates and pre-sales engineering.</p>
+              <!-- Ad Placeholder: Mid Content -->
+    <div class="ad-placeholder ad-placeholder-mid">
+      <span>Advertisement</span>
+    </div>
+
+<p>The square footage method is the fastest approach and appropriate for preliminary estimates and pre-sales engineering.</p>
           <div class="formula-box">
             Room CFM = Room Area (sq ft) × CFM/sq ft factor
             <p>Standard residential: 0.75–1.0 CFM/sq ft · Hot climates or older homes: 1.0–1.25 CFM/sq ft</p>
@@ -122,7 +128,12 @@
           <p><strong>Example:</strong> 200 sq ft bedroom × 0.75 = <strong>150 CFM</strong></p>
           <p>This method works when all rooms have similar construction and orientation. It becomes less accurate when rooms differ in solar exposure or insulation quality.</p>
 
-          <h2>Method 2: Sensible Heat Load (Preferred)</h2>
+              <!-- Ad Placeholder: Mid Content -->
+    <div class="ad-placeholder ad-placeholder-mid">
+      <span>Advertisement</span>
+    </div>
+
+<h2>Method 2: Sensible Heat Load (Preferred)</h2>
           <p>The sensible heat load method is the technically correct approach per ACCA Manual J/D. It calculates room CFM based on each room's actual sensible cooling or heating load in BTU/hr.</p>
           <div class="step-card">
             <div class="step-number">Formula</div>
@@ -187,7 +198,12 @@
     </section>
   </main>
 
-  <footer id="mint-footer" style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
+      <!-- Ad Placeholder: Bottom Banner -->
+    <div class="ad-placeholder ad-placeholder-bottom">
+      <span>Advertisement</span>
+    </div>
+
+<footer id="mint-footer" style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
     <div style="max-width:1100px;margin:0 auto;padding:0 20px;">
       <h3 style="color:var(--primary);font-weight:900;font-size:18px;text-transform:uppercase;margin-bottom:20px;letter-spacing:1px;">Related HVAC Calculators</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;">
@@ -208,5 +224,10 @@
   <script>
   (function(){var btn=document.getElementById('hamburger-btn');var nav=document.getElementById('mobile-nav');var overlay=document.getElementById('mobile-nav-overlay');var close=document.getElementById('mobile-nav-close');if(!btn)return;function openMenu(){document.body.classList.add('menu-open');btn.classList.add('active');btn.setAttribute('aria-expanded','true');nav.setAttribute('aria-hidden','false');}function closeMenu(){document.body.classList.remove('menu-open');btn.classList.remove('active');btn.setAttribute('aria-expanded','false');nav.setAttribute('aria-hidden','true');}btn.addEventListener('click',openMenu);close&&close.addEventListener('click',closeMenu);overlay&&overlay.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});})();
   </script>
+  <!-- Sticky Ad Placeholder -->
+  <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
+    <span>Advertisement</span>
+    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">&times;</button>
+  </div>
 </body>
 </html>

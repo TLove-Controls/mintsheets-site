@@ -54,7 +54,7 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-83YSB6HWN4');</script>
 </head>
-<body>
+<body class="has-sticky-ad">
   <header class="site-header">
     <div class="container nav">
       <a href="/" class="brand">
@@ -110,6 +110,11 @@
           <div class="page-intro">
             <div class="eyebrow" style="margin-bottom:12px;">Complete Tool Directory</div>
             <h1 style="font-size:36px;color:#fff;margin-bottom:16px;line-height:1.25;">All Free HVAC Calculators</h1>
+
+    <!-- Ad Placeholder: Top Banner -->
+    <div class="ad-placeholder ad-placeholder-top">
+      <span>Advertisement</span>
+    </div>
             <p>Every calculator on MintSheets is completely free, browser-based, and requires no login or download. Tools are organized by category below. Built for HVAC technicians, contractors, estimators, and system designers.</p>
           </div>
 
@@ -242,7 +247,12 @@
     </section>
   </main>
 
-  <footer id="mint-footer" style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
+      <!-- Ad Placeholder: Bottom Banner -->
+    <div class="ad-placeholder ad-placeholder-bottom">
+      <span>Advertisement</span>
+    </div>
+
+<footer id="mint-footer" style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
     <div style="max-width:1100px;margin:0 auto;padding:0 20px;">
       <h3 style="color:var(--primary);font-weight:900;font-size:18px;text-transform:uppercase;margin-bottom:20px;letter-spacing:1px;">Quick Links</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;">
@@ -264,5 +274,10 @@
   <script>
   (function(){var btn=document.getElementById('hamburger-btn');var nav=document.getElementById('mobile-nav');var overlay=document.getElementById('mobile-nav-overlay');var close=document.getElementById('mobile-nav-close');if(!btn)return;function openMenu(){document.body.classList.add('menu-open');btn.classList.add('active');btn.setAttribute('aria-expanded','true');nav.setAttribute('aria-hidden','false');}function closeMenu(){document.body.classList.remove('menu-open');btn.classList.remove('active');btn.setAttribute('aria-expanded','false');nav.setAttribute('aria-hidden','true');}btn.addEventListener('click',openMenu);close&&close.addEventListener('click',closeMenu);overlay&&overlay.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});})();
   </script>
+  <!-- Sticky Ad Placeholder -->
+  <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
+    <span>Advertisement</span>
+    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">&times;</button>
+  </div>
 </body>
 </html>

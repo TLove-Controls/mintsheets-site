@@ -49,7 +49,7 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"HVAC Calculators","item":"https://mintsheets.com/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"CFM Calculator","item":"https://mintsheets.com/hvac-cfm-calculator/"}]}
 </script>
 </head>
-<body>
+<body class="has-sticky-ad">
 
     <header class="site-header">
       <div class="container nav">
@@ -118,18 +118,17 @@
           <div style="margin-bottom: 30px; text-align: center;">
             <div class="eyebrow">Technical Tool</div>
             <h1 style="margin: 10px auto; max-width: none;">HVAC CFM Calculator for Airflow Design</h1>
-            <p style="color: var(--muted);">Airflow Design & Verification Tool — Calculate required CFM per room, per square foot, and for total systems.</p>
-            
-            <p style="margin-top: 20px; line-height: 1.6; color: var(--text-light); max-width: 800px; margin-left: auto; margin-right: auto;">
-              This HVAC CFM calculator helps you determine room-by-room airflow requirements. Learn more in our guide: <a href="/blog/how-to-calculate-cfm-per-room/" style="color: var(--primary); text-decoration: none; font-weight: bold;">How to Calculate CFM for Each Room</a>.
-            </p>
-          </div>
 
-          <!-- Ad Placeholder: Top Banner -->
-          <div class="ad-slot ad-top"></div>
+    <!-- Ad Placeholder: Top Banner -->
+    <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
+<!-- SECTION 1 — ROOM CFM CALCULATOR -->
+  
+    <!-- Ad Placeholder: Above Calculator -->
+    <div class="ad-placeholder ad-placeholder-tool">
+      <span>Advertisement</span>
+    </div>
 
-  <!-- SECTION 1 — ROOM CFM CALCULATOR -->
-  <div class="section-banner"><span class="icon">🏠</span> SECTION 1 — ROOM CFM CALCULATOR</div>
+<span class="icon">🏠</span> SECTION 1 — ROOM CFM CALCULATOR</div>
   <div class="card">
     <div class="sub-header">Room Parameters — Enter Values Below</div>
     
@@ -232,11 +231,19 @@
     </div>
   </div>
 
-          <!-- Ad Placeholder: Mid Content -->
-          <div class="ad-slot ad-mid"></div>
+              <!-- Ad Placeholder: Mid Content -->
+    <div class="ad-placeholder ad-placeholder-mid">
+      <span>Advertisement</span>
+    </div>
 
   <!-- SECTION 2 — DUCT SIZING CALCULATOR -->
-  <div class="section-banner"><span class="icon">🔧</span> SECTION 2 — DUCT SIZING CALCULATOR</div>
+  
+    <!-- Ad Placeholder: Above Calculator -->
+    <div class="ad-placeholder ad-placeholder-tool">
+      <span>Advertisement</span>
+    </div>
+
+<span class="icon">🔧</span> SECTION 2 — DUCT SIZING CALCULATOR</div>
   <div class="card">
     <div class="sub-header">Duct Parameters — Enter Airflow & Friction Rate</div>
     
@@ -302,7 +309,13 @@
   </div>
 
   <!-- SECTION 3 — SYSTEM TOTAL CFM & TONNAGE CHECK -->
-  <div class="section-banner"><span class="icon">📊</span> SECTION 3 — SYSTEM TOTAL CFM &amp; TONNAGE CHECK</div>
+  
+    <!-- Ad Placeholder: Above Calculator -->
+    <div class="ad-placeholder ad-placeholder-tool">
+      <span>Advertisement</span>
+    </div>
+
+<span class="icon">📊</span> SECTION 3 — SYSTEM TOTAL CFM &amp; TONNAGE CHECK</div>
   <div class="card">
     <div class="sub-header">Equipment Parameters</div>
     
@@ -357,7 +370,14 @@
         ECM motors self-adjust to maintain target CFM regardless of static pressure.
       </div>
     </div>
-  </div>
+  
+
+    <!-- Ad Placeholder: Mid Content -->
+    <div class="ad-placeholder ad-placeholder-mid">
+      <span>Advertisement</span>
+    </div>
+
+</div>
 
   <!-- FAQ / SEO Content merged -->
   <section id="seo-content" style="margin-top: 40px; border-top: 1px solid var(--line); padding-top: 40px;">
@@ -382,8 +402,10 @@
     </div>
   </section>
 
-  <!-- Ad Placeholder: Bottom Banner -->
-  <div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
+      <!-- Ad Placeholder: Bottom Banner -->
+    <div class="ad-placeholder ad-placeholder-bottom">
+      <span>Advertisement</span>
+    </div>
 
   </section>
   </div>
@@ -404,7 +426,12 @@
         </div>
     </div>
 
-    <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+        <!-- Ad Placeholder: Bottom Banner -->
+    <div class="ad-placeholder ad-placeholder-bottom">
+      <span>Advertisement</span>
+    </div>
+
+<footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
       <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
         <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
@@ -544,5 +571,10 @@ function calcSystem() {
 })();
 </script>
 
+  <!-- Sticky Ad Placeholder -->
+  <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
+    <span>Advertisement</span>
+    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">&times;</button>
+  </div>
 </body>
 </html>

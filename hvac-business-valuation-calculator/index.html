@@ -45,7 +45,7 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"HVAC Calculators","item":"https://mintsheets.com/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"Business Valuation Calculator","item":"https://mintsheets.com/hvac-business-valuation-calculator/"}]}
 </script>
 </head>
-<body>
+<body class="has-sticky-ad">
 
 <header class="site-header">
   <div class="container nav">
@@ -102,12 +102,10 @@
       <div style="margin-bottom: 30px; text-align: center;">
         <div class="eyebrow">Strategy Tool</div>
         <h1>HVAC Business Valuation Calculator</h1>
-        <p style="color: var(--muted);">Estimate your company market value based on EBITDA & SDE. Take control of your margins with our <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: bold;">HVAC Pricing Guide for Contractors</a>.</p>
-      </div>
 
-      <div class="ad-slot ad-top"></div>
-
-      <div class="shell">
+    <!-- Ad Placeholder: Top Banner -->
+    <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
+<div class="shell">
         <div class="left-col">
           <div class="card">
             <h3>1. Annual Financials</h3>
@@ -147,14 +145,20 @@
         </div>
       </div>
 
-      <div class="ad-slot ad-mid" style="margin-top: 20px;"></div>
+          <!-- Ad Placeholder: Mid Content -->
+    <div class="ad-placeholder ad-placeholder-mid">
+      <span>Advertisement</span>
+    </div>
 
       <div id="seo-content" style="margin-top: 40px; color: var(--text-light); line-height: 1.6;">
         <h2>How are HVAC companies valued?</h2>
         <p>Most small-to-midsize HVAC businesses are valued using a multiple of Seller's Discretionary Earnings (SDE). Larger institutional firms use EBITDA.</p>
       </div>
 
-      <div class="ad-slot ad-bottom" style="margin-top: 20px;"></div>
+          <!-- Ad Placeholder: Bottom Banner -->
+    <div class="ad-placeholder ad-placeholder-bottom">
+      <span>Advertisement</span>
+    </div>
     </div>
   </section>
 
@@ -185,6 +189,11 @@
     </div>
   </section>
 </main>
+
+    <!-- Ad Placeholder: Bottom Banner -->
+    <div class="ad-placeholder ad-placeholder-bottom">
+      <span>Advertisement</span>
+    </div>
 
 <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; font-family: sans-serif; clear: both;">
   <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
@@ -227,5 +236,10 @@ calc();
 })();
 </script>
 
+  <!-- Sticky Ad Placeholder -->
+  <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
+    <span>Advertisement</span>
+    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">&times;</button>
+  </div>
 </body>
 </html>

@@ -244,14 +244,26 @@ img {
 h1,
 h2,
 h3 {
+    margin-top: 0;
+    font-weight: 800;
+    color: #fff;
     letter-spacing: -0.04em;
-    line-height: 1.06;
+    line-height: 1.1;
 }
 
 h1 {
-    margin: 0 0 18px;
-    font-size: clamp(2.2rem, 8vw, 4.8rem);
-    max-width: 15ch;
+    font-size: clamp(1.75rem, 4.5vw, 2.4rem);
+    margin-bottom: 18px;
+}
+
+h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    margin-bottom: 16px;
 }
 
 .hero-subheadline {
@@ -845,7 +857,7 @@ body.menu-open .mobile-nav {
 }
 
 .product-hero h1 {
-    font-size: clamp(2.2rem, 4vw, 3.4rem);
+    font-size: clamp(1.85rem, 4vw, 2.8rem);
     margin-top: 16px;
     margin-bottom: 16px;
 }
@@ -941,3 +953,172 @@ body.menu-open .mobile-nav {
     margin-top: 16px;
     display: inline-block;
 }
+
+/* ─── Ad Placeholder System ───────────────────────────── */
+.ad-placeholder {
+    margin: 24px auto;
+    padding: 12px;
+    background: rgba(255, 255, 254, 0.02);
+    border: 1px dashed var(--line);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    overflow: hidden;
+    position: relative;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.ad-placeholder:hover {
+    background: rgba(46, 204, 113, 0.03);
+    border-color: rgba(46, 204, 113, 0.3);
+}
+
+.ad-placeholder::before {
+    content: "Advertisement";
+    font-size: 11px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    color: var(--muted-2) !important;
+    margin-bottom: 8px !important;
+    line-height: 1 !important;
+    font-family: var(--font-sans), sans-serif !important;
+}
+
+.ad-placeholder span {
+    font-size: 14px !important;
+    color: var(--muted) !important;
+    font-style: italic !important;
+    opacity: 0.6 !important;
+    line-height: 1.2 !important;
+    font-family: var(--font-sans), sans-serif !important;
+}
+
+/* Variants */
+.ad-placeholder-top {
+    max-width: 100%;
+    width: 970px;
+    min-height: 90px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.ad-placeholder-inline {
+    width: 100%;
+    min-height: 250px;
+    margin: 32px 0;
+}
+
+.ad-placeholder-tool {
+    width: 100%;
+    min-height: 100px;
+    margin-bottom: 24px;
+    border-style: solid;
+    border-color: rgba(46, 204, 113, 0.15);
+}
+
+.ad-placeholder-mid {
+    width: 100%;
+    min-height: 300px;
+    margin: 40px 0;
+}
+
+.ad-placeholder-bottom {
+    width: 100%;
+    max-width: 728px;
+    min-height: 90px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+.ad-placeholder-sticky {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000; /* Stays above sticky result bars */
+    margin: 0;
+    border: none;
+    border-top: 1px solid var(--line);
+    border-radius: 0;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    height: 64px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.ad-placeholder-sticky::before {
+    margin-bottom: 0 !important;
+    margin-right: 12px !important;
+    opacity: 0.8;
+}
+
+.ad-placeholder-sticky span {
+    font-size: 13px !important;
+    margin-top: 1px;
+}
+
+/* ────────── Overlap Prevention ────────── */
+
+/* Add bottom padding to body when sticky ad is present */
+body.has-sticky-ad {
+    padding-bottom: 70px;
+}
+
+/* Shift result bar above ad bar when both are visible */
+body:has(.ad-placeholder-sticky:not([style*="display: none"])) .sticky-result-bar {
+    transform: translateY(-64px) !important;
+}
+
+/* Ensure the result bar transition remains smooth */
+.sticky-result-bar {
+    z-index: 1500 !important;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), bottom 0.3s ease !important;
+}
+
+.ad-sticky-close {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 44px; /* Increased for mobile touch target */
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px !important;
+    font-weight: 300 !important;
+    color: var(--muted);
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    outline: none;
+    line-height: 1;
+}
+
+.ad-sticky-close:hover {
+    background: rgba(239, 68, 68, 0.15);
+    color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+@media (max-width: 768px) {
+    .ad-placeholder-top {
+        min-height: 60px;
+    }
+    .ad-placeholder-sticky {
+        padding: 8px 12px;
+    }
+}

@@ -36,7 +36,7 @@
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"HVAC Calculators","item":"https://mintsheets.com/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"Labor Burden Calculator","item":"https://mintsheets.com/hvac-labor-cost-calculator/"}]}
 </script>
 </head>
-<body>
+<body class="has-sticky-ad">
 
     <header class="site-header">
       <div class="container nav">
@@ -105,14 +105,17 @@
           <div style="margin-bottom: 30px; text-align: center;">
             <div class="eyebrow">Technical Tool</div>
             <h1 style="margin: 10px auto; max-width: none;">HVAC Labor Cost Calculator (Billable Hourly Rate Tool)</h1>
-            <p style="color: var(--muted);">Fully burdened labor cost analysis — calculate your true hourly cost and set profitable billable rates. Learn more in our <a href="/blog/hvac-pricing-guide-for-contractors/" style="color: var(--primary); text-decoration: none; font-weight: bold;">HVAC Pricing Guide for Contractors</a>.</p>
-          </div>
 
-          <!-- Ad Placeholder: Top Banner -->
-          <div class="ad-slot ad-top"></div>
-
+    <!-- Ad Placeholder: Top Banner -->
+    <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
 <!-- SECTION 1 — BURDEN CALCULATOR -->
-<div class="section-banner"><span class="icon">💵</span> SECTION 1 — WAGE & BURDEN RATES</div>
+
+    <!-- Ad Placeholder: Above Calculator -->
+    <div class="ad-placeholder ad-placeholder-tool">
+      <span>Advertisement</span>
+    </div>
+
+<span class="icon">💵</span> SECTION 1 — WAGE & BURDEN RATES</div>
 <div class="card">
   <div class="form-grid">
     <div class="form-group">
@@ -159,8 +162,10 @@
   </div>
 </div>
 
-  <!-- Ad Placeholder: Mid Content -->
-  <div class="ad-slot ad-mid" style="margin-top: 20px;"></div>
+      <!-- Ad Placeholder: Mid Content -->
+    <div class="ad-placeholder ad-placeholder-mid">
+      <span>Advertisement</span>
+    </div>
 
 <!-- SEO CONTENT SECTION -->
 <section class="section" id="seo-content">
@@ -170,13 +175,20 @@
   </div>
 </section>
 
-<!-- Ad Placeholder: Bottom Banner -->
-<div class="ad-slot ad-bottom" style="margin-bottom: 40px;"></div>
+    <!-- Ad Placeholder: Bottom Banner -->
+    <div class="ad-placeholder ad-placeholder-bottom">
+      <span>Advertisement</span>
+    </div>
 
 </section>
 </main>
 
-    <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+        <!-- Ad Placeholder: Bottom Banner -->
+    <div class="ad-placeholder ad-placeholder-bottom">
+      <span>Advertisement</span>
+    </div>
+
+<footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
       <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
         <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
@@ -237,5 +249,10 @@ recalc();
 })();
 </script>
 
+  <!-- Sticky Ad Placeholder -->
+  <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
+    <span>Advertisement</span>
+    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">&times;</button>
+  </div>
 </body>
 </html>
