@@ -1,0 +1,50 @@
+﻿                <div class="calc-badge">Business Â· Operations</div>
+                <h3>Labor Burden Calculator</h3>
+                <p>Calculate the true burdened cost of each technician including taxes, insurance, benefits, PTO, and overhead allocation.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+              <a href="/hvac-profit-margin-calculator/" class="calc-card" id="calc-margin">
+                <div class="calc-badge">Business Â· Financial</div>
+                <h3>Profit Margin Calculator</h3>
+                <p>Analyze net profitability of service jobs or installation projects. Review gross margin, net margin, and overhead recovery after all costs.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+              <a href="/hvac-service-markup-calculator/" class="calc-card" id="calc-markup">
+                <div class="calc-badge">Business Â· Pricing</div>
+                <h3>Service Markup Calculator</h3>
+                <p>Determine correct parts markup percentages to achieve consistent net profit goals on all service work and installations.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+              <a href="/hvac-energy-savings-calculator/" class="calc-card" id="calc-energy">
+                <div class="calc-badge">Business Â· Efficiency</div>
+                <h3>Energy Savings Calculator</h3>
+                <p>Project annual utility bill savings and ROI for equipment efficiency upgrades. Model SEER and AFUE improvements to show customer value.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+              <a href="/hvac-business-valuation-calculator/" class="calc-card" id="calc-valuation">
+                <div class="calc-badge">Business Â· Strategy</div>
+                <h3>Business Valuation Calculator</h3>
+                <p>Estimate the market value of MintSheetsmpany based on revenue, EBITDA, and industry-standard valuation multiples.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEO Prose -->
+        <div class="seo-prose">
+          <h2>About MintSheets HVAC Calculators</h2>
+          <p>MintSheets provides the most comprehensive suite of free HVAC calculators available online. Unlike generic engineering tools, every calculator on this site is purpose-built for the HVAC trade â€” designed around the terminology, workflows, and standards that HVAC technicians, estimators, and contractors actually use in the field.</p>
+          <p>Our technical calculators align with ACCA Manual J (load calculation), Manual D (duct design), and Manual S (equipment selection) methodology. Our business tools are built around real HVAC contracting economics â€” labor burden, overhead recovery, flat-rate pricing, and margin protection.</p>
+          <p>All calculators are completely free to use. No account required, no app download, no paywall. Fully mobile-responsive for use in the field on any smartphone or tablet.</p>
+
+          <h2>HVAC Calculators for Technicians</h2>
+          <p>Field technicians need fast, accurate tools for commissioning, diagnostics, and service work. The <a href="/hvac-static-pressure-calculator/">static pressure calculator</a> is essential for diagnosing any airflow complaint or coil icing issue. The <a href="/hvac-flow-rate-calculator/">flow rate calculator</a> verifies actual blower airflow using temperature rise or static pressure delta. The <a href="/hvac-cfm-calculator/">CFM calculator</a> quickly determines whether a system is delivering design airflow to each room.</p>
+
+          <h2>HVAC Sizing Tools for Estimators</h2>
+          <p>Proper HVAC sizing requires more than a square footage estimate. The <a href="/hvac-load-calculator/">HVAC load calculator</a> uses building envelope data, window area and orientation, and climate zone design temperatures to produce a reliable cooling and heating load estimate. The <a href="/hvac-duct-size-calculator/">duct sizing calculator</a> then sizes the air distribution system to match the equipment at an acceptable static pressure budget. The <a href="/hvac-mini-split-sizing-calculator/">mini split sizing calculator</a> handles ductless zone systems with multi-room BTU allocation.</p>
+
+          <h2>HVAC Business Calculators for Contractors</h2>
+          <p>Profitability in HVAC contracting requires accurate pricing at every level. The <a href="/hvac-labor-cost-calculator/">labor burden calculator</a> reveals the true cost of deploying a technician. The <a href="/hvac-bid-calculator/">bid calculator</a> builds complete job cost estimates with overhead recovery and margin targets. The <a href="/hvac-service-price-calculator/">service price calculator</a> generates profitable flat-rate fees for diagnostic calls and routine maintenance.</p>
+        </div>
+      </div>

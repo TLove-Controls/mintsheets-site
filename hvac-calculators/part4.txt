@@ -1,0 +1,50 @@
+﻿                <p>Total External Static Pressure (TESP) budget analysis per ACCA Manual D. Component-by-component breakdown with high-static diagnosis.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+              <a href="/hvac-flow-rate-calculator/" class="calc-card" id="calc-flowrate">
+                <div class="calc-badge">Technical Â· Performance</div>
+                <h3>Flow Rate Calculator</h3>
+                <p>Determine system airflow (CFM) using temperature rise or static pressure delta. Verify actual blower output during commissioning or service.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+            </div>
+          </div>
+
+          <!-- DESIGN TOOLS -->
+          <div class="calc-category">
+            <h2>Design &amp; Sizing Tools</h2>
+            <p class="cat-desc">Ductwork, equipment selection, and system design tools for HVAC designers and estimators.</p>
+            <div class="calc-grid">
+              <a href="/hvac-duct-size-calculator/" class="calc-card" id="calc-duct">
+                <div class="calc-badge">Design Â· Ductwork</div>
+                <h3>Duct Size Calculator</h3>
+                <p>Dimension round and rectangular ductwork based on CFM and friction rates. Equal friction method per ACCA Manual D. Includes TESP budget.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+              <a href="/hvac-mini-split-sizing-calculator/" class="calc-card" id="calc-minisplit">
+                <div class="calc-badge">Design Â· Ductless</div>
+                <h3>Mini Split Sizing Calculator</h3>
+                <p>Size ductless mini split systems by zone. Multi-room BTU capacity calculator with climate zone adjustments and efficiency comparisons.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+            </div>
+          </div>
+
+          <!-- BUSINESS TOOLS -->
+          <div class="calc-category">
+            <h2>Business &amp; Financial Tools</h2>
+            <p class="cat-desc">Pricing, bidding, margin, and valuation calculators for HVAC contractors and business owners.</p>
+            <div class="calc-grid">
+              <a href="/hvac-bid-calculator/" class="calc-card" id="calc-bid">
+                <div class="calc-badge">Business Â· Bidding</div>
+                <h3>HVAC Bid Calculator</h3>
+                <p>Estimate job costs, labor burden, overhead, and protected margin for accurate installation and service bidding.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+              <a href="/hvac-service-price-calculator/" class="calc-card" id="calc-service-price">
+                <div class="calc-badge">Business Â· Pricing</div>
+                <h3>Service Price Calculator</h3>
+                <p>Generate flat-rate pricing for service calls including travel time, burdened labor, diagnostic fee, and parts markup.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+              <a href="/hvac-labor-cost-calculator/" class="calc-card" id="calc-labor">

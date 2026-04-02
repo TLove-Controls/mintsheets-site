@@ -1,0 +1,50 @@
+﻿    <div class="mobile-nav-cta">
+      <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary">Free Resources</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <div class="calc-index-wrap">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <a href="/">Home</a><span>›</span>All HVAC Calculators
+          </nav>
+
+          <div class="page-intro">
+            <div class="eyebrow" style="margin-bottom:12px;">Complete Tool Directory</div>
+            <h1 style="font-size:36px;color:#fff;margin-bottom:16px;line-height:1.25;">All Free HVAC Calculators</h1>
+
+    <!-- Ad Placeholder: Top Banner -->
+    <div class="ad-placeholder ad-placeholder-top">
+      <span>Advertisement</span>
+    </div>
+            <p>Every calculator on MintSheets is completely free, browser-based, and requires no login or download. Tools are organized by category below. Built for HVAC technicians, contractors, estimators, and system designers.</p>
+          </div>
+
+          <!-- TECHNICAL TOOLS -->
+          <div class="calc-category">
+            <h2>Technical &amp; Field Tools</h2>
+            <p class="cat-desc">Airflow, load, static pressure, and system performance calculators for technicians and system designers.</p>
+            <div class="calc-grid">
+              <a href="/hvac-load-calculator/" class="calc-card" id="calc-load">
+                <div class="calc-badge">Technical Â· Sizing</div>
+                <h3>HVAC Load Calculator</h3>
+                <p>Estimate peak heating and cooling loads (BTU/hr) using Manual J simplified methodology. Accounts for envelope, windows, orientation, and climate zone.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+              <a href="/hvac-cfm-calculator/" class="calc-card" id="calc-cfm">
+                <div class="calc-badge">Technical Â· Airflow</div>
+                <h3>CFM Calculator</h3>
+                <p>Calculate system and room airflow in cubic feet per minute using square footage, sensible BTU load, or air changes per hour (ACPH) method.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+              <a href="/hvac-airflow-per-room-calculator/" class="calc-card" id="calc-airflow-room">
+                <div class="calc-badge">Technical Â· Airflow</div>
+                <h3>Airflow Per Room Calculator</h3>
+                <p>Multi-room CFM allocation tool. Calculate required airflow per room, size supply registers, and verify system airflow balance across all zones.</p>
+                <div class="open-link">Open Calculator â†’</div>
+              </a>
+              <a href="/hvac-static-pressure-calculator/" class="calc-card" id="calc-sp">
+                <div class="calc-badge">Technical Â· Diagnostics</div>
+                <h3>Static Pressure Calculator</h3>

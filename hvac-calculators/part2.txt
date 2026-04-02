@@ -1,0 +1,50 @@
+﻿  .seo-prose{max-width:820px;margin:60px auto 0;padding:0 20px;color:var(--text-light);font-size:15px;line-height:1.8}
+  .seo-prose h2{font-size:24px;color:#fff;margin:40px 0 14px;padding-bottom:6px;border-bottom:2px solid var(--primary)}
+  .seo-prose p{margin-bottom:14px}
+  .seo-prose a{color:var(--primary);text-decoration:none}
+  .seo-prose a:hover{text-decoration:underline}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-83YSB6HWN4');</script>
+</head>
+<body class="has-sticky-ad">
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
+      </a>
+
+      <nav class="nav-links">
+        <a href="/">Calculators</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#troubleshooting-checklist">Free Guide</a>
+        <a href="mailto:support@mintsheets.com">Support</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+      </div>
+      <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+      <!-- Mobile Navigation -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="brand">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
+      </a>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
+      <li><a href="/blog/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
+      <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
+      <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
+    </ul>

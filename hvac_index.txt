@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7177850851908341"
      crossorigin="anonymous"></script>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HVAC Bid Calculator | HVAC Estimate, Pricing & Margin Tool | MintSheets</title>
 <meta name="description" content="Free online HVAC bid calculator for estimating job costs, labor, and profit margins. Professional pricing tool for residential and commercial HVAC contractors.">
@@ -35,9 +36,6 @@
   .breadcrumb-bar a{color:var(--primary);text-decoration:none;}
   .breadcrumb-bar a:hover{text-decoration:underline;}
   .breadcrumb-bar span{color:#4A6080;}
-  .breadcrumb-separator { margin: 0 4px; font-weight: bold; }
-  .section-banner { background: var(--panel-elevated); padding: 12px 16px; font-weight: bold; color: var(--text); border-left: 4px solid var(--primary); margin: 30px 0 15px 0; border-radius: 4px; display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .section-banner:first-of-type { margin-top: 15px; }
   </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"HVAC Calculators","item":"https://mintsheets.com/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"HVAC Bid Calculator","item":"https://mintsheets.com/hvac-bid-calculator/"}]}
@@ -81,10 +79,10 @@
       </button>
     </div>
     <ul class="mobile-nav-links">
-      <li><a href="/"><span class="nav-icon">🧮</span> Calculators</a></li>
-      <li><a href="/blog/"><span class="nav-icon">📝</span> Blog</a></li>
-      <li><a href="/#troubleshooting-checklist"><span class="nav-icon">📋</span> Free Guide</a></li>
-      <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">✉️</span> Support</a></li>
+      <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
+      <li><a href="/blog/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
+      <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
+      <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
     </ul>
     <div class="mobile-nav-cta">
       <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary">Free Resources</a>
@@ -94,18 +92,14 @@
     <main>
   <div class="breadcrumb-bar">
     <div class="container">
-      <a href="/">Home</a><span class="breadcrumb-separator">›</span>
-      <a href="/hvac-calculators/">HVAC Calculators</a><span class="breadcrumb-separator">›</span>
+      <a href="/">Home</a><span>�</span>
+      <a href="/hvac-calculators/">HVAC Calculators</a><span>�</span>
       HVAC Bid Calculator
     </div>
   </div>
-  
-  <div class="container">
-    <div style="background: rgba(46, 204, 113, 0.12); border: 1px solid rgba(46, 204, 113, 0.35); border-radius: 10px; padding: 12px 14px; margin: 14px 0; color: #DCFFEA; font-size: 14px; line-height: 1.45;">
-      <strong>Notice:</strong> This HVAC calculator provides estimates only and is for informational purposes. Results should be verified by a licensed HVAC professional. Use at your own risk.
-    </div>
-  </div>
-
+      <div style="background: rgba(46, 204, 113, 0.12); border: 1px solid rgba(46, 204, 113, 0.35); border-radius: 10px; padding: 12px 14px; margin: 14px 0; color: #DCFFEA; font-size: 14px; line-height: 1.45;">
+        <strong>Notice:</strong> This HVAC calculator provides estimates only and is for informational purposes. Results should be verified by a licensed HVAC professional. Use at your own risk.
+      </div>
       <section class="section">
         <div class="container section-card">
           <div style="margin-bottom: 30px; text-align: center;">
@@ -114,17 +108,16 @@
 
     <!-- Ad Placeholder: Top Banner -->
     <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
-          </div>
-          
+<!-- ═══════════════════════════════════════════════════════ -->
+  <!-- SECTION 1: JOB INFO -->
+  <!-- ═══════════════════════════════════════════════════════ -->
+  
+    <!-- Ad Placeholder: Above Calculator -->
     <div class="ad-placeholder ad-placeholder-tool">
       <span>Advertisement</span>
     </div>
 
-  <!-- ═══════════════════════════════════════════════════════ -->
-  <!-- SECTION 1: JOB INFO -->
-  <!-- ═══════════════════════════════════════════════════════ -->
-  
-  <div class="section-banner">
+
     <span class="icon">📋</span> SECTION 1 — JOB INFORMATION
   </div>
   <div class="content">
@@ -181,7 +174,12 @@
   <!-- SECTION 2: SYSTEM SPECS -->
   <!-- ═══════════════════════════════════════════════════════ -->
   
-  <div class="section-banner">
+    <!-- Ad Placeholder: Above Calculator -->
+    <div class="ad-placeholder ad-placeholder-tool">
+      <span>Advertisement</span>
+    </div>
+
+
     <span class="icon">🔧</span> SECTION 2 — SYSTEM SPECIFICATIONS
   </div>
   <div class="content">
@@ -257,7 +255,12 @@
   <!-- SECTION 3: LINE ITEMS -->
   <!-- ═══════════════════════════════════════════════════════ -->
   
-  <div class="section-banner">
+    <!-- Ad Placeholder: Above Calculator -->
+    <div class="ad-placeholder ad-placeholder-tool">
+      <span>Advertisement</span>
+    </div>
+
+
     <span class="icon">💰</span> SECTION 3 — MATERIALS &amp; LABOR LINE ITEMS
   </div>
   <div class="content" style="padding-bottom: 0;">
@@ -322,16 +325,21 @@
 
   <div class="divider"></div>
 
-  <!-- Ad Placeholder: Mid Content -->
-  <div class="ad-placeholder ad-placeholder-mid">
-    <span>Advertisement</span>
-  </div>
+      <!-- Ad Placeholder: Mid Content -->
+    <div class="ad-placeholder ad-placeholder-mid">
+      <span>Advertisement</span>
+    </div>
 
   <!-- ═══════════════════════════════════════════════════════ -->
   <!-- SECTION 4: PRICING SUMMARY -->
   <!-- ═══════════════════════════════════════════════════════ -->
   
-  <div class="section-banner">
+    <!-- Ad Placeholder: Above Calculator -->
+    <div class="ad-placeholder ad-placeholder-tool">
+      <span>Advertisement</span>
+    </div>
+
+
     <span class="icon">📊</span> SECTION 4 — PRICING SUMMARY &amp; MARGIN CONTROL
   </div>
   <div class="summary-panel">
@@ -414,9 +422,14 @@
   <!-- SECTION 5: GOOD/BETTER/BEST TIERS -->
   <!-- ═══════════════════════════════════════════════════════ -->
   
-  <div class="section-banner">
-    <span class="icon" style="display:flex;align-items:center;">🏆 SECTION 5 — GOOD / BETTER / BEST PROPOSAL TIERS</span>
-    <span class="highlight" style="margin-left:auto;font-size:12px;background:var(--primary-dark);padding:4px 8px;border-radius:4px;">Auto-Calculated</span>
+    <!-- Ad Placeholder: Above Calculator -->
+    <div class="ad-placeholder ad-placeholder-tool">
+      <span>Advertisement</span>
+    </div>
+
+
+    <span class="icon">🏆</span> SECTION 5 — GOOD / BETTER / BEST PROPOSAL TIERS
+    <span class="highlight">Auto-Calculated</span>
   </div>
   <div class="tier-grid">
     <div class="tier-card good">
@@ -458,7 +471,12 @@
   <!-- SECTION 6: TRACKING LOG -->
   <!-- ═══════════════════════════════════════════════════════ -->
   
-  <div class="section-banner">
+    <!-- Ad Placeholder: Above Calculator -->
+    <div class="ad-placeholder ad-placeholder-tool">
+      <span>Advertisement</span>
+    </div>
+
+
     <span class="icon">📝</span> SECTION 6 — BID TRACKING &amp; FOLLOW-UP LOG
   </div>
   <div class="content" style="padding-bottom: 0;">
@@ -490,7 +508,7 @@
   <!-- PRO TIPS -->
   <div class="tips-box">
     <strong>⚡ Pro Tips for Winning More Bids</strong><br>
-    Always present all three tiers in person — 60% of customers choose Better or Best when offered. • Lead with financing options to shift the conversation from price to monthly payment. • Include a photo of the old unit in the proposal to justify the replacement. • Follow up within 24 hours — bid acceptance drops by 40% after 3 days.
+    Always present all three tiers in person — 60% of customers choose Better or Best when offered. · Lead with financing options to shift the conversation from price to monthly payment. · Include a photo of the old unit in the proposal to justify the replacement. · Follow up within 24 hours — bid acceptance drops by 40% after 3 days.
   </div>
 
   <!-- ACTION ROW -->
@@ -510,13 +528,13 @@
       </section>
     </main>
 
-    <!-- Ad Placeholder: Bottom Banner -->
+        <!-- Ad Placeholder: Bottom Banner -->
     <div class="ad-placeholder ad-placeholder-bottom">
       <span>Advertisement</span>
     </div>
 
 <div class="workflow-chain">
-        <div class="workflow-title"><span style="margin-right:8px;">🔄</span> Professional Workflow Navigation</div>
+        <div class="workflow-title"><span>🔄</span> Professional Workflow Navigation</div>
         <div class="workflow-steps">
             <a href="/hvac-load-calculator/" class="workflow-step">1. Load Calc</a>
             <span class="workflow-arrow">&rarr;</span>
@@ -530,6 +548,10 @@
         </div>
     </div>
 
+        <!-- Ad Placeholder: Bottom Banner -->
+    <div class="ad-placeholder ad-placeholder-bottom">
+      <span>Advertisement</span>
+    </div>
 
 <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
       <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
@@ -566,42 +588,28 @@
 
         function addRow(type) {
             const body = document.getElementById(type + 'Body');
-            if(!body) return;
             const row = document.createElement('tr');
             if (type === 'material') {
                 row.innerHTML = `
                     <td><input type="text" placeholder="Equipment/Part description" style="width:100%"></td>
-                    <td><input type="number" class="mat-qty" value="1" min="0" oninput="recalc()" style="width:100%"></td>
-                    <td><input type="number" class="mat-cost" value="0" min="0" oninput="recalc()" style="width:100%"></td>
+                    <td><input type="number" class="mat-qty" value="1" oninput="recalc()" style="width:100%"></td>
+                    <td><input type="number" class="mat-cost" value="0" oninput="recalc()" style="width:100%"></td>
                     <td class="mat-ext">$0.00</td>
                     <td><select style="width:100%"><option>Equip</option><option>Part</option><option>Misc</option></select></td>
-                    <td class="no-print"><button class="btn btn-delete btn-sm" onclick="removeRow(this);recalc();">✕</button></td>
+                    <td class="no-print"><button class="btn btn-delete btn-sm" onclick="this.closest('tr').remove();recalc();">✕</button></td>
                 `;
             } else {
                 row.innerHTML = `
                     <td><input type="text" placeholder="Labor Task" style="width:100%"></td>
-                    <td><input type="number" class="lab-hours" value="1" min="0" oninput="recalc()" style="width:100%"></td>
-                    <td><input type="number" class="lab-rate" value="45" min="0" oninput="recalc()" style="width:100%"></td>
+                    <td><input type="number" class="lab-hours" value="1" oninput="recalc()" style="width:100%"></td>
+                    <td><input type="number" class="lab-rate" value="45" oninput="recalc()" style="width:100%"></td>
                     <td class="lab-ext">$45.00</td>
                     <td><select style="width:100%"><option>Install</option><option>Service</option><option>Other</option></select></td>
-                    <td class="no-print"><button class="btn btn-delete btn-sm" onclick="removeRow(this);recalc();">✕</button></td>
+                    <td class="no-print"><button class="btn btn-delete btn-sm" onclick="this.closest('tr').remove();recalc();">✕</button></td>
                 `;
             }
             body.appendChild(row);
             recalc();
-        }
-
-        function removeRow(btn) {
-            const row = btn.closest('tr');
-            const tbody = row.closest('tbody');
-            row.remove();
-            
-            // Ensure at least one material/labor row remains.
-            if (tbody.id === 'materialBody' && tbody.querySelectorAll('tr').length === 0) {
-                addRow('material');
-            } else if (tbody.id === 'laborBody' && tbody.querySelectorAll('tr').length === 0) {
-                addRow('labor');
-            }
         }
 
         function updateMargin() {
@@ -631,40 +639,36 @@
                 const hoursInput = row.querySelector('.lab-hours');
                 const rateInput = row.querySelector('.lab-rate');
                 if (!hoursInput || !rateInput) return;
-                const hours = Math.max(0, parseFloat(hoursInput.value) || 0);
-                const rate = Math.max(0, parseFloat(rateInput.value) || 0);
+                const hours = parseFloat(hoursInput.value) || 0;
+                const rate = parseFloat(rateInput.value) || 0;
                 const ext = hours * rate;
                 row.querySelector('.lab-ext').innerText = '$' + ext.toFixed(2);
                 laborTotal += ext;
             });
             document.getElementById('laborTotal').innerText = '$' + laborTotal.toFixed(2);
 
-            const refLbs = Math.max(0, parseFloat(document.getElementById('refLbs').value) || 0);
-            const refRate = Math.max(0, parseFloat(document.getElementById('refRate').value) || 0);
+            const refLbs = parseFloat(document.getElementById('refLbs').value) || 0;
+            const refRate = parseFloat(document.getElementById('refRate').value) || 0;
             const refTotal = refLbs * refRate;
 
-            const permit = Math.max(0, parseFloat(document.getElementById('permitFee').value) || 0);
-            const disposal = Math.max(0, parseFloat(document.getElementById('disposalFee').value) || 0);
+            const permit = parseFloat(document.getElementById('permitFee').value) || 0;
+            const disposal = parseFloat(document.getElementById('disposalFee').value) || 0;
             const rawCost = matTotal + laborTotal + refTotal + permit + disposal;
 
-            let marginPct = parseFloat(document.getElementById('marginSlider').value) || 0;
-            // Prevent infinity or zero-division: cap margin at 99.9% visually treated as logical max before explosion
-            if (marginPct >= 100) marginPct = 99.9; 
-            
-            const marginMultiplier = Math.max(0.001, (1 - (marginPct / 100)));
+            const marginPct = parseFloat(document.getElementById('marginSlider').value) || 0;
+            const marginMultiplier = (marginPct >= 100) ? 100 : (1 - (marginPct / 100));
             const sellPriceBeforeDisc = rawCost / marginMultiplier;
             const markup = sellPriceBeforeDisc - rawCost;
 
-            const discount = Math.max(0, parseFloat(document.getElementById('discount').value) || 0);
-            const finPct = Math.max(0, parseFloat(document.getElementById('financing').value) || 0);
-            const finFee = Math.max(0, (sellPriceBeforeDisc - discount) * (finPct / 100));
+            const discount = parseFloat(document.getElementById('discount').value) || 0;
+            const finPct = parseFloat(document.getElementById('financing').value) || 0;
+            const finFee = (sellPriceBeforeDisc - discount) * (finPct / 100);
 
-            const taxRate = Math.max(0, parseFloat(document.getElementById('taxRate').value) || 0);
+            const taxRate = parseFloat(document.getElementById('taxRate').value) || 0;
             const taxable = Math.max(0, sellPriceBeforeDisc - discount + finFee);
             const tax = taxable * (taxRate / 100);
 
-            let totalBid = taxable + tax;
-            if(!isFinite(totalBid) || isNaN(totalBid)) totalBid = 0;
+            const totalBid = taxable + tax;
 
             // Summary
             document.getElementById('s-mat').innerText = '$' + matTotal.toFixed(2);
@@ -684,11 +688,11 @@
             document.getElementById('t-better').innerHTML = '$' + (totalBid * 1.08).toFixed(2) + '<small>Mid Efficiency (+8%)</small>';
             document.getElementById('t-best').innerHTML = '$' + (totalBid * 1.18).toFixed(2) + '<small>High Efficiency (+18%)</small>';
 
-            // Sticky Bar (safely call external function)
-            if (typeof window.updateMintStickyBar === 'function') {
+            // Sticky Bar
+            if (window.updateMintStickyBar) {
                 window.updateMintStickyBar({
                     'Bid Total': '$' + totalBid.toFixed(0),
-                    'Profit': '$' + Math.max(0, markup).toFixed(0)
+                    'Profit': '$' + markup.toFixed(0)
                 }, '/hvac-bid-calculator/');
             }
         }
@@ -701,11 +705,10 @@
             const cust = document.getElementById('custName').value || 'Unknown';
             const est = document.getElementById('estNum').value || 'N/A';
             const date = document.getElementById('jobDate').value || new Date().toLocaleDateString();
-            const amtElem = document.getElementById('s-total');
-            const amt = amtElem ? amtElem.innerText : '$0.00';
+            const amt = document.getElementById('s-total').innerText;
 
             const row = document.createElement('tr');
-            row.innerHTML = `<td>${cust}</td><td>${est}</td><td>${date}</td><td>${amt}</td><td>7 Days</td><td><span class="status-badge" style="background:#FF9966">Pending</span></td><td class="no-print"><button class="btn btn-delete btn-sm" onclick="this.closest('tr').remove()">✕</button></td>`;
+            row.innerHTML = `<td>${cust}</td><td>${est}</td><td>${date}</td><td>${amt}</td><td>7 Days</td><td><span class=\"status-badge\" style=\"background:#FF9966\">Pending</span></td><td class=\"no-print\"><button class=\"btn btn-delete btn-sm\" onclick=\"this.closest(\'tr\').remove()\">✕</button></td>`;
             logBody.appendChild(row);
         }
 
@@ -745,3 +748,7 @@
   </div>
 </body>
 </html>
+
+
+
+
