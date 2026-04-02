@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7177850851908341" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7177850851908341"
+    crossorigin="anonymous"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HVAC Business Valuation Calculator | Estimating HVAC Company Value | MintSheets</title>
-  <meta name="description" content="Free online HVAC business valuation calculator. Estimate the market value of your HVAC company based on EBITDA, assets, and market multiples.">
+  <meta name="description"
+    content="Free online HVAC business valuation calculator. Estimate the market value of your HVAC company based on EBITDA, assets, and market multiples.">
   <link rel="canonical" href="https://mintsheets.com/hvac-business-valuation-calculator/" />
   <meta property="og:title" content="HVAC Business Valuation Calculator | Estimating HVAC Company Value | MintSheets" />
-  <meta property="og:description" content="Estimate the market value of your HVAC company based on EBITDA, assets, and market multiples." />
+  <meta property="og:description"
+    content="Estimate the market value of your HVAC company based on EBITDA, assets, and market multiples." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mintsheets.com/hvac-business-valuation-calculator/" />
-  <link rel="stylesheet" href="../styles.min.css?v=1.5">
-  <link rel="stylesheet" href="../shared/css/calculators.css?v=1.6">
+  <link rel="stylesheet" href="/styles.min.css?v=1.5">
+  <link rel="stylesheet" href="/shared/css/calculators.css?v=1.6">
   <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
-  
+
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Business Valuation Calculator","url":"https://mintsheets.com/hvac-business-valuation-calculator/","applicationCategory":"ProfessionalTool","operatingSystem":"WEB"}
   </script>
@@ -23,45 +27,136 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-83YSB6HWN4');
   </script>
-  
-  <style>
-    .shell { display: flex; gap: 30px; align-items: flex-start; }
-    .left-col { flex: 1; min-width: 0; }
-    .sidebar { width: 340px; position: sticky; top: 20px; }
-    @media (max-width: 900px) {
-      .shell { flex-direction: column !important; }
-      .left-col, .sidebar { width: 100% !important; max-width: none !important; }
-      .sidebar { position: static !important; }
-    }
-    .card { background: var(--panel-elevated); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 24px; }
-    .field-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    @media (max-width: 600px) { .field-grid { grid-template-columns: 1fr; } }
-    .input-wrap { display: flex; align-items: center; background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: var(--radius-sm); }
-    .input-pre, .input-suf { padding: 0 10px; color: var(--muted); font-size: 13px; font-weight: 500; }
-    .input-wrap input { border: none !important; background: transparent !important; flex: 1; min-height: 40px; padding: 0 10px; color: #fff; }
 
-    /* Added breadcrumb-bar styling */
-    .breadcrumb-bar { background: rgba(11,28,53,0.7); border-bottom: 1px solid #1E3452; padding: 8px 0; font-size: 13px; }
-    .breadcrumb-bar .container { display: flex; align-items: center; gap: 6px; color: #7A98B8; flex-wrap: wrap; }
-    .breadcrumb-bar a { color: var(--primary); text-decoration: none; }
-    .breadcrumb-bar a:hover { text-decoration: underline; }
-    .breadcrumb-bar span, .breadcrumb-separator { color: #4A6080; font-weight: bold; margin: 0 4px; }
+  <style>
+    .shell {
+      display: flex;
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    .left-col {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .sidebar {
+      width: 340px;
+      position: sticky;
+      top: 20px;
+    }
+
+    @media (max-width: 900px) {
+      .shell {
+        flex-direction: column !important;
+      }
+
+      .left-col,
+      .sidebar {
+        width: 100% !important;
+        max-width: none !important;
+      }
+
+      .sidebar {
+        position: static !important;
+      }
+    }
+
+    .card {
+      background: var(--panel-elevated);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .field-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 600px) {
+      .field-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .input-wrap {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+    }
+
+    .input-pre,
+    .input-suf {
+      padding: 0 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .input-wrap input {
+      border: none !important;
+      background: transparent !important;
+      flex: 1;
+      min-height: 40px;
+      padding: 0 10px;
+      color: #fff;
+    }
+
+    .breadcrumb-bar {
+      background: rgba(11, 28, 53, 0.7);
+      border-bottom: 1px solid #1E3452;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+
+    .breadcrumb-bar .container {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb-bar a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .breadcrumb-bar a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: #4A6080;
+      margin: 0 4px;
+      font-weight: bold;
+    }
+
+    .breadcrumb-current {
+      color: #7A98B8;
+    }
   </style>
 
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"HVAC Calculators","item":"https://mintsheets.com/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"Business Valuation Calculator","item":"https://mintsheets.com/hvac-business-valuation-calculator/"}]}
   </script>
 </head>
+
 <body class="has-sticky-ad">
 
   <header class="site-header">
     <div class="container nav">
       <a href="/" class="brand">
-        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
       </a>
       <nav class="nav-links">
         <a href="/">Calculators</a>
@@ -70,7 +165,8 @@
         <a href="mailto:support@mintsheets.com">Support</a>
       </nav>
       <div class="header-actions">
-        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free
+          Resources</a>
       </div>
       <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -83,7 +179,8 @@
   <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
     <div class="mobile-nav-header">
       <a href="/" class="brand">
-        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
       </a>
       <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
         <span></span><span></span>
@@ -101,18 +198,21 @@
   </nav>
 
   <main>
-    <div class="breadcrumb-bar">
+    <nav class="breadcrumb-bar" aria-label="Breadcrumb">
       <div class="container">
-        <a href="/">Home</a><span class="breadcrumb-separator">›</span>
-        <a href="/hvac-calculators/">HVAC Calculators</a><span class="breadcrumb-separator">›</span>
-        Business Valuation Calculator
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">›</span>
+        <a href="/hvac-calculators/">HVAC Calculators</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Business Valuation Calculator</span>
       </div>
-    </div>
+    </nav>
 
-    <!-- Added Notice Box -->
     <div class="container">
-      <div style="background: rgba(46, 204, 113, 0.12); border: 1px solid rgba(46, 204, 113, 0.35); border-radius: 10px; padding: 12px 14px; margin: 14px 0; color: #DCFFEA; font-size: 14px; line-height: 1.45;">
-        <strong>Notice:</strong> This HVAC calculator provides estimates only and is for informational purposes. Results should be verified by a qualified financial, legal, or business valuation professional. Use at your own risk.
+      <div
+        style="background: rgba(46, 204, 113, 0.12); border: 1px solid rgba(46, 204, 113, 0.35); border-radius: 10px; padding: 12px 14px; margin: 14px 0; color: #DCFFEA; font-size: 14px; line-height: 1.45;">
+        <strong>Notice:</strong> This HVAC calculator provides estimates only and is for informational purposes. Results
+        should be verified by a qualified financial, legal, or business valuation professional. Use at your own risk.
       </div>
     </div>
 
@@ -121,11 +221,11 @@
         <div style="margin-bottom: 30px; text-align: center;">
           <div class="eyebrow">Strategy Tool</div>
           <h1>HVAC Business Valuation Calculator</h1>
-          
+
           <!-- Ad Placeholder: Top Banner -->
           <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
         </div>
-        
+
         <div class="shell">
           <div class="left-col">
             <div class="card">
@@ -173,9 +273,17 @@
 
         <div id="seo-content" style="margin-top: 40px; color: var(--text-light); line-height: 1.6;">
           <h2>How are HVAC companies valued?</h2>
-          <p>Most small-to-midsize HVAC businesses are valued using a multiple of Seller's Discretionary Earnings (SDE). Larger institutional firms and private equity groups generally use EBITDA.</p>
-          <p><strong>SDE vs. EBITDA:</strong> SDE (Seller's Discretionary Earnings) includes the business's net profit plus the owner's salary, benefits, and personal expenses run through the business. This metric shows the true cash flow available to a new owner-operator. EBITDA, on the other hand, is generally used for larger companies where the acquiring owner is an investor rather than the primary daily operator.</p>
-          <p><strong>Why Multiples Vary:</strong> The exact multiple applied to your SDE depends on several risk and quality factors. HVAC companies with highly predictable operations (like robust maintenance agreements), low owner-dependence, and high geographical density will command higher multiples, often closing past 3.5x. Conversely, companies heavily reliant on the owner for daily operations, sales, or new residential construction bids often settle for much lower multiples due to higher transition risks.</p>
+          <p>Most small-to-midsize HVAC businesses are valued using a multiple of Seller's Discretionary Earnings (SDE).
+            Larger institutional firms and private equity groups generally use EBITDA.</p>
+          <p><strong>SDE vs. EBITDA:</strong> SDE (Seller's Discretionary Earnings) includes the business's net profit
+            plus the owner's salary, benefits, and personal expenses run through the business. This metric shows the
+            true cash flow available to a new owner-operator. EBITDA, on the other hand, is generally used for larger
+            companies where the acquiring owner is an investor rather than the primary daily operator.</p>
+          <p><strong>Why Multiples Vary:</strong> The exact multiple applied to your SDE depends on several risk and
+            quality factors. HVAC companies with highly predictable operations (like robust maintenance agreements), low
+            owner-dependence, and high geographical density will command higher multiples, often closing past 3.5x.
+            Conversely, companies heavily reliant on the owner for daily operations, sales, or new residential
+            construction bids often settle for much lower multiples due to higher transition risks.</p>
         </div>
 
         <!-- Ad Placeholder: Bottom Banner -->
@@ -185,7 +293,6 @@
       </div>
     </section>
 
-    <!-- WORKFLOW CHAIN -->
     <section class="section" style="padding-top: 0;">
       <div class="container">
         <div class="workflow-chain">
@@ -213,43 +320,54 @@
     </section>
   </main>
 
-  <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; font-family: sans-serif; clear: both;">
+  <footer id="mint-footer"
+    style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; font-family: sans-serif; clear: both;">
     <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
-      <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
+      <h3
+        style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">
+        Related HVAC Calculators</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-        <a href="/hvac-profit-margin-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Profit Margin Calculator</a>
-        <a href="/hvac-labor-cost-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Labor Cost Calculator</a>
-        <a href="/hvac-service-markup-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Service Markup Calculator</a>
-        <a href="/hvac-bid-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Bid Calculator</a>
+        <a href="/hvac-profit-margin-calculator/"
+          style="color: var(--muted); text-decoration: none; font-size: 14px;">Profit Margin Calculator</a>
+        <a href="/hvac-labor-cost-calculator/"
+          style="color: var(--muted); text-decoration: none; font-size: 14px;">Labor Cost Calculator</a>
+        <a href="/hvac-service-markup-calculator/"
+          style="color: var(--muted); text-decoration: none; font-size: 14px;">Service Markup Calculator</a>
+        <a href="/hvac-bid-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Bid
+          Calculator</a>
       </div>
-      <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-          <span><span style="color: var(--primary);">✔</span> Used by HVAC technicians & contractors</span>
-          <span><span style="color: var(--primary);">✔</span> Based on ACCA Manual standards</span>
-          <span><span style="color: var(--primary);">✔</span> Free professional tools</span>
+      <div
+        style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        <span><span style="color: var(--primary);">✔</span> Used by HVAC technicians & contractors</span>
+        <span><span style="color: var(--primary);">✔</span> Based on ACCA Manual standards</span>
+        <span><span style="color: var(--primary);">✔</span> Free professional tools</span>
       </div>
-      <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical
+        tools.</p>
     </div>
   </footer>
 
   <script>
-  function calc() {
-    const sdeInput = document.getElementById('sde').value;
-    const multInput = document.getElementById('sdeMult').value;
-    
-    // Fallback to 0 if empty or invalid
-    const sde = parseFloat(sdeInput) || 0;
-    const mult = parseFloat(multInput) || 0;
-    
-    let total = sde * mult;
-    if (!isFinite(total) || isNaN(total)) total = 0;
-    if (total < 0) total = 0; // Prevent negative valuation display logic if needed
-    
-    document.getElementById('valTotal').innerText = '$' + Math.round(total).toLocaleString();
-    if (typeof window.updateMintStickyBar === 'function') { 
-      window.updateMintStickyBar({ 'Business Value': '$' + Math.round(total).toLocaleString() }, '/hvac-profit-margin-calculator/'); 
+    function calc() {
+      const sdeInput = document.getElementById('sde').value;
+      const multInput = document.getElementById('sdeMult').value;
+
+      const sde = parseFloat(sdeInput) || 0;
+      const mult = parseFloat(multInput) || 0;
+
+      let total = sde * mult;
+      if (!isFinite(total) || isNaN(total)) total = 0;
+      if (total < 0) total = 0;
+
+      document.getElementById('valTotal').innerText = '$' + Math.round(total).toLocaleString();
+      if (typeof window.updateMintStickyBar === 'function') {
+        window.updateMintStickyBar(
+          { 'Business Value': '$' + Math.round(total).toLocaleString() },
+          '/hvac-profit-margin-calculator/'
+        );
+      }
     }
-  }
-  calc();
+    calc();
   </script>
 
   <script>
@@ -259,15 +377,26 @@
       var overlay = document.getElementById('mobile-nav-overlay');
       var close = document.getElementById('mobile-nav-close');
       if (!btn || !nav) return;
+
       function setMenuState(open) {
         document.body.classList.toggle('menu-open', open);
         btn.classList.toggle('active', open);
         btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         nav.setAttribute('aria-hidden', open ? 'false' : 'true');
       }
-      btn.addEventListener('click', function () { setMenuState(!btn.classList.contains('active')); });
-      close && close.addEventListener('click', function () { setMenuState(false); });
-      overlay && overlay.addEventListener('click', function () { setMenuState(false); });
+
+      btn.addEventListener('click', function () {
+        setMenuState(!btn.classList.contains('active'));
+      });
+
+      close && close.addEventListener('click', function () {
+        setMenuState(false);
+      });
+
+      overlay && overlay.addEventListener('click', function () {
+        setMenuState(false);
+      });
+
       document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') setMenuState(false);
       });
@@ -277,7 +406,9 @@
   <!-- Sticky Ad Placeholder -->
   <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
     <span>Advertisement</span>
-    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">&times;</button>
+    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'"
+      aria-label="Close Ad">&times;</button>
   </div>
 </body>
+
 </html>

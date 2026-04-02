@@ -1,37 +1,78 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7177850851908341" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7177850851908341"
+    crossorigin="anonymous"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>HVAC Flow Rate Calculator | CFM, Static Pressure & Airflow Verification | MintSheets</title>
-  <meta name="description" content="Free HVAC flow rate and static pressure calculator. Calculate system CFM, measure total external static pressure (TESP), verify sensible heat capacity, and size ductwork from one tool.">
+  <meta name="description"
+    content="Free HVAC flow rate and static pressure calculator. Calculate system CFM, measure total external static pressure (TESP), verify sensible heat capacity, and size ductwork from one tool.">
   <link rel="canonical" href="https://mintsheets.com/hvac-flow-rate-calculator/" />
+
   <meta property="og:title" content="HVAC Flow Rate Calculator (CFM, Duct Sizing & Airflow) | MintSheets" />
-  <meta property="og:description" content="Free online HVAC flow rate calculator for CFM, duct sizing, and airflow analysis. Technical tools for technicians and contractors." />
+  <meta property="og:description"
+    content="Free online HVAC flow rate calculator for CFM, duct sizing, and airflow analysis. Technical tools for technicians and contractors." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mintsheets.com/hvac-flow-rate-calculator/" />
-  <link rel="stylesheet" href="../styles.min.css?v=1.5">
-  <link rel="stylesheet" href="../shared/css/calculators.css?v=1.6">
+
+  <link rel="stylesheet" href="/styles.min.css?v=1.5">
+  <link rel="stylesheet" href="/shared/css/calculators.css?v=1.6">
   <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"SoftwareApplication","name":"HVAC Flow Rate Calculator","url":"https://mintsheets.com/hvac-flow-rate-calculator/","applicationCategory":"ProfessionalTool","operatingSystem":"WEB"}
+  </script>
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"HVAC Calculators","item":"https://mintsheets.com/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"Flow Rate Calculator","item":"https://mintsheets.com/hvac-flow-rate-calculator/"}]}
   </script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-83YSB6HWN4');
   </script>
+
   <style>
-    .breadcrumb-bar{background:rgba(11,28,53,0.7);border-bottom:1px solid #1E3452;padding:8px 0;font-size:13px;}
-    .breadcrumb-bar .container{display:flex;align-items:center;gap:6px;color:#7A98B8;flex-wrap:wrap;}
-    .breadcrumb-bar a{color:var(--primary);text-decoration:none;}
-    .breadcrumb-bar a:hover{text-decoration:underline;}
-    .breadcrumb-bar span{color:#4A6080;}
+    .breadcrumb-bar {
+      background: rgba(11, 28, 53, 0.7);
+      border-bottom: 1px solid #1E3452;
+      padding: 8px 0;
+      font-size: 13px;
+    }
+
+    .breadcrumb-bar .container {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb-bar a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .breadcrumb-bar a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: #4A6080;
+      margin: 0 4px;
+      font-weight: bold;
+    }
+
+    .breadcrumb-current {
+      color: #7A98B8;
+    }
+
     .notice-box {
       background: rgba(46, 204, 113, 0.12);
       border: 1px solid rgba(46, 204, 113, 0.35);
@@ -44,16 +85,15 @@
       max-width: 1100px;
     }
   </style>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"HVAC Calculators","item":"https://mintsheets.com/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"Flow Rate Calculator","item":"https://mintsheets.com/hvac-flow-rate-calculator/"}]}
-  </script>
 </head>
+
 <body class="has-sticky-ad">
 
   <header class="site-header">
     <div class="container nav">
       <a href="/" class="brand">
-        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
       </a>
       <nav class="nav-links">
         <a href="/">Calculators</a>
@@ -62,7 +102,8 @@
         <a href="mailto:support@mintsheets.com">Support</a>
       </nav>
       <div class="header-actions">
-        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free
+          Resources</a>
       </div>
       <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -75,7 +116,8 @@
   <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
     <div class="mobile-nav-header">
       <a href="/" class="brand">
-        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
       </a>
       <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
         <span></span><span></span>
@@ -93,17 +135,20 @@
   </nav>
 
   <main>
-    <div class="breadcrumb-bar">
+    <nav class="breadcrumb-bar" aria-label="Breadcrumb">
       <div class="container">
-        <a href="/">Home</a> <span>›</span>
-        <a href="/hvac-calculators/">HVAC Calculators</a> <span>›</span>
-        Flow Rate Calculator
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">›</span>
+        <a href="/hvac-calculators/">HVAC Calculators</a>
+        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-current">Flow Rate Calculator</span>
       </div>
-    </div>
+    </nav>
 
     <div class="container">
       <div class="notice-box">
-        <strong>Notice:</strong> This HVAC calculator provides estimates only and is for informational purposes. Results should be verified by a licensed HVAC professional. Use at your own risk.
+        <strong>Notice:</strong> This HVAC calculator provides estimates only and is for informational purposes. Results
+        should be verified by a licensed HVAC professional. Use at your own risk.
       </div>
     </div>
 
@@ -112,7 +157,7 @@
         <div style="margin-bottom: 30px; text-align: center;">
           <div class="eyebrow">Technical Tool</div>
           <h1 style="margin: 10px auto; max-width: none;">HVAC Flow Rate Calculator for Airflow Verification</h1>
-          
+
           <!-- Ad Placeholder: Top Banner -->
           <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
 
@@ -151,7 +196,8 @@
         </div>
 
         <!-- SECTION 2 — SENSIBLE HEAT -->
-        <div class="section-banner" style="margin-top:20px;"><span class="icon">🌡️</span> SECTION 2 — SENSIBLE HEAT CAPACITY</div>
+        <div class="section-banner" style="margin-top:20px;"><span class="icon">🌡️</span> SECTION 2 — SENSIBLE HEAT
+          CAPACITY</div>
         <div class="card">
           <div class="form-grid">
             <div class="form-group">
@@ -173,7 +219,8 @@
         </div>
 
         <!-- SECTION 3 — STATIC PRESSURE / AIRFLOW CHECK -->
-        <div class="section-banner" style="margin-top:20px;"><span class="icon">📊</span> SECTION 3 — STATIC PRESSURE / AIRFLOW CHECK</div>
+        <div class="section-banner" style="margin-top:20px;"><span class="icon">📊</span> SECTION 3 — STATIC PRESSURE /
+          AIRFLOW CHECK</div>
         <div class="card">
           <div class="form-grid">
             <div class="form-group">
@@ -201,28 +248,46 @@
 
         <!-- SEO CONTENT SECTION -->
         <section id="seo-content" style="margin-top: 40px; border-top: 1px solid var(--line); padding-top: 40px;">
-          <div style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; color: var(--text-light); margin: 0 auto; padding: 0 20px;">
+          <div
+            style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; color: var(--text-light); margin: 0 auto; padding: 0 20px;">
             <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">HVAC Flow Rate and Airflow Verification</h2>
             <p style="margin-bottom: 15px;">
-              The <strong>HVAC Flow Rate Calculator</strong> is a technical tool designed to help technicians and HVAC designers verify system performance in the field. Proper airflow is the foundation of energy efficiency and occupant comfort; without accurate CFM measurements, heating and cooling capacities cannot be properly assessed.
+              The <strong>HVAC Flow Rate Calculator</strong> is a technical tool designed to help technicians and HVAC
+              designers verify system performance in the field. Proper airflow is the foundation of energy efficiency
+              and occupant comfort; without accurate CFM measurements, heating and cooling capacities cannot be properly
+              assessed.
             </p>
             <p style="margin-bottom: 15px;">
-              This calculator provides three critical verification methods: duct area conversion, sensible heat analysis, and static pressure monitoring. By combining these measurements, you can identify restrictions, verify blower performance, and ensure the system is operating within manufacturer specifications.
-            </p>
-
-            <h3 style="font-size: 20px; color: #fff; margin-top: 30px; margin-bottom: 15px;">How Airflow is Verified in the Field</h3>
-            <p style="margin-bottom: 15px;">
-              Technicians typically use a combination of tools like anemometers for velocity and manometers for static pressure. By measuring the average air velocity (FPM) across a known duct area (ft²), the total volumetric flow rate (CFM) can be calculated. Our tool automates the geometry math, handling the conversion from duct diameter to square footage instantly.
-            </p>
-
-            <h3 style="font-size: 20px; color: #fff; margin-top: 30px; margin-bottom: 15px;">Total External Static Pressure (TESP) Explained</h3>
-            <p style="margin-bottom: 15px;">
-              <strong>Total External Static Pressure (TESP)</strong> is a measurement of the resistance to airflow within the HVAC system. It is calculated by taking the absolute sum of the supply static pressure and the return static pressure. High TESP indicates restrictions such as dirty filters, undersized ductwork, or blocked coils, which can lead to equipment failure and poor performance.
+              This calculator provides three critical verification methods: duct area conversion, sensible heat
+              analysis, and static pressure monitoring. By combining these measurements, you can identify restrictions,
+              verify blower performance, and ensure the system is operating within manufacturer specifications.
             </p>
 
-            <h3 style="font-size: 20px; color: #fff; margin-top: 30px; margin-bottom: 15px;">Sensible Heat Capacity and CFM</h3>
+            <h3 style="font-size: 20px; color: #fff; margin-top: 30px; margin-bottom: 15px;">How Airflow is Verified in
+              the Field</h3>
             <p style="margin-bottom: 15px;">
-              The "heat dump" or sensible heat equation (Q = 1.08 × CFM × ΔT) is a standard HVAC formula used to verify airflow against the temperature rise or drop across a coil. If you know the system's sensible capacity and measured temperature differential, you can verify if the blower is delivering the design airflow required for proper heat exchange.
+              Technicians typically use a combination of tools like anemometers for velocity and manometers for static
+              pressure. By measuring the average air velocity (FPM) across a known duct area (ft²), the total volumetric
+              flow rate (CFM) can be calculated. Our tool automates the geometry math, handling the conversion from duct
+              diameter to square footage instantly.
+            </p>
+
+            <h3 style="font-size: 20px; color: #fff; margin-top: 30px; margin-bottom: 15px;">Total External Static
+              Pressure (TESP) Explained</h3>
+            <p style="margin-bottom: 15px;">
+              <strong>Total External Static Pressure (TESP)</strong> is a measurement of the resistance to airflow
+              within the HVAC system. It is calculated by taking the absolute sum of the supply static pressure and the
+              return static pressure. High TESP indicates restrictions such as dirty filters, undersized ductwork, or
+              blocked coils, which can lead to equipment failure and poor performance.
+            </p>
+
+            <h3 style="font-size: 20px; color: #fff; margin-top: 30px; margin-bottom: 15px;">Sensible Heat Capacity and
+              CFM</h3>
+            <p style="margin-bottom: 15px;">
+              The "heat dump" or sensible heat equation (Q = 1.08 × CFM × ΔT) is a standard HVAC formula used to verify
+              airflow against the temperature rise or drop across a coil. If you know the system's sensible capacity and
+              measured temperature differential, you can verify if the blower is delivering the design airflow required
+              for proper heat exchange.
             </p>
           </div>
         </section>
@@ -235,14 +300,21 @@
     </section>
   </main>
 
-  <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+  <footer id="mint-footer"
+    style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
     <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
-      <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
+      <h3
+        style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">
+        Related HVAC Calculators</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-        <a href="/hvac-flow-rate-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Flow Rate Calculator</a>
-        <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Load Calculator</a>
-        <a href="/hvac-cfm-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">CFM Calculator</a>
-        <a href="/hvac-duct-size-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Duct Size Calculator</a>
+        <a href="/hvac-flow-rate-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Flow
+          Rate Calculator</a>
+        <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Load
+          Calculator</a>
+        <a href="/hvac-cfm-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">CFM
+          Calculator</a>
+        <a href="/hvac-duct-size-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Duct
+          Size Calculator</a>
       </div>
       <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px;font-size:14px;">
         <a href="/privacy-policy/" style="color:var(--muted);">Privacy Policy</a> |
@@ -250,13 +322,15 @@
         <a href="/disclaimer/" style="color:var(--muted);">Disclaimer</a> |
         <a href="/cookie-policy/" style="color:var(--muted);">Cookie Policy</a>
       </div>
-      
-      <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-          <span><span style="color: var(--primary);">✔</span> Used by HVAC technicians & contractors</span>
-          <span><span style="color: var(--primary);">✔</span> Based on ACCA Manual standards</span>
-          <span><span style="color: var(--primary);">✔</span> Free professional tools</span>
+
+      <div
+        style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        <span><span style="color: var(--primary);">✔</span> Used by HVAC technicians & contractors</span>
+        <span><span style="color: var(--primary);">✔</span> Based on ACCA Manual standards</span>
+        <span><span style="color: var(--primary);">✔</span> Free professional tools</span>
       </div>
-      <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical
+        tools.</p>
     </div>
   </footer>
 
@@ -265,60 +339,58 @@
     function calcCFM() {
       const diam = parseFloat(document.getElementById('cfm-diam').value);
       const vel = parseFloat(document.getElementById('cfm-vel').value);
-      
+
       if (isNaN(diam) || isNaN(vel) || diam <= 0) {
         document.getElementById('r-cfm').innerText = '0';
         document.getElementById('r-area').innerText = '0 ft²';
         return;
       }
-      
+
       const area = Math.PI * Math.pow(diam / 2, 2) / 144;
       const cfm = area * vel;
-      
+
       document.getElementById('r-cfm').innerText = Math.round(cfm).toLocaleString();
       document.getElementById('r-area').innerText = area.toFixed(3) + ' ft²';
-      
-      if (window.updateMintStickyBar) { 
-        window.updateMintStickyBar({ 'Flow Rate': Math.round(cfm) + ' CFM', 'Area': area.toFixed(2) + ' ft²' }, '/hvac-load-calculator/'); 
+
+      if (window.updateMintStickyBar) {
+        window.updateMintStickyBar({ 'Flow Rate': Math.round(cfm) + ' CFM', 'Area': area.toFixed(2) + ' ft²' }, '/hvac-load-calculator/');
       }
     }
 
     function calcSensible() {
       const cfm = parseFloat(document.getElementById('sh-cfm').value);
       const dt = parseFloat(document.getElementById('sh-dt').value);
-      
+
       if (isNaN(cfm) || isNaN(dt)) {
         document.getElementById('sh-q').innerText = '0';
         return;
       }
-      
+
       const q = 1.08 * cfm * dt;
       document.getElementById('sh-q').innerText = Math.round(q).toLocaleString();
-      
-      if (window.updateMintStickyBar) { 
-        window.updateMintStickyBar({ 'Sensible Q': Math.round(q).toLocaleString() + ' BTU', 'ΔT': dt + '°F' }, '/hvac-load-calculator/'); 
+
+      if (window.updateMintStickyBar) {
+        window.updateMintStickyBar({ 'Sensible Q': Math.round(q).toLocaleString() + ' BTU', 'ΔT': dt + '°F' }, '/hvac-load-calculator/');
       }
     }
 
     function calcStatic() {
       const supply = parseFloat(document.getElementById('sp-supply').value);
       const returnSP = parseFloat(document.getElementById('sp-return').value);
-      
+
       if (isNaN(supply) || isNaN(returnSP)) {
         document.getElementById('sp-tesp').innerText = '—';
         return;
       }
-      
-      // TESP = absolute supply + absolute return (since return is usually negative)
+
       const tesp = Math.abs(supply) + Math.abs(returnSP);
       document.getElementById('sp-tesp').innerText = tesp.toFixed(2);
-      
-      if (window.updateMintStickyBar) { 
-        window.updateMintStickyBar({ 'TESP': tesp.toFixed(2) + ' in. w.g.' }); 
+
+      if (window.updateMintStickyBar) {
+        window.updateMintStickyBar({ 'TESP': tesp.toFixed(2) + ' in. w.g.' });
       }
     }
 
-    // Initialize
     calcCFM();
     calcSensible();
     calcStatic();
@@ -326,31 +398,33 @@
 
   <!-- NAVIGATION SCRIPT -->
   <script>
-  (function () {
-    var btn = document.getElementById('hamburger-btn');
-    var nav = document.getElementById('mobile-nav');
-    var overlay = document.getElementById('mobile-nav-overlay');
-    var close = document.getElementById('mobile-nav-close');
-    if (!btn || !nav) return;
-    function setMenuState(open) {
-      document.body.classList.toggle('menu-open', open);
-      btn.classList.toggle('active', open);
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-      nav.setAttribute('aria-hidden', open ? 'false' : 'true');
-    }
-    btn.addEventListener('click', function () { setMenuState(!btn.classList.contains('active')); });
-    close && close.addEventListener('click', function () { setMenuState(false); });
-    overlay && overlay.addEventListener('click', function () { setMenuState(false); });
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') setMenuState(false);
-    });
-  })();
+    (function () {
+      var btn = document.getElementById('hamburger-btn');
+      var nav = document.getElementById('mobile-nav');
+      var overlay = document.getElementById('mobile-nav-overlay');
+      var close = document.getElementById('mobile-nav-close');
+      if (!btn || !nav) return;
+      function setMenuState(open) {
+        document.body.classList.toggle('menu-open', open);
+        btn.classList.toggle('active', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        nav.setAttribute('aria-hidden', open ? 'false' : 'true');
+      }
+      btn.addEventListener('click', function () { setMenuState(!btn.classList.contains('active')); });
+      close && close.addEventListener('click', function () { setMenuState(false); });
+      overlay && overlay.addEventListener('click', function () { setMenuState(false); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setMenuState(false);
+      });
+    })();
   </script>
 
   <!-- Sticky Ad Placeholder -->
   <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
     <span>Advertisement</span>
-    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">&times;</button>
+    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'"
+      aria-label="Close Ad">&times;</button>
   </div>
 </body>
+
 </html>

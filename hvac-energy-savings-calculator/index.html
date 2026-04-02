@@ -1,26 +1,32 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7177850851908341"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>HVAC Energy Savings Calculator | SEER, AFUE &amp; ROI Tool | MintSheets</title>
-  <meta name="description" content="Free online HVAC energy savings calculator. Compare SEER2 and AFUE ratings to calculate utility bill savings and estimate ROI on new equipment.">
+  <meta name="description"
+    content="Free online HVAC energy savings calculator. Compare SEER2 and AFUE ratings to calculate utility bill savings and estimate ROI on new equipment.">
   <link rel="canonical" href="https://mintsheets.com/hvac-energy-savings-calculator/" />
+
   <meta property="og:title" content="HVAC Energy Savings Calculator | SEER, AFUE &amp; ROI Tool | MintSheets" />
-  <meta property="og:description" content="Compare SEER2 and AFUE ratings to calculate potential utility bill savings. Estimate ROI on new HVAC equipment." />
+  <meta property="og:description"
+    content="Compare SEER2 and AFUE ratings to calculate potential utility bill savings. Estimate ROI on new HVAC equipment." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://mintsheets.com/hvac-energy-savings-calculator/" />
-  <link rel="stylesheet" href="../styles.min.css?v=1.5">
-  <link rel="stylesheet" href="../shared/css/calculators.css?v=1.6">
+
+  <link rel="stylesheet" href="/styles.min.css?v=1.5">
+  <link rel="stylesheet" href="/shared/css/calculators.css?v=1.6">
   <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-83YSB6HWN4');
   </script>
@@ -32,16 +38,32 @@
       padding: 8px 0;
       font-size: 13px;
     }
+
     .breadcrumb-bar .container {
       display: flex;
       align-items: center;
       gap: 6px;
-      color: #7A98B8;
       flex-wrap: wrap;
     }
-    .breadcrumb-bar a { color: var(--primary); text-decoration: none; }
-    .breadcrumb-bar a:hover { text-decoration: underline; }
-    .breadcrumb-bar span { color: #4A6080; padding: 0 2px; }
+
+    .breadcrumb-bar a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .breadcrumb-bar a:hover {
+      text-decoration: underline;
+    }
+
+    .breadcrumb-separator {
+      color: #4A6080;
+      margin: 0 4px;
+      font-weight: bold;
+    }
+
+    .breadcrumb-current {
+      color: #7A98B8;
+    }
 
     .notice-box {
       background: rgba(46, 204, 113, 0.12);
@@ -64,22 +86,42 @@
       color: var(--primary);
       letter-spacing: 0.5px;
     }
-    .section-banner .icon { font-size: 1.2em; }
 
-    .input-table td.label { font-size: 14px; color: var(--muted); }
-    .result-value-sub { font-size: 14px; color: var(--muted); margin-top: 4px; }
+    .section-banner .icon {
+      font-size: 1.2em;
+    }
+
+    .input-table td.label {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .result-value-sub {
+      font-size: 14px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
 
     .roi-summary-row {
       display: flex;
       justify-content: center;
       align-items: center;
-      background: rgba(255,255,255,0.03);
+      background: rgba(255, 255, 255, 0.03);
       border-radius: 8px;
       padding: 12px 16px;
       gap: 10px;
     }
-    .roi-summary-label { font-size: 14px; color: var(--muted); }
-    .roi-summary-value { font-size: 22px; font-weight: 700; color: var(--primary); }
+
+    .roi-summary-label {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .roi-summary-value {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--primary);
+    }
   </style>
 
   <script type="application/ld+json">
@@ -104,13 +146,15 @@
   ]
   </script>
 </head>
+
 <body class="has-sticky-ad">
 
   <!-- HEADER / NAV -->
   <header class="site-header">
     <div class="container nav">
       <a href="/" class="brand">
-        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
       </a>
       <nav class="nav-links">
         <a href="/">Calculators</a>
@@ -119,7 +163,8 @@
         <a href="mailto:support@mintsheets.com">Support</a>
       </nav>
       <div class="header-actions">
-        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free
+          Resources</a>
       </div>
       <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -131,7 +176,8 @@
   <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
     <div class="mobile-nav-header">
       <a href="/" class="brand">
-        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
       </a>
       <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
         <span></span><span></span>
@@ -149,44 +195,39 @@
   </nav>
 
   <main>
-
-    <!-- BREADCRUMB BAR -->
-    <div class="breadcrumb-bar">
+    <nav class="breadcrumb-bar" aria-label="Breadcrumb">
       <div class="container">
-        <a href="/">Home</a><span>&#x203A;</span>
-        <a href="/hvac-calculators/">HVAC Calculators</a><span>&#x203A;</span>
-        Energy Savings Calculator
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">&#x203A;</span>
+        <a href="/hvac-calculators/">HVAC Calculators</a>
+        <span class="breadcrumb-separator">&#x203A;</span>
+        <span class="breadcrumb-current">Energy Savings Calculator</span>
       </div>
-    </div>
+    </nav>
 
-    <!-- NOTICE BOX -->
     <div class="container">
       <div class="notice-box">
-        <strong>Notice:</strong> This HVAC calculator provides estimates only and is for informational purposes. Results should be verified by a licensed HVAC professional. Use at your own risk.
+        <strong>Notice:</strong> This HVAC calculator provides estimates only and is for informational purposes. Results
+        should be verified by a licensed HVAC professional. Use at your own risk.
       </div>
     </div>
 
-    <!-- MAIN CONTENT -->
     <section class="section">
       <div class="container section-card">
 
-        <!-- HERO -->
         <div style="text-align: center; margin-bottom: 20px;">
           <div class="eyebrow">Savings Tool</div>
           <h1 style="margin: 10px auto; max-width: none;">HVAC Energy Savings Calculator (SEER &amp; AFUE ROI)</h1>
         </div>
 
-        <!-- Ad: Top Banner -->
         <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
-
-        <!-- Ad: Above Calculator -->
         <div class="ad-placeholder ad-placeholder-tool"><span>Advertisement</span></div>
 
-        <!-- ===================== SECTION 1 - COOLING ===================== -->
         <div class="section-banner">
           <span class="icon">&#x2744;&#xFE0F;</span>
           SECTION 1 &#x2014; COOLING ENERGY SAVINGS (SEER / SEER2)
         </div>
+
         <div class="card">
           <div class="form-grid">
             <table class="input-table">
@@ -199,7 +240,8 @@
               <tr>
                 <td class="label">Current SEER</td>
                 <td class="field">
-                  <input type="number" id="c_seer_old" placeholder="e.g. 10" min="6" max="26" value="10" oninput="calculateAll()">
+                  <input type="number" id="c_seer_old" placeholder="e.g. 10" min="6" max="26" value="10"
+                    oninput="calculateAll()">
                 </td>
               </tr>
               <tr>
@@ -238,11 +280,11 @@
           </div>
         </div>
 
-        <!-- ===================== SECTION 2 - HEATING ===================== -->
         <div class="section-banner">
           <span class="icon">&#x1F525;</span>
           SECTION 2 &#x2014; HEATING ENERGY SAVINGS (AFUE)
         </div>
+
         <div class="card">
           <div class="form-grid">
             <table class="input-table">
@@ -282,11 +324,11 @@
           </div>
         </div>
 
-        <!-- ===================== SECTION 3 - ROI ===================== -->
         <div class="section-banner">
           <span class="icon">&#x1F4B0;</span>
           SECTION 3 &#x2014; UPGRADE ROI / PAYBACK
         </div>
+
         <div class="card">
           <div class="form-grid">
             <table class="input-table">
@@ -315,44 +357,71 @@
           </div>
         </div>
 
-        <!-- Ad: Mid Content -->
         <div class="ad-placeholder ad-placeholder-mid"><span>Advertisement</span></div>
 
-        <!-- SEO CONTENT SECTION -->
-        <section id="seo-content" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
+        <section id="seo-content"
+          style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
           <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">HVAC Energy Savings &amp; ROI Explained</h2>
-          <p style="margin-bottom: 20px;">Upgrading to high-efficiency HVAC equipment is one of the most impactful ways to reduce home energy bills. By comparing SEER or SEER2 ratings (for cooling systems) and AFUE ratings (for heating systems), you can calculate exactly how much you stand to save each year &#x2014; and determine the simple payback period that tells you when the investment pays for itself.</p>
+          <p style="margin-bottom: 20px;">Upgrading to high-efficiency HVAC equipment is one of the most impactful ways
+            to reduce home energy bills. By comparing SEER or SEER2 ratings (for cooling systems) and AFUE ratings (for
+            heating systems), you can calculate exactly how much you stand to save each year &#x2014; and determine the
+            simple payback period that tells you when the investment pays for itself.</p>
 
           <h3 style="color: #fff; margin-top: 30px;">How SEER and SEER2 Affect Cooling Costs</h3>
-          <p style="margin-bottom: 15px;">The Seasonal Energy Efficiency Ratio (SEER) measures the cooling output of an air conditioner or heat pump per unit of energy consumed during a typical cooling season. Higher ratings mean better efficiency &#x2014; and lower electricity bills. SEER2 is the updated federal standard as of 2023, using revised testing procedures that better reflect real-world conditions.</p>
-          <p style="margin-bottom: 15px;">Cooling energy usage scales inversely with SEER: a 16 SEER2 unit uses proportionally less electricity than a 10 SEER unit, based on the same system capacity and run hours. Upgrading from a 10 SEER to a 16 SEER2 system can reduce cooling electricity consumption by more than 35%, delivering consistent year-over-year savings.</p>
+          <p style="margin-bottom: 15px;">The Seasonal Energy Efficiency Ratio (SEER) measures the cooling output of an
+            air conditioner or heat pump per unit of energy consumed during a typical cooling season. Higher ratings
+            mean better efficiency &#x2014; and lower electricity bills. SEER2 is the updated federal standard as of
+            2023, using revised testing procedures that better reflect real-world conditions.</p>
+          <p style="margin-bottom: 15px;">Cooling energy usage scales inversely with SEER: a 16 SEER2 unit uses
+            proportionally less electricity than a 10 SEER unit, based on the same system capacity and run hours.
+            Upgrading from a 10 SEER to a 16 SEER2 system can reduce cooling electricity consumption by more than 35%,
+            delivering consistent year-over-year savings.</p>
 
           <h3 style="color: #fff; margin-top: 30px;">How AFUE Affects Heating Operating Costs</h3>
-          <p style="margin-bottom: 15px;">Annual Fuel Utilization Efficiency (AFUE) measures what percentage of the fuel consumed by a furnace or boiler is actually converted into usable heat. An 80% AFUE furnace wastes 20% of its fuel through flue losses. A high-efficiency 96% AFUE unit converts nearly all of the fuel into heat delivered to your home.</p>
-          <p style="margin-bottom: 15px;">Because AFUE directly determines how efficiently fuel is converted to heat, your annual heating cost scales inversely with AFUE. If your current annual fuel cost is $1,200 on an 80% AFUE furnace and you upgrade to 96% AFUE, the estimated new annual cost is approximately $1,200 x (80/96) = $1,000 &#x2014; a savings of $200 per year, every year.</p>
+          <p style="margin-bottom: 15px;">Annual Fuel Utilization Efficiency (AFUE) measures what percentage of the fuel
+            consumed by a furnace or boiler is actually converted into usable heat. An 80% AFUE furnace wastes 20% of
+            its fuel through flue losses. A high-efficiency 96% AFUE unit converts nearly all of the fuel into heat
+            delivered to your home.</p>
+          <p style="margin-bottom: 15px;">Because AFUE directly determines how efficiently fuel is converted to heat,
+            your annual heating cost scales inversely with AFUE. If your current annual fuel cost is $1,200 on an 80%
+            AFUE furnace and you upgrade to 96% AFUE, the estimated new annual cost is approximately $1,200 x (80/96) =
+            $1,000 &#x2014; a savings of $200 per year, every year.</p>
 
           <h3 style="color: #fff; margin-top: 30px;">Calculating HVAC ROI and Simple Payback</h3>
-          <p style="margin-bottom: 15px;">The Simple Payback Period is the most practical way to evaluate an HVAC upgrade investment. It answers one question: how many years will it take for energy savings to cover the additional installation cost? The formula is straightforward &#x2014; divide the installed upgrade cost by the total annual savings (cooling + heating combined).</p>
-          <p style="margin-bottom: 15px;">For example, if an upgrade costs $6,500 and saves $650 per year in combined energy costs, the payback period is 10 years. Given that modern HVAC equipment typically lasts 15&#x2013;20 years, a 10-year payback still delivers meaningful positive returns over the full equipment lifespan. Many homeowners find payback periods of 5&#x2013;12 years on well-chosen high-efficiency upgrades.</p>
-          <p style="margin-bottom: 15px;">This calculator combines both SEER cooling savings and AFUE heating savings to compute a realistic total annual savings figure, giving you a complete picture of true ROI on a full system upgrade &#x2014; not just one piece of equipment.</p>
+          <p style="margin-bottom: 15px;">The Simple Payback Period is the most practical way to evaluate an HVAC
+            upgrade investment. It answers one question: how many years will it take for energy savings to cover the
+            additional installation cost? The formula is straightforward &#x2014; divide the installed upgrade cost by
+            the total annual savings (cooling + heating combined).</p>
+          <p style="margin-bottom: 15px;">For example, if an upgrade costs $6,500 and saves $650 per year in combined
+            energy costs, the payback period is 10 years. Given that modern HVAC equipment typically lasts 15&#x2013;20
+            years, a 10-year payback still delivers meaningful positive returns over the full equipment lifespan. Many
+            homeowners find payback periods of 5&#x2013;12 years on well-chosen high-efficiency upgrades.</p>
+          <p style="margin-bottom: 15px;">This calculator combines both SEER cooling savings and AFUE heating savings to
+            compute a realistic total annual savings figure, giving you a complete picture of true ROI on a full system
+            upgrade &#x2014; not just one piece of equipment.</p>
         </section>
 
-        <!-- Ad: Bottom Banner -->
         <div class="ad-placeholder ad-placeholder-bottom"><span>Advertisement</span></div>
 
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer id="mint-footer" style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
+  <footer id="mint-footer"
+    style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; margin-top: 60px; font-family: sans-serif; clear: both;">
     <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
-      <h3 style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">Related HVAC Calculators</h3>
+      <h3
+        style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">
+        Related HVAC Calculators</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-        <a href="/hvac-duct-size-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Duct Size Calculator</a>
-        <a href="/hvac-flow-rate-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Flow Rate Calculator</a>
-        <a href="/hvac-cfm-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">CFM Calculator</a>
-        <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Load Calculator</a>
+        <a href="/hvac-duct-size-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Duct
+          Size Calculator</a>
+        <a href="/hvac-flow-rate-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Flow
+          Rate Calculator</a>
+        <a href="/hvac-cfm-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">CFM
+          Calculator</a>
+        <a href="/hvac-load-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Load
+          Calculator</a>
       </div>
       <div style="display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px;font-size:14px;">
         <a href="/privacy-policy/" style="color: var(--muted);">Privacy Policy</a> |
@@ -360,51 +429,42 @@
         <a href="/disclaimer/" style="color: var(--muted);">Disclaimer</a> |
         <a href="/cookie-policy/" style="color: var(--muted);">Cookie Policy</a>
       </div>
-      <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; display: flex; justify-content: center; gap: 30px; color: var(--muted); font-size: 12px;">
+      <div
+        style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; display: flex; justify-content: center; gap: 30px; color: var(--muted); font-size: 12px; flex-wrap: wrap;">
         <span>&#x2714; Used by HVAC technicians &amp; contractors</span>
         <span>&#x2714; Based on ACCA Manual standards</span>
         <span>&#x2714; Free professional tools</span>
       </div>
-      <p style="text-align: center; color: var(--muted); font-size: 12px; margin-top: 20px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+      <p style="text-align: center; color: var(--muted); font-size: 12px; margin-top: 20px;">&copy; 2026 MintSheets.
+        Free HVAC technical tools.</p>
     </div>
   </footer>
 
-  <!-- Sticky Ad -->
-  <div class="ad-placeholder-sticky" style="position: fixed; bottom: 0; left: 0; width: 100%; background: #000; text-align: center; border-top: 1px solid #333; z-index: 1000; padding: 5px 0;">
-    <div style="font-size: 10px; color: #666;">ADVERTISEMENT</div>
-    <div class="ad-placeholder"><span>Advertisement</span></div>
-    <button aria-label="Close Ad" class="ad-sticky-close" style="position: absolute; right: 10px; top: 10px; background: #333; border: none; color: #fff; border-radius: 50%; width: 24px; height: 24px; cursor: pointer;">&times;</button>
+  <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
+    <span>Advertisement</span>
+    <button aria-label="Close Ad" class="ad-sticky-close"
+      style="position: absolute; right: 10px; top: 10px; background: #333; border: none; color: #fff; border-radius: 50%; width: 24px; height: 24px; cursor: pointer;">&times;</button>
   </div>
 
   <script>
-    /**
-     * Format a number as USD currency.
-     * Returns em-dash for non-finite or NaN values.
-     */
     function formatCurrency(val) {
       if (!isFinite(val) || isNaN(val)) return '\u2014';
       return new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(val);
     }
 
-    /**
-     * Main calculation: runs cooling (SEER), heating (AFUE), and ROI/payback.
-     * Guards all outputs against NaN, Infinity, and divide-by-zero.
-     */
     function calculateAll() {
-
-      // ---- SECTION 1: COOLING (SEER) ----
-      var tons  = parseFloat(document.getElementById('c_tons').value);
+      var tons = parseFloat(document.getElementById('c_tons').value);
       var seerO = parseFloat(document.getElementById('c_seer_old').value);
       var seerN = parseFloat(document.getElementById('c_seer_new').value);
-      var hrs   = parseFloat(document.getElementById('c_hrs').value);
-      var rate  = parseFloat(document.getElementById('c_rate').value);
+      var hrs = parseFloat(document.getElementById('c_hrs').value);
+      var rate = parseFloat(document.getElementById('c_rate').value);
 
       var coolingSavings = 0;
 
       if (tons > 0 && seerO > 0 && seerN > 0 && hrs > 0 && rate > 0) {
-        var capacity = tons * 12000; // BTU/hr from tonnage
-        var kwhOld   = (capacity * hrs) / seerO / 1000;
-        var kwhNew   = (capacity * hrs) / seerN / 1000;
+        var capacity = tons * 12000;
+        var kwhOld = (capacity * hrs) / seerO / 1000;
+        var kwhNew = (capacity * hrs) / seerN / 1000;
         coolingSavings = (kwhOld - kwhNew) * rate;
         var pctReduction = seerN > seerO ? ((seerN - seerO) / seerN) * 100 : 0;
 
@@ -416,7 +476,6 @@
         coolingSavings = 0;
       }
 
-      // ---- SECTION 2: HEATING (AFUE) ----
       var afueO = parseFloat(document.getElementById('h_afue_old').value);
       var afueN = parseFloat(document.getElementById('h_afue_new').value);
       var costO = parseFloat(document.getElementById('h_cost_old').value);
@@ -426,15 +485,14 @@
       if (afueO > 0 && afueN > 0 && costO > 0) {
         var costN = costO * (afueO / afueN);
         heatingSavings = Math.max(0, costO - costN);
-        document.getElementById('h_sav_val').textContent     = formatCurrency(heatingSavings);
+        document.getElementById('h_sav_val').textContent = formatCurrency(heatingSavings);
         document.getElementById('h_cost_new_val').textContent = formatCurrency(Math.max(0, costN));
       } else {
-        document.getElementById('h_sav_val').textContent     = '\u2014';
+        document.getElementById('h_sav_val').textContent = '\u2014';
         document.getElementById('h_cost_new_val').textContent = '\u2014';
         heatingSavings = 0;
       }
 
-      // ---- SECTION 3: ROI / PAYBACK ----
       var totalSavings = Math.max(0, coolingSavings) + heatingSavings;
       document.getElementById('total_savings_val').textContent = formatCurrency(totalSavings);
 
@@ -457,20 +515,17 @@
         document.getElementById('roi_msg').textContent = 'Enter upgrade cost to see payback';
       }
 
-      // Update sticky bar if the helper is available
       if (typeof window.updateMintStickyBar === 'function') {
         window.updateMintStickyBar(totalSavings, totalSavings > 0 ? 'Potential Annual Savings' : '');
       }
     }
 
-    // ---- INIT ----
     window.addEventListener('DOMContentLoaded', function () {
       calculateAll();
 
-      // Mobile navigation
-      var hamburger        = document.getElementById('hamburger-btn');
-      var mobileNav        = document.getElementById('mobile-nav');
-      var mobileNavClose   = document.getElementById('mobile-nav-close');
+      var hamburger = document.getElementById('hamburger-btn');
+      var mobileNav = document.getElementById('mobile-nav');
+      var mobileNavClose = document.getElementById('mobile-nav-close');
       var mobileNavOverlay = document.getElementById('mobile-nav-overlay');
 
       function toggleMenu() {
@@ -480,21 +535,19 @@
         mobileNav.setAttribute('aria-hidden', String(!isOpen));
       }
 
-      if (hamburger)        hamburger.addEventListener('click', toggleMenu);
-      if (mobileNavClose)   mobileNavClose.addEventListener('click', toggleMenu);
+      if (hamburger) hamburger.addEventListener('click', toggleMenu);
+      if (mobileNavClose) mobileNavClose.addEventListener('click', toggleMenu);
       if (mobileNavOverlay) mobileNavOverlay.addEventListener('click', toggleMenu);
 
-      // Sticky ad close button
       var stickyClose = document.querySelector('.ad-sticky-close');
       if (stickyClose) {
         stickyClose.addEventListener('click', function () {
-          var stickyAd = document.querySelector('.ad-placeholder-sticky');
+          var stickyAd = document.getElementById('sticky-ad');
           if (stickyAd) stickyAd.style.display = 'none';
         });
       }
     });
   </script>
-
-  <!-- NAVIGATION SCRIPT -->
 </body>
+
 </html>
