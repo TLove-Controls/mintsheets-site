@@ -954,92 +954,128 @@ body.menu-open .mobile-nav {
     display: inline-block;
 }
 
-/* ─── Ad Placeholder System ───────────────────────────── */
-.ad-placeholder {
-    margin: 24px auto;
-    padding: 12px;
-    background: rgba(255, 255, 254, 0.02);
-    border: 1px dashed var(--line);
-    border-radius: var(--radius-md);
+/* ─── Unified Ad System ───────────────────────────── */
+/* Canonical classes: .ad-unit, .ad-unit-top, .ad-unit-mid, .ad-unit-bottom, .ad-unit-sticky, .ad-unit-tool */
+/* Legacy aliases: .ad-placeholder-*, .ad-slot, .ad-top, .ad-mid, .ad-bottom */
+
+/* JS Fallback for browser without :has() support:
+   document.querySelectorAll('ins.adsbygoogle[data-ad-status="unfilled"]').forEach(ad => {
+       const wrap = ad.closest('.ad-unit, .ad-placeholder, .ad-slot, .ad-top, .ad-mid, .ad-bottom');
+       if (wrap) wrap.style.display = 'none';
+   });
+*/
+
+/* 1. Base Wrapper */
+.ad-unit,
+.ad-placeholder,
+.ad-slot,
+.ad-top,
+.ad-mid,
+.ad-bottom {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100px;
-    overflow: hidden;
     position: relative;
-    transition: background 0.3s ease, border-color 0.3s ease;
+    width: 100%;
+    margin: 24px auto;
+    overflow: hidden;
+    min-height: 90px;
+    transition: min-height 0.3s ease, margin 0.3s ease, padding 0.3s ease;
 }
 
-.ad-placeholder:hover {
+/* 2. Unfilled Ads - Collapse Cleanly */
+/* Triggers when Google AdSense marks the <ins> as unfilled */
+.ad-unit:has(ins.adsbygoogle[data-ad-status="unfilled"]),
+.ad-placeholder:has(ins.adsbygoogle[data-ad-status="unfilled"]),
+.ad-slot:has(ins.adsbygoogle[data-ad-status="unfilled"]),
+.ad-top:has(ins.adsbygoogle[data-ad-status="unfilled"]),
+.ad-mid:has(ins.adsbygoogle[data-ad-status="unfilled"]),
+.ad-bottom:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
+    display: none !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 0 !important;
+}
+
+/* 3. Placeholder Styling (For dev/mock mode without live tags) */
+/* Adds dashed box ONLY if there is no <ins> tag inside the wrapper */
+.ad-unit:not(:has(ins)),
+.ad-placeholder:not(:has(ins)),
+.ad-slot:not(:has(ins)) {
+    background: rgba(255, 255, 254, 0.02);
+    border: 1px dashed var(--line);
+    border-radius: var(--radius-md);
+    padding: 12px;
+}
+
+.ad-unit:not(:has(ins)):hover,
+.ad-placeholder:not(:has(ins)):hover,
+.ad-slot:not(:has(ins)):hover {
     background: rgba(46, 204, 113, 0.03);
     border-color: rgba(46, 204, 113, 0.3);
 }
 
-.ad-placeholder::before {
+.ad-unit:not(:has(ins))::before,
+.ad-placeholder:not(:has(ins))::before,
+.ad-slot:not(:has(ins))::before {
     content: "Advertisement";
-    font-size: 11px !important;
-    font-weight: 800 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.1em !important;
-    color: var(--muted-2) !important;
-    margin-bottom: 8px !important;
-    line-height: 1 !important;
-    font-family: var(--font-sans), sans-serif !important;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted-2);
+    margin-bottom: 8px;
+    line-height: 1;
 }
 
-.ad-placeholder span {
-    font-size: 14px !important;
-    color: var(--muted) !important;
-    font-style: italic !important;
-    opacity: 0.6 !important;
-    line-height: 1.2 !important;
-    font-family: var(--font-sans), sans-serif !important;
+/* Specific styling for the inner span in mock mode */
+.ad-unit span,
+.ad-placeholder span,
+.ad-slot span {
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+    opacity: 0.6;
+    line-height: 1.2;
 }
 
-/* Variants */
-.ad-placeholder-top {
-    max-width: 100%;
-    width: 970px;
-    min-height: 90px;
+/* 4. Placement Variants */
+
+/* Top Ad */
+.ad-unit-top, .ad-placeholder-top, .ad-top {
+    max-width: 970px;
     margin-top: 10px;
     margin-bottom: 30px;
 }
 
-.ad-placeholder-inline {
-    width: 100%;
-    min-height: 250px;
-    margin: 32px 0;
-}
-
-.ad-placeholder-tool {
-    width: 100%;
-    min-height: 100px;
+/* Inline/Tool Ad */
+.ad-unit-inline, .ad-placeholder-inline, 
+.ad-unit-tool, .ad-placeholder-tool {
     margin-bottom: 24px;
-    border-style: solid;
-    border-color: rgba(46, 204, 113, 0.15);
 }
 
-.ad-placeholder-mid {
-    width: 100%;
-    min-height: 300px;
-    margin: 40px 0;
+/* Mid Content Ad */
+.ad-unit-mid, .ad-placeholder-mid, .ad-mid {
+    margin: 40px auto;
 }
 
-.ad-placeholder-bottom {
-    width: 100%;
+/* Bottom Ad */
+.ad-unit-bottom, .ad-placeholder-bottom, .ad-bottom {
     max-width: 728px;
-    min-height: 90px;
     margin-top: 40px;
     margin-bottom: 20px;
 }
 
+/* Sticky Bottom Ad */
+.ad-unit-sticky, 
 .ad-placeholder-sticky {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 2000; /* Stays above sticky result bars */
+    z-index: 2000;
     margin: 0;
     border: none;
     border-top: 1px solid var(--line);
@@ -1049,41 +1085,23 @@ body.menu-open .mobile-nav {
     -webkit-backdrop-filter: blur(12px);
     height: 64px;
     padding: 0 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row; /* Horizontal layout for sticky */
     box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
     transition: transform 0.3s ease;
 }
 
-.ad-placeholder-sticky::before {
-    margin-bottom: 0 !important;
-    margin-right: 12px !important;
+/* Remove ::before text logic for sticky mock so it's less cramped */
+.ad-unit-sticky:not(:has(ins))::before,
+.ad-placeholder-sticky:not(:has(ins))::before {
+    margin-bottom: 0;
+    margin-right: 12px;
     opacity: 0.8;
 }
 
+.ad-unit-sticky span,
 .ad-placeholder-sticky span {
-    font-size: 13px !important;
+    font-size: 13px;
     margin-top: 1px;
-}
-
-/* ────────── Overlap Prevention ────────── */
-
-/* Add bottom padding to body when sticky ad is present */
-body.has-sticky-ad {
-    padding-bottom: 70px;
-}
-
-/* Shift result bar above ad bar when both are visible */
-body:has(.ad-placeholder-sticky:not([style*="display: none"])) .sticky-result-bar {
-    transform: translateY(-64px) !important;
-}
-
-/* Ensure the result bar transition remains smooth */
-.sticky-result-bar {
-    z-index: 1500 !important;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), bottom 0.3s ease !important;
 }
 
 .ad-sticky-close {
@@ -1091,16 +1109,16 @@ body:has(.ad-placeholder-sticky:not([style*="display: none"])) .sticky-result-ba
     right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px; /* Increased for mobile touch target */
+    width: 44px;
     height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
     cursor: pointer;
-    font-size: 24px !important;
-    font-weight: 300 !important;
+    font-size: 24px;
+    font-weight: 300;
     color: var(--muted);
     transition: all 0.2s ease;
     border: 1px solid transparent;
@@ -1114,11 +1132,45 @@ body:has(.ad-placeholder-sticky:not([style*="display: none"])) .sticky-result-ba
     border-color: rgba(239, 68, 68, 0.3);
 }
 
+/* ────────── Overlap Prevention & Sticky logic ────────── */
+
+/* Base body padding if sticky ad is present */
+body.has-sticky-ad {
+    padding-bottom: 70px;
+}
+
+/* Remove padding if sticky ad is explicitly hidden or unfilled */
+body.has-sticky-ad:has(.ad-unit-sticky[style*="display: none"]),
+body.has-sticky-ad:has(.ad-placeholder-sticky[style*="display: none"]),
+body.has-sticky-ad:has(.ad-unit-sticky ins[data-ad-status="unfilled"]),
+body.has-sticky-ad:has(.ad-placeholder-sticky ins[data-ad-status="unfilled"]) {
+    padding-bottom: 0 !important;
+}
+
+/* Shift active sticky result bar ABOVE the sticky ad */
+/* Only shift if the sticky result bar is currently visible */
+body:has(.ad-unit-sticky:not([style*="display: none"])) .sticky-result-bar.visible,
+body:has(.ad-placeholder-sticky:not([style*="display: none"])) .sticky-result-bar.visible {
+    transform: translateY(-64px) !important;
+}
+
+/* Prevent shift if the sticky ad is actually unfilled */
+body:has(.ad-unit-sticky ins[data-ad-status="unfilled"]) .sticky-result-bar.visible,
+body:has(.ad-placeholder-sticky ins[data-ad-status="unfilled"]) .sticky-result-bar.visible {
+    transform: translateY(0) !important;
+}
+
+/* Ensure result bar animation is smooth */
+.sticky-result-bar {
+    z-index: 1500 !important;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), bottom 0.3s ease !important;
+}
+
 @media (max-width: 768px) {
-    .ad-placeholder-top {
+    .ad-unit-top, .ad-placeholder-top, .ad-top {
         min-height: 60px;
     }
-    .ad-placeholder-sticky {
+    .ad-unit-sticky, .ad-placeholder-sticky {
         padding: 8px 12px;
     }
 }
