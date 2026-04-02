@@ -49,7 +49,7 @@
   .breadcrumb a{color:var(--primary);text-decoration:none}
   .breadcrumb span{margin:0 6px}
   .diagram{
-    margin:28px 0 34px;
+    margin:32px 0 36px;
     padding:18px;
     background:linear-gradient(135deg,#0B1C35,#0F2240);
     border:1px solid #2A4A72;
@@ -68,7 +68,6 @@
     margin:0;
     color:#fff;
     font-size:18px;
-    line-height:1.25;
   }
   .diagram-kicker{
     font-size:11px;
@@ -76,10 +75,8 @@
     text-transform:uppercase;
     letter-spacing:.12em;
     color:var(--accent);
-    margin-bottom:6px;
   }
   .diagram-badge{
-    flex-shrink:0;
     padding:8px 12px;
     border-radius:999px;
     border:1px solid rgba(46,204,113,.28);
@@ -87,40 +84,20 @@
     color:var(--primary);
     font-size:11px;
     font-weight:800;
-    text-transform:uppercase;
-    letter-spacing:.08em;
   }
   .diagram svg{
-    display:block;
     width:100%;
     height:auto;
+    display:block;
   }
   .diagram-caption{
-    margin:14px 0 0;
+    margin-top:14px;
     font-size:14px;
     color:#B7C9DD;
-    line-height:1.7;
   }
-  .diagram-caption strong{
-    color:#fff;
-  }
-  @media (max-width: 640px){
-    .diagram{
-      padding:14px;
-      border-radius:14px;
-      margin:24px 0 30px;
-    }
-    .diagram-header{
-      flex-direction:column;
-      align-items:flex-start;
-    }
-    .diagram-header h3{
-      font-size:17px;
-    }
-    .diagram-badge{
-      font-size:10px;
-      padding:7px 10px;
-    }
+  .diagram:hover{
+    border-color:var(--primary);
+    box-shadow:0 12px 28px rgba(0,0,0,0.35),0 0 18px rgba(46,204,113,0.12);
   }
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
@@ -190,8 +167,36 @@
             <strong>Quick Answer:</strong> A 1-ton air conditioner removes 12,000 BTU/hr of heat. The right tonnage for your home is whatever size results from a proper Manual J load calculation — typically 0.5–1.2 tons per 1,000 sq ft depending on climate, insulation, and construction.
           </div>
 
-          <div class="diagram diagram-tonnage">
-            <!-- TOP TONNAGE DIAGRAM GOES HERE -->
+          <div class="diagram">
+            <div class="diagram-header">
+              <div>
+                <div class="diagram-kicker">MintSheets Visual Guide</div>
+                <h3>What AC Tonnage Actually Means</h3>
+              </div>
+              <div class="diagram-badge">Load → Capacity</div>
+            </div>
+
+            <svg viewBox="0 0 900 400" role="img" aria-label="HVAC tonnage diagram showing conversion from BTU load to AC tonnage">
+              <rect x="20" y="80" width="240" height="240" rx="18" fill="#102847" stroke="#2A4A72"/>
+              <text x="140" y="120" text-anchor="middle" fill="#fff" font-size="20" font-weight="800">1 Ton</text>
+              <text x="140" y="160" text-anchor="middle" fill="#22D3EE" font-size="24" font-weight="900">12,000 BTU/hr</text>
+
+              <line x1="260" y1="200" x2="360" y2="200" stroke="#22D3EE" stroke-width="4"/>
+
+              <rect x="380" y="60" width="200" height="280" rx="18" fill="#102847" stroke="#2A4A72"/>
+              <text x="480" y="100" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">Home Load</text>
+              <text x="480" y="140" text-anchor="middle" fill="#2ECC71" font-size="14">climate</text>
+              <text x="480" y="165" text-anchor="middle" fill="#2ECC71" font-size="14">insulation</text>
+              <text x="480" y="190" text-anchor="middle" fill="#2ECC71" font-size="14">windows</text>
+              <text x="480" y="215" text-anchor="middle" fill="#2ECC71" font-size="14">air leakage</text>
+
+              <line x1="580" y1="200" x2="680" y2="200" stroke="#22D3EE" stroke-width="4"/>
+
+              <circle cx="760" cy="200" r="40" fill="none" stroke="#2ECC71" stroke-width="8"/>
+              <text x="760" y="205" text-anchor="middle" fill="#fff" font-size="20" font-weight="800">3 ton</text>
+            </svg>
+
+            <p class="diagram-caption">AC tonnage comes from the building’s <strong>cooling load</strong>, not square footage alone.</p>
           </div>
 
           <h2>What Does "Ton" Mean in HVAC?</h2>
@@ -239,8 +244,30 @@
             <p>Air leakage brings hot, humid outdoor air directly into the conditioned space — bypassing all insulation. Older homes with no air sealing can have infiltration rates 5–10× higher than a blower-door-tested modern home. This significantly increases both sensible and latent cooling loads.</p>
           </div>
 
-          <div class="diagram diagram-climate">
-            <!-- MID CLIMATE / LOAD DIAGRAM GOES HERE -->
+          <div class="diagram">
+            <div class="diagram-header">
+              <div>
+                <div class="diagram-kicker">MintSheets Visual Guide</div>
+                <h3>Why Same Size Homes Need Different AC Tonnage</h3>
+              </div>
+              <div class="diagram-badge">Climate Impact</div>
+            </div>
+
+            <svg viewBox="0 0 900 420" role="img" aria-label="HVAC tonnage variation diagram showing how climate and insulation affect AC sizing">
+              <rect x="40" y="80" width="220" height="260" rx="18" fill="#102847" stroke="#2A4A72"/>
+              <text x="150" y="110" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">Cool Climate</text>
+              <text x="150" y="140" text-anchor="middle" fill="#2ECC71">tight envelope</text>
+              <text x="150" y="300" text-anchor="middle" fill="#2ECC71" font-size="16">~1.5 tons</text>
+
+              <line x1="280" y1="200" x2="380" y2="200" stroke="#22D3EE" stroke-width="4"/>
+
+              <rect x="400" y="80" width="220" height="260" rx="18" fill="#102847" stroke="#2A4A72"/>
+              <text x="510" y="110" text-anchor="middle" fill="#fff" font-size="18" font-weight="800">Hot Climate</text>
+              <text x="510" y="140" text-anchor="middle" fill="#F59E0B">higher load</text>
+              <text x="510" y="300" text-anchor="middle" fill="#F59E0B" font-size="16">~4 tons</text>
+            </svg>
+
+            <p class="diagram-caption">Climate, insulation, and air leakage can dramatically change required AC tonnage—even for identical square footage.</p>
           </div>
 
           <h2>Rough Sizing Chart by Climate Zone</h2>
