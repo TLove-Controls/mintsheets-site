@@ -6,15 +6,20 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7177850851908341"
      crossorigin="anonymous"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HVAC Energy Savings Calculator | Efficiency and ROI Tool | MintSheets</title>
-<meta name="description" content="Free online HVAC energy savings calculator. Compare SEER and AFUE ratings to calculate potential utility bill savings. Estimate ROI on new HVAC equipment.">
-<link rel="canonical" href="https://mintsheets.com/hvac-energy-savings-calculator/" />
-<meta property="og:title" content="HVAC Energy Savings Calculator | Efficiency and ROI Tool | MintSheets" />
-<meta property="og:description" content="Compare SEER and AFUE ratings to calculate potential utility bill savings. Estimate ROI on new HVAC equipment." />
+<title>HVAC Airflow Per Room Calculator | CFM Per Room & Register Sizing | MintSheets</title>
+<meta name="description" content="Free HVAC airflow per room calculator. Calculate required CFM per room, size supply registers, and verify total system airflow balance. Perfect for HVAC design and troubleshooting.">
+<link rel="canonical" href="https://mintsheets.com/hvac-airflow-per-room-calculator/" />
+<meta property="og:title" content="HVAC Airflow Per Room Calculator | CFM Per Room | MintSheets" />
+<meta property="og:description" content="Calculate required CFM per room for any home or building. Size supply registers and check total system airflow balance against equipment tonnage." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://mintsheets.com/hvac-energy-savings-calculator/" />
+<meta property="og:url" content="https://mintsheets.com/hvac-airflow-per-room-calculator/" />
+<meta property="og:image" content="https://mintsheets.com/shared/images/hvac-airflow.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Airflow Per Room Calculator","url":"https://mintsheets.com/hvac-airflow-per-room-calculator/","applicationCategory":"ProfessionalTool","operatingSystem":"WEB"}
+</script>
 <link rel="stylesheet" href="../styles.min.css?v=1.5">
-<link rel="stylesheet" href="../shared/css/calculators.css?v=1.6">
+<link rel="stylesheet" href="../shared/css/calculators.css">
 <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
 
 <!-- Google tag (gtag.js) -->
@@ -33,7 +38,7 @@
   .breadcrumb-bar span{color:#4A6080;}
   </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"HVAC Calculators","item":"https://mintsheets.com/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"Energy Savings Calculator","item":"https://mintsheets.com/hvac-energy-savings-calculator/"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"HVAC Calculators","item":"https://mintsheets.com/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"Airflow Per Room Calculator","item":"https://mintsheets.com/hvac-airflow-per-room-calculator/"}]}
 </script>
 </head>
 <body class="has-sticky-ad">
@@ -89,7 +94,7 @@
     <div class="container">
       <a href="/">Home</a><span>�</span>
       <a href="/hvac-calculators/">HVAC Calculators</a><span>�</span>
-      Energy Savings Calculator
+      Airflow Per Room Calculator
     </div>
   </div>
       <div style="background: rgba(46, 204, 113, 0.12); border: 1px solid rgba(46, 204, 113, 0.35); border-radius: 10px; padding: 12px 14px; margin: 14px 0; color: #DCFFEA; font-size: 14px; line-height: 1.45;">
@@ -99,51 +104,79 @@
         <div class="container section-card">
           <div style="margin-bottom: 30px; text-align: center;">
             <div class="eyebrow">Technical Tool</div>
-            <h1 style="margin: 10px auto; max-width: none;">HVAC Energy Savings Calculator (SEER & AFUE ROI)</h1>
+            <h1 style="margin: 10px auto; max-width: none;">HVAC Airflow Per Room Calculator (CFM & Register Sizing)</h1>
 
     <!-- Ad Placeholder: Top Banner -->
     <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
-<!-- SECTION 1 — COOLING SAVINGS (SEER / SEER2) -->
+<!-- SECTION 1 — SYSTEM SETTINGS -->
 
     <!-- Ad Placeholder: Above Calculator -->
     <div class="ad-placeholder ad-placeholder-tool">
       <span>Advertisement</span>
     </div>
 
-<span class="icon">❄️</span> SECTION 1 — COOLING ENERGY SAVINGS (SEER / SEER2)</div>
+<span class="icon">⚙️</span> SECTION 1 — SYSTEM SETTINGS</div>
 <div class="card">
-  <div class="form-grid">
-    <table class="input-table">
-      <tr>
-        <td class="label">Current SEER</td>
-        <td class="field"><input type="number" id="c_seer_old" placeholder="e.g. 10" min="6" max="26" value="10" oninput="calcCooling()"></td>
-      </tr>
-      <tr>
-        <td class="label">New SEER2</td>
-        <td class="field"><input type="number" id="c_seer_new" value="16" min="13" max="30" oninput="calcCooling()"></td>
-      </tr>
-    </table>
-    <table class="input-table">
-      <tr>
-        <td class="label">Annual Cooling Hours</td>
-        <td class="field"><input type="number" id="c_hrs" value="1400" min="500" oninput="calcCooling()"></td>
-      </tr>
-      <tr>
-        <td class="label">Electric Rate ($/kWh)</td>
-        <td class="field"><input type="number" id="c_rate" value="0.12" step="0.01" oninput="calcCooling()"></td>
-      </tr>
+  <div class="form-grid" style="margin-top:10px;">
+    <div class="form-group">
+      <label>CFM per Sq Ft Method</label>
+      <select id="cfm_method" onchange="recalcAll()">
+        <option value="0.5">0.5 — Light residential</option>
+        <option value="0.75" selected>0.75 — Standard residential</option>
+        <option value="1.0">1.0 — High-load</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>System Tonnage</label>
+      <input type="number" id="sys_tons" placeholder="e.g. 3.0" min="0.5" max="25" step="0.5" oninput="recalcAll()">
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2 — ROOM TABLE -->
+<div class="section-banner" style="margin-top:20px;"><span class="icon">🏠</span> SECTION 2 — ROOM-BY-ROOM AIRFLOW DESIGN</div>
+<div class="card">
+  <div class="sub-header">Enter Each Room — One Row Per Space</div>
+  <div class="table-scroll" style="overflow-x:auto; margin-top:12px;">
+    <table class="line-table">
+      <thead>
+        <tr>
+          <th>Room Name</th>
+          <th>Sq Ft</th>
+          <th>Required CFM</th>
+          <th>Reg. Qty</th>
+          <th>CFM / Register</th>
+          <th>Del</th>
+        </tr>
+      </thead>
+      <tbody id="roomTbody"></tbody>
+      <tfoot>
+        <tr id="roomTotals" style="border-top:2px solid var(--line); font-weight:bold;">
+          <td colspan="2" style="text-align:right; color:var(--muted); padding:8px;">TOTALS →</td>
+          <td id="footTotalCFM" style="color:var(--primary); font-family:monospace;">—</td>
+          <td id="footTotalRegs">—</td>
+          <td colspan="2"></td>
+        </tr>
+      </tfoot>
     </table>
   </div>
-  <div class="results-box" id="c_results" style="margin-top: 20px; display: none;">
-    <div class="form-grid">
-      <div style="text-align: center; border-right: 1px solid var(--line);">
-        <div class="result-label">Annual Savings</div>
-        <div class="result-value" id="c_sav_val">—</div>
-      </div>
-      <div style="text-align: center;">
-        <div class="result-label">Reduction</div>
-        <div class="result-value" id="c_pct_val">—</div>
-      </div>
+  <div class="btn-row" style="margin-top:14px;">
+    <button class="btn-calc" onclick="addRoom()">+ Add Room</button>
+    <button class="btn-reset" onclick="clearRooms()">🗑 Clear</button>
+  </div>
+</div>
+
+<!-- SECTION 3 — SYSTEM AIRFLOW BALANCE CHECK -->
+<div class="section-banner" style="margin-top:20px;"><span class="icon">📊</span> SECTION 3 — SYSTEM AIRFLOW BALANCE VERIFICATION</div>
+<div class="results-box">
+  <div class="form-grid">
+    <div style="text-align:center; border-right:1px solid var(--line);">
+      <div class="result-label">Total Required CFM</div>
+      <div class="result-value" id="res_total_cfm">—</div>
+    </div>
+    <div style="text-align:center;">
+      <div class="result-label">System Assessment</div>
+      <div class="result-value" id="res_status">—</div>
     </div>
   </div>
 </div>
@@ -154,10 +187,14 @@
     </div>
 
 <!-- SEO CONTENT SECTION -->
-<section class="section" id="seo-content">
-  <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
-    <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">HVAC Energy Savings & ROI</h2>
-    <p style="margin-bottom: 15px;">Upgrading to high-efficiency HVAC equipment is one of the best ways to reduce home energy bills. By comparing SEER (for cooling) and AFUE (for heating) ratings, you can precisely calculate how much money you'll save each year.</p>
+<section id="seo-content" style="margin-top: 40px; border-top: 1px solid var(--line); padding-top: 40px;">
+  <div class="container" style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; color: var(--text-light); margin: 0 auto; padding: 0 20px;">
+    <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">How to Calculate Airflow Per Room</h2>
+    <p style="margin-bottom: 15px;">Calculating the airflow required for each room is a critical step in proper HVAC system design. This ensures that every space receives sufficient heating and cooling to maintain comfortable temperatures year-round.</p>
+    <div style="margin-bottom: 20px;">
+      <h3 style="font-size: 18px; color: var(--primary); margin-bottom: 10px;">Why is room-by-room CFM important?</h3>
+      <p>Without accurate room-by-room calculation, a system can deliver too much air to small rooms while starving larger, high-load areas (like Great Rooms with vaulted ceilings). This leads to hot and cold spots throughout the house.</p>
+    </div>
   </div>
 </section>
 
@@ -199,27 +236,63 @@
       </div>
     </footer>
 
-<!-- SAVINGS LOGIC -->
+<!-- AIRFLOW LOGIC -->
 <script>
-function calcCooling() {
-  const seerO = parseFloat(document.getElementById('c_seer_old').value);
-  const seerN = parseFloat(document.getElementById('c_seer_new').value);
-  const hrs = parseFloat(document.getElementById('c_hrs').value);
-  const rate = parseFloat(document.getElementById('c_rate').value);
-  if (!seerO || !seerN || !hrs || !rate) return;
-  
-  const vOld = (36000 * hrs) / seerO / 1000; // 3 ton example
-  const vNew = (36000 * hrs) / seerN / 1000;
-  const sav = (vOld - vNew) * rate;
-  const pct = ((seerN - seerO) / seerN) * 100;
-  
-  document.getElementById('c_sav_val').innerText = '$' + Math.round(sav).toLocaleString();
-  document.getElementById('c_pct_val').innerText = Math.round(pct) + '%';
-  document.getElementById('c_results').style.display = 'block';
-  
-  if (window.updateMintStickyBar) { window.updateMintStickyBar({ 'Cooling Save': '$' + Math.round(sav) + '/yr', 'Reduction': Math.round(pct) + '%' }, '/hvac-load-calculator/'); }
+let rooms = [];
+function addRoom() {
+  rooms.push({ name: 'New Room', sqft: 150, regs: 1 });
+  renderRooms();
 }
-calcCooling();
+function deleteRoom(idx) { rooms.splice(idx, 1); renderRooms(); }
+function updateRoom(idx, key, val) { 
+  rooms[idx][key] = val; 
+  recalcAll(); 
+}
+function renderRooms() {
+  const tbody = document.getElementById('roomTbody');
+  tbody.innerHTML = '';
+  rooms.forEach((r, i) => {
+    tbody.innerHTML += `<tr>
+      <td><input type="text" value="${r.name}" oninput="updateRoom(${i}, 'name', this.value)" style="width:100%;"></td>
+      <td><input type="number" value="${r.sqft}" oninput="updateRoom(${i}, 'sqft', parseFloat(this.value)||0)" style="width:80px;"></td>
+      <td id="cfm_${i}">—</td>
+      <td><input type="number" value="${r.regs}" oninput="updateRoom(${i}, 'regs', parseInt(this.value)||1)" style="width:50px;"></td>
+      <td id="cfmReg_${i}">—</td>
+      <td><button onclick="deleteRoom(${i})" style="color: var(--fail);">×</button></td>
+    </tr>`;
+  });
+  recalcAll();
+}
+function clearRooms() { rooms = []; renderRooms(); }
+
+function recalcAll() {
+  const factor = parseFloat(document.getElementById('cfm_method').value);
+  let totalCFM = 0;
+  let totalRegs = 0;
+  rooms.forEach((r, i) => {
+    const cfm = r.sqft * factor;
+    totalCFM += cfm;
+    totalRegs += r.regs;
+    const cfmEl = document.getElementById('cfm_' + i);
+    const cfmRegEl = document.getElementById('cfmReg_' + i);
+    if (cfmEl) cfmEl.innerText = Math.ceil(cfm);
+    if (cfmRegEl) cfmRegEl.innerText = Math.ceil(cfm / r.regs);
+  });
+  document.getElementById('footTotalCFM').innerText = Math.ceil(totalCFM);
+  document.getElementById('footTotalRegs').innerText = totalRegs;
+  document.getElementById('res_total_cfm').innerText = Math.ceil(totalCFM) + ' CFM';
+  
+  const tons = parseFloat(document.getElementById('sys_tons').value);
+  if (tons > 0) {
+    const target = tons * 400;
+    const diff = totalCFM - target;
+    const status = Math.abs(diff) < 100 ? '✔ BALANCED' : (diff > 0 ? '⚠ OVERSUPPLIED' : '⚠ UNDERSUPPLIED');
+    document.getElementById('res_status').innerText = status;
+  }
+  
+  if (window.updateMintStickyBar) { window.updateMintStickyBar({ 'Total Flow': Math.ceil(totalCFM) + ' CFM', 'Rooms': rooms.length }, '/hvac-cfm-calculator/'); }
+}
+renderRooms();
 </script>
 
 <!-- NAVIGATION SCRIPT -->

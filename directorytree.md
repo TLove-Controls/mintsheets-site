@@ -25,7 +25,19 @@
 - `hvac-airflow-per-room-calculator/index.html` — Airflow Per Room & Register Sizing
 
 ## Blog / Articles
+- `blog/index.html` — Main Blog Hub (Library)
+- `blog/duct-sizing-explained/index.html` — "HVAC Duct Sizing Explained"
+- `blog/how-many-tons-of-ac-do-i-need/index.html` — "How Many Tons of AC Do I Need?"
+- `blog/how-to-calculate-cfm-per-room/index.html` — "How to Calculate CFM Per Room"
 - `blog/how-to-size-hvac-systems/index.html` — "How to Size an HVAC System Properly" (SEO cornerstone article)
+- `blog/hvac-pricing-guide-for-contractors/index.html` — "HVAC Pricing Guide for Contractors"
+- `blog/what-is-static-pressure-hvac/index.html` — "What is Static Pressure in HVAC?"
+
+## Legal / Information Pages
+- `cookie-policy/index.html` — Cookie Policy
+- `disclaimer/index.html` — Legal Disclaimer
+- `privacy-policy/index.html` — Privacy Policy
+- `terms-of-service/index.html` — Terms of Service
 
 ## Internal Sources (Reference Only)
 - `02_PRODUCTS/01_HTML_Web_Apps/` — Original Source Repository (Single Source of Truth)

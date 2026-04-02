@@ -71,6 +71,75 @@
   .breadcrumb { font-size: 13px; color: #7A98B8; margin: 16px 0 0; padding: 0 0 16px; border-bottom: 1px solid #1E3452; }
   .breadcrumb a { color: var(--primary); text-decoration: none; }
   .breadcrumb span { margin: 0 6px; }
+  .diagram{
+    margin:32px 0 36px;
+    padding:18px;
+    background:linear-gradient(135deg,#0B1C35,#0F2240);
+    border:1px solid #2A4A72;
+    border-radius:16px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.24);
+    overflow:hidden;
+  }
+  .diagram-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:14px;
+  }
+  .diagram-header h3{
+    margin:0;
+    color:#fff;
+    font-size:18px;
+  }
+  .diagram-kicker{
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    color:var(--accent);
+  }
+  .diagram-badge{
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(46,204,113,.28);
+    background:rgba(46,204,113,.10);
+    color:var(--primary);
+    font-size:11px;
+    font-weight:800;
+  }
+  .diagram svg{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .diagram-caption{
+    margin-top:14px;
+    font-size:14px;
+    color:#B7C9DD;
+  }
+  .diagram:hover{
+    border-color:var(--primary);
+    box-shadow:0 12px 28px rgba(0,0,0,0.35),0 0 18px rgba(46,204,113,0.12);
+  }
+  @media (max-width: 640px){
+    .diagram{
+      padding:14px;
+      border-radius:14px;
+      margin:24px 0 30px;
+    }
+    .diagram-header{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .diagram-header h3{
+      font-size:17px;
+    }
+    .diagram-badge{
+      font-size:10px;
+      padding:7px 10px;
+    }
+  }
 </style>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
@@ -84,16 +153,10 @@
 <body class="has-sticky-ad">
   <header class="site-header">
     <div class="container nav">
-      <a href="/" class="brand">
-        <picture>
-          <source type="image/avif" srcset="../../brand/logo-without-background.avif">
-          <source type="image/webp" srcset="../../brand/logo-without-background.webp">
-          <img src="../../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
-        </picture>
-      </a>
+      <a href="/" class="brand"><img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager"></a>
       <nav class="nav-links">
         <a href="/">Calculators</a>
-        <a href="/blog/how-to-size-hvac-systems/">Blog</a>
+        <a href="/blog/">Blog</a>
         <a href="/#troubleshooting-checklist">Free Guide</a>
         <a href="mailto:support@mintsheets.com">Support</a>
       </nav>
@@ -110,20 +173,14 @@
   <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
   <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
     <div class="mobile-nav-header">
-      <a href="/" class="brand">
-        <picture>
-          <source type="image/avif" srcset="../../brand/logo-without-background.avif">
-          <source type="image/webp" srcset="../../brand/logo-without-background.webp">
-          <img src="../../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
-        </picture>
-      </a>
+      <a href="/" class="brand"><img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager"></a>
       <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
         <span></span><span></span>
       </button>
     </div>
     <ul class="mobile-nav-links">
       <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
-      <li><a href="/blog/how-to-size-hvac-systems/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
+      <li><a href="/blog/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
       <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
       <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
     </ul>
@@ -159,11 +216,52 @@
             <strong>Quick Answer:</strong> Static pressure in HVAC is the resistance the blower must overcome to move air through the system, measured in inches of water gauge (in. w.g.). Too much static pressure reduces airflow, causes coil freeze-up, and shortens equipment life.
           </div>
 
+          <div class="diagram">
+            <div class="diagram-header">
+              <div>
+                <div class="diagram-kicker">MintSheets Visual Guide</div>
+                <h3>What Static Pressure Represents in an HVAC System</h3>
+              </div>
+              <div class="diagram-badge">TESP Basics</div>
+            </div>
+
+            <svg viewBox="0 0 920 430" role="img" aria-label="HVAC static pressure diagram showing return side resistance, blower, and supply side resistance contributing to total external static pressure">
+              <defs>
+                <linearGradient id="staticPanel1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0B1C35"/>
+                  <stop offset="100%" stop-color="#0F2240"/>
+                </linearGradient>
+              </defs>
+
+              <rect x="1" y="1" width="918" height="428" rx="20" fill="url(#staticPanel1)" stroke="#2A4A72"/>
+
+              <rect x="46" y="140" width="220" height="126" rx="18" fill="#102847" stroke="#2A4A72"/>
+              <text x="156" y="175" text-anchor="middle" fill="#FFFFFF" font-size="19" font-weight="800">Return Side Resistance</text>
+              <text x="156" y="204" text-anchor="middle" fill="#22D3EE" font-size="14" font-weight="800">filter • return duct • grilles</text>
+              <text x="156" y="234" text-anchor="middle" fill="#94A3B8" font-size="13">negative static pressure</text>
+
+              <line x1="266" y1="202" x2="360" y2="202" stroke="#22D3EE" stroke-width="4"/>
+
+              <circle cx="460" cy="202" r="62" fill="#102847" stroke="#2A4A72" stroke-width="2"/>
+              <text x="460" y="194" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="800">Blower</text>
+              <text x="460" y="220" text-anchor="middle" fill="#2ECC71" font-size="14" font-weight="800">moves air against resistance</text>
+
+              <line x1="560" y1="202" x2="654" y2="202" stroke="#22D3EE" stroke-width="4"/>
+
+              <rect x="654" y="140" width="220" height="126" rx="18" fill="#102847" stroke="#2A4A72"/>
+              <text x="764" y="175" text-anchor="middle" fill="#FFFFFF" font-size="19" font-weight="800">Supply Side Resistance</text>
+              <text x="764" y="204" text-anchor="middle" fill="#22D3EE" font-size="14" font-weight="800">coil • supply duct • diffusers</text>
+              <text x="764" y="234" text-anchor="middle" fill="#94A3B8" font-size="13">positive static pressure</text>
+
+              <rect x="210" y="320" width="500" height="56" rx="14" fill="#0F223D" stroke="#2A4A72"/>
+              <text x="460" y="343" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="800">TESP = Return Static + Supply Static</text>
+              <text x="460" y="365" text-anchor="middle" fill="#E2E8F0" font-size="14">Total External Static Pressure is the blower’s total resistance load.</text>
+            </svg>
+
+            <p class="diagram-caption">Static pressure is the <strong>resistance the blower works against</strong>. In the field, technicians usually care about <strong>TESP</strong> — the combined resistance on the return and supply sides of the system.</p>
+          </div>
+
           <h2>What Is Static Pressure in HVAC?</h2>
-              <!-- Ad Placeholder: Mid Content -->
-    <div class="ad-placeholder ad-placeholder-mid">
-      <span>Advertisement</span>
-    </div>
 
 <p>
             In fluid mechanics, static pressure is the force exerted by a fluid on a surface parallel to the direction of flow. In an HVAC duct system, it's the pressure pushing outward against the duct walls — the measure of resistance the air must push against to move through the system.
@@ -242,6 +340,63 @@
             </p>
             <a href="/hvac-cfm-calculator/" class="tool-link">→ CFM Calculator</a>
             <a href="/hvac-flow-rate-calculator/" class="tool-link" style="margin-left:8px;">→ Flow Rate Calculator</a>
+          </div>
+
+          <div class="diagram">
+            <div class="diagram-header">
+              <div>
+                <div class="diagram-kicker">MintSheets Visual Guide</div>
+                <h3>How High Static Pressure Creates HVAC Problems</h3>
+              </div>
+              <div class="diagram-badge">Failure Chain</div>
+            </div>
+
+            <svg viewBox="0 0 920 430" role="img" aria-label="HVAC failure diagram showing how high static pressure leads to low airflow, coil icing, comfort complaints, and equipment strain">
+              <defs>
+                <linearGradient id="staticPanel2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0B1C35"/>
+                  <stop offset="100%" stop-color="#0F2240"/>
+                </linearGradient>
+              </defs>
+
+              <rect x="1" y="1" width="918" height="428" rx="20" fill="url(#staticPanel2)" stroke="#2A4A72"/>
+
+              <rect x="38" y="154" width="180" height="110" rx="16" fill="#102847" stroke="#2A4A72"/>
+              <text x="128" y="188" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">High Static</text>
+              <text x="128" y="216" text-anchor="middle" fill="#E07B00" font-size="14" font-weight="800">too much resistance</text>
+
+              <line x1="218" y1="209" x2="300" y2="209" stroke="#22D3EE" stroke-width="4"/>
+
+              <rect x="300" y="154" width="180" height="110" rx="16" fill="#102847" stroke="#2A4A72"/>
+              <text x="390" y="188" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="800">Low Airflow</text>
+              <text x="390" y="216" text-anchor="middle" fill="#22D3EE" font-size="14" font-weight="800">reduced delivered CFM</text>
+
+              <line x1="480" y1="209" x2="562" y2="209" stroke="#22D3EE" stroke-width="4"/>
+
+              <rect x="562" y="98" width="160" height="92" rx="16" fill="#102847" stroke="#2A4A72"/>
+              <text x="642" y="132" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="800">Coil Icing</text>
+              <text x="642" y="158" text-anchor="middle" fill="#94A3B8" font-size="13">evaporator freeze risk</text>
+
+              <rect x="562" y="220" width="160" height="92" rx="16" fill="#102847" stroke="#2A4A72"/>
+              <text x="642" y="254" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="800">Comfort Issues</text>
+              <text x="642" y="280" text-anchor="middle" fill="#94A3B8" font-size="13">hot/cold spots, humidity</text>
+
+              <rect x="746" y="154" width="140" height="110" rx="16" fill="#102847" stroke="#2A4A72"/>
+              <text x="816" y="188" text-anchor="middle" fill="#FFFFFF" font-size="17" font-weight="800">Equipment Strain</text>
+              <text x="816" y="216" text-anchor="middle" fill="#E07B00" font-size="13" font-weight="800">motor + compressor stress</text>
+
+              <line x1="722" y1="144" x2="746" y2="182" stroke="#22D3EE" stroke-width="3"/>
+              <line x1="722" y1="266" x2="746" y2="236" stroke="#22D3EE" stroke-width="3"/>
+
+              <rect x="104" y="344" width="712" height="42" rx="12" fill="#0F223D" stroke="#2A4A72"/>
+              <text x="460" y="370" text-anchor="middle" fill="#E2E8F0" font-size="14">
+                High static pressure is not just a number —
+                <tspan fill="#22D3EE" font-weight="800"> it directly reduces airflow</tspan>
+                and creates cascading system problems.
+              </text>
+            </svg>
+
+            <p class="diagram-caption">When static pressure rises too high, the blower delivers less air. That reduced airflow can trigger <strong>coil icing</strong>, <strong>comfort complaints</strong>, and <strong>premature equipment wear</strong>.</p>
           </div>
 
           <h2>How to Measure Static Pressure in the Field</h2>
@@ -358,19 +513,25 @@
     </div>
   </footer>
 
-  <script>
+    <script>
   (function () {
     var btn = document.getElementById('hamburger-btn');
     var nav = document.getElementById('mobile-nav');
     var overlay = document.getElementById('mobile-nav-overlay');
     var close = document.getElementById('mobile-nav-close');
-    if (!btn) return;
-    function openMenu() { document.body.classList.add('menu-open'); btn.classList.add('active'); btn.setAttribute('aria-expanded', 'true'); nav.setAttribute('aria-hidden', 'false'); }
-    function closeMenu() { document.body.classList.remove('menu-open'); btn.classList.remove('active'); btn.setAttribute('aria-expanded', 'false'); nav.setAttribute('aria-hidden', 'true'); }
-    btn.addEventListener('click', openMenu);
-    close && close.addEventListener('click', closeMenu);
-    overlay && overlay.addEventListener('click', closeMenu);
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
+    if (!btn || !nav) return;
+    function setMenuState(open) {
+      document.body.classList.toggle('menu-open', open);
+      btn.classList.toggle('active', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      nav.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    btn.addEventListener('click', function () { setMenuState(!btn.classList.contains('active')); });
+    close && close.addEventListener('click', function () { setMenuState(false); });
+    overlay && overlay.addEventListener('click', function () { setMenuState(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setMenuState(false);
+    });
   })();
   </script>
 

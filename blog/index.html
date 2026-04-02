@@ -51,13 +51,7 @@
 <body class="has-sticky-ad">
   <header class="site-header">
     <div class="container nav">
-      <a href="/" class="brand">
-        <picture>
-          <source type="image/avif" srcset="../brand/logo-without-background.avif">
-          <source type="image/webp" srcset="../brand/logo-without-background.webp">
-          <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
-        </picture>
-      </a>
+      <a href="/" class="brand"><img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager"></a>
               <nav class="nav-links">
           <a href="/">Calculators</a>
           <a href="/blog/">Blog</a>
@@ -75,13 +69,7 @@
   <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
   <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
     <div class="mobile-nav-header">
-      <a href="/" class="brand">
-        <picture>
-          <source type="image/avif" srcset="../brand/logo-without-background.avif">
-          <source type="image/webp" srcset="../brand/logo-without-background.webp">
-          <img src="../brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager">
-        </picture>
-      </a>
+      <a href="/" class="brand"><img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async" loading="eager"></a>
       <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu"><span></span><span></span></button>
     </div>
         <ul class="mobile-nav-links">
@@ -105,11 +93,11 @@
             <div class="eyebrow" style="margin-bottom:12px;">Technical Knowledge Base</div>
             <h1 style="font-size:36px;color:#fff;margin-bottom:16px;line-height:1.25;">HVAC Technical & Business Blog</h1>
 
+            <p>Master the technical fundamentals and business operational strategies used by high-performance HVAC companies. Professional guides on system sizing, diagnostic theory, and margin protection.</p>
     <!-- Ad Placeholder: Top Banner -->
     <div class="ad-placeholder ad-placeholder-top">
       <span>Advertisement</span>
     </div>
-            <p>Master the technical fundamentals and business operational strategies used by high-performance HVAC companies. Professional guides on system sizing, diagnostic theory, and margin protection.</p>
           </div>
 
           <div class="blog-grid">
@@ -128,12 +116,7 @@
               <div class="blog-card-content">
                 <div class="blog-badge">Diagnostics · Field</div>
                 <h3>What Is Static Pressure in HVAC? (Complete Guide)</h3>
-                    <!-- Ad Placeholder: Mid Content -->
-    <div class="ad-placeholder ad-placeholder-mid">
-      <span>Advertisement</span>
-    </div>
-
-<p>Learn what TESP is, how to measure it, what causes high static, and how to fix it with real field examples.</p>
+                <p>Learn what TESP is, how to measure it, what causes high static, and how to fix it with real field examples.</p>
                 <span class="read-more">Read Guide →</span>
               </div>
             </a>
@@ -206,8 +189,26 @@
       <p style="margin-top:20px;color:var(--muted);font-size:12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
     </div>
   </footer>
-  <script>
-  (function(){var btn=document.getElementById('hamburger-btn');var nav=document.getElementById('mobile-nav');var overlay=document.getElementById('mobile-nav-overlay');var close=document.getElementById('mobile-nav-close');if(!btn)return;function openMenu(){document.body.classList.add('menu-open');btn.classList.add('active');btn.setAttribute('aria-expanded','true');nav.setAttribute('aria-hidden','false');}function closeMenu(){document.body.classList.remove('menu-open');btn.classList.remove('active');btn.setAttribute('aria-expanded','false');nav.setAttribute('aria-hidden','true');}btn.addEventListener('click',openMenu);close&&close.addEventListener('click',closeMenu);overlay&&overlay.addEventListener('click',closeMenu);document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});})();
+      <script>
+  (function () {
+    var btn = document.getElementById('hamburger-btn');
+    var nav = document.getElementById('mobile-nav');
+    var overlay = document.getElementById('mobile-nav-overlay');
+    var close = document.getElementById('mobile-nav-close');
+    if (!btn || !nav) return;
+    function setMenuState(open) {
+      document.body.classList.toggle('menu-open', open);
+      btn.classList.toggle('active', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      nav.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    btn.addEventListener('click', function () { setMenuState(!btn.classList.contains('active')); });
+    close && close.addEventListener('click', function () { setMenuState(false); });
+    overlay && overlay.addEventListener('click', function () { setMenuState(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setMenuState(false);
+    });
+  })();
   </script>
   <!-- Sticky Ad Placeholder -->
   <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
