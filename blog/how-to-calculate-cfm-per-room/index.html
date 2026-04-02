@@ -49,6 +49,75 @@
   .breadcrumb{font-size:13px;color:#7A98B8;margin:16px 0 0;padding:0 0 16px;border-bottom:1px solid #1E3452}
   .breadcrumb a{color:var(--primary);text-decoration:none}
   .breadcrumb span{margin:0 6px}
+  .diagram{
+    margin:32px 0 36px;
+    padding:18px;
+    background:linear-gradient(135deg,#0B1C35,#0F2240);
+    border:1px solid #2A4A72;
+    border-radius:16px;
+    box-shadow:0 10px 24px rgba(0,0,0,0.24);
+    overflow:hidden;
+  }
+  .diagram-header{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:14px;
+    margin-bottom:14px;
+  }
+  .diagram-header h3{
+    margin:0;
+    color:#fff;
+    font-size:18px;
+  }
+  .diagram-kicker{
+    font-size:11px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    color:var(--accent);
+  }
+  .diagram-badge{
+    padding:8px 12px;
+    border-radius:999px;
+    border:1px solid rgba(46,204,113,.28);
+    background:rgba(46,204,113,.10);
+    color:var(--primary);
+    font-size:11px;
+    font-weight:800;
+  }
+  .diagram svg{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+  .diagram-caption{
+    margin-top:14px;
+    font-size:14px;
+    color:#B7C9DD;
+  }
+  .diagram:hover{
+    border-color:var(--primary);
+    box-shadow:0 12px 28px rgba(0,0,0,0.35),0 0 18px rgba(46,204,113,0.12);
+  }
+  @media (max-width: 640px){
+    .diagram{
+      padding:14px;
+      border-radius:14px;
+      margin:24px 0 30px;
+    }
+    .diagram-header{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .diagram-header h3{
+      font-size:17px;
+    }
+    .diagram-badge{
+      font-size:10px;
+      padding:7px 10px;
+    }
+  }
 </style>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-83YSB6HWN4');</script>
@@ -117,11 +186,66 @@
             <strong>Key Concept:</strong> Room CFM is not the same as total system CFM. Total system CFM (approximately 400 CFM/ton) must be distributed across all rooms in proportion to each room's individual load.
           </div>
 
+          <div class="diagram">
+            <div class="diagram-header">
+              <div>
+                <div class="diagram-kicker">MintSheets Visual Guide</div>
+                <h3>Room CFM vs Total System CFM</h3>
+              </div>
+              <div class="diagram-badge">Airflow Allocation</div>
+            </div>
+
+            <svg viewBox="0 0 920 420" role="img" aria-label="HVAC airflow diagram showing total system CFM being divided across multiple rooms based on room load">
+              <defs>
+                <linearGradient id="cfmPanel1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0B1C35"/>
+                  <stop offset="100%" stop-color="#0F2240"/>
+                </linearGradient>
+                <linearGradient id="cfmFlow1" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#22D3EE"/>
+                  <stop offset="100%" stop-color="#2ECC71"/>
+                </linearGradient>
+              </defs>
+
+              <rect x="1" y="1" width="918" height="418" rx="20" fill="url(#cfmPanel1)" stroke="#2A4A72"/>
+
+              <rect x="46" y="140" width="180" height="120" rx="16" fill="#102847" stroke="#2A4A72" stroke-width="2"/>
+              <text x="136" y="176" text-anchor="middle" fill="#FFFFFF" font-size="20" font-weight="800">System Airflow</text>
+              <text x="136" y="208" text-anchor="middle" fill="#22D3EE" font-size="22" font-weight="900">1,200 CFM</text>
+              <text x="136" y="234" text-anchor="middle" fill="#94A3B8" font-size="14">example total</text>
+
+              <rect x="260" y="180" width="230" height="36" rx="18" fill="url(#cfmFlow1)" opacity="0.22" stroke="#22D3EE" stroke-width="2"/>
+              <text x="375" y="171" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="700">Distributed by room load</text>
+
+              <line x1="490" y1="198" x2="630" y2="118" stroke="#22D3EE" stroke-width="14" stroke-linecap="round"/>
+              <line x1="490" y1="198" x2="650" y2="198" stroke="#22D3EE" stroke-width="14" stroke-linecap="round"/>
+              <line x1="490" y1="198" x2="630" y2="278" stroke="#22D3EE" stroke-width="14" stroke-linecap="round"/>
+
+              <rect x="678" y="86" width="172" height="64" rx="12" fill="#0F223D" stroke="#2A4A72"/>
+              <text x="764" y="111" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="800">Bedroom</text>
+              <text x="764" y="132" text-anchor="middle" fill="#2ECC71" font-size="14" font-weight="800">150 CFM</text>
+
+              <rect x="692" y="166" width="158" height="64" rx="12" fill="#0F223D" stroke="#2A4A72"/>
+              <text x="771" y="191" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="800">Living Room</text>
+              <text x="771" y="212" text-anchor="middle" fill="#22D3EE" font-size="14" font-weight="800">260 CFM</text>
+
+              <rect x="678" y="246" width="172" height="64" rx="12" fill="#0F223D" stroke="#2A4A72"/>
+              <text x="764" y="271" text-anchor="middle" fill="#FFFFFF" font-size="15" font-weight="800">Office</text>
+              <text x="764" y="292" text-anchor="middle" fill="#2ECC71" font-size="14" font-weight="800">110 CFM</text>
+
+              <rect x="46" y="326" width="804" height="48" rx="12" fill="#0F223D" stroke="#2A4A72"/>
+              <text x="448" y="356" text-anchor="middle" fill="#E2E8F0" font-size="14">
+                Total system airflow must be
+                <tspan fill="#2ECC71" font-weight="800"> divided across rooms</tspan>
+                based on each room’s
+                <tspan fill="#22D3EE" font-weight="800"> individual load</tspan>.
+              </text>
+            </svg>
+
+            <p class="diagram-caption">The air handler’s total airflow is only the starting point. Proper design assigns <strong>room CFM</strong> based on each room’s share of the total sensible load.</p>
+          </div>
+
           <h2>Method 1: Square Footage Method</h2>
-              <!-- Ad Placeholder: Mid Content -->
-    <div class="ad-placeholder ad-placeholder-mid">
-      <span>Advertisement</span>
-    </div>
 
 <p>The square footage method is the fastest approach and appropriate for preliminary estimates and pre-sales engineering.</p>
           <div class="formula-box">
@@ -166,6 +290,63 @@
               <tr><td>Home offices</td><td>6–8</td><td>Equipment heat load</td></tr>
             </tbody>
           </table>
+
+          <div class="diagram">
+            <div class="diagram-header">
+              <div>
+                <div class="diagram-kicker">MintSheets Visual Guide</div>
+                <h3>Three Common Ways to Calculate Room CFM</h3>
+              </div>
+              <div class="diagram-badge">Method Comparison</div>
+            </div>
+
+            <svg viewBox="0 0 920 430" role="img" aria-label="HVAC diagram comparing three room airflow methods: square footage, sensible load, and air changes per hour">
+              <defs>
+                <linearGradient id="cfmPanel2" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#0B1C35"/>
+                  <stop offset="100%" stop-color="#0F2240"/>
+                </linearGradient>
+              </defs>
+
+              <rect x="1" y="1" width="918" height="428" rx="20" fill="url(#cfmPanel2)" stroke="#2A4A72"/>
+
+              <rect x="40" y="88" width="250" height="244" rx="18" fill="#102847" stroke="#2A4A72"/>
+              <text x="165" y="122" text-anchor="middle" fill="#FFFFFF" font-size="19" font-weight="800">1. Square Footage</text>
+              <text x="165" y="156" text-anchor="middle" fill="#22D3EE" font-size="16" font-weight="800">fast estimate</text>
+              <text x="165" y="196" text-anchor="middle" fill="#E2E8F0" font-size="14">Room Area ×</text>
+              <text x="165" y="220" text-anchor="middle" fill="#E2E8F0" font-size="14">CFM / sq ft factor</text>
+              <text x="165" y="270" text-anchor="middle" fill="#94A3B8" font-size="13">Best for quick planning</text>
+
+              <rect x="335" y="70" width="250" height="280" rx="18" fill="#102847" stroke="#2A4A72"/>
+              <text x="460" y="104" text-anchor="middle" fill="#FFFFFF" font-size="19" font-weight="800">2. Sensible Load</text>
+              <text x="460" y="138" text-anchor="middle" fill="#2ECC71" font-size="16" font-weight="800">preferred method</text>
+              <text x="460" y="178" text-anchor="middle" fill="#E2E8F0" font-size="14">BTU/hr ÷</text>
+              <text x="460" y="202" text-anchor="middle" fill="#E2E8F0" font-size="14">(1.08 × ΔT)</text>
+              <text x="460" y="252" text-anchor="middle" fill="#94A3B8" font-size="13">Best for actual room loads</text>
+              <rect x="392" y="282" width="136" height="34" rx="17" fill="#0F223D" stroke="#2A4A72"/>
+              <text x="460" y="304" text-anchor="middle" fill="#2ECC71" font-size="13" font-weight="800">Most accurate for design</text>
+
+              <rect x="630" y="88" width="250" height="244" rx="18" fill="#102847" stroke="#2A4A72"/>
+              <text x="755" y="122" text-anchor="middle" fill="#FFFFFF" font-size="19" font-weight="800">3. ACPH</text>
+              <text x="755" y="156" text-anchor="middle" fill="#22D3EE" font-size="16" font-weight="800">volume based</text>
+              <text x="755" y="196" text-anchor="middle" fill="#E2E8F0" font-size="14">(Room Volume × ACPH)</text>
+              <text x="755" y="220" text-anchor="middle" fill="#E2E8F0" font-size="14">÷ 60</text>
+              <text x="755" y="270" text-anchor="middle" fill="#94A3B8" font-size="13">Best for ventilation-focused spaces</text>
+
+              <rect x="40" y="360" width="840" height="38" rx="12" fill="#0F223D" stroke="#2A4A72"/>
+              <text x="460" y="385" text-anchor="middle" fill="#E2E8F0" font-size="14">
+                Use
+                <tspan fill="#22D3EE" font-weight="800"> square footage</tspan>
+                for quick estimates,
+                <tspan fill="#2ECC71" font-weight="800"> sensible load</tspan>
+                for design accuracy, and
+                <tspan fill="#22D3EE" font-weight="800"> ACPH</tspan>
+                for ventilation-focused rooms.
+              </text>
+            </svg>
+
+            <p class="diagram-caption">These three methods serve different purposes. For real HVAC design, the <strong>sensible heat load method</strong> is usually the most reliable way to assign room airflow.</p>
+          </div>
 
           <h2>Allocating CFM Across All Rooms</h2>
           <div class="step-card">
