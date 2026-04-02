@@ -1031,6 +1031,7 @@ body.menu-open .mobile-nav {
     max-width: 728px;
     min-height: 90px;
     margin-top: 40px;
+    margin-bottom: 20px;
 }
 
 .ad-placeholder-sticky {
@@ -1038,53 +1039,79 @@ body.menu-open .mobile-nav {
     bottom: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 2000; /* Stays above sticky result bars */
     margin: 0;
     border: none;
     border-top: 1px solid var(--line);
     border-radius: 0;
-    background: rgba(15, 23, 42, 0.95);
+    background: rgba(15, 23, 42, 0.98);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    height: 60px;
-    padding: 8px 20px;
+    height: 64px;
+    padding: 0 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
 }
 
 .ad-placeholder-sticky::before {
-    margin-bottom: 0;
-    margin-right: 12px;
+    margin-bottom: 0 !important;
+    margin-right: 12px !important;
+    opacity: 0.8;
+}
+
+.ad-placeholder-sticky span {
+    font-size: 13px !important;
+    margin-top: 1px;
+}
+
+/* ────────── Overlap Prevention ────────── */
+
+/* Add bottom padding to body when sticky ad is present */
+body.has-sticky-ad {
+    padding-bottom: 70px;
+}
+
+/* Shift result bar above ad bar when both are visible */
+body:has(.ad-placeholder-sticky:not([style*="display: none"])) .sticky-result-bar {
+    transform: translateY(-64px) !important;
+}
+
+/* Ensure the result bar transition remains smooth */
+.sticky-result-bar {
+    z-index: 1500 !important;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), bottom 0.3s ease !important;
 }
 
 .ad-sticky-close {
     position: absolute;
-    right: 20px;
+    right: 12px;
     top: 50%;
     transform: translateY(-50%);
-    width: 32px;
-    height: 32px;
+    width: 44px; /* Increased for mobile touch target */
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.05);
     border-radius: 50%;
     cursor: pointer;
-    font-size: 20px !important;
-    font-weight: 400 !important;
-    color: var(--text);
+    font-size: 24px !important;
+    font-weight: 300 !important;
+    color: var(--muted);
     transition: all 0.2s ease;
-    border: none;
+    border: 1px solid transparent;
     outline: none;
     line-height: 1;
 }
 
 .ad-sticky-close:hover {
-    background: rgba(239, 68, 68, 0.2);
+    background: rgba(239, 68, 68, 0.15);
     color: #ef4444;
+    border-color: rgba(239, 68, 68, 0.3);
 }
 
 @media (max-width: 768px) {
