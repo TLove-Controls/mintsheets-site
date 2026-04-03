@@ -54,8 +54,8 @@
   .seo-prose a{color:var(--primary);text-decoration:none}
   .seo-prose a:hover{text-decoration:underline}
 </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVXGMWGH0M"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CVXGMWGH0M');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6RS2BW6VQW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6RS2BW6VQW');</script>
 </head>
 <body class="has-sticky-ad">
   <header class="site-header">
@@ -303,6 +303,7 @@
   </div>
 </body>
 </html>
+
 
 
 

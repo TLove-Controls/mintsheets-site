@@ -4,8 +4,8 @@
   .seo-prose a{color:var(--primary);text-decoration:none}
   .seo-prose a:hover{text-decoration:underline}
 </style>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVXGMWGH0M"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CVXGMWGH0M');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6RS2BW6VQW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6RS2BW6VQW');</script>
 </head>
 <body class="has-sticky-ad">
   <header class="site-header">
@@ -48,4 +48,5 @@
       <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
       <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
     </ul>
+
 

@@ -23,12 +23,12 @@
 </script>
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVXGMWGH0M"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6RS2BW6VQW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-CVXGMWGH0M');
+  gtag('config', 'G-6RS2BW6VQW');
 </script>
   <style>
   .breadcrumb-bar{background:rgba(11,28,53,0.7);border-bottom:1px solid #1E3452;padding:8px 0;font-size:13px;}
@@ -748,6 +748,7 @@
   </div>
 </body>
 </html>
+
 
 
 
