@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -21,12 +21,12 @@
 </script>
 
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-83YSB6HWN4"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CVXGMWGH0M"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-83YSB6HWN4');
+  gtag('config', 'G-CVXGMWGH0M');
 </script>
   <style>
   .breadcrumb-bar{background:rgba(11,28,53,0.7);border-bottom:1px solid #1E3452;padding:8px 0;font-size:13px;}
@@ -90,8 +90,8 @@
     <main>
   <div class="breadcrumb-bar">
     <div class="container">
-      <a href="/">Home</a><span>›</span>
-      <a href="/hvac-calculators/">HVAC Calculators</a><span>›</span>
+      <a href="/">Home</a><span>�</span>
+      <a href="/hvac-calculators/">HVAC Calculators</a><span>�</span>
       Duct Size Calculator
     </div>
   </div>
@@ -106,7 +106,7 @@
 
     <!-- Ad Placeholder: Top Banner -->
     <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
-<!-- SECTION 1 â€” DUCT SIZING -->
+<!-- SECTION 1 — DUCT SIZING -->
 
     <!-- Ad Placeholder: Above Calculator -->
     <div class="ad-placeholder ad-placeholder-tool">
@@ -114,19 +114,19 @@
     </div>
 
 
-  <span class="icon">ðŸ“</span> SECTION 1 â€” DUCT SIZE BY AIRFLOW &amp; FRICTION
+  <span class="icon">📐</span> SECTION 1 — DUCT SIZE BY AIRFLOW &amp; FRICTION
   <span class="tag">MANUAL D</span>
 </div>
 <div class="card card-first">
   <div class="tab-nav">
-    <button class="tab-btn active" id="tab-btn-round" onclick="switchTab('round')">â­• Round Duct</button>
-    <button class="tab-btn" id="tab-btn-rect" onclick="switchTab('rect')">â–­ Rectangular Duct</button>
-    <button class="tab-btn" id="tab-btn-flex" onclick="switchTab('flex')">ã€° Flex Duct</button>
+    <button class="tab-btn active" id="tab-btn-round" onclick="switchTab('round')">⭕ Round Duct</button>
+    <button class="tab-btn" id="tab-btn-rect" onclick="switchTab('rect')">▭ Rectangular Duct</button>
+    <button class="tab-btn" id="tab-btn-flex" onclick="switchTab('flex')">〰 Flex Duct</button>
   </div>
 
   <!-- ROUND TAB -->
   <div id="tab-round" class="tab-panel active">
-    <div class="sub-header">â­• Round Duct Parameters</div>
+    <div class="sub-header">⭕ Round Duct Parameters</div>
     <div class="form-grid">
       <table class="input-table">
         <tr>
@@ -170,23 +170,23 @@
           <td class="field"><input type="number" id="r_len" placeholder="e.g. 40" min="1" max="500"> <span style="font-size:11px;color:var(--muted)">ft</span></td>
         </tr>
         <tr>
-          <td class="label">Number of 90Â° Elbows</td>
+          <td class="label">Number of 90° Elbows</td>
           <td class="field"><input type="number" id="r_elbows" value="0" min="0" max="20"></td>
         </tr>
       </table>
     </div>
     <div class="btn-row">
-      <button class="btn-calc" onclick="calcRound()">âš¡ CALCULATE ROUND DUCT</button>
-      <button class="btn-reset" onclick="resetRound()">â†º Reset</button>
+      <button class="btn-calc" onclick="calcRound()">⚡ CALCULATE ROUND DUCT</button>
+      <button class="btn-reset" onclick="resetRound()">↺ Reset</button>
     </div>
     <div id="r_results" class="hidden">
-      <div class="sub-header" style="border-left-color:var(--primary);color:var(--primary);">ðŸ“Š Results â€” Round Duct</div>
+      <div class="sub-header" style="border-left-color:var(--primary);color:var(--primary);">📊 Results — Round Duct</div>
       <div class="result-hero" id="r_hero"></div>
       <div class="table-scroll">
           <table class="line-table">
           <thead><tr><th>Parameter</th><th>Calculated</th><th>Unit</th><th>Spec / Guideline</th><th>Status</th><th>Notes</th></tr></thead>
           <tbody id="r_tbody"></tbody>
-          <tfoot><tr id="r_tfoot"><td colspan="6">â€”</td></tr></tfoot>
+          <tfoot><tr id="r_tfoot"><td colspan="6">—</td></tr></tfoot>
         </table>
       </div>
       <div id="r_duct_viz" class="duct-visual-wrap"></div>
@@ -195,7 +195,7 @@
 
   <!-- RECTANGULAR TAB -->
   <div id="tab-rect" class="tab-panel">
-    <div class="sub-header">â–­ Rectangular Duct Parameters</div>
+    <div class="sub-header">▭ Rectangular Duct Parameters</div>
     <div class="form-grid">
       <table class="input-table">
         <tr>
@@ -230,17 +230,17 @@
       </table>
     </div>
     <div class="btn-row">
-      <button class="btn-calc" onclick="calcRect()">âš¡ CALCULATE RECTANGULAR DUCT</button>
-      <button class="btn-reset" onclick="resetRect()">â†º Reset</button>
+      <button class="btn-calc" onclick="calcRect()">⚡ CALCULATE RECTANGULAR DUCT</button>
+      <button class="btn-reset" onclick="resetRect()">↺ Reset</button>
     </div>
     <div id="rct_results" class="hidden">
-      <div class="sub-header" style="border-left-color:var(--primary);color:var(--primary);">ðŸ“Š Results â€” Rectangular Duct</div>
+      <div class="sub-header" style="border-left-color:var(--primary);color:var(--primary);">📊 Results — Rectangular Duct</div>
       <div class="result-hero" id="rct_hero"></div>
       <div class="table-scroll">
           <table class="line-table">
           <thead><tr><th>Parameter</th><th>Calculated</th><th>Unit</th><th>Spec / Guideline</th><th>Status</th><th>Notes</th></tr></thead>
           <tbody id="rct_tbody"></tbody>
-          <tfoot><tr id="rct_tfoot"><td colspan="6">â€”</td></tr></tfoot>
+          <tfoot><tr id="rct_tfoot"><td colspan="6">—</td></tr></tfoot>
         </table>
       </div>
     </div>
@@ -248,7 +248,7 @@
 
   <!-- FLEX TAB -->
   <div id="tab-flex" class="tab-panel">
-    <div class="sub-header">ã€° Flex Duct Parameters</div>
+    <div class="sub-header">〰 Flex Duct Parameters</div>
     <div class="form-grid">
       <table class="input-table">
         <tr>
@@ -268,37 +268,37 @@
       </table>
     </div>
     <div class="btn-row">
-      <button class="btn-calc" onclick="calcFlex()">âš¡ CALCULATE FLEX DUCT</button>
-      <button class="btn-reset" onclick="resetFlex()">â†º Reset</button>
+      <button class="btn-calc" onclick="calcFlex()">⚡ CALCULATE FLEX DUCT</button>
+      <button class="btn-reset" onclick="resetFlex()">↺ Reset</button>
     </div>
     <div id="fx_results" class="hidden">
-      <div class="sub-header navy">ðŸ“Š Results â€” Flex Duct</div>
+      <div class="sub-header navy">📊 Results — Flex Duct</div>
       <div class="result-hero" id="fx_hero"></div>
       <div class="table-scroll">
       <table class="line-table">
         <thead><tr><th>Parameter</th><th>Calculated</th><th>Unit</th><th>Spec / Guideline</th><th>Status</th><th>Notes</th></tr></thead>
         <tbody id="fx_tbody"></tbody>
-        <tfoot><tr id="fx_tfoot"><td colspan="6">â€”</td></tr></tfoot>
+        <tfoot><tr id="fx_tfoot"><td colspan="6">—</td></tr></tfoot>
       </table>
       </div>
     </div>
   </div>
 
   <!-- STANDARD SIZES REFERENCE -->
-  <div class="sub-header orange">ðŸ“‹ STANDARD ROUND DUCT SIZES â€” CLICK TO HIGHLIGHT</div>
+  <div class="sub-header orange">📋 STANDARD ROUND DUCT SIZES — CLICK TO HIGHLIGHT</div>
   <div class="std-sizes-grid" id="std_grid"></div>
 
   <div class="tips-box">
-    <div class="tips-title">âš¡ Pro Tips â€” Duct Sizing</div>
+    <div class="tips-title">⚡ Pro Tips — Duct Sizing</div>
     <ul>
       <li><strong>Equal Friction Method:</strong> Design at 0.08 in. w.g./100 ft for most residential systems.</li>
-      <li><strong>Target velocities:</strong> Supply mains 700â€“900 FPM Â· Branch ducts 500â€“700 FPM Â· Returns 400â€“600 FPM.</li>
+      <li><strong>Target velocities:</strong> Supply mains 700–900 FPM · Branch ducts 500–700 FPM · Returns 400–600 FPM.</li>
       <li><strong>Aspect ratio:</strong> Keep rectangular ducts at 3:1 or less; 4:1 maximum per ACCA Manual D.</li>
     </ul>
   </div>
 </div>
 
-<!-- SECTION 2 â€” STATIC PRESSURE BUDGET -->
+<!-- SECTION 2 — STATIC PRESSURE BUDGET -->
 
     <!-- Ad Placeholder: Above Calculator -->
     <div class="ad-placeholder ad-placeholder-tool">
@@ -306,11 +306,11 @@
     </div>
 
 
-  <span class="icon">ðŸ“Š</span> SECTION 2 â€” TOTAL EXTERNAL STATIC PRESSURE BUDGET
+  <span class="icon">📊</span> SECTION 2 — TOTAL EXTERNAL STATIC PRESSURE BUDGET
   <span class="tag">TESP</span>
 </div>
 <div class="card card-first">
-  <div class="sub-header">Enter Component Pressure Drops â€” in. w.g.</div>
+  <div class="sub-header">Enter Component Pressure Drops — in. w.g.</div>
   <div class="form-grid">
     <table class="input-table">
       <tr><td class="label">Equipment Nameplate TESP Rating</td>
@@ -328,27 +328,27 @@
     </table>
   </div>
   <div class="btn-row">
-    <button class="btn-calc" onclick="calcSP()">âš¡ CHECK STATIC PRESSURE BUDGET</button>
-    <button class="btn-reset" onclick="resetSP()">â†º Reset</button>
+    <button class="btn-calc" onclick="calcSP()">⚡ CHECK STATIC PRESSURE BUDGET</button>
+    <button class="btn-reset" onclick="resetSP()">↺ Reset</button>
   </div>
   <div id="sp_results" class="hidden">
-    <div class="sub-header navy">ðŸ“Š Results â€” Static Pressure Budget</div>
+    <div class="sub-header navy">📊 Results — Static Pressure Budget</div>
     <div class="result-hero" id="sp_hero"></div>
     <div class="table-scroll">
     <table class="line-table">
       <thead><tr><th>Component</th><th>Pressure Drop</th><th>Unit</th><th>Typical Range</th><th>Status</th><th>Notes</th></tr></thead>
       <tbody id="sp_tbody"></tbody>
-      <tfoot><tr id="sp_tfoot"><td colspan="6">â€”</td></tr></tfoot>
+      <tfoot><tr id="sp_tfoot"><td colspan="6">—</td></tr></tfoot>
     </table>
     </div>
   </div>
   <div class="info-row">
     <div class="info-cell">
-      <strong>ðŸ† Residential Target</strong>
+      <strong>🏆 Residential Target</strong>
       Most residential systems are rated for 0.50 in. w.g. TESP.
     </div>
     <div class="info-cell">
-      <strong>ðŸ”§ High Static Symptoms</strong>
+      <strong>🔧 High Static Symptoms</strong>
       High TESP causes reduced airflow, noise, and component strain.
     </div>
   </div>
@@ -389,7 +389,7 @@
 </main>
 
     <div class="workflow-chain">
-        <div class="workflow-title"><span>ðŸ”„</span> Professional Workflow Navigation</div>
+        <div class="workflow-title"><span>🔄</span> Professional Workflow Navigation</div>
         <div class="workflow-steps">
             <a href="/hvac-load-calculator/" class="workflow-step">1. Load Calc</a>
             <span class="workflow-arrow">&rarr;</span>
@@ -425,9 +425,9 @@
         </div>
         
         <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-            <span><span style="color: var(--primary);">âœ”</span> Used by HVAC technicians & contractors</span>
-            <span><span style="color: var(--primary);">âœ”</span> Based on ACCA Manual standards</span>
-            <span><span style="color: var(--primary);">âœ”</span> Free professional tools</span>
+            <span><span style="color: var(--primary);">✔</span> Used by HVAC technicians & contractors</span>
+            <span><span style="color: var(--primary);">✔</span> Based on ACCA Manual standards</span>
+            <span><span style="color: var(--primary);">✔</span> Free professional tools</span>
         </div>
     <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
       </div>
@@ -436,17 +436,17 @@
 <!-- DUCT CALCULATOR LOGIC -->
 <script>
 const STD_ROUND = [4,5,6,7,8,9,10,12,14,16,18,20,22,24,26,28,30];
-const STD_CFM = {4:'20â€“50',5:'40â€“80',6:'60â€“130',7:'90â€“175',8:'130â€“240',9:'180â€“310',10:'230â€“400',12:'360â€“600',14:'520â€“840',16:'720â€“1120',18:'960â€“1450',20:'1250â€“1800',22:'1570â€“2200',24:'1950â€“2700',26:'2370â€“3250',28:'2850â€“3850',30:'3380â€“4500'};
+const STD_CFM = {4:'20–50',5:'40–80',6:'60–130',7:'90–175',8:'130–240',9:'180–310',10:'230–400',12:'360–600',14:'520–840',16:'720–1120',18:'960–1450',20:'1250–1800',22:'1570–2200',24:'1950–2700',26:'2370–3250',28:'2850–3850',30:'3380–4500'};
 const $  = id => document.getElementById(id);
 const show = id => $(id).classList.remove('hidden');
 const hide = id => $(id).classList.add('hidden');
 function badge(type, label) { return `<span class="badge badge-${type}">${label}</span>`; }
-function statusBadge(st) { return st === 'PASS' ? badge('pass','âœ” PASS') : st === 'WARN' ? badge('warn','âš  WARN') : st === 'FAIL' ? badge('fail','âœ˜ FAIL') : badge('info', st); }
+function statusBadge(st) { return st === 'PASS' ? badge('pass','✔ PASS') : st === 'WARN' ? badge('warn','⚠ WARN') : st === 'FAIL' ? badge('fail','✘ FAIL') : badge('info', st); }
 function tr(param, val, unit, spec, status, notes) {
   return `<tr><td class="param">${param}</td><td class="value">${val}</td><td>${unit}</td><td>${spec}</td><td>${statusBadge(status)}</td><td style="font-size:11.5px;color:var(--gray)">${notes}</td></tr>`;
 }
 function nextStd(d) { return STD_ROUND.find(s => s >= d) || STD_ROUND[STD_ROUND.length-1]; }
-function velRange(sys) { if (sys === 'return') return {lo:300, hi:600, ideal:'300â€“600'}; return {lo:400, hi:900, ideal:'400â€“900'}; }
+function velRange(sys) { if (sys === 'return') return {lo:300, hi:600, ideal:'300–600'}; return {lo:400, hi:900, ideal:'400–900'}; }
 function velStatus(vel, sys) { const r = velRange(sys); if (vel >= r.lo && vel <= r.hi) return 'PASS'; if (vel < r.lo * 0.8 || vel > r.hi * 1.2) return 'FAIL'; return 'WARN'; }
 function calcDiameter(cfm, fr_per100ft) { return 1.3 * Math.pow(cfm, 0.625) / Math.pow(fr_per100ft, 0.25); }
 function areaFromDiam(d_in) { return Math.PI * Math.pow(d_in / 24, 2) / 4; }
@@ -548,6 +548,7 @@ buildStdGrid();
   </div>
 </body>
 </html>
+
 
 
 
