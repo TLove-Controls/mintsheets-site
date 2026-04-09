@@ -46,6 +46,7 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 body {
@@ -56,6 +57,7 @@ body {
         radial-gradient(circle at top, rgba(46, 204, 113, 0.05), transparent 38%),
         var(--bg);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
 a {
@@ -88,12 +90,14 @@ img {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+    min-width: 0;
 }
 
 .brand {
     display: flex;
     align-items: center;
     gap: 12px;
+    min-width: 0;
 }
 
 .brand img {
@@ -613,7 +617,7 @@ body.menu-open {
 .mobile-nav {
     position: fixed;
     top: 0;
-    right: -320px;
+    right: 0;
     width: 300px;
     max-width: 85vw;
     height: 100dvh;
@@ -622,13 +626,15 @@ body.menu-open {
     z-index: 100;
     display: flex;
     flex-direction: column;
-    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: -8px 0 48px rgba(0, 0, 0, 0.45);
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 body.menu-open .mobile-nav {
-    right: 0;
+    transform: translateX(0);
 }
 
 .mobile-nav-header {
@@ -728,6 +734,11 @@ body.menu-open .mobile-nav {
 
 /* ─── Responsive Breakpoints ───────────────────────────── */
 @media (max-width: 980px) {
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
     .hamburger {
         display: flex;
     }
@@ -760,12 +771,14 @@ body.menu-open .mobile-nav {
         min-height: 68px;
         justify-content: space-between;
         align-items: center;
+        width: 100%;
     }
 }
 
 @media (max-width: 640px) {
     .container {
         width: min(var(--max), calc(100% - 24px));
+        max-width: 100%;
     }
 
     .hero {
@@ -786,6 +799,23 @@ body.menu-open .mobile-nav {
 
     .hero-actions {
         flex-direction: column;
+    }
+
+    .brand {
+        max-width: calc(100% - 56px);
+    }
+
+    .brand img {
+        max-width: 100%;
+        height: 56px;
+    }
+
+    .section-card,
+    .hero-card,
+    .cta-panel,
+    .product-hero,
+    .article-wrap {
+        max-width: 100%;
     }
 }
 
@@ -1121,4 +1151,4 @@ body:has(.ad-placeholder-sticky:not([style*="display: none"])) .sticky-result-ba
     .ad-placeholder-sticky {
         padding: 8px 12px;
     }
-}
+}

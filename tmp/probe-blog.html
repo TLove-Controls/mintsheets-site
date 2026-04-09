@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="UTF-8">
+  <title>Overflow Probe</title>
+  <style>
+    body { font-family: sans-serif; padding: 16px; }
+    iframe { width: 390px; height: 900px; border: 1px solid #ccc; display: block; }
+    pre { white-space: pre-wrap; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <iframe id="frame" src="/blog/how-to-size-hvac-systems/"></iframe>
+  <pre id="out">{
+  "target": "/blog/how-to-size-hvac-systems/",
+  "innerWidth": 390,
+  "clientWidth": 375,
+  "scrollWidth": 375,
+  "bodyScrollWidth": 375,
+  "topOffenders": [
+    {
+      "tag": "nav",
+      "cls": "mobile-nav",
+      "id": "mobile-nav",
+      "right": 695,
+      "left": 395,
+      "width": 300,
+      "overflow": 320,
+      "text": "??\nCalculators\n??\nBlog\n??\nFree Guide\n?\nSupport\nFree Resources"
+    },
+    {
+      "tag": "div",
+      "cls": "mobile-nav-header",
+      "id": "",
+      "right": 695,
+      "left": 396,
+      "width": 299,
+      "overflow": 320,
+      "text": ""
+    },
+    {
+      "tag": "ul",
+      "cls": "mobile-nav-links",
+      "id": "",
+      "right": 695,
+      "left": 396,
+      "width": 299,
+      "overflow": 320,
+      "text": "??\nCalculators\n??\nBlog\n??\nFree Guide\n?\nSupport"
+    },
+    {
+      "tag": "li",
+      "cls": "",
+      "id": "",
+      "right": 695,
+      "left": 396,
+      "width": 299,
+      "overflow": 320,
+      "text": "??\nCalculators"
+    },
+    {
+      "tag": "a",
+      "cls": "",
+      "id": "",
+      "right": 695,
+      "left": 396,
+      "width": 299,
+      "overflow": 320,
+      "text": "??\nCalculators"
+    },
+    {
+      "tag": "li",
+      "cls": "",
+      "id": "",
+      "right": 695,
+      "left": 396,
+      "width": 299,
+      "overflow": 320,
+      "text": "??\nBlog"
+    },
+    {
+      "tag": "a",
+      "cls": "",
+      "id": "",
+      "right": 695,
+      "left": 396,
+      "width": 299,
+      "overflow": 320,
+      "text": "??\nBlog"
+    },
+    {
+      "tag": "li",
+      "cls": "",
+      "id": "",
+      "right": 695,
+      "left": 396,
+      "width": 299,
+      "overflow": 320,
+      "text": "??\nFree Guide"
+    },
+    {
+      "tag": "a",
+      "cls": "",
+      "id": "",
+      "right": 695,
+      "left": 396,
+      "width": 299,
+      "overflow": 320,
+      "text": "??\nFree Guide"
+    },
+    {
+      "tag": "li",
+      "cls": "",
+      "id": "",
+      "right": 695,
+      "left": 396,
+      "width": 299,
+      "overflow": 320,
+      "text": "?\nSupport"
+    },
+    {
+      "tag": "a",
+      "cls": "",
+      "id": "",
+      "right": 695,
+      "left": 396,
+      "width": 299,
+      "overflow": 320,
+      "text": "?\nSupport"
+    },
+    {
+      "tag": "div",
+      "cls": "mobile-nav-cta",
+      "id": "",
+      "right": 695,
+      "left": 396,
+      "width": 299,
+      "overflow": 320,
+      "text": "Free Resources"
+    },
+    {
+      "tag": "button",
+      "cls": "mobile-nav-close",
+      "id": "mobile-nav-close",
+      "right": 675,
+      "left": 639,
+      "width": 36,
+      "overflow": 300,
+      "text": ""
+    },
+    {
+      "tag": "a",
+      "cls": "btn btn-primary",
+      "id": "",
+      "right": 675,
+      "left": 416,
+      "width": 259,
+      "overflow": 300,
+      "text": "Free Resources"
+    },
+    {
+      "tag": "span",
+      "cls": "",
+      "id": "",
+      "right": 663.3639526367188,
+      "left": 650.6360473632812,
+      "width": 12.7279052734375,
+      "overflow": 288.36395263671875,
+      "text": ""
+    },
+    {
+      "tag": "span",
+      "cls": "",
+      "id": "",
+      "right": 663.3639526367188,
+      "left": 650.6360473632812,
+      "width": 12.7279052734375,
+      "overflow": 288.36395263671875,
+      "text": ""
+    },
+    {
+      "tag": "a",
+      "cls": "brand",
+      "id": "",
+      "right": 525.578125,
+      "left": 416,
+      "width": 109.578125,
+      "overflow": 150.578125,
+      "text": ""
+    },
+    {
+      "tag": "img",
+      "cls": "",
+      "id": "",
+      "right": 525.578125,
+      "left": 416,
+      "width": 109.578125,
+      "overflow": 150.578125,
+      "text": ""
+    },
+    {
+      "tag": "span",
+      "cls": "nav-icon",
+      "id": "",
+      "right": 444,
+      "left": 420,
+      "width": 24,
+      "overflow": 69,
+      "text": "??"
+    },
+    {
+      "tag": "span",
+      "cls": "nav-icon",
+      "id": "",
+      "right": 444,
+      "left": 420,
+      "width": 24,
+      "overflow": 69,
+      "text": "??"
+    }
+  ]
+}</pre>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const target = params.get('target') || '/';
+    const frame = document.getElementById('frame');
+    const out = document.getElementById('out');
+    frame.src = target;
+    frame.onload = () => {
+      const doc = frame.contentDocument;
+      const win = frame.contentWindow;
+      const root = doc.documentElement;
+      const body = doc.body;
+      const clientWidth = root.clientWidth;
+      const scrollWidth = root.scrollWidth;
+      const offenders = [];
+      [...doc.querySelectorAll('body *')].forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.width > 0 && rect.right - clientWidth > 1) {
+          offenders.push({
+            tag: el.tagName.toLowerCase(),
+            cls: el.className || '',
+            id: el.id || '',
+            right: rect.right,
+            left: rect.left,
+            width: rect.width,
+            overflow: rect.right - clientWidth,
+            text: (el.innerText || el.textContent || '').trim().slice(0, 80)
+          });
+        }
+      });
+      offenders.sort((a, b) => b.overflow - a.overflow);
+      out.textContent = JSON.stringify({
+        target,
+        innerWidth: win.innerWidth,
+        clientWidth,
+        scrollWidth,
+        bodyScrollWidth: body.scrollWidth,
+        topOffenders: offenders.slice(0, 20)
+      }, null, 2);
+    };
+  </script>
+
+
+</body></html>
