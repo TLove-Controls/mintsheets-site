@@ -32,7 +32,7 @@ function normalizeShell(content) {
   if (content.includes('<footer class="site-footer">')) return content;
 
   content = content.replace(/<style>\s*\.skip-link[\s\S]*?<\/style>/i, SKIP_LINK_STYLE);
-  content = content.replace(/<a class="skip-link" href="#main-content">Skip to content<\/a>/i, '  <a class="skip-link" href="#main-content">Skip to content</a>');
+  content = content.replace(/^\s*<a class="skip-link" href="#main-content">Skip to content<\/a>\s*$/im, '  <a class="skip-link" href="#main-content">Skip to content</a>');
 
   const headerRegex = /<header class="site-header">[\s\S]*?<\/header>/i;
   if (headerRegex.test(content)) {

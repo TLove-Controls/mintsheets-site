@@ -4,10 +4,12 @@
   "description": "Image optimization helpers for mintsheets-site",
   "scripts": {
     "build:manifest": "node scripts/build-page-manifest.js",
+    "build:site": "npm run sync:shell && npm run sync:meta && npm run sync:css && npm run validate:html",
     "dev": "node scripts/dev-server.js",
     "serve": "node scripts/dev-server.js",
     "validate:html": "node scripts/validate-html.js",
     "improve:html": "node scripts/improve-html.js",
+    "sync:css": "node scripts/sync-shared-css.js",
     "sync:meta": "node scripts/sync-page-meta.js",
     "sync:shell": "node scripts/sync-shared-shell.js",
     "optimize-images": "node scripts/optimize-images.js"
