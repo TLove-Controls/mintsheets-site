@@ -217,8 +217,8 @@
     "title": "Free HVAC Troubleshooting Checklist | Professional Resource | Mint Sheets",
     "description": "Download the free HVAC Troubleshooting Checklist. A practical guide for field technicians to ensure consistency and professional diagnostics on every service call.",
     "canonical": "https://mintsheets.com/free/hvac-troubleshooting-checklist/",
-    "ogTitle": "",
-    "ogDescription": "",
+    "ogTitle": "Free HVAC Troubleshooting Checklist | Professional Resource | Mint Sheets",
+    "ogDescription": "Download the free HVAC Troubleshooting Checklist. A practical guide for field technicians to ensure consistency and professional diagnostics on every service call.",
     "ogType": "website",
     "ogImage": "",
     "twitterTitle": "Free HVAC Troubleshooting Checklist | Professional Resource | Mint Sheets",
@@ -277,6 +277,33 @@
       {
         "name": "HVAC Bid Calculator",
         "item": "https://mintsheets.com/hvac-bid-calculator/"
+      }
+    ]
+  },
+  "/hvac-break-even-calculator/": {
+    "file": "hvac-break-even-calculator/index.html",
+    "title": "HVAC Break-Even Calculator | Revenue Needed to Cover Overhead and Labor | MintSheets",
+    "description": "Free HVAC break-even calculator for contractors. Estimate the monthly revenue needed to cover overhead, labor payroll, and variable job costs. Includes weekly, daily, hourly, and jobs-needed targets.",
+    "canonical": "https://mintsheets.com/hvac-break-even-calculator/",
+    "ogTitle": "HVAC Break-Even Calculator | Revenue Needed to Cover Overhead and Labor | MintSheets",
+    "ogDescription": "Estimate the monthly revenue HVAC contractors need to cover overhead, labor payroll, and variable job costs.",
+    "ogType": "website",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "twitterTitle": "HVAC Break-Even Calculator | Revenue Needed to Cover Overhead and Labor | MintSheets",
+    "twitterDescription": "Free HVAC break-even calculator for contractors. Estimate the monthly revenue needed to cover overhead, labor payroll, and variable job costs.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "Break-Even Calculator",
+        "item": "https://mintsheets.com/hvac-break-even-calculator/"
       }
     ]
   },

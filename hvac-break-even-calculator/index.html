@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7177850851908341"
+    crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HVAC Break-Even Calculator | Revenue Needed to Cover Overhead and Labor | MintSheets</title>
+  <meta name="description" content="Free HVAC break-even calculator for contractors. Estimate the monthly revenue needed to cover overhead, labor payroll, and variable job costs. Includes weekly, daily, hourly, and jobs-needed targets.">
+  <link rel="canonical" href="https://mintsheets.com/hvac-break-even-calculator/">
+  <meta property="og:title" content="HVAC Break-Even Calculator | Revenue Needed to Cover Overhead and Labor | MintSheets">
+  <meta property="og:description" content="Estimate the monthly revenue HVAC contractors need to cover overhead, labor payroll, and variable job costs.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mintsheets.com/hvac-break-even-calculator/">
+  <meta property="og:image" content="https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png">
+  <link rel="stylesheet" href="/styles.min.css?v=1.5">
+  <link rel="stylesheet" href="/shared/css/calculators.css?v=1.6">
+  <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
+  <meta name="author" content="MintSheets">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0F172A">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="MintSheets">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HVAC Break-Even Calculator | Revenue Needed to Cover Overhead and Labor | MintSheets">
+  <meta name="twitter:description" content="Free HVAC break-even calculator for contractors. Estimate the monthly revenue needed to cover overhead, labor payroll, and variable job costs.">
+  <meta name="twitter:image" content="https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png">
+  <link rel="stylesheet" href="/shared/css/page-chrome.css?v=1">
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://mintsheets.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "HVAC Calculators",
+      "item": "https://mintsheets.com/hvac-calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Break-Even Calculator",
+      "item": "https://mintsheets.com/hvac-break-even-calculator/"
+    }
+  ]
+}
+  </script>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RS2BW6VQW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-6RS2BW6VQW');
+  </script>
+
+  <style>
+.kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .kpi-card {
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+      text-align: center;
+    }
+
+    .kpi-card .result-label {
+      margin-bottom: 8px;
+    }
+
+    .kpi-card .result-value {
+      font-size: 30px;
+    }
+
+    .formula-card {
+      margin-top: 20px;
+      padding: 18px 20px;
+      border: 1px solid rgba(34, 211, 238, 0.22);
+      border-radius: 12px;
+      background: rgba(34, 211, 238, 0.06);
+      color: var(--text-light);
+    }
+
+    .formula-card code {
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .alert-inline {
+      margin-top: 14px;
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: rgba(224, 123, 0, 0.08);
+      border: 1px solid rgba(224, 123, 0, 0.24);
+      color: #f4c27b;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .workflow-chain {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .workflow-step,
+    .workflow-arrow {
+      color: var(--text-light);
+    }
+
+    .workflow-step {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 16px;
+      min-width: 110px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      text-decoration: none;
+    }
+
+    .workflow-step.active {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .workflow-step:hover {
+      border-color: var(--primary);
+    }
+
+    .workflow-arrow {
+      font-size: 20px;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body class="has-sticky-ad">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="/" class="brand">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/">Calculators</a>
+        <a href="/blog/">Blog</a>
+        <a href="/#troubleshooting-checklist">Free Guide</a>
+        <a href="mailto:support@mintsheets.com">Support</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
+      </div>
+      <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+  <nav class="mobile-nav" aria-label="Mobile" id="mobile-nav" aria-hidden="true">
+    <div class="mobile-nav-header">
+      <a href="/" class="brand">
+        <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
+          loading="eager">
+      </a>
+      <button class="mobile-nav-close" id="mobile-nav-close" aria-label="Close menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <ul class="mobile-nav-links">
+      <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
+      <li><a href="/blog/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
+      <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
+      <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
+    </ul>
+    <div class="mobile-nav-cta">
+      <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary">Free Resources</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <nav class="breadcrumb-bar" aria-label="Breadcrumb">
+      <div class="container">
+        <a href="/">Home</a>
+        <span class="breadcrumb-separator">&rsaquo;</span>
+        <a href="/hvac-calculators/">HVAC Calculators</a>
+        <span class="breadcrumb-separator">&rsaquo;</span>
+        <span class="breadcrumb-current">Break-Even Calculator</span>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="notice-box">
+        <strong>Notice:</strong> This HVAC calculator provides estimates only and is for informational purposes. Results
+        should be verified against your accounting data, payroll burden, and cost structure. Use at your own risk.
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container section-card">
+        <div style="margin-bottom: 30px; text-align: center;">
+          <div class="eyebrow">Business Tool</div>
+          <h1 style="margin: 10px auto; max-width: none;">HVAC Break-Even Calculator for Overhead &amp; Labor Recovery</h1>
+
+          <div class="ad-placeholder ad-placeholder-top"><span>Advertisement</span></div>
+          <div class="ad-placeholder ad-placeholder-tool"><span>Advertisement</span></div>
+
+          <div class="section-banner" style="margin-top:20px;">
+            <span class="icon">&#x1F4CA;</span> SECTION 1 &mdash; MONTHLY COST INPUTS
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Monthly Overhead ($)</label>
+              <input type="number" id="overhead" value="18000" min="0" step="100" oninput="calcBreakEven()">
+            </div>
+            <div class="form-group">
+              <label>Monthly Labor Payroll ($)</label>
+              <input type="number" id="labor" value="32000" min="0" step="100" oninput="calcBreakEven()">
+            </div>
+            <div class="form-group">
+              <label>Other Variable Cost (% of Revenue)</label>
+              <input type="number" id="variablePct" value="28" min="0" max="95" step="0.1" oninput="calcBreakEven()">
+            </div>
+            <div class="form-group">
+              <label>Target Net Margin (%) <span class="help">Optional sales target above break-even</span></label>
+              <input type="number" id="targetMargin" value="10" min="0" max="40" step="0.1" oninput="calcBreakEven()">
+            </div>
+          </div>
+        </div>
+
+        <div class="section-banner" style="margin-top:20px;">
+          <span class="icon">&#x1F4C8;</span> SECTION 2 &mdash; PRODUCTION ASSUMPTIONS
+        </div>
+
+        <div class="card">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Billable Hours Per Month</label>
+              <input type="number" id="billableHours" value="520" min="1" step="1" oninput="calcBreakEven()">
+            </div>
+            <div class="form-group">
+              <label>Average Revenue Per Job ($)</label>
+              <input type="number" id="avgTicket" value="850" min="1" step="1" oninput="calcBreakEven()">
+            </div>
+          </div>
+
+          <div class="formula-card">
+            <strong>Break-even formula:</strong><br>
+            <code>Required Revenue = (Overhead + Labor) / (1 - Variable Cost %)</code>
+          </div>
+
+          <div class="alert-inline" id="validationMsg" hidden></div>
+        </div>
+
+        <div class="section-banner" style="margin-top:20px;">
+          <span class="icon">&#x1F4B0;</span> SECTION 3 &mdash; BREAK-EVEN TARGETS
+        </div>
+
+        <div class="card">
+          <div class="results-box">
+            <div class="result-label">Monthly Break-Even Revenue</div>
+            <div class="result-value primary" id="breakEvenRevenue">$0</div>
+            <div class="result-unit">Revenue needed to cover overhead, labor, and variable costs</div>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="result-label">Weekly Revenue Target</div>
+              <div class="result-value" id="weeklyRevenue">$0</div>
+            </div>
+            <div class="kpi-card">
+              <div class="result-label">Daily Revenue Target</div>
+              <div class="result-value" id="dailyRevenue">$0</div>
+            </div>
+            <div class="kpi-card">
+              <div class="result-label">Required Revenue Per Billable Hour</div>
+              <div class="result-value" id="hourlyRevenue">$0</div>
+            </div>
+            <div class="kpi-card">
+              <div class="result-label">Jobs Needed Per Month</div>
+              <div class="result-value" id="jobsNeeded">0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-banner" style="margin-top:20px;">
+          <span class="icon">&#x1F3AF;</span> SECTION 4 &mdash; SALES GOAL ABOVE BREAK-EVEN
+        </div>
+
+        <div class="card">
+          <div class="results-box">
+            <div class="result-label">Revenue Needed at Target Margin</div>
+            <div class="result-value success" id="targetRevenue">$0</div>
+            <div class="result-unit">Includes your target net margin setting</div>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="result-label">Target Jobs Per Month</div>
+              <div class="result-value" id="targetJobs">0</div>
+            </div>
+            <div class="kpi-card">
+              <div class="result-label">Overhead + Labor Coverage</div>
+              <div class="result-value" id="fixedCostTotal">$0</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ad-placeholder ad-placeholder-mid">
+          <span>Advertisement</span>
+        </div>
+
+        <section class="section" id="seo-content">
+          <div class="container"
+            style="max-width: 900px; text-align: left; line-height: 1.6; font-size: 16px; margin: 40px auto; color: var(--text-light); padding: 0 20px;">
+            <h2 style="font-size: 26px; margin-bottom: 20px; color: #fff;">Why Break-Even Revenue Matters for HVAC Contractors</h2>
+            <p style="margin-bottom: 15px;">The <strong>HVAC Break-Even Calculator</strong> helps contractors translate
+              monthly overhead and payroll into a clear revenue target. Instead of guessing what the company needs to
+              sell, you can see the sales volume required just to keep the doors open.</p>
+            <p style="margin-bottom: 15px;">Many owners know their overhead and technician payroll, but they do not tie
+              those costs to the actual revenue required per day, per week, or per billable hour. That disconnect leads
+              to underpriced service work, low-margin installations, and revenue goals that sound healthy but still do
+              not cover the full monthly burn rate.</p>
+            <p style="margin-bottom: 15px;">This tool treats overhead and labor as the fixed monthly cost base, then
+              adjusts for material, permit, subcontractor, or other variable costs using a percentage of revenue. If
+              your shop wants to go beyond break-even, the optional target margin field shows the sales goal required to
+              generate profit above those baseline obligations.</p>
+            <p style="margin-bottom: 15px;">Use this together with the <a href="/hvac-labor-cost-calculator/"
+                style="color: var(--primary);">Labor Burden Calculator</a>, <a href="/hvac-service-price-calculator/"
+                style="color: var(--primary);">Service Price Calculator</a>, and <a href="/hvac-profit-margin-calculator/"
+                style="color: var(--primary);">Profit Margin Calculator</a> to build a more complete pricing and
+              planning system.</p>
+          </div>
+        </section>
+
+        <div class="ad-placeholder ad-placeholder-bottom">
+          <span>Advertisement</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="workflow-chain">
+          <div class="workflow-step active">
+            <div class="step-icon">&#x1F4CA;</div>
+            <div class="step-label">Break-Even</div>
+          </div>
+          <div class="workflow-arrow">&rarr;</div>
+          <a href="/hvac-labor-cost-calculator/" class="workflow-step">
+            <div class="step-icon">&#x1F477;</div>
+            <div class="step-label">Labor Cost</div>
+          </a>
+          <div class="workflow-arrow">&rarr;</div>
+          <a href="/hvac-service-price-calculator/" class="workflow-step">
+            <div class="step-icon">&#x1F4B5;</div>
+            <div class="step-label">Service Price</div>
+          </a>
+          <div class="workflow-arrow">&rarr;</div>
+          <a href="/hvac-profit-margin-calculator/" class="workflow-step">
+            <div class="step-icon">&#x1F4B8;</div>
+            <div class="step-label">Profit Margin</div>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="mint-footer" style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 20px;">
+      <h3 style="color:var(--primary);font-weight:900;font-size:18px;text-transform:uppercase;margin-bottom:20px;letter-spacing:1px;">Related HVAC Calculators</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;">
+        <a href="/hvac-load-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Load Calculator</a>
+        <a href="/hvac-cfm-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">CFM Calculator</a>
+        <a href="/hvac-duct-size-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Duct Size Calculator</a>
+        <a href="/hvac-static-pressure-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Static Pressure Calculator</a>
+      </div>
+      <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);">
+        <a href="/privacy-policy/" style="color:var(--muted);text-decoration:none;">Privacy Policy</a>
+        <a href="/terms-of-service/" style="color:var(--muted);text-decoration:none;">Terms of Service</a>
+        <a href="/disclaimer/" style="color:var(--muted);text-decoration:none;">Disclaimer</a>
+        <a href="/cookie-policy/" style="color:var(--muted);text-decoration:none;">Cookie Policy</a>
+      </div>
+      <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        <span><span style="color: var(--primary);">&#10003;</span> Used by HVAC technicians & contractors</span>
+        <span><span style="color: var(--primary);">&#10003;</span> Based on ACCA Manual standards</span>
+        <span><span style="color: var(--primary);">&#10003;</span> Free professional tools</span>
+      </div>
+      <p style="margin-top:20px;color:var(--muted);font-size:12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
+    </div>
+  </footer>
+
+  <script>
+    function formatCurrency(value) {
+      if (!isFinite(value)) return '$0';
+      return '$' + value.toLocaleString(undefined, { maximumFractionDigits: 0 });
+    }
+
+    function formatNumber(value, decimals) {
+      if (!isFinite(value)) return '0';
+      return value.toLocaleString(undefined, {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      });
+    }
+
+    function calcBreakEven() {
+      const overhead = Math.max(0, parseFloat(document.getElementById('overhead').value) || 0);
+      const labor = Math.max(0, parseFloat(document.getElementById('labor').value) || 0);
+      const variablePct = Math.max(0, parseFloat(document.getElementById('variablePct').value) || 0);
+      const billableHours = Math.max(0, parseFloat(document.getElementById('billableHours').value) || 0);
+      const avgTicket = Math.max(0, parseFloat(document.getElementById('avgTicket').value) || 0);
+      const targetMargin = Math.max(0, parseFloat(document.getElementById('targetMargin').value) || 0);
+
+      const msg = document.getElementById('validationMsg');
+      const fixedCosts = overhead + labor;
+      const contributionPct = 1 - (variablePct / 100);
+      const targetContributionPct = 1 - ((variablePct + targetMargin) / 100);
+
+      if (contributionPct <= 0) {
+        document.getElementById('breakEvenRevenue').innerText = '$0';
+        document.getElementById('weeklyRevenue').innerText = '$0';
+        document.getElementById('dailyRevenue').innerText = '$0';
+        document.getElementById('hourlyRevenue').innerText = '$0';
+        document.getElementById('jobsNeeded').innerText = '0';
+        document.getElementById('targetRevenue').innerText = '$0';
+        document.getElementById('targetJobs').innerText = '0';
+        document.getElementById('fixedCostTotal').innerText = formatCurrency(fixedCosts);
+        msg.hidden = false;
+        msg.innerText = 'Variable cost percentage must stay below 100% for the company to break even.';
+        return;
+      }
+
+      msg.hidden = true;
+
+      const breakEvenRevenue = fixedCosts / contributionPct;
+      const weeklyRevenue = breakEvenRevenue / 4.33;
+      const dailyRevenue = breakEvenRevenue / 21.67;
+      const hourlyRevenue = billableHours > 0 ? breakEvenRevenue / billableHours : 0;
+      const jobsNeeded = avgTicket > 0 ? breakEvenRevenue / avgTicket : 0;
+
+      let targetRevenue = breakEvenRevenue;
+      if (targetContributionPct > 0) {
+        targetRevenue = fixedCosts / targetContributionPct;
+      }
+      const targetJobs = avgTicket > 0 ? targetRevenue / avgTicket : 0;
+
+      document.getElementById('breakEvenRevenue').innerText = formatCurrency(breakEvenRevenue);
+      document.getElementById('weeklyRevenue').innerText = formatCurrency(weeklyRevenue);
+      document.getElementById('dailyRevenue').innerText = formatCurrency(dailyRevenue);
+      document.getElementById('hourlyRevenue').innerText = formatCurrency(hourlyRevenue);
+      document.getElementById('jobsNeeded').innerText = formatNumber(jobsNeeded, 1);
+      document.getElementById('targetRevenue').innerText = formatCurrency(targetRevenue);
+      document.getElementById('targetJobs').innerText = formatNumber(targetJobs, 1);
+      document.getElementById('fixedCostTotal').innerText = formatCurrency(fixedCosts);
+
+      if (targetContributionPct <= 0) {
+        msg.hidden = false;
+        msg.innerText = 'Target margin plus variable cost percentage must stay below 100% to produce a valid sales goal.';
+        document.getElementById('targetRevenue').innerText = '$0';
+        document.getElementById('targetJobs').innerText = '0';
+      }
+    }
+
+    calcBreakEven();
+  </script>
+
+  <script>
+  (function () {
+    var btn = document.getElementById('hamburger-btn');
+    var nav = document.getElementById('mobile-nav');
+    var overlay = document.getElementById('mobile-nav-overlay');
+    var close = document.getElementById('mobile-nav-close');
+    if (!btn || !nav) return;
+    function setMenuState(open) {
+      document.body.classList.toggle('menu-open', open);
+      btn.classList.toggle('active', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      nav.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    btn.addEventListener('click', function () { setMenuState(!btn.classList.contains('active')); });
+    close && close.addEventListener('click', function () { setMenuState(false); });
+    overlay && overlay.addEventListener('click', function () { setMenuState(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setMenuState(false);
+    });
+  })();
+  </script>
+</body>
+
+</html>
