@@ -45,6 +45,167 @@ function breadcrumbJsonLd(entry) {
   </script>`;
 }
 
+function jsonLdScript(data) {
+  return `<script type="application/ld+json">
+  ${JSON.stringify(data, null, 2)}
+  </script>`;
+}
+
+function trimBrand(value = '') {
+  return value
+    .replace(/\s+\|\s+MintSheets.*$/, '')
+    .trim();
+}
+
+function basePublisher() {
+  return {
+    '@type': 'Organization',
+    name: 'MintSheets',
+    logo: {
+      '@type': 'ImageObject',
+      url: 'https://mintsheets.com/brand/logo-without-background.png',
+    },
+  };
+}
+
+function primaryStructuredData(route, entry) {
+  if (route === '/') {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'WebSite',
+      url: entry.canonical,
+      name: 'MintSheets',
+      description: entry.description,
+      publisher: {
+        '@type': 'Organization',
+        name: 'MintSheets',
+      },
+    };
+  }
+
+  if (route === '/blog/') {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'CollectionPage',
+      name: trimBrand(entry.title),
+      description: entry.description,
+      url: entry.canonical,
+      publisher: {
+        '@type': 'Organization',
+        name: 'MintSheets',
+      },
+    };
+  }
+
+  if (route.startsWith('/blog/')) {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': entry.canonical,
+      },
+      headline: trimBrand(entry.title),
+      description: entry.description,
+      url: entry.canonical,
+      image: entry.ogImage || entry.twitterImage,
+      author: {
+        '@type': 'Organization',
+        name: 'MintSheets',
+      },
+      publisher: basePublisher(),
+    };
+  }
+
+  if (route.startsWith('/hvac-') && route !== '/hvac-calculators/') {
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'SoftwareApplication',
+      name: trimBrand(entry.title),
+      url: entry.canonical,
+      description: entry.description,
+      applicationCategory: 'ProfessionalTool',
+      operatingSystem: 'WEB',
+    };
+  }
+
+  return null;
+}
+
+function buildDirectoryItemList(manifest, route, entry) {
+  if (route === '/hvac-calculators/') {
+    const calculators = Object.entries(manifest)
+      .filter(([candidateRoute, candidate]) => candidateRoute.startsWith('/hvac-') && candidateRoute !== '/hvac-calculators/' && candidate.file.endsWith('/index.html'))
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([candidateRoute, candidate], index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: candidate.canonical,
+        name: candidate.ogTitle || candidate.title.replace(/\s+\|\s+MintSheets.*$/, ''),
+      }));
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: entry.title,
+      itemListElement: calculators,
+    };
+  }
+
+  if (route === '/blog/') {
+    const articles = Object.entries(manifest)
+      .filter(([candidateRoute]) => candidateRoute.startsWith('/blog/') && candidateRoute !== '/blog/')
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([candidateRoute, candidate], index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        url: candidate.canonical,
+        name: candidate.title.replace(/\s+\|\s+MintSheets.*$/, ''),
+      }));
+
+    return {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: entry.title,
+      itemListElement: articles,
+    };
+  }
+
+  return null;
+}
+
+function getStructuredDataScripts(manifest, route, entry) {
+  const blocks = [];
+  const primary = primaryStructuredData(route, entry);
+  if (primary) blocks.push(primary);
+
+  for (const block of [...(entry.structuredData || [])].filter((block) => {
+    if (!block || typeof block !== 'object') return false;
+    if (block['@type'] === 'BreadcrumbList') return false;
+    if ((route === '/blog/' || route === '/hvac-calculators/') && block['@type'] === 'ItemList') return false;
+    if (route.startsWith('/blog/') && block['@type'] === 'BlogPosting') return false;
+    if (route.startsWith('/hvac-') && route !== '/hvac-calculators/' && block['@type'] === 'SoftwareApplication') return false;
+    if (route === '/' && block['@type'] === 'WebSite') return false;
+    if (route === '/blog/' && block['@type'] === 'CollectionPage') return false;
+    return true;
+  })) {
+    blocks.push(block);
+  }
+  const itemList = buildDirectoryItemList(manifest, route, entry);
+  if (itemList) blocks.push(itemList);
+  blocks.push({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: (entry.breadcrumbs || []).map((crumb, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: crumb.name,
+      item: crumb.item,
+    })),
+  });
+  return blocks.map(jsonLdScript).join('\n\n');
+}
+
 function breadcrumbNav(entry) {
   if (!entry.breadcrumbs?.length) return '';
   const visible = entry.breadcrumbs.map((crumb, index) => {
@@ -91,11 +252,10 @@ for (const [route, entry] of Object.entries(manifest)) {
     html = upsertMeta(html, 'name', 'twitter:image', entry.twitterImage || entry.ogImage);
   }
 
-  const breadcrumbScript = breadcrumbJsonLd(entry);
-  const breadcrumbScriptRegex = /<script type="application\/ld\+json">\s*[\s\S]*?"@type"\s*:\s*"BreadcrumbList"[\s\S]*?<\/script>/i;
-  if (breadcrumbScript) {
-    if (breadcrumbScriptRegex.test(html)) html = html.replace(breadcrumbScriptRegex, breadcrumbScript);
-    else html = html.replace('</head>', `${breadcrumbScript}\n\n</head>`);
+  const structuredScripts = getStructuredDataScripts(manifest, route, entry);
+  html = html.replace(/\s*<script type="application\/ld\+json">[\s\S]*?<\/script>/gi, '');
+  if (structuredScripts) {
+    html = html.replace('</head>', `${structuredScripts}\n\n</head>`);
   }
 
   if (/<nav class="breadcrumb-bar" aria-label="Breadcrumb">[\s\S]*?<\/nav>/i.test(html) && entry.breadcrumbs?.length) {
