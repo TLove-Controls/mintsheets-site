@@ -22,7 +22,7 @@
         "headline": "Duct Sizing Explained (With Chart) | HVAC Duct Design Guide",
         "description": "Complete duct sizing guide for HVAC professionals. Learn the equal friction method, duct sizing charts, round vs rectangular sizing, and how to design a duct system per ACCA Manual D.",
         "url": "https://mintsheets.com/blog/duct-sizing-explained/",
-        "image": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+        "image": "https://mintsheets.com/shared/images/og/blog-duct-sizing-explained.png",
         "author": {
           "@type": "Organization",
           "name": "MintSheets"
@@ -75,7 +75,7 @@
         "headline": "How Many Tons of AC Do I Need? | HVAC Sizing Guide",
         "description": "How to calculate the right AC tonnage for any home or building. Learn HVAC tonnage sizing rules, what affects system size, common mistakes, and use our free HVAC load calculator.",
         "url": "https://mintsheets.com/blog/how-many-tons-of-ac-do-i-need/",
-        "image": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+        "image": "https://mintsheets.com/shared/images/og/blog-how-many-tons-of-ac-do-i-need.png",
         "author": {
           "@type": "Organization",
           "name": "MintSheets"
@@ -128,7 +128,7 @@
         "headline": "How to Calculate CFM for Each Room | HVAC Airflow Guide",
         "description": "Learn how to calculate CFM for each room in a house. Three methods: square footage, sensible heat load, and ACPH. Includes free CFM and airflow calculators.",
         "url": "https://mintsheets.com/blog/how-to-calculate-cfm-per-room/",
-        "image": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+        "image": "https://mintsheets.com/shared/images/og/blog-how-to-calculate-cfm-per-room.png",
         "author": {
           "@type": "Organization",
           "name": "MintSheets"
@@ -181,7 +181,7 @@
         "headline": "How to Size an HVAC System Properly | HVAC Sizing Guide",
         "description": "Step-by-step guide to properly sizing an HVAC system. Learn how to use Manual J load calculations, CFM design, duct sizing, and static pressure checks with free online HVAC calculators.",
         "url": "https://mintsheets.com/blog/how-to-size-hvac-systems/",
-        "image": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+        "image": "https://mintsheets.com/shared/images/og/blog-how-to-size-hvac-systems.png",
         "author": {
           "@type": "Organization",
           "name": "MintSheets"
@@ -234,7 +234,7 @@
         "headline": "HVAC Pricing Guide for Contractors (2026)",
         "description": "Complete HVAC pricing guide for contractors. Learn how to price service calls, installations, and maintenance agreements. Includes markup strategies, labor rates, and free HVAC pricing calculators.",
         "url": "https://mintsheets.com/blog/hvac-pricing-guide-for-contractors/",
-        "image": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+        "image": "https://mintsheets.com/shared/images/og/blog-hvac-pricing-guide-for-contractors.png",
         "author": {
           "@type": "Organization",
           "name": "MintSheets"
@@ -366,7 +366,7 @@
         "headline": "What Is Static Pressure in HVAC? (Complete Guide)",
         "description": "Complete guide to static pressure in HVAC systems. Learn what total external static pressure (TESP) is, how to measure it, what causes high static, and how to fix it. Includes free HVAC calculator.",
         "url": "https://mintsheets.com/blog/what-is-static-pressure-hvac/",
-        "image": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+        "image": "https://mintsheets.com/shared/images/og/blog-what-is-static-pressure-hvac.png",
         "author": {
           "@type": "Organization",
           "name": "MintSheets"
