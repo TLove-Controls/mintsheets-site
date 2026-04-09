@@ -24,28 +24,6 @@ $standardAdPlaceholderBottom = @"
     </div>
 "@
 
-$standardAdPlaceholderTool = @"
-    <!-- Ad Placeholder: Above Calculator -->
-    <div class="ad-placeholder ad-placeholder-tool">
-      <span>Advertisement</span>
-    </div>
-"@
-
-$standardAdPlaceholderInline = @"
-    <!-- Ad Placeholder: Inline Content -->
-    <div class="ad-placeholder ad-placeholder-inline">
-      <span>Advertisement</span>
-    </div>
-"@
-
-$stickyAd = @"
-  <!-- Sticky Ad Placeholder -->
-  <div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">
-    <span>Advertisement</span>
-    <button class="ad-sticky-close" onclick="document.getElementById('sticky-ad').style.display='none'" aria-label="Close Ad">&times;</button>
-  </div>
-"@
-
 $files = $null
 if ($TargetFile -ne "") {
     $files = Get-Item $TargetFile
@@ -69,28 +47,26 @@ foreach ($file in $files) {
     $content = [regex]::Replace($content, '<div class="ad-slot ad-mid".*?></div>', $standardAdPlaceholderMid)
     $content = [regex]::Replace($content, '<div class="ad-slot ad-bottom".*?></div>', $standardAdPlaceholderBottom)
 
-    # 2. Add Sticky if not present 
-    if ($content -notmatch 'ad-placeholder-sticky' -and $content -match '</body>') {
-        $content = $content.Replace("</body>", $stickyAd + "`n</body>")
-    }
-
-    # 3. Category Specific Logic
+    # 2. Category Specific Logic
     $isCalculator = $file.FullName -match "hvac-.*-calculator" -or $content -match "section-card"
-    $isBlog = $file.FullName -match "blog"
+    $isBlogIndex = $file.FullName -match "blog[\\/]+index\.html$"
+    $isBlogArticle = $file.FullName -match "blog[\\/]+[^\\/]+[\\/]+index\.html$"
+    $isGuide = $file.FullName -match "free[\\/]+"
     $isHome = $file.Name -eq "index.html" -and ($file.DirectoryName -eq (Get-Location).Path -or $file.FullName -match "mintsheets-site\\index.html$")
 
-    if ($isCalculator -and -not $isHome -and -not $isBlog) {
-        # Above-Tool placeholder (Before first section-banner)
-        if ($content -notmatch 'ad-placeholder-tool') {
-             if ($content -match '<div class="section-banner">') {
-                $content = [regex]::Replace($content, '(<div class="section-banner">)', "`n" + $standardAdPlaceholderTool + "`n`n$1", 1)
-             }
-        }
-        # Inline placeholder (After intro paragraph)
-        if ($content -notmatch 'ad-placeholder-inline') {
-            if ($content -match '</h1>\s*<p.*?</p>') {
-                $content = [regex]::Replace($content, '(</h1>\s*<p.*?</p>)', "$1`n`n" + $standardAdPlaceholderInline, 1)
-            }
+    if ($isGuide) {
+        $content = [regex]::Replace($content, '<!-- Ad Placeholder: Top Banner -->\s*<div class="ad-placeholder ad-placeholder-top">\s*<span>Advertisement</span>\s*</div>\s*', '')
+        $content = [regex]::Replace($content, '<!-- Ad Placeholder: Mid Content -->\s*<div class="ad-placeholder ad-placeholder-mid">\s*<span>Advertisement</span>\s*</div>\s*', '')
+        $content = [regex]::Replace($content, '<!-- Ad Placeholder: Bottom Banner -->\s*<div class="ad-placeholder ad-placeholder-bottom">\s*<span>Advertisement</span>\s*</div>\s*', '')
+    }
+    elseif ($isCalculator -and -not $isHome -and -not $isBlogArticle -and -not $isBlogIndex) {
+        # Calculators should stay light: top and bottom only.
+        $content = [regex]::Replace($content, '<!-- Ad Placeholder: Mid Content -->\s*<div class="ad-placeholder ad-placeholder-mid">\s*<span>Advertisement</span>\s*</div>\s*', '')
+        $content = [regex]::Replace($content, '<!-- Ad Placeholder: Above Calculator -->\s*<div class="ad-placeholder ad-placeholder-tool">\s*<span>Advertisement</span>\s*</div>\s*', '')
+        $content = [regex]::Replace($content, '<!-- Ad Placeholder: Inline Content -->\s*<div class="ad-placeholder ad-placeholder-inline">\s*<span>Advertisement</span>\s*</div>\s*', '')
+
+        if ($content -notmatch 'ad-placeholder-top') {
+            $content = [regex]::Replace($content, '(</h1>)', "$1`n`n" + $standardAdPlaceholderTop, 1)
         }
         # Bottom placeholder if not present (Before workflow-chain or footer)
         if ($content -notmatch 'ad-placeholder-bottom') {
@@ -101,16 +77,10 @@ foreach ($file in $files) {
             }
         }
     }
-    elseif ($isBlog) {
+    elseif ($isBlogArticle) {
         # Top placeholder for blogs (After title)
         if ($content -notmatch 'ad-placeholder-top') {
             $content = [regex]::Replace($content, '(</h1>\s*<p class="article-meta".*?</p>)', "$1`n`n" + $standardAdPlaceholderTop, 1)
-        }
-        # Inline placeholder (After first paragraph)
-        if ($content -notmatch 'ad-placeholder-inline') {
-             if ($content -match '<div class="article-wrap">\s*<nav.*?>.*?</nav>.*?</h1>.*?<p.*?</p>') {
-                $content = [regex]::Replace($content, '(<div class="article-wrap">\s*<nav.*?>.*?</nav>.*?</h1>.*?<p.*?</p>)', "$1`n`n" + $standardAdPlaceholderInline, 1)
-             }
         }
         # Mid placeholder (Before second H2 if exists)
         if ($content -notmatch 'ad-placeholder-mid') {
@@ -121,6 +91,40 @@ foreach ($file in $files) {
                 $content = $content.Insert($targetIndex, $standardAdPlaceholderMid + "`n`n")
             }
         }
+    }
+    elseif ($isBlogIndex -or $isHome) {
+        # Directory-style pages should have a single lighter placement.
+        $content = [regex]::Replace($content, '<!-- Ad Placeholder: Mid Content -->\s*<div class="ad-placeholder ad-placeholder-mid">\s*<span>Advertisement</span>\s*</div>\s*', '')
+        $content = [regex]::Replace($content, '<!-- Ad Placeholder: Bottom Banner -->\s*<div class="ad-placeholder ad-placeholder-bottom">\s*<span>Advertisement</span>\s*</div>\s*', '')
+
+        if ($content -notmatch 'ad-placeholder-top') {
+            $content = [regex]::Replace($content, '(</h1>)', "$1`n`n" + $standardAdPlaceholderTop, 1)
+        }
+    }
+
+    # Remove sticky ads from the managed templates and drop the body helper when unused.
+    $content = [regex]::Replace($content, '<!-- Sticky Ad Placeholder -->\s*<div class="ad-placeholder ad-placeholder-sticky" id="sticky-ad">[\s\S]*?</div>\s*', '')
+    if ($content -notmatch 'ad-placeholder-sticky') {
+        $content = $content -replace '\s*has-sticky-ad', ''
+    }
+
+    # Keep a single instance of each supported placement.
+    $slotLabels = @{
+        top = "Top Banner"
+        mid = "Mid Content"
+        bottom = "Bottom Banner"
+    }
+    foreach ($slot in @('top', 'mid', 'bottom')) {
+        $seen = $false
+        $pattern = '<!-- Ad Placeholder: ' + [regex]::Escape($slotLabels[$slot]) + ' -->\s*<div class="ad-placeholder ad-placeholder-' + $slot + '">\s*<span>Advertisement</span>\s*</div>\s*'
+        $content = [regex]::Replace($content, $pattern, {
+            param($match)
+            if ($seen) {
+                return ''
+            }
+            $seen = $true
+            return $match.Value
+        })
     }
 
     [System.IO.File]::WriteAllText($file.FullName, $content)
