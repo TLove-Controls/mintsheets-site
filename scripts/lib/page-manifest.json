@@ -1,0 +1,659 @@
+{
+  "/blog/duct-sizing-explained/": {
+    "file": "blog/duct-sizing-explained/index.html",
+    "title": "Duct Sizing Explained (With Chart) | HVAC Duct Design Guide | MintSheets",
+    "description": "Complete duct sizing guide for HVAC professionals. Learn the equal friction method, duct sizing charts, round vs rectangular sizing, and how to design a duct system per ACCA Manual D.",
+    "canonical": "https://mintsheets.com/blog/duct-sizing-explained/",
+    "ogTitle": "Duct Sizing Explained (With Chart) | MintSheets",
+    "ogDescription": "How to size HVAC ductwork using the equal friction method. Includes duct sizing charts, velocity limits, flex vs sheet metal rules, and free calculator.",
+    "ogType": "article",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+    "twitterTitle": "Duct Sizing Explained (With Chart) | HVAC Duct Design Guide | MintSheets",
+    "twitterDescription": "Complete duct sizing guide for HVAC professionals. Learn the equal friction method, duct sizing charts, round vs rectangular sizing, and how to design a duct system per ACCA Manual D.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "Blog",
+        "item": "https://mintsheets.com/blog/"
+      },
+      {
+        "name": "Duct Sizing Explained (With Chart)",
+        "item": "https://mintsheets.com/blog/duct-sizing-explained/"
+      }
+    ]
+  },
+  "/blog/how-many-tons-of-ac-do-i-need/": {
+    "file": "blog/how-many-tons-of-ac-do-i-need/index.html",
+    "title": "How Many Tons of AC Do I Need? | HVAC Sizing Guide | MintSheets",
+    "description": "How to calculate the right AC tonnage for any home or building. Learn HVAC tonnage sizing rules, what affects system size, common mistakes, and use our free HVAC load calculator.",
+    "canonical": "https://mintsheets.com/blog/how-many-tons-of-ac-do-i-need/",
+    "ogTitle": "How Many Tons of AC Do I Need? | HVAC Sizing Guide | MintSheets",
+    "ogDescription": "Calculate the correct AC tonnage for your home. Explains what affects HVAC sizing, debunks square footage myths, and links to free load calculators.",
+    "ogType": "article",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+    "twitterTitle": "How Many Tons of AC Do I Need? | HVAC Sizing Guide | MintSheets",
+    "twitterDescription": "How to calculate the right AC tonnage for any home or building. Learn HVAC tonnage sizing rules, what affects system size, common mistakes, and use our free HVAC load calculator.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "Blog",
+        "item": "https://mintsheets.com/blog/"
+      },
+      {
+        "name": "How Many Tons of AC Do I Need?",
+        "item": "https://mintsheets.com/blog/how-many-tons-of-ac-do-i-need/"
+      }
+    ]
+  },
+  "/blog/how-to-calculate-cfm-per-room/": {
+    "file": "blog/how-to-calculate-cfm-per-room/index.html",
+    "title": "How to Calculate CFM for Each Room | HVAC Airflow Guide | MintSheets",
+    "description": "Learn how to calculate CFM for each room in a house. Three methods: square footage, sensible heat load, and ACPH. Includes free CFM and airflow calculators.",
+    "canonical": "https://mintsheets.com/blog/how-to-calculate-cfm-per-room/",
+    "ogTitle": "How to Calculate CFM for Each Room | MintSheets",
+    "ogDescription": "Step-by-step guide to calculating room CFM for HVAC system design. Three methods with worked examples and free calculators.",
+    "ogType": "article",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+    "twitterTitle": "How to Calculate CFM for Each Room | HVAC Airflow Guide | MintSheets",
+    "twitterDescription": "Learn how to calculate CFM for each room in a house. Three methods: square footage, sensible heat load, and ACPH. Includes free CFM and airflow calculators.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "Blog",
+        "item": "https://mintsheets.com/blog/"
+      },
+      {
+        "name": "How to Calculate CFM for Each Room",
+        "item": "https://mintsheets.com/blog/how-to-calculate-cfm-per-room/"
+      }
+    ]
+  },
+  "/blog/how-to-size-hvac-systems/": {
+    "file": "blog/how-to-size-hvac-systems/index.html",
+    "title": "How to Size an HVAC System Properly | HVAC Sizing Guide | MintSheets",
+    "description": "Step-by-step guide to properly sizing an HVAC system. Learn how to use Manual J load calculations, CFM design, duct sizing, and static pressure checks with free online HVAC calculators.",
+    "canonical": "https://mintsheets.com/blog/how-to-size-hvac-systems/",
+    "ogTitle": "How to Size an HVAC System Properly | MintSheets",
+    "ogDescription": "Step-by-step HVAC sizing guide. Manual J load calculations, CFM design, duct sizing, and static pressure checks — with free online calculators for every step.",
+    "ogType": "article",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+    "twitterTitle": "How to Size an HVAC System Properly | HVAC Sizing Guide | MintSheets",
+    "twitterDescription": "Step-by-step guide to properly sizing an HVAC system. Learn how to use Manual J load calculations, CFM design, duct sizing, and static pressure checks with free online HVAC calculators.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "Blog",
+        "item": "https://mintsheets.com/blog/"
+      },
+      {
+        "name": "How to Size an HVAC System Properly",
+        "item": "https://mintsheets.com/blog/how-to-size-hvac-systems/"
+      }
+    ]
+  },
+  "/blog/hvac-pricing-guide-for-contractors/": {
+    "file": "blog/hvac-pricing-guide-for-contractors/index.html",
+    "title": "HVAC Pricing Guide for Contractors (2026) | MintSheets",
+    "description": "Complete HVAC pricing guide for contractors. Learn how to price service calls, installations, and maintenance agreements. Includes markup strategies, labor rates, and free HVAC pricing calculators.",
+    "canonical": "https://mintsheets.com/blog/hvac-pricing-guide-for-contractors/",
+    "ogTitle": "HVAC Pricing Guide for Contractors (2026) | MintSheets",
+    "ogDescription": "How to price HVAC jobs profitably. Service call rates, install markup, labor burden, flat-rate pricing, and business calculators for contractors.",
+    "ogType": "article",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+    "twitterTitle": "HVAC Pricing Guide for Contractors (2026) | MintSheets",
+    "twitterDescription": "Complete HVAC pricing guide for contractors. Learn how to price service calls, installations, and maintenance agreements. Includes markup strategies, labor rates, and free HVAC pricing calculators.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-sizing-guide.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "Blog",
+        "item": "https://mintsheets.com/blog/"
+      },
+      {
+        "name": "HVAC Pricing Guide for Contractors",
+        "item": "https://mintsheets.com/blog/hvac-pricing-guide-for-contractors/"
+      }
+    ]
+  },
+  "/blog/": {
+    "file": "blog/index.html",
+    "title": "HVAC Blog | Technical Guides &amp; Industry Sizing Tips | MintSheets",
+    "description": "Professional HVAC technical guides, sizing tips, and business strategies for contractors and technicians. Mastering load calculations, static pressure, and profit margins.",
+    "canonical": "https://mintsheets.com/blog/",
+    "ogTitle": "HVAC Blog | Technical Guides &amp; Pricing Tips | MintSheets",
+    "ogDescription": "Master the technical and business sides of HVAC. Load calculations, duct sizing, static pressure diagnostics, and pricing strategies.",
+    "ogType": "website",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "twitterTitle": "HVAC Blog | Technical Guides &amp; Industry Sizing Tips | MintSheets",
+    "twitterDescription": "Professional HVAC technical guides, sizing tips, and business strategies for contractors and technicians. Mastering load calculations, static pressure, and profit margins.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "Blog",
+        "item": "https://mintsheets.com/blog/"
+      }
+    ]
+  },
+  "/blog/what-is-static-pressure-hvac/": {
+    "file": "blog/what-is-static-pressure-hvac/index.html",
+    "title": "What Is Static Pressure in HVAC? (Complete Guide) | MintSheets",
+    "description": "Complete guide to static pressure in HVAC systems. Learn what total external static pressure (TESP) is, how to measure it, what causes high static, and how to fix it. Includes free HVAC calculator.",
+    "canonical": "https://mintsheets.com/blog/what-is-static-pressure-hvac/",
+    "ogTitle": "What Is Static Pressure in HVAC? (Complete Guide) | MintSheets",
+    "ogDescription": "Learn what static pressure is in HVAC systems, how to measure TESP, diagnose high static, and correct duct system restrictions. Complete field guide for technicians.",
+    "ogType": "article",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "twitterTitle": "What Is Static Pressure in HVAC? (Complete Guide) | MintSheets",
+    "twitterDescription": "Complete guide to static pressure in HVAC systems. Learn what total external static pressure (TESP) is, how to measure it, what causes high static, and how to fix it. Includes free HVAC calculator.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "Blog",
+        "item": "https://mintsheets.com/blog/"
+      },
+      {
+        "name": "What Is Static Pressure in HVAC?",
+        "item": "https://mintsheets.com/blog/what-is-static-pressure-hvac/"
+      }
+    ]
+  },
+  "/cookie-policy/": {
+    "file": "cookie-policy/index.html",
+    "title": "Cookie Policy | MintSheets HVAC Calculators",
+    "description": "Cookie policy for MintSheets, including analytics, advertising, and management options.",
+    "canonical": "https://mintsheets.com/cookie-policy/",
+    "ogTitle": "Cookie Policy | MintSheets",
+    "ogDescription": "MintSheets Cookie Policy for analytics and AdSense cookies.",
+    "ogType": "website",
+    "ogImage": "",
+    "twitterTitle": "Cookie Policy | MintSheets HVAC Calculators",
+    "twitterDescription": "Cookie policy for MintSheets, including analytics, advertising, and management options.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": []
+  },
+  "/disclaimer/": {
+    "file": "disclaimer/index.html",
+    "title": "Disclaimer | MintSheets HVAC Calculators",
+    "description": "HVAC calculator disclaimer stating informational use only and no professional advice.",
+    "canonical": "https://mintsheets.com/disclaimer/",
+    "ogTitle": "Disclaimer | MintSheets",
+    "ogDescription": "MintSheets HVAC estimated values are for information only and not engineering advice.",
+    "ogType": "website",
+    "ogImage": "",
+    "twitterTitle": "Disclaimer | MintSheets HVAC Calculators",
+    "twitterDescription": "HVAC calculator disclaimer stating informational use only and no professional advice.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": []
+  },
+  "/free/hvac-troubleshooting-checklist/": {
+    "file": "free/hvac-troubleshooting-checklist/index.html",
+    "title": "Free HVAC Troubleshooting Checklist | Professional Resource | Mint Sheets",
+    "description": "Download the free HVAC Troubleshooting Checklist. A practical guide for field technicians to ensure consistency and professional diagnostics on every service call.",
+    "canonical": "https://mintsheets.com/free/hvac-troubleshooting-checklist/",
+    "ogTitle": "",
+    "ogDescription": "",
+    "ogType": "website",
+    "ogImage": "",
+    "twitterTitle": "Free HVAC Troubleshooting Checklist | Professional Resource | Mint Sheets",
+    "twitterDescription": "Download the free HVAC Troubleshooting Checklist. A practical guide for field technicians to ensure consistency and professional diagnostics on every service call.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": []
+  },
+  "/hvac-airflow-per-room-calculator/": {
+    "file": "hvac-airflow-per-room-calculator/index.html",
+    "title": "HVAC Airflow Per Room Calculator | CFM Per Room &amp; Register Sizing | MintSheets",
+    "description": "Free HVAC airflow per room calculator. Calculate required CFM per room, size supply registers, and verify total system airflow balance. Perfect for HVAC design and troubleshooting.",
+    "canonical": "https://mintsheets.com/hvac-airflow-per-room-calculator/",
+    "ogTitle": "HVAC Airflow Per Room Calculator | CFM Per Room | MintSheets",
+    "ogDescription": "Calculate required CFM per room for any home or building. Size supply registers and check total system airflow balance against equipment tonnage.",
+    "ogType": "website",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-airflow.png",
+    "twitterTitle": "HVAC Airflow Per Room Calculator | CFM Per Room &amp; Register Sizing | MintSheets",
+    "twitterDescription": "Free HVAC airflow per room calculator. Calculate required CFM per room, size supply registers, and verify total system airflow balance. Perfect for HVAC design and troubleshooting.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-airflow.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "Airflow Per Room Calculator",
+        "item": "https://mintsheets.com/hvac-airflow-per-room-calculator/"
+      }
+    ]
+  },
+  "/hvac-bid-calculator/": {
+    "file": "hvac-bid-calculator/index.html",
+    "title": "HVAC Bid Calculator | HVAC Estimate, Pricing & Margin Tool | MintSheets",
+    "description": "Free online HVAC bid calculator for estimating job costs, labor, and profit margins. Professional pricing tool for residential and commercial HVAC contractors.",
+    "canonical": "https://mintsheets.com/hvac-bid-calculator/",
+    "ogTitle": "HVAC Bid Calculator | HVAC Estimate, Pricing & Margin Tool | MintSheets",
+    "ogDescription": "Free online HVAC bid calculator for estimating job costs, labor, and profit margins.",
+    "ogType": "website",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-bid-calculator.png",
+    "twitterTitle": "HVAC Bid Calculator | HVAC Estimate, Pricing & Margin Tool | MintSheets",
+    "twitterDescription": "Free online HVAC bid calculator for estimating job costs, labor, and profit margins. Professional pricing tool for residential and commercial HVAC contractors.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-bid-calculator.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "HVAC Bid Calculator",
+        "item": "https://mintsheets.com/hvac-bid-calculator/"
+      }
+    ]
+  },
+  "/hvac-business-valuation-calculator/": {
+    "file": "hvac-business-valuation-calculator/index.html",
+    "title": "HVAC Business Valuation Calculator | Estimating HVAC Company Value | MintSheets",
+    "description": "Free online HVAC business valuation calculator. Estimate the market value of your HVAC company based on EBITDA, assets, and market multiples.",
+    "canonical": "https://mintsheets.com/hvac-business-valuation-calculator/",
+    "ogTitle": "HVAC Business Valuation Calculator | Estimating HVAC Company Value | MintSheets",
+    "ogDescription": "Estimate the market value of your HVAC company based on EBITDA, assets, and market multiples.",
+    "ogType": "website",
+    "ogImage": "",
+    "twitterTitle": "HVAC Business Valuation Calculator | Estimating HVAC Company Value | MintSheets",
+    "twitterDescription": "Free online HVAC business valuation calculator. Estimate the market value of your HVAC company based on EBITDA, assets, and market multiples.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "Business Valuation Calculator",
+        "item": "https://mintsheets.com/hvac-business-valuation-calculator/"
+      }
+    ]
+  },
+  "/hvac-calculators/": {
+    "file": "hvac-calculators/index.html",
+    "title": "All Free HVAC Calculators | Complete Tool Directory | MintSheets",
+    "description": "Complete directory of free HVAC calculators for contractors, technicians, and estimators. Tools for load calculation, CFM, duct sizing, static pressure, mini split sizing, pricing, and more.",
+    "canonical": "https://mintsheets.com/hvac-calculators/",
+    "ogTitle": "All Free HVAC Calculators | MintSheets",
+    "ogDescription": "Complete directory of free HVAC calculators. Technical tools for load calculation, CFM, duct sizing, and static pressure. Business tools for pricing, bidding, and margins.",
+    "ogType": "website",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "twitterTitle": "All Free HVAC Calculators | Complete Tool Directory | MintSheets",
+    "twitterDescription": "Complete directory of free HVAC calculators for contractors, technicians, and estimators. Tools for load calculation, CFM, duct sizing, static pressure, mini split sizing, pricing, and more.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "All HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      }
+    ]
+  },
+  "/hvac-cfm-calculator/": {
+    "file": "hvac-cfm-calculator/index.html",
+    "title": "HVAC CFM Calculator | Airflow Per Room Calculator | CFM Per Square Foot | MintSheets",
+    "description": "Free HVAC CFM calculator. Calculate airflow per room by square footage, BTUH load, or air changes per hour. Size supply registers and verify total system airflow balance.",
+    "canonical": "https://mintsheets.com/hvac-cfm-calculator/",
+    "ogTitle": "HVAC CFM Calculator | Airflow and Duct Capacity Tool | MintSheets",
+    "ogDescription": "Free online HVAC CFM calculator. Determine required airflow for any room based on heat load or square footage.",
+    "ogType": "website",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-cfm-calculator.png",
+    "twitterTitle": "HVAC CFM Calculator | Airflow Per Room Calculator | CFM Per Square Foot | MintSheets",
+    "twitterDescription": "Free HVAC CFM calculator. Calculate airflow per room by square footage, BTUH load, or air changes per hour. Size supply registers and verify total system airflow balance.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-cfm-calculator.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "CFM Calculator",
+        "item": "https://mintsheets.com/hvac-cfm-calculator/"
+      }
+    ]
+  },
+  "/hvac-duct-size-calculator/": {
+    "file": "hvac-duct-size-calculator/index.html",
+    "title": "HVAC Duct Size Calculator with Friction Rate | MintSheets",
+    "description": "Free HVAC duct size calculator. Size round, rectangular, and flex ductwork using the equal friction method and friction rate.",
+    "canonical": "https://mintsheets.com/hvac-duct-size-calculator/",
+    "ogTitle": "HVAC Duct Size Calculator with Friction Rate | MintSheets",
+    "ogDescription": "Free online HVAC duct size calculator. Size round, rectangular, and flex ductwork using the equal friction method.",
+    "ogType": "website",
+    "ogImage": "",
+    "twitterTitle": "HVAC Duct Size Calculator with Friction Rate | MintSheets",
+    "twitterDescription": "Free HVAC duct size calculator. Size round, rectangular, and flex ductwork using the equal friction method and friction rate.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "Duct Size Calculator",
+        "item": "https://mintsheets.com/hvac-duct-size-calculator/"
+      }
+    ]
+  },
+  "/hvac-energy-savings-calculator/": {
+    "file": "hvac-energy-savings-calculator/index.html",
+    "title": "HVAC Energy Savings Calculator | SEER, AFUE &amp; ROI Tool | MintSheets",
+    "description": "Free online HVAC energy savings calculator. Compare SEER2 and AFUE ratings to calculate utility bill savings and estimate ROI on new equipment.",
+    "canonical": "https://mintsheets.com/hvac-energy-savings-calculator/",
+    "ogTitle": "HVAC Energy Savings Calculator | SEER, AFUE &amp; ROI Tool | MintSheets",
+    "ogDescription": "Compare SEER2 and AFUE ratings to calculate potential utility bill savings. Estimate ROI on new HVAC equipment.",
+    "ogType": "website",
+    "ogImage": "",
+    "twitterTitle": "HVAC Energy Savings Calculator | SEER, AFUE &amp; ROI Tool | MintSheets",
+    "twitterDescription": "Free online HVAC energy savings calculator. Compare SEER2 and AFUE ratings to calculate utility bill savings and estimate ROI on new equipment.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": []
+  },
+  "/hvac-flow-rate-calculator/": {
+    "file": "hvac-flow-rate-calculator/index.html",
+    "title": "HVAC Flow Rate Calculator | CFM, Static Pressure & Airflow Verification | MintSheets",
+    "description": "Free HVAC flow rate and static pressure calculator. Calculate system CFM, measure total external static pressure (TESP), verify sensible heat capacity, and size ductwork from one tool.",
+    "canonical": "https://mintsheets.com/hvac-flow-rate-calculator/",
+    "ogTitle": "HVAC Flow Rate Calculator (CFM, Duct Sizing & Airflow) | MintSheets",
+    "ogDescription": "Free online HVAC flow rate calculator for CFM, duct sizing, and airflow analysis. Technical tools for technicians and contractors.",
+    "ogType": "website",
+    "ogImage": "",
+    "twitterTitle": "HVAC Flow Rate Calculator | CFM, Static Pressure & Airflow Verification | MintSheets",
+    "twitterDescription": "Free HVAC flow rate and static pressure calculator. Calculate system CFM, measure total external static pressure (TESP), verify sensible heat capacity, and size ductwork from one tool.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "Flow Rate Calculator",
+        "item": "https://mintsheets.com/hvac-flow-rate-calculator/"
+      }
+    ]
+  },
+  "/hvac-labor-cost-calculator/": {
+    "file": "hvac-labor-cost-calculator/index.html",
+    "title": "HVAC Labor Cost Calculator | Estimating HVAC Labor Rates & Hours | MintSheets",
+    "description": "Free online HVAC labor cost calculator. Calculate fully burdened labor rates, technician costs, and project labor requirements for HVAC jobs.",
+    "canonical": "https://mintsheets.com/hvac-labor-cost-calculator/",
+    "ogTitle": "HVAC Labor Cost Calculator | Estimating HVAC Labor Rates & Hours | MintSheets",
+    "ogDescription": "Calculate fully burdened labor rates, technician costs, and project labor requirements for HVAC jobs.",
+    "ogType": "website",
+    "ogImage": "",
+    "twitterTitle": "HVAC Labor Cost Calculator | Estimating HVAC Labor Rates & Hours | MintSheets",
+    "twitterDescription": "Free online HVAC labor cost calculator. Calculate fully burdened labor rates, technician costs, and project labor requirements for HVAC jobs.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "Labor Burden Calculator",
+        "item": "https://mintsheets.com/hvac-labor-cost-calculator/"
+      }
+    ]
+  },
+  "/hvac-load-calculator/": {
+    "file": "hvac-load-calculator/index.html",
+    "title": "HVAC Load Calculator | HVAC Sizing Calculator | Manual J Load Calculation | MintSheets",
+    "description": "Free HVAC load calculator and sizing tool. Perform Manual J heating and cooling load estimations for residential and light commercial buildings. Determine correct equipment tonnage.",
+    "canonical": "https://mintsheets.com/hvac-load-calculator/",
+    "ogTitle": "HVAC Load Calculator | Heating and Cooling Load Estimator | MintSheets",
+    "ogDescription": "Perform rapid heating and cooling load estimations for residential and light commercial spaces.",
+    "ogType": "website",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-load-calculator-preview.png",
+    "twitterTitle": "HVAC Load Calculator | HVAC Sizing Calculator | Manual J Load Calculation | MintSheets",
+    "twitterDescription": "Free HVAC load calculator and sizing tool. Perform Manual J heating and cooling load estimations for residential and light commercial buildings. Determine correct equipment tonnage.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-load-calculator-preview.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "HVAC Load Calculator",
+        "item": "https://mintsheets.com/hvac-load-calculator/"
+      }
+    ]
+  },
+  "/hvac-mini-split-sizing-calculator/": {
+    "file": "hvac-mini-split-sizing-calculator/index.html",
+    "title": "Mini Split Sizing Calculator | BTU Calculator for Ductless Systems | MintSheets",
+    "description": "Free mini split sizing calculator. Find the right BTU capacity for single-zone and multi-zone ductless mini split systems based on room size, climate zone, and heat load factors.",
+    "canonical": "https://mintsheets.com/hvac-mini-split-sizing-calculator/",
+    "ogTitle": "Mini Split Sizing Calculator | BTU Calculator for Ductless Systems | MintSheets",
+    "ogDescription": "Free mini split sizing calculator. Find the right BTU capacity for single-zone and multi-zone ductless mini split systems.",
+    "ogType": "website",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-mini-split.png",
+    "twitterTitle": "Mini Split Sizing Calculator | BTU Calculator for Ductless Systems | MintSheets",
+    "twitterDescription": "Free mini split sizing calculator. Find the right BTU capacity for single-zone and multi-zone ductless mini split systems based on room size, climate zone, and heat load factors.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-mini-split.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "Mini Split Sizing Calculator",
+        "item": "https://mintsheets.com/hvac-mini-split-sizing-calculator/"
+      }
+    ]
+  },
+  "/hvac-profit-margin-calculator/": {
+    "file": "hvac-profit-margin-calculator/index.html",
+    "title": "HVAC Profit Margin Calculator | Markup and Margin Analysis Tool | MintSheets",
+    "description": "Free online HVAC profit margin calculator. Calculate gross and net profit margins for HVAC jobs. Analysis tool for contractors to ensure profitability.",
+    "canonical": "https://mintsheets.com/hvac-profit-margin-calculator/",
+    "ogTitle": "HVAC Profit Margin Calculator | Markup and Margin Analysis Tool | MintSheets",
+    "ogDescription": "Calculate gross and net profit margins for HVAC jobs. Analysis tool for contractors to ensure profitability.",
+    "ogType": "website",
+    "ogImage": "",
+    "twitterTitle": "HVAC Profit Margin Calculator | Markup and Margin Analysis Tool | MintSheets",
+    "twitterDescription": "Free online HVAC profit margin calculator. Calculate gross and net profit margins for HVAC jobs. Analysis tool for contractors to ensure profitability.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "Profit Margin Calculator",
+        "item": "https://mintsheets.com/hvac-profit-margin-calculator/"
+      }
+    ]
+  },
+  "/hvac-service-markup-calculator/": {
+    "file": "hvac-service-markup-calculator/index.html",
+    "title": "HVAC Service Markup Calculator | Pricing and Profitability Tool | MintSheets",
+    "description": "Free online HVAC service markup calculator. Determine the correct markup for parts and labor to achieve your target profit margins. Essential for HVAC service businesses.",
+    "canonical": "https://mintsheets.com/hvac-service-markup-calculator/",
+    "ogTitle": "HVAC Service Markup Calculator | Pricing and Profitability Tool | MintSheets",
+    "ogDescription": "Determine the correct markup for parts and labor to achieve your target profit margins.",
+    "ogType": "website",
+    "ogImage": "",
+    "twitterTitle": "HVAC Service Markup Calculator | Pricing and Profitability Tool | MintSheets",
+    "twitterDescription": "Free online HVAC service markup calculator. Determine the correct markup for parts and labor to achieve your target profit margins. Essential for HVAC service businesses.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "Service Markup Calculator",
+        "item": "https://mintsheets.com/hvac-service-markup-calculator/"
+      }
+    ]
+  },
+  "/hvac-service-price-calculator/": {
+    "file": "hvac-service-price-calculator/index.html",
+    "title": "HVAC Service Price Calculator | Billing and Flat Rate Estimator | MintSheets",
+    "description": "Free online HVAC service price calculator. Generate flat rate pricing or time and materials (T&amp;M) estimates for service calls. Professional billing tool.",
+    "canonical": "https://mintsheets.com/hvac-service-price-calculator/",
+    "ogTitle": "HVAC Service Price Calculator | Billing and Flat Rate Estimator | MintSheets",
+    "ogDescription": "Generate flat rate pricing or time and materials (T&amp;M) estimates for service calls.",
+    "ogType": "website",
+    "ogImage": "",
+    "twitterTitle": "HVAC Service Price Calculator | Billing and Flat Rate Estimator | MintSheets",
+    "twitterDescription": "Free online HVAC service price calculator. Generate flat rate pricing or time and materials (T&amp;M) estimates for service calls. Professional billing tool.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "Service Price Calculator",
+        "item": "https://mintsheets.com/hvac-service-price-calculator/"
+      }
+    ]
+  },
+  "/hvac-static-pressure-calculator/": {
+    "file": "hvac-static-pressure-calculator/index.html",
+    "title": "HVAC Static Pressure Calculator | Total External Static Pressure (TESP) | MintSheets",
+    "description": "Free HVAC static pressure calculator. Calculate total external static pressure (TESP), available duct static, and diagnose high static pressure problems. Technical tool for HVAC technicians.",
+    "canonical": "https://mintsheets.com/hvac-static-pressure-calculator/",
+    "ogTitle": "HVAC Static Pressure Calculator | TESP Calculator | MintSheets",
+    "ogDescription": "Calculate total external static pressure (TESP) for HVAC systems. Diagnose high static pressure and size your duct system budget per ACCA Manual D.",
+    "ogType": "website",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-static-pressure.png",
+    "twitterTitle": "HVAC Static Pressure Calculator | Total External Static Pressure (TESP) | MintSheets",
+    "twitterDescription": "Free HVAC static pressure calculator. Calculate total external static pressure (TESP), available duct static, and diagnose high static pressure problems. Technical tool for HVAC technicians.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-static-pressure.png",
+    "breadcrumbs": [
+      {
+        "name": "Home",
+        "item": "https://mintsheets.com/"
+      },
+      {
+        "name": "HVAC Calculators",
+        "item": "https://mintsheets.com/hvac-calculators/"
+      },
+      {
+        "name": "Static Pressure Calculator",
+        "item": "https://mintsheets.com/hvac-static-pressure-calculator/"
+      }
+    ]
+  },
+  "/": {
+    "file": "index.html",
+    "title": "Free HVAC Calculators for Contractors, Technicians, and Estimators | MintSheets",
+    "description": "Free online HVAC calculators for technicians, estimators, and contractors. Tools for load calculation, duct sizing, CFM, mini split sizing, static pressure, airflow per room, and business pricing.",
+    "canonical": "https://mintsheets.com/",
+    "ogTitle": "Free HVAC Calculators for Contractors, Technicians, and Estimators | MintSheets",
+    "ogDescription": "Professional HVAC field tools and business calculators. Accurate, fast, and mobile-ready for contractors and technicians.",
+    "ogType": "website",
+    "ogImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "twitterTitle": "Free HVAC Calculators for Contractors, Technicians, and Estimators | MintSheets",
+    "twitterDescription": "Free online HVAC calculators for technicians, estimators, and contractors. Tools for load calculation, duct sizing, CFM, mini split sizing, static pressure, airflow per room, and business pricing.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": []
+  },
+  "/privacy-policy/": {
+    "file": "privacy-policy/index.html",
+    "title": "Privacy Policy | MintSheets HVAC Calculators",
+    "description": "MintSheets Privacy Policy for HVAC calculators, ads, analytics and user rights (GDPR/CCPA).",
+    "canonical": "https://mintsheets.com/privacy-policy/",
+    "ogTitle": "Privacy Policy | MintSheets",
+    "ogDescription": "MintSheets Privacy Policy for HVAC tools, Google AdSense, analytics, and user rights.",
+    "ogType": "website",
+    "ogImage": "",
+    "twitterTitle": "Privacy Policy | MintSheets HVAC Calculators",
+    "twitterDescription": "MintSheets Privacy Policy for HVAC calculators, ads, analytics and user rights (GDPR/CCPA).",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": []
+  },
+  "/terms-of-service/": {
+    "file": "terms-of-service/index.html",
+    "title": "Terms of Service | MintSheets HVAC Calculators",
+    "description": "Terms of Service for MintSheets HVAC calculators, risk, accuracy, and legal limits.",
+    "canonical": "https://mintsheets.com/terms-of-service/",
+    "ogTitle": "Terms of Service | MintSheets",
+    "ogDescription": "MintSheets Terms of Service for HVAC calculator tools.",
+    "ogType": "website",
+    "ogImage": "",
+    "twitterTitle": "Terms of Service | MintSheets HVAC Calculators",
+    "twitterDescription": "Terms of Service for MintSheets HVAC calculators, risk, accuracy, and legal limits.",
+    "twitterImage": "https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png",
+    "breadcrumbs": []
+  }
+}

@@ -7,169 +7,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HVAC Business Valuation Calculator | Estimating HVAC Company Value | MintSheets</title>
-  <meta name="description"
-    content="Free online HVAC business valuation calculator. Estimate the market value of your HVAC company based on EBITDA, assets, and market multiples.">
-  <link rel="canonical" href="https://mintsheets.com/hvac-business-valuation-calculator/" />
-  <meta property="og:title" content="HVAC Business Valuation Calculator | Estimating HVAC Company Value | MintSheets" />
-  <meta property="og:description"
-    content="Estimate the market value of your HVAC company based on EBITDA, assets, and market multiples." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mintsheets.com/hvac-business-valuation-calculator/" />
+  <meta name="description" content="Free online HVAC business valuation calculator. Estimate the market value of your HVAC company based on EBITDA, assets, and market multiples.">
+  <link rel="canonical" href="https://mintsheets.com/hvac-business-valuation-calculator/">
+  <meta property="og:title" content="HVAC Business Valuation Calculator | Estimating HVAC Company Value | MintSheets">
+  <meta property="og:description" content="Estimate the market value of your HVAC company based on EBITDA, assets, and market multiples.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mintsheets.com/hvac-business-valuation-calculator/">
   <link rel="stylesheet" href="/styles.min.css?v=1.5">
   <link rel="stylesheet" href="/shared/css/calculators.css?v=1.6">
   <link rel="icon" type="image/x-icon" href="/brand/favicon.ico">
 
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Business Valuation Calculator","url":"https://mintsheets.com/hvac-business-valuation-calculator/","applicationCategory":"ProfessionalTool","operatingSystem":"WEB"}
+  {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://mintsheets.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "HVAC Calculators",
+      "item": "https://mintsheets.com/hvac-calculators/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Business Valuation Calculator",
+      "item": "https://mintsheets.com/hvac-business-valuation-calculator/"
+    }
+  ]
+}
   </script>
-
-  
-
-  <!-- Google tag (gtag.js) -->
-
-
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-6RS2BW6VQW"></script>
-
-
-  <script>
-
-
-    window.dataLayer = window.dataLayer || [];
-
-
-    function gtag(){dataLayer.push(arguments);}
-
-
-    gtag('js', new Date());
-
-
-  
-
-
-    gtag('config', 'G-6RS2BW6VQW');
-
-
-  </script>
-
-  <style>
-    .shell {
-      display: flex;
-      gap: 30px;
-      align-items: flex-start;
-    }
-
-    .left-col {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .sidebar {
-      width: 340px;
-      position: sticky;
-      top: 20px;
-    }
-
-    @media (max-width: 900px) {
-      .shell {
-        flex-direction: column !important;
-      }
-
-      .left-col,
-      .sidebar {
-        width: 100% !important;
-        max-width: none !important;
-      }
-
-      .sidebar {
-        position: static !important;
-      }
-    }
-
-    .card {
-      background: var(--panel-elevated);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-lg);
-      padding: 24px;
-      margin-bottom: 24px;
-    }
-
-    .field-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    @media (max-width: 600px) {
-      .field-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .input-wrap {
-      display: flex;
-      align-items: center;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
-    }
-
-    .input-pre,
-    .input-suf {
-      padding: 0 10px;
-      color: var(--muted);
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .input-wrap input {
-      border: none !important;
-      background: transparent !important;
-      flex: 1;
-      min-height: 40px;
-      padding: 0 10px;
-      color: #fff;
-    }
-
-    .breadcrumb-bar {
-      background: rgba(11, 28, 53, 0.7);
-      border-bottom: 1px solid #1E3452;
-      padding: 8px 0;
-      font-size: 13px;
-    }
-
-    .breadcrumb-bar .container {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .breadcrumb-bar a {
-      color: var(--primary);
+<style>
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -56px;
+      z-index: 1000;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: #2ECC71;
+      color: #08111F;
+      font-weight: 700;
       text-decoration: none;
+      transition: top 0.2s ease;
     }
 
-    .breadcrumb-bar a:hover {
-      text-decoration: underline;
-    }
-
-    .breadcrumb-separator {
-      color: #4A6080;
-      margin: 0 4px;
-      font-weight: bold;
-    }
-
-    .breadcrumb-current {
-      color: #7A98B8;
+    .skip-link:focus {
+      top: 16px;
     }
   </style>
-
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://mintsheets.com/"},{"@type":"ListItem","position":2,"name":"HVAC Calculators","item":"https://mintsheets.com/hvac-calculators/"},{"@type":"ListItem","position":3,"name":"Business Valuation Calculator","item":"https://mintsheets.com/hvac-business-valuation-calculator/"}]}
-  </script>
+<meta name="author" content="MintSheets">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0F172A">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="MintSheets">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="HVAC Business Valuation Calculator | Estimating HVAC Company Value | MintSheets">
+<meta name="twitter:description" content="Free online HVAC business valuation calculator. Estimate the market value of your HVAC company based on EBITDA, assets, and market multiples.">
+<meta name="twitter:image" content="https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png">
 </head>
 
 <body class="has-sticky-ad">
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
   <header class="site-header">
     <div class="container nav">
@@ -177,15 +82,16 @@
         <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
           loading="eager">
       </a>
-      <nav class="nav-links">
+
+      <nav class="nav-links" aria-label="Primary">
         <a href="/">Calculators</a>
         <a href="/blog/">Blog</a>
         <a href="/#troubleshooting-checklist">Free Guide</a>
         <a href="mailto:support@mintsheets.com">Support</a>
       </nav>
+
       <div class="header-actions">
-        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free
-          Resources</a>
+        <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary btn-sm" style="min-height: 40px;">Free Resources</a>
       </div>
       <button class="hamburger" id="hamburger-btn" aria-label="Open navigation menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -195,7 +101,7 @@
 
   <!-- Mobile Navigation -->
   <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
-  <nav class="mobile-nav" id="mobile-nav" aria-hidden="true">
+  <nav class="mobile-nav" aria-label="Mobile" id="mobile-nav" aria-hidden="true">
     <div class="mobile-nav-header">
       <a href="/" class="brand">
         <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
@@ -206,23 +112,23 @@
       </button>
     </div>
     <ul class="mobile-nav-links">
-      <li><a href="/"><span class="nav-icon">🧮</span> Calculators</a></li>
-      <li><a href="/blog/"><span class="nav-icon">📝</span> Blog</a></li>
-      <li><a href="/#troubleshooting-checklist"><span class="nav-icon">📋</span> Free Guide</a></li>
-      <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">✉️</span> Support</a></li>
+      <li><a href="/"><span class="nav-icon">&#x1F9EE;</span> Calculators</a></li>
+      <li><a href="/blog/"><span class="nav-icon">&#x1F4DD;</span> Blog</a></li>
+      <li><a href="/#troubleshooting-checklist"><span class="nav-icon">&#x1F4CB;</span> Free Guide</a></li>
+      <li><a href="mailto:support@mintsheets.com"><span class="nav-icon">&#x2709;</span> Support</a></li>
     </ul>
     <div class="mobile-nav-cta">
       <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary">Free Resources</a>
     </div>
   </nav>
 
-  <main>
+  <main id="main-content">
     <nav class="breadcrumb-bar" aria-label="Breadcrumb">
       <div class="container">
         <a href="/">Home</a>
-        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-separator">&rsaquo;</span>
         <a href="/hvac-calculators/">HVAC Calculators</a>
-        <span class="breadcrumb-separator">›</span>
+        <span class="breadcrumb-separator">&rsaquo;</span>
         <span class="breadcrumb-current">Business Valuation Calculator</span>
       </div>
     </nav>
@@ -339,30 +245,27 @@
     </section>
   </main>
 
-  <footer id="mint-footer"
-    style="background: var(--panel-elevated); border-top: 1px solid var(--line); padding: 40px 0; font-family: sans-serif; clear: both;">
-    <div style="max-width: 1100px; margin: 0 auto; padding: 0 20px;">
-      <h3
-        style="color: var(--primary); font-weight: 900; font-size: 18px; text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px;">
-        Related HVAC Calculators</h3>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-        <a href="/hvac-profit-margin-calculator/"
-          style="color: var(--muted); text-decoration: none; font-size: 14px;">Profit Margin Calculator</a>
-        <a href="/hvac-labor-cost-calculator/"
-          style="color: var(--muted); text-decoration: none; font-size: 14px;">Labor Cost Calculator</a>
-        <a href="/hvac-service-markup-calculator/"
-          style="color: var(--muted); text-decoration: none; font-size: 14px;">Service Markup Calculator</a>
-        <a href="/hvac-bid-calculator/" style="color: var(--muted); text-decoration: none; font-size: 14px;">Bid
-          Calculator</a>
+  <footer id="mint-footer" style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
+    <div style="max-width:1100px;margin:0 auto;padding:0 20px;">
+      <h3 style="color:var(--primary);font-weight:900;font-size:18px;text-transform:uppercase;margin-bottom:20px;letter-spacing:1px;">Related HVAC Calculators</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;">
+        <a href="/hvac-load-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Load Calculator</a>
+        <a href="/hvac-cfm-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">CFM Calculator</a>
+        <a href="/hvac-duct-size-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Duct Size Calculator</a>
+        <a href="/hvac-static-pressure-calculator/" style="color:var(--muted);text-decoration:none;font-size:14px;">Static Pressure Calculator</a>
       </div>
-      <div
-        style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-        <span><span style="color: var(--primary);">✔</span> Used by HVAC technicians & contractors</span>
-        <span><span style="color: var(--primary);">✔</span> Based on ACCA Manual standards</span>
-        <span><span style="color: var(--primary);">✔</span> Free professional tools</span>
+      <div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;font-size:12px;color:var(--muted);">
+        <a href="/privacy-policy/" style="color:var(--muted);text-decoration:none;">Privacy Policy</a>
+        <a href="/terms-of-service/" style="color:var(--muted);text-decoration:none;">Terms of Service</a>
+        <a href="/disclaimer/" style="color:var(--muted);text-decoration:none;">Disclaimer</a>
+        <a href="/cookie-policy/" style="color:var(--muted);text-decoration:none;">Cookie Policy</a>
       </div>
-      <p style="margin-top: 20px; color: var(--muted); font-size: 12px;">&copy; 2026 MintSheets. Free HVAC technical
-        tools.</p>
+      <div style="margin-top: 25px; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 20px; color: var(--muted); font-size: 13px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+        <span><span style="color: var(--primary);">&#10003;</span> Used by HVAC technicians & contractors</span>
+        <span><span style="color: var(--primary);">&#10003;</span> Based on ACCA Manual standards</span>
+        <span><span style="color: var(--primary);">&#10003;</span> Free professional tools</span>
+      </div>
+      <p style="margin-top:20px;color:var(--muted);font-size:12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
     </div>
   </footer>
 
@@ -390,36 +293,25 @@
   </script>
 
   <script>
-    (function () {
-      var btn = document.getElementById('hamburger-btn');
-      var nav = document.getElementById('mobile-nav');
-      var overlay = document.getElementById('mobile-nav-overlay');
-      var close = document.getElementById('mobile-nav-close');
-      if (!btn || !nav) return;
-
-      function setMenuState(open) {
-        document.body.classList.toggle('menu-open', open);
-        btn.classList.toggle('active', open);
-        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        nav.setAttribute('aria-hidden', open ? 'false' : 'true');
-      }
-
-      btn.addEventListener('click', function () {
-        setMenuState(!btn.classList.contains('active'));
-      });
-
-      close && close.addEventListener('click', function () {
-        setMenuState(false);
-      });
-
-      overlay && overlay.addEventListener('click', function () {
-        setMenuState(false);
-      });
-
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') setMenuState(false);
-      });
-    })();
+  (function () {
+    var btn = document.getElementById('hamburger-btn');
+    var nav = document.getElementById('mobile-nav');
+    var overlay = document.getElementById('mobile-nav-overlay');
+    var close = document.getElementById('mobile-nav-close');
+    if (!btn || !nav) return;
+    function setMenuState(open) {
+      document.body.classList.toggle('menu-open', open);
+      btn.classList.toggle('active', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      nav.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+    btn.addEventListener('click', function () { setMenuState(!btn.classList.contains('active')); });
+    close && close.addEventListener('click', function () { setMenuState(false); });
+    overlay && overlay.addEventListener('click', function () { setMenuState(false); });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') setMenuState(false);
+    });
+  })();
   </script>
 
   <!-- Sticky Ad Placeholder -->
@@ -431,5 +323,3 @@
 </body>
 
 </html>
-
-

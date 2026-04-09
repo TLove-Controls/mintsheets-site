@@ -1,46 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Cookie Policy | MintSheets HVAC Calculators</title>
-  <meta name="description" content="Cookie policy for MintSheets, including analytics, advertising, and management options.">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="canonical" href="https://mintsheets.com/cookie-policy/">
-  <meta property="og:title" content="Cookie Policy | MintSheets">
-  <meta property="og:description" content="MintSheets Cookie Policy for analytics and AdSense cookies.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://mintsheets.com/cookie-policy/">
-  <style>
-    :root { --bg:#0F172A; --panel:#1E293B; --text:#F1F5F9; --muted:#94A3B8; --primary:#2ECC71; --radius:12px; }
-    *{box-sizing:border-box;}
-    body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
-    .container{max-width:980px;margin:0 auto;padding:20px;}
-    a{color:var(--primary);text-decoration:none;}
-    .card{background:var(--panel);border:1px solid #334155;border-radius:var(--radius);padding:18px;margin:16px 0;}
-    h1,h2{margin:0 0 12px;}
-    p,ul{margin:0 0 12px;}
-    ul{padding-left:20px;}
-    .breadcrumbs{font-size:13px;color:var(--muted);margin-bottom:18px;}
-    .legal-nav{display:flex;flex-wrap:wrap;gap:8px;font-size:14px;}
-  </style>
-
-<!-- Google tag (gtag.js) -->
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-6RS2BW6VQW"></script>
-
-<script>
-
-  window.dataLayer = window.dataLayer || [];
-
-  function gtag(){dataLayer.push(arguments);}
-
-  gtag('js', new Date());
-
-  gtag('config', 'G-6RS2BW6VQW');
-
-</script>
-  <link rel="stylesheet" href="/styles.min.css?v=1.5">
-<style>
+const SKIP_LINK_STYLE = `<style>
     .skip-link {
       position: absolute;
       left: 16px;
@@ -58,22 +16,9 @@
     .skip-link:focus {
       top: 16px;
     }
-  </style>
-<meta name="author" content="MintSheets">
-<meta name="robots" content="index,follow">
-<meta name="theme-color" content="#0F172A">
-<meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="MintSheets">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cookie Policy | MintSheets HVAC Calculators">
-<meta name="twitter:description" content="Cookie policy for MintSheets, including analytics, advertising, and management options.">
-<meta name="twitter:image" content="https://mintsheets.com/shared/images/hvac-troubleshooting-preview.png">
-</head>
+  </style>`;
 
-<body class="has-sticky-ad">
-    <a class="skip-link" href="#main-content">Skip to content</a>
-
-  <header class="site-header">
+const SITE_HEADER = `<header class="site-header">
     <div class="container nav">
       <a href="/" class="brand">
         <img src="/brand/logo-without-background.png" alt="MintSheets Logo" width="182" height="80" decoding="async"
@@ -94,8 +39,9 @@
         <span></span><span></span><span></span>
       </button>
     </div>
-  </header>
-      <!-- Mobile Navigation -->
+  </header>`;
+
+const MOBILE_NAV = `<!-- Mobile Navigation -->
   <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
   <nav class="mobile-nav" aria-label="Mobile" id="mobile-nav" aria-hidden="true">
     <div class="mobile-nav-header">
@@ -116,50 +62,9 @@
     <div class="mobile-nav-cta">
       <a href="/free/hvac-troubleshooting-checklist/" class="btn btn-primary">Free Resources</a>
     </div>
-  </nav>
-  
-  <main id="main-content">
-<div class="container">
-    <div class="breadcrumbs"><a href="/">Home</a> � <a href="/cookie-policy/">Cookie Policy</a></div>
-    <h1>Cookie Policy</h1>
+  </nav>`;
 
-    <div class="card">
-      <h2>What Are Cookies?</h2>
-      <p>Cookies are small text files stored on your device. They help websites remember preferences and track usage.</p>
-    </div>
-
-    <div class="card">
-      <h2>Types of Cookies Used</h2>
-      <ul>
-        <li><strong>Analytics Cookies:</strong> for usage metrics and performance.</li>
-        <li><strong>Advertising Cookies:</strong> for AdSense ad personalization.</li>
-        <li><strong>Functional Cookies:</strong> maintain site behavior and session data.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h2>Google Cookies</h2>
-      <p>We use Google AdSense and DoubleClick cookies. Google collects cookie data to serve relevant ads. See Google&#39;s policies for details.</p>
-    </div>
-
-    <div class="card">
-      <h2>Manage Cookies</h2>
-      <ul>
-        <li>Use browser settings to delete or block cookies.</li>
-        <li>Opt out of third-party tracking via network tools like <a href="https://www.youronlinechoices.com">Your Online Choices</a>.</li>
-        <li>Data may be less personalized after blocking cookies.</li>
-      </ul>
-    </div>
-
-    <div class="legal-nav">
-      <a href="/privacy-policy/">Privacy Policy</a> |
-      <a href="/terms-of-service/">Terms of Service</a> |
-      <a href="/disclaimer/">Disclaimer</a>
-    </div>
-  </div>
-  </main>
-
-  <footer id="mint-footer" style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
+const SITE_FOOTER = `<footer id="mint-footer" style="background:var(--panel-elevated);border-top:1px solid var(--line);padding:40px 0;margin-top:60px;font-family:sans-serif;clear:both;">
     <div style="max-width:1100px;margin:0 auto;padding:0 20px;">
       <h3 style="color:var(--primary);font-weight:900;font-size:18px;text-transform:uppercase;margin-bottom:20px;letter-spacing:1px;">Related HVAC Calculators</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;">
@@ -181,8 +86,9 @@
       </div>
       <p style="margin-top:20px;color:var(--muted);font-size:12px;">&copy; 2026 MintSheets. Free HVAC technical tools.</p>
     </div>
-  </footer>
-    <script>
+  </footer>`;
+
+const NAV_SCRIPT = `<script>
   (function () {
     var btn = document.getElementById('hamburger-btn');
     var nav = document.getElementById('mobile-nav');
@@ -202,6 +108,12 @@
       if (e.key === 'Escape') setMenuState(false);
     });
   })();
-  </script>
-</body>
-</html>
+  </script>`;
+
+module.exports = {
+  MOBILE_NAV,
+  NAV_SCRIPT,
+  SITE_FOOTER,
+  SITE_HEADER,
+  SKIP_LINK_STYLE,
+};
