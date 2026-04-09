@@ -15,23 +15,39 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install tools
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install project dependencies
+        run: npm ci
+
+      - name: Install audit tools
         run: |
-          npm install -g lighthouse html-validate
+          npm install --no-save lighthouse html-validate
 
       - name: Run HTML validation
-        run: |
-          html-validate "**/*.html" --config .htmlvalidate.json || true
+        run: npm run validate:html
 
       - name: Run Lighthouse Audit (home page)
         run: |
-          nohup python3 -m http.server 8000 &
+          node scripts/dev-server.js --host 127.0.0.1 --port 8000 > dev-server.log 2>&1 &
           sleep 2
-          lighthouse http://127.0.0.1:8000 --output=json --output-path=./lighthouse-home.json --quiet --chrome-flags="--headless"
-          pkill -f "http.server" || true
+          npx lighthouse http://127.0.0.1:8000/ --output=json --output-path=./lighthouse-home.json --quiet --chrome-flags="--headless --no-sandbox"
+          pkill -f "scripts/dev-server.js" || true
 
       - name: Upload Lighthouse report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: lighthouse-home-report
           path: lighthouse-home.json
+
+      - name: Upload Dev Server Log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dev-server-log
+          path: dev-server.log
